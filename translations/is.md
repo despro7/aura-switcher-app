@@ -1,0 +1,129 @@
+# AURA Switcher — Icelandic (is) translation
+
+Icelandic is already in the app and on the site (https://klbk.github.io/aura-switcher/is/), but it was written by an AI, not by a native speaker. Please proofread it: fix anything that sounds unnatural or wrong, and leave good lines as they are.
+Keep the key before `=`, HTML tags (<br>, <kbd>, <span …>), {v} and symbols (⇧ ⚠︎ ⬆︎ ☕ →) unchanged.
+When done, open a pull request with this file. The maintainer will move the texts into the app and the site.
+
+## App menu (Mac and Windows)
+
+```
+name = Íslenska
+enabled = Kveikt
+auto = Sjálfvirk leiðrétting
+sound = Hljóð
+access = ⚠︎ Veittu aðgang: Algildur aðgangur
+app = Forrit:
+exclude = Ekki virkt í þessu forriti
+game = Leikur — AURA í bið
+appLang = Tungumál fyrir þetta forrit
+noBinding = Engin tenging
+exclusions = Undantekningar
+recent = Ekki virkt í (nýleg forrit)
+bindings = Tungumálatengingar
+empty = Tómt
+login = Ræsa við innskráningu
+words = Mín orð…
+wordsTitle = AURA Switcher — mín orð
+wordsInfo = AURA Switcher telur þessi orð rétt: breytir þeim aldrei og lagfærir í þau þegar þau eru rituð með röngu lyklaborðsskipulagi. Aðskildu með kommum.
+save = Vista
+cancel = Hætta við
+uiLang = Tungumál valmyndar
+allLangs = Öll tungumál
+regEurope = Evrópa
+regCaucasus = Kákasus og Mið-Asía
+regMiddleEast = Mið-Austurlönd
+regAsia = Asía
+system = Kerfið
+hint = Tvöfalt ⇧ — umbreyta orði/vali
+report = Tilkynna vandamál…
+reportBody = Hvað gerðist og í hvaða forriti:
+update = Athuga með uppfærslur…
+updateDue = ⬆︎ Uppfærsla gæti verið tiltæk — athuga
+donate = Styðja AURA Switcher ☕
+quit = Hætta
+updNew = AURA Switcher {v} er komið út
+updLatest = Þú ert með nýjustu útgáfuna
+updNotes = Hvað er nýtt
+updNow = Uppfæra
+updLater = Síðar
+updFail = Ekki tókst að uppfæra sjálfkrafa. Opna vefsíðuna til að sækja hana?
+```
+
+## Website
+
+```
+name = Íslenska
+title = AURA Switcher — lyklaborðsskipulagið leiðréttir sig sjálft
+badge = Beta 0.9.9 · ókeypis · engin skráning
+h1 = Skrifaðu bara.<br><span class="hl">AURA</span> lagar skipulagið
+lead = Skrifaðir þú «ghbdsn» í stað «привіт»? AURA tekur eftir því og leiðréttir um leið og þú slærð á bilstöngina. Fyrir macOS og Windows.
+dlMac = Sækja fyrir Mac
+dlWin = Fyrir Windows
+demoWrong = Rangt skipulag…
+demoFixed = Leiðrétt eftir bil
+fTitle = Allt sem þú þarft. Ekkert aukalega
+f1h = Sjálfvirk leiðrétting
+f1p = Orð sem er skrifað með röngu skipulagi verður rétt eftir bil og skipulagið skiptir um.
+f2h = Tvöfalt Shift
+f2p = Ýttu tvisvar á <kbd>Shift</kbd> — síðasta orðið eða valinn texti breytist í annað skipulag.
+f3h = Tungumál fyrir hvert forrit
+f3p = Terminal — alltaf EN, Telegram — УК. Í undanskildum forritum þegir AURA.
+f4h = Einkamál
+f4p = Sendir ekkert á netið. Allt gerist í tækinu þínu.
+f5h = 21 tungumál
+f5p = Öll skipulög í kerfinu þínu.
+f6h = Létt
+f6p = Undir 1 MB, hægir aldrei á innslættinum og frystir ekki kerfið.
+pTitle = Mac og Windows — sömu venjur
+pMac = <li>Apple Silicon og Intel</li><li>Tungumálskóði í valmyndastikunni: EN, УК, IS…</li><li>macOS 13 og nýrri</li>
+pWin = <li>x64 og ARM64, engin uppsetning</li><li>Tungumálskóði í tilkynningasvæðinu</li><li>Sömu lyklar og á Mac</li>
+iTitle = Tilbúið á einni mínútu
+s1h = Sækja
+s1p = Taktu skjalasafnið úr þjöppun. Á Mac dregurðu AURA í Forrit, á Windows keyrirðu bara AURA.exe.
+s2h = Leyfa
+s2p = Á Mac: Kerfisstillingar → Persónuvernd og öryggi → Algildur aðgangur → AURA.
+s3h = Skrifa
+s3p = Tungumálskóðinn birtist í valmyndastikunni (Mac) eða tilkynningasvæðinu (Windows). AURA sér um restina.
+ctaH = Prófaðu AURA í dag
+ctaP = Ókeypis beta fyrir macOS og Windows.
+made = Gert í Úkraínu
+foot = AURA — hugsaðu um textann, ekki lyklaborðsskipulagið.
+donate = Styðja
+supportP = Líkar þér AURA Switcher? Styddu þróunina með kaffibolla.
+contact = Skrifaðu okkur
+phoneNote = AURA er forrit fyrir tölvuna (Mac og Windows). Sendu þér hlekkinn og opnaðu hann á tölvunni.
+phoneBtn = Senda mér hlekkinn
+phoneCopied = Hlekkur afritaður
+safeH = Er þetta öruggt?
+safe1h = Opinn frumkóði
+safe1p = Allur kóðinn er á <a href="https://github.com/klbk/aura-switcher-app" target="_blank" rel="noopener">GitHub</a>: hver sem er getur skoðað hvað forritið gerir.
+safe2h = Hvers vegna þarf aðgang að lyklaborðinu
+safe2p = Til að sjá orðið sem þú skrifar og leiðrétta það. Textinn er hvorki vistaður né sendur neitt og forritið þarf ekki netið.
+safe3h = Viðvörun við fyrstu ræsingu er eðlileg
+safe3p = Betan er ekki enn með dýra undirskrift frá Apple eða Microsoft. Mac: «Lokið» → Kerfisstillingar → Persónuvernd og öryggi → «Opna samt». Windows: «Frekari upplýsingar» → «Keyra samt».
+menabled = Kveikt
+mauto = Sjálfvirk leiðrétting
+msound = Hljóð
+mapp = Forrit: 
+mexclude = Ekki virkt í þessu forriti
+mappLang = Tungumál fyrir þetta forrit
+mexclusions = Undantekningar
+mbindings = Tungumálatengingar
+```
+
+## Update page
+
+```
+update1 = Þú ert með nýjustu útgáfuna
+update2 = AURA Switcher {v} er komið út
+update3 = Þú ert með {v}
+update4 = Hvað er nýtt
+update5 = Hvernig á að uppfæra
+update6 = Lokaðu AURA: smelltu á tungumálskóðann í valmyndastikunni → «Hætta».
+update7 = Opnaðu skjalasafnið sem þú sóttir og dragðu AURA Switcher í Forrit til að skipta út þeirri gömlu.
+update8 = Opnaðu AURA. Ef ⚠︎ birtist í stað tungumálskóðans, slökktu á AURA og kveiktu aftur hér:
+update9 = Lokaðu AURA: smelltu á táknið í tilkynningasvæðinu → «Hætta».
+update10 = Taktu skjalasafnið úr þjöppun og settu nýju «AURA Switcher.exe» í stað þeirrar gömlu.
+update11 = Keyrðu AURA Switcher.exe — stillingarnar þínar haldast.
+update12 = Vefsíða AURA Switcher
+```

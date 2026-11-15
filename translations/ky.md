@@ -1,0 +1,129 @@
+# AURA Switcher — Kyrgyz (ky) translation
+
+Kyrgyz is already in the app and on the site (https://klbk.github.io/aura-switcher/ky/), but it was written by an AI, not by a native speaker. Please proofread it: fix anything that sounds unnatural or wrong, and leave good lines as they are.
+Keep the key before `=`, HTML tags (<br>, <kbd>, <span …>), {v} and symbols (⇧ ⚠︎ ⬆︎ ☕ →) unchanged.
+When done, open a pull request with this file. The maintainer will move the texts into the app and the site.
+
+## App menu (Mac and Windows)
+
+```
+name = Кыргызча
+enabled = Күйгүзүлгөн
+auto = Авто оңдоо
+sound = Үн
+access = ⚠︎ Мүмкүнчүлүк бериңиз: Атайын мүмкүнчүлүктөр
+app = Колдонмо:
+exclude = Бул колдонмодо иштебөө
+game = Оюн — AURA тыныгууда
+appLang = Бул колдонмонун тили
+noBinding = Байланышсыз
+exclusions = Өзгөчөлүктөр
+recent = Төмөндө иштебөө (акыркы колдонмолор)
+bindings = Тил байланыштары
+empty = Бош
+login = Кирүүдө иштетүү
+words = Менин сөздөрүм…
+wordsTitle = AURA Switcher — менин сөздөрүм
+wordsInfo = AURA Switcher бул сөздөрдү туура деп эсептейт: аларды өзгөртпөйт, ал эми клавиатуранын туура эмес жайгашуусунда терилсе, ушуларга оңдойт. Үтүр менен бөлүңүз.
+save = Сактоо
+cancel = Жокко чыгаруу
+uiLang = Меню тили
+allLangs = Бардык тилдер
+regEurope = Европа
+regCaucasus = Кавказ жана Борбордук Азия
+regMiddleEast = Жакынкы Чыгыш
+regAsia = Азия
+system = Системалык
+hint = Кош ⇧ — сөздү/тандалганды өзгөртүү
+report = Көйгөй тууралуу кабарлоо…
+reportBody = Эмне болду жана кайсы колдонмодо:
+update = Жаңыртууларды текшерүү…
+updateDue = ⬆︎ Жаңыртуу чыгып калышы мүмкүн — текшерүү
+donate = AURA Switcher долбоорун колдоо ☕
+quit = Чыгуу
+updNew = AURA Switcher {v} чыкты
+updLatest = Сизде акыркы версия бар
+updNotes = Эмне жаңы
+updNow = Жаңыртуу
+updLater = Кийинчерээк
+updFail = Автоматтык түрдө жаңыртуу мүмкүн болгон жок. Жүктөп алуу үчүн сайтты ачайынбы?
+```
+
+## Website
+
+```
+name = Кыргызча
+title = AURA Switcher — клавиатуранын жайгашуусу өзү оңдолот
+badge = Бета 0.9.9 · акысыз · катталбай
+h1 = Жөн гана терип жатыңыз.<br>Жайгашууну <span class="hl">AURA</span> оңдойт
+lead = «привіт» ордуна «ghbdsn» терип койдуңузбу? AURA байкап, боштуктан кийин эле оңдойт. macOS жана Windows үчүн.
+dlMac = Mac үчүн жүктөө
+dlWin = Windows үчүн
+demoWrong = Жайгашуусу туура эмес…
+demoFixed = Боштуктан кийин оңдолду
+fTitle = Керектүүнүн баары. Ашыкча эч нерсе жок
+f1h = Авто оңдоо
+f1p = Туура эмес жайгашууда терилген сөз боштуктан кийин туураланып, жайгашуу алмашат.
+f2h = Кош Shift
+f2p = <kbd>Shift</kbd> баскычын эки жолу басыңыз — акыркы сөз же тандалган текст башка жайгашууга которулат.
+f3h = Колдонмо боюнча тил
+f3p = Terminal — дайыма EN, Telegram — КЫ. Өзгөчөлүк колдонмолордо AURA унчукпайт.
+f4h = Жеке
+f4p = Интернетке эч нерсе жөнөтпөйт. Баары түзмөгүңүздө иштейт.
+f5h = 21 тил
+f5p = Системаңыздагы бардык жайгашуулар.
+f6h = Жеңил
+f6p = 1 МБдан аз, терүүнү жайлатпайт жана системаны катырбайт.
+pTitle = Mac жана Windows — бирдей адаттар
+pMac = <li>Apple Silicon жана Intel</li><li>Меню саптагы тил коду: EN, КЫ, DE…</li><li>macOS 13 жана андан жаңысы</li>
+pWin = <li>x64 жана ARM64, орнотуусуз</li><li>Эскертме аймагындагы тил коду</li><li>Mac’тагыдай эле баскычтар</li>
+iTitle = Бир мүнөттө даяр
+s1h = Жүктөңүз
+s1p = Архивди ачыңыз. Mac’та AURA’ны «Колдонмолор» папкасына сүйрөңүз, Windows’то AURA.exe иштетиңиз.
+s2h = Уруксат бериңиз
+s2p = Mac’та: Тутум жөндөөлөрү → Купуялык жана коопсуздук → Атайын мүмкүнчүлүктөр → AURA.
+s3h = Териңиз
+s3p = Тил коду меню сапта (Mac) же эскертме аймагында (Windows) көрүнөт. Калганын AURA өзү жасайт.
+ctaH = AURA’ны бүгүн сынап көрүңүз
+ctaP = macOS жана Windows үчүн акысыз бета.
+made = Украинада жасалган
+foot = AURA — клавиатуранын жайгашуусун эмес, текстти ойлоңуз.
+donate = Колдоо
+supportP = AURA Switcher жактыбы? Иштеп чыгууну бир чыны кофе менен колдоңуз.
+contact = Бизге жазуу
+phoneNote = AURA — компьютерге арналган колдонмо (Mac жана Windows). Шилтемени өзүңүзгө жөнөтүп, компьютериңизде ачыңыз.
+phoneBtn = Шилтемени өзүмө жөнөтүү
+phoneCopied = Шилтеме көчүрүлдү
+safeH = Бул коопсузбу?
+safe1h = Ачык код
+safe1p = Бардык код <a href="https://github.com/klbk/aura-switcher-app" target="_blank" rel="noopener">GitHub</a> сайтында: программа эмне кылаарын каалаган адам текшерип көрө алат.
+safe2h = Эмне үчүн клавиатурага мүмкүнчүлүк керек
+safe2p = Терилген сөздү көрүп, оңдоо үчүн. Текст сакталбайт жана эч жакка жөнөтүлбөйт, программага интернет керек эмес.
+safe3h = Биринчи жолу ачканда эскертүү чыгышы — кадимки көрүнүш
+safe3p = Бетанын Apple жана Microsoft акы төлөнүүчү кол тамгасы азырынча жок. Mac: «Бүттү» → Тутум жөндөөлөрү → Купуялык жана коопсуздук → «Баары бир ачуу». Windows: «Кеңири маалымат» → «Баары бир иштетүү».
+menabled = Күйгүзүлгөн
+mauto = Авто оңдоо
+msound = Үн
+mapp = Колдонмо: 
+mexclude = Бул колдонмодо иштебөө
+mappLang = Бул колдонмонун тили
+mexclusions = Өзгөчөлүктөр
+mbindings = Тил байланыштары
+```
+
+## Update page
+
+```
+update1 = Сизде акыркы версия бар
+update2 = AURA Switcher {v} чыкты
+update3 = Сизде {v}
+update4 = Эмне жаңы
+update5 = Кантип жаңыртуу керек
+update6 = AURA’ны жабыңыз: меню саптагы тил кодун басыңыз → «Чыгуу».
+update7 = Жүктөлгөн архивди ачып, AURA Switcher’ди эскисинин ордуна «Колдонмолор» папкасына сүйрөңүз.
+update8 = AURA’ны ачыңыз. Тил кодунун ордуна ⚠︎ көрүнсө, AURA’ны бул жерден өчүрүп, кайра күйгүзүңүз:
+update9 = AURA’ны жабыңыз: билдирме аймагындагы сүрөтчөсүн басыңыз → «Чыгуу».
+update10 = Архивди ачып, жаңы «AURA Switcher.exe» файлын эскисинин ордуна коюңуз.
+update11 = AURA Switcher.exe иштетиңиз — жөндөөлөрүңүз сакталат.
+update12 = AURA Switcher сайты
+```

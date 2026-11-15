@@ -1,0 +1,129 @@
+# AURA Switcher — Tajik (tg) translation
+
+Tajik is already in the app and on the site (https://klbk.github.io/aura-switcher/tg/), but it was written by an AI, not by a native speaker. Please proofread it: fix anything that sounds unnatural or wrong, and leave good lines as they are.
+Keep the key before `=`, HTML tags (<br>, <kbd>, <span …>), {v} and symbols (⇧ ⚠︎ ⬆︎ ☕ →) unchanged.
+When done, open a pull request with this file. The maintainer will move the texts into the app and the site.
+
+## App menu (Mac and Windows)
+
+```
+name = Тоҷикӣ
+enabled = Фаъол
+auto = Ислоҳи худкор
+sound = Овоз
+access = ⚠︎ Дастрасӣ диҳед: Дастрасии универсалӣ
+app = Барнома:
+exclude = Дар ин барнома кор накун
+game = Бозӣ — AURA таваққуф шудааст
+appLang = Забон барои ин барнома
+noBinding = Бе пайвастшавӣ
+exclusions = Истисноҳо
+recent = Кор накун дар (барномаҳои охирин)
+bindings = Пайвасткунии забонҳо
+empty = Холӣ
+login = Оғоз ҳангоми воридшавӣ
+words = Калимаҳои ман…
+wordsTitle = AURA Switcher — калимаҳои ман
+wordsInfo = AURA Switcher ин калимаҳоро дуруст мешуморад: онҳоро ҳаргиз тағйир намедиҳад ва агар бо тарҳбандии нодурусти клавиатура навишта шаванд, ба онҳо ислоҳ мекунад. Бо вергул ҷудо кунед.
+save = Захира кардан
+cancel = Бекор кардан
+uiLang = Забони меню
+allLangs = Ҳамаи забонҳо
+regEurope = Аврупо
+regCaucasus = Қафқоз ва Осиёи Марказӣ
+regMiddleEast = Шарқи Наздик
+regAsia = Осиё
+system = Система
+hint = Дукарата ⇧ — табдили калима/интихоб
+report = Хабар додан дар бораи мушкилот…
+reportBody = Чӣ шуд ва дар кадом барнома:
+update = Санҷиши навсозиҳо…
+updateDue = ⬆︎ Шояд навсозӣ мавҷуд бошад — санҷед
+donate = Дастгирии AURA Switcher ☕
+quit = Баромадан
+updNew = AURA Switcher {v} баромад
+updLatest = Шумо навтарин версияро доред
+updNotes = Чӣ нав аст
+updNow = Навсозӣ
+updLater = Баъдтар
+updFail = Навсозии худкор муяссар нашуд. Сайтро барои боргирӣ кушоед?
+```
+
+## Website
+
+```
+name = Тоҷикӣ
+title = AURA Switcher — тарҳбандии клавиатура худаш ислоҳ мешавад
+badge = Бета 0.9.9 · ройгон · бе сабти ном
+h1 = Танҳо нависед.<br><span class="hl">AURA</span> тарҳбандиро ислоҳ мекунад
+lead = Ба ҷои «привіт» «ghbdsn» навиштед? AURA инро мебинад ва фавран пас аз фосила ислоҳ мекунад. Барои macOS ва Windows.
+dlMac = Боргирӣ барои Mac
+dlWin = Барои Windows
+demoWrong = Тарҳбандии нодуруст…
+demoFixed = Пас аз фосила ислоҳ шуд
+fTitle = Ҳама чизи даркорӣ. Чизи зиёдатӣ не
+f1h = Ислоҳи худкор
+f1p = Калимае, ки бо тарҳбандии нодуруст навишта шудааст, пас аз фосила дуруст мешавад ва тарҳбандӣ иваз мегардад.
+f2h = Shift-и дукарата
+f2p = <kbd>Shift</kbd>-ро ду маротиба пахш кунед — калимаи охирин ё матни ҷудо кардашуда ба тарҳбандии дигар табдил меёбад.
+f3h = Забон барои ҳар барнома
+f3p = Terminal — ҳамеша EN, Telegram — УК. Дар барномаҳои истисно AURA хомӯш мемонад.
+f4h = Шахсӣ
+f4p = Ба интернет чизе намефиристад. Ҳама чиз дар дастгоҳи шумо кор мекунад.
+f5h = 21 забон
+f5p = Ҳамаи тарҳбандиҳои системаи шумо.
+f6h = Сабук
+f6p = Камтар аз 1 МБ, навиштанро суст намекунад ва системаро намемонад.
+pTitle = Mac ва Windows — одатҳои яксон
+pMac = <li>Apple Silicon ва Intel</li><li>Рамзи забон дар навори меню: EN, УК, ТҶ…</li><li>macOS 13 ва навтар</li>
+pWin = <li>x64 ва ARM64, бе насб</li><li>Рамзи забон дар минтақаи огоҳиҳо</li><li>Ҳамон тугмаҳо, ки дар Mac</li>
+iTitle = Дар як дақиқа омода
+s1h = Боргирӣ
+s1p = Бойгониро кушоед. Дар Mac AURA-ро ба Applications кашед, дар Windows танҳо AURA.exe-ро иҷро кунед.
+s2h = Иҷозат диҳед
+s2p = Дар Mac: Танзимоти система → Махфият ва амният → Дастрасии универсалӣ → AURA.
+s3h = Нависед
+s3p = Рамзи забон дар навори меню (Mac) ё минтақаи огоҳиҳо (Windows) пайдо мешавад. Боқиро AURA мекунад.
+ctaH = AURA-ро имрӯз санҷед
+ctaP = Бетаи ройгон барои macOS ва Windows.
+made = Дар Украина сохта шудааст
+foot = AURA — дар бораи матн андеша кунед, на дар бораи тарҳбандии клавиатура.
+donate = Дастгирӣ
+supportP = AURA Switcher ба шумо маъқул аст? Таҳияро бо як пиёла қаҳва дастгирӣ кунед.
+contact = Ба мо нависед
+phoneNote = AURA барномаест барои компютер (Mac ва Windows). Истинодро ба худ фиристед ва дар компютер кушоед.
+phoneBtn = Истинодро ба худам фиристодан
+phoneCopied = Истинод нусха шуд
+safeH = Оё ин бехатар аст?
+safe1h = Коди кушода
+safe1p = Тамоми код дар <a href="https://github.com/klbk/aura-switcher-app" target="_blank" rel="noopener">GitHub</a> аст: ҳар кас метавонад бубинад, ки барнома чӣ мекунад.
+safe2h = Чаро дастрасӣ ба клавиатура лозим аст
+safe2p = Барои дидани калимае, ки менависед, ва ислоҳи он. Матн ҷое захира ё фиристода намешавад ва барнома ба интернет ниёз надорад.
+safe3h = Огоҳӣ ҳангоми оғози аввал муқаррарӣ аст
+safe3p = Бета ҳанӯз имзои гаронбаҳои Apple ё Microsoft надорад. Mac: «Тайёр» → Танзимоти система → Махфият ва амният → «Ба ҳар ҳол кушодан». Windows: «Иттилооти бештар» → «Ба ҳар ҳол иҷро кардан».
+menabled = Фаъол
+mauto = Ислоҳи худкор
+msound = Овоз
+mapp = Барнома: 
+mexclude = Дар ин барнома кор накун
+mappLang = Забон барои ин барнома
+mexclusions = Истисноҳо
+mbindings = Пайвасткунии забонҳо
+```
+
+## Update page
+
+```
+update1 = Шумо навтарин версияро доред
+update2 = AURA Switcher {v} баромад
+update3 = Шумо {v} доред
+update4 = Чӣ нав аст
+update5 = Чӣ тавр навсозӣ кардан
+update6 = AURA-ро пӯшед: ба рамзи забон дар навори меню зер кунед → «Баромадан».
+update7 = Бойгонии боргирифтаро кушоед ва AURA Switcher-ро ба Applications кашед, то ба ҷои кӯҳна гузошта шавад.
+update8 = AURA-ро кушоед. Агар ба ҷои рамзи забон ⚠︎ намоён шавад, AURA-ро дар ин ҷо хомӯш карда, боз фаъол кунед:
+update9 = AURA-ро пӯшед: ба нишонааш дар минтақаи огоҳиҳо зер кунед → «Баромадан».
+update10 = Бойгониро кушоед ва «AURA Switcher.exe»-и навро ба ҷои кӯҳна гузоред.
+update11 = AURA Switcher.exe-ро иҷро кунед — танзимоти шумо нигоҳ дошта мешавад.
+update12 = Сайти AURA Switcher
+```

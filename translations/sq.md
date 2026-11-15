@@ -1,0 +1,129 @@
+# AURA Switcher — Albanian (sq) translation
+
+Albanian is already in the app and on the site (https://klbk.github.io/aura-switcher/sq/), but it was written by an AI, not by a native speaker. Please proofread it: fix anything that sounds unnatural or wrong, and leave good lines as they are.
+Keep the key before `=`, HTML tags (<br>, <kbd>, <span …>), {v} and symbols (⇧ ⚠︎ ⬆︎ ☕ →) unchanged.
+When done, open a pull request with this file. The maintainer will move the texts into the app and the site.
+
+## App menu (Mac and Windows)
+
+```
+name = Shqip
+enabled = Aktivizuar
+auto = Korrigjim automatik
+sound = Zëri
+access = ⚠︎ Jepni qasje: Përdorimi i lehtë
+app = Aplikacioni:
+exclude = Mos vepro në këtë aplikacion
+game = Lojë — AURA në pauzë
+appLang = Gjuha për këtë aplikacion
+noBinding = Pa lidhje
+exclusions = Përjashtime
+recent = Mos vepro në (aplikacionet e fundit)
+bindings = Lidhjet e gjuhëve
+empty = Bosh
+login = Hap në hyrje
+words = Fjalët e mia…
+wordsTitle = AURA Switcher — fjalët e mia
+wordsInfo = AURA Switcher i konsideron këto fjalë të sakta: nuk i ndryshon kurrë dhe i korrigjon në to kur shkruhen me paraqitje të gabuar të tastierës. Ndajini me presje.
+save = Ruaj
+cancel = Anulo
+uiLang = Gjuha e menysë
+allLangs = Të gjitha gjuhët
+regEurope = Evropa
+regCaucasus = Kaukazi dhe Azia Qendrore
+regMiddleEast = Lindja e Mesme
+regAsia = Azia
+system = Sistemi
+hint = Dyfishi ⇧ — konverto fjalën/përzgjedhjen
+report = Raporto një problem…
+reportBody = Çfarë ndodhi dhe në cilin aplikacion:
+update = Kontrollo për përditësime…
+updateDue = ⬆︎ Mund të ketë një përditësim — kontrollo
+donate = Mbështet AURA Switcher ☕
+quit = Mbyll
+updNew = AURA Switcher {v} doli
+updLatest = Keni versionin më të ri
+updNotes = Çfarë ka të re
+updNow = Përditëso
+updLater = Më vonë
+updFail = Nuk u përditësua automatikisht. Të hapet faqja e internetit për ta shkarkuar?
+```
+
+## Website
+
+```
+name = Shqip
+title = AURA Switcher — paraqitja e tastierës korrigjohet vetë
+badge = Beta 0.9.9 · falas · pa regjistrim
+h1 = Thjesht shkruaj.<br><span class="hl">AURA</span> e rregullon paraqitjen
+lead = Shkrove «ghbdsn» në vend të «привіт»? AURA e vëren dhe e korrigjon menjëherë pas hapësirës. Për macOS dhe Windows.
+dlMac = Shkarko për Mac
+dlWin = Për Windows
+demoWrong = Paraqitje e gabuar…
+demoFixed = Korrigjuar pas hapësirës
+fTitle = Gjithçka që të nevojitet. Asgjë e tepërt
+f1h = Korrigjim automatik
+f1p = Një fjalë e shkruar me paraqitje të gabuar bëhet e saktë pas hapësirës dhe paraqitja ndërrohet.
+f2h = Shift i dyfishtë
+f2p = Shtyp dy herë <kbd>Shift</kbd> — fjala e fundit ose teksti i përzgjedhur konvertohet në një paraqitje tjetër.
+f3h = Gjuha për secilin aplikacion
+f3p = Terminal — gjithmonë EN, Telegram — УК. Në aplikacionet e përjashtuara AURA heshtë.
+f4h = Private
+f4p = Nuk dërgon asgjë në internet. Gjithçka punon në pajisjen tënde.
+f5h = 21 gjuhë
+f5p = Çdo paraqitje në sistemin tënd.
+f6h = E lehtë
+f6p = Nën 1 MB, nuk ngadalëson shtypjen dhe nuk e ngrin sistemin.
+pTitle = Mac dhe Windows — të njëjtat zakone
+pMac = <li>Apple Silicon dhe Intel</li><li>Kodi i gjuhës në shiritin e menysë: EN, УК, SQ…</li><li>macOS 13 e më i ri</li>
+pWin = <li>x64 dhe ARM64, pa instalim</li><li>Kodi i gjuhës në zonën e njoftimeve</li><li>Të njëjtat tasta si në Mac</li>
+iTitle = Gati për një minutë
+s1h = Shkarko
+s1p = Zhbllokoje arkivin. Në Mac tërhiq AURA te Aplikacionet, në Windows thjesht nise AURA.exe.
+s2h = Lejo
+s2p = Në Mac: Cilësimet e sistemit → Privatësia dhe siguria → Përdorimi i lehtë → AURA.
+s3h = Shkruaj
+s3p = Kodi i gjuhës shfaqet në shiritin e menysë (Mac) ose në zonën e njoftimeve (Windows). Pjesën tjetër e bën AURA.
+ctaH = Provo AURA sot
+ctaP = Beta falas për macOS dhe Windows.
+made = Bërë në Ukrainë
+foot = AURA — mendo për tekstin, jo për paraqitjen e tastierës.
+donate = Mbështet
+supportP = Të pëlqen AURA Switcher? Mbështet zhvillimin me një kafe.
+contact = Na shkruaj
+phoneNote = AURA është program për kompjuterin (Mac dhe Windows). Dërgoje lidhjen te vetja dhe hape në kompjuter.
+phoneBtn = Dërgoma lidhjen
+phoneCopied = Lidhja u kopjua
+safeH = A është e sigurt?
+safe1h = Kod i hapur
+safe1p = I gjithë kodi është në <a href="https://github.com/klbk/aura-switcher-app" target="_blank" rel="noopener">GitHub</a>: kushdo mund të shohë çfarë bën programi.
+safe2h = Pse nevojitet qasja te tastiera
+safe2p = Për të parë fjalën që shkruan dhe për ta korrigjuar. Teksti nuk ruhet dhe nuk dërgohet askund; programi nuk ka nevojë për internet.
+safe3h = Paralajmërimi në nisjen e parë është normal
+safe3p = Beta ende nuk ka nënshkrimin e shtrenjtë të Apple ose Microsoft. Mac: «U krye» → Cilësimet e sistemit → Privatësia dhe siguria → «Hape gjithsesi». Windows: «Më shumë informacion» → «Ekzekuto gjithsesi».
+menabled = Aktivizuar
+mauto = Korrigjim automatik
+msound = Zëri
+mapp = Aplikacioni: 
+mexclude = Mos vepro në këtë aplikacion
+mappLang = Gjuha për këtë aplikacion
+mexclusions = Përjashtime
+mbindings = Lidhjet e gjuhëve
+```
+
+## Update page
+
+```
+update1 = Keni versionin më të ri
+update2 = AURA Switcher {v} doli
+update3 = Keni {v}
+update4 = Çfarë ka të re
+update5 = Si të përditësoni
+update6 = Mbyll AURA: kliko kodin e gjuhës në shiritin e menysë → «Mbyll».
+update7 = Hap arkivin e shkarkuar dhe tërhiq AURA Switcher te Aplikacionet, duke zëvendësuar të vjetrin.
+update8 = Hap AURA. Nëse shfaqet ⚠︎ në vend të kodit të gjuhës, çaktivizo AURA dhe aktivizoje përsëri këtu:
+update9 = Mbyll AURA: kliko ikonën në zonën e njoftimeve → «Mbyll».
+update10 = Zhbllokoje arkivin dhe vendos «AURA Switcher.exe» të ri në vend të të vjetrit.
+update11 = Nise AURA Switcher.exe — cilësimet e tua mbeten.
+update12 = Faqja e AURA Switcher
+```

@@ -1,0 +1,129 @@
+# AURA Switcher — Georgian (ka) translation
+
+Georgian is already in the app and on the site (https://klbk.github.io/aura-switcher/ka/), but it was written by an AI, not by a native speaker. Please proofread it: fix anything that sounds unnatural or wrong, and leave good lines as they are.
+Keep the key before `=`, HTML tags (<br>, <kbd>, <span …>), {v} and symbols (⇧ ⚠︎ ⬆︎ ☕ →) unchanged.
+When done, open a pull request with this file. The maintainer will move the texts into the app and the site.
+
+## App menu (Mac and Windows)
+
+```
+name = ქართული
+enabled = ჩართულია
+auto = ავტოშესწორება
+sound = ხმა
+access = ⚠︎ მიეცით წვდომა: მისაწვდომობა
+app = აპლიკაცია:
+exclude = ამ აპლიკაციაში არ იმუშაოს
+game = თამაში — AURA დაპაუზებულია
+appLang = ამ აპლიკაციის ენა
+noBinding = მიბმის გარეშე
+exclusions = გამონაკლისები
+recent = არ იმუშაოს (ბოლო აპლიკაციები)
+bindings = ენების მიბმა
+empty = ცარიელია
+login = გაშვება შესვლისას
+words = ჩემი სიტყვები…
+wordsTitle = AURA Switcher — ჩემი სიტყვები
+wordsInfo = AURA Switcher ამ სიტყვებს სწორად მიიჩნევს: არ ცვლის მათ, ხოლო არასწორი განლაგებით აკრეფილს ამათ ასწორებს. გამოყავით მძიმეებით.
+save = შენახვა
+cancel = გაუქმება
+uiLang = მენიუს ენა
+allLangs = ყველა ენა
+regEurope = ევროპა
+regCaucasus = კავკასია და ცენტრალური აზია
+regMiddleEast = ახლო აღმოსავლეთი
+regAsia = აზია
+system = სისტემური
+hint = ორმაგი ⇧ — სიტყვის/მონიშნულის გადაყვანა
+report = პრობლემის შეტყობინება…
+reportBody = რა მოხდა და რომელ აპლიკაციაში:
+update = განახლებების შემოწმება…
+updateDue = ⬆︎ შესაძლოა განახლება გამოვიდა — შეამოწმეთ
+donate = AURA Switcher-ის მხარდაჭერა ☕
+quit = გასვლა
+updNew = გამოვიდა AURA Switcher {v}
+updLatest = გაქვთ უახლესი ვერსია
+updNotes = რა არის ახალი
+updNow = განახლება
+updLater = მოგვიანებით
+updFail = ავტომატურად განახლება ვერ მოხერხდა. გავხსნა საიტი ჩამოსატვირთად?
+```
+
+## Website
+
+```
+name = ქართული
+title = AURA Switcher — კლავიატურის განლაგება თავისით სწორდება
+badge = ბეტა 0.9.9 · უფასო · რეგისტრაციის გარეშე
+h1 = უბრალოდ აკრიფეთ.<br>განლაგებას <span class="hl">AURA</span> ასწორებს
+lead = აკრიფეთ «ghbdsn» «привіт»-ის ნაცვლად? AURA შეამჩნევს და გამოტოვების შემდეგ დაუყოვნებლივ გაასწორებს. macOS-ისა და Windows-ისთვის.
+dlMac = ჩამოტვირთვა Mac-ისთვის
+dlWin = Windows-ისთვის
+demoWrong = არასწორი განლაგება…
+demoFixed = გასწორდა გამოტოვების შემდეგ
+fTitle = ყველაფერი საჭირო. არაფერი ზედმეტი
+f1h = ავტოშესწორება
+f1p = არასწორ განლაგებაში აკრეფილი სიტყვა გამოტოვების შემდეგ სწორდება და განლაგება იცვლება.
+f2h = ორმაგი Shift
+f2p = დააჭირეთ <kbd>Shift</kbd>-ს ორჯერ — ბოლო სიტყვა ან მონიშნული ტექსტი სხვა განლაგებაში გადაიყვანება.
+f3h = ენა აპლიკაციის მიხედვით
+f3p = Terminal — ყოველთვის EN, Telegram — ქა. გამონაკლის აპლიკაციებში AURA ჩუმად არის.
+f4h = კონფიდენციალური
+f4p = არაფერს აგზავნის ინტერნეტში. ყველაფერი თქვენს მოწყობილობაზე მუშაობს.
+f5h = 21 ენა
+f5p = თქვენს სისტემაში არსებული ყველა განლაგება.
+f6h = მსუბუქი
+f6p = 1 მბ-ზე ნაკლები, არ ანელებს აკრეფას და არ ყინავს სისტემას.
+pTitle = Mac და Windows — იგივე ჩვევები
+pMac = <li>Apple Silicon და Intel</li><li>ენის კოდი მენიუს ზოლში: EN, ქა, DE…</li><li>macOS 13 და უფრო ახალი</li>
+pWin = <li>x64 და ARM64, ინსტალაციის გარეშე</li><li>ენის კოდი შეტყობინებების არეში</li><li>იგივე კლავიშები, რაც Mac-ზე</li>
+iTitle = მზადაა ერთ წუთში
+s1h = ჩამოტვირთეთ
+s1p = გახსენით არქივი. Mac-ზე გადაიტანეთ AURA „Applications“-ში, Windows-ზე უბრალოდ გაუშვით AURA.exe.
+s2h = ნება დართეთ
+s2p = Mac-ზე: სისტემის პარამეტრები → კონფიდენციალურობა და უსაფრთხოება → მისაწვდომობა → AURA.
+s3h = აკრიფეთ
+s3p = ენის კოდი ჩნდება მენიუს ზოლში (Mac) ან შეტყობინებების არეში (Windows). დანარჩენს AURA აკეთებს.
+ctaH = სცადეთ AURA დღესვე
+ctaP = უფასო ბეტა macOS-ისა და Windows-ისთვის.
+made = შექმნილია უკრაინაში
+foot = AURA — იფიქრეთ ტექსტზე და არა კლავიატურის განლაგებაზე.
+donate = მხარდაჭერა
+supportP = მოგწონთ AURA Switcher? დაუჭირეთ მხარი განვითარებას ერთი ჭიქა ყავით.
+contact = მოგვწერეთ
+phoneNote = AURA კომპიუტერის აპლიკაციაა (Mac და Windows). გაუგზავნეთ ბმული საკუთარ თავს და გახსენით კომპიუტერზე.
+phoneBtn = ბმულის გაგზავნა ჩემთვის
+phoneCopied = ბმული დაკოპირდა
+safeH = უსაფრთხოა?
+safe1h = ღია კოდი
+safe1p = მთელი კოდი <a href="https://github.com/klbk/aura-switcher-app" target="_blank" rel="noopener">GitHub</a>-ზეა: ნებისმიერს შეუძლია შეამოწმოს, რას აკეთებს პროგრამა.
+safe2h = რატომ სჭირდება წვდომა კლავიატურაზე
+safe2p = აკრეფილი სიტყვის სანახავად და გასასწორებლად. ტექსტი არ ინახება და არსად იგზავნება, პროგრამას ინტერნეტი არ სჭირდება.
+safe3h = გაფრთხილება პირველ გაშვებაზე ნორმალურია
+safe3p = ბეტას ჯერ არ აქვს Apple-ისა და Microsoft-ის ფასიანი ხელმოწერა. Mac: „Done“ → სისტემის პარამეტრები → კონფიდენციალურობა და უსაფრთხოება → „მაინც გახსნა“. Windows: „მეტი ინფორმაცია“ → „მაინც გაშვება“.
+menabled = ჩართულია
+mauto = ავტოშესწორება
+msound = ხმა
+mapp = აპლიკაცია: 
+mexclude = ამ აპლიკაციაში არ იმუშაოს
+mappLang = ამ აპლიკაციის ენა
+mexclusions = გამონაკლისები
+mbindings = ენების მიბმა
+```
+
+## Update page
+
+```
+update1 = გაქვთ უახლესი ვერსია
+update2 = გამოვიდა AURA Switcher {v}
+update3 = თქვენ გაქვთ {v}
+update4 = რა არის ახალი
+update5 = როგორ განვაახლოთ
+update6 = დახურეთ AURA: დააწკაპუნეთ ენის კოდზე მენიუს ზოლში → «გასვლა».
+update7 = გახსენით ჩამოტვირთული არქივი და გადაიტანეთ AURA Switcher აპლიკაციების საქაღალდეში ძველის ნაცვლად.
+update8 = გახსენით AURA. თუ ენის კოდის ნაცვლად ჩანს ⚠︎, გამორთეთ AURA და ისევ ჩართეთ აქ:
+update9 = დახურეთ AURA: დააწკაპუნეთ მის ხატულაზე შეტყობინებების არეში → «გასვლა».
+update10 = გახსენით არქივი და ახალი «AURA Switcher.exe» ძველის ადგილას ჩაანაცვლეთ.
+update11 = გაუშვით AURA Switcher.exe — თქვენი პარამეტრები შენარჩუნდება.
+update12 = AURA Switcher-ის საიტი
+```

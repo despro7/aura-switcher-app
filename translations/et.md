@@ -1,0 +1,129 @@
+# AURA Switcher — Estonian (et) translation
+
+Estonian is already in the app and on the site (https://klbk.github.io/aura-switcher/et/), but it was written by an AI, not by a native speaker. Please proofread it: fix anything that sounds unnatural or wrong, and leave good lines as they are.
+Keep the key before `=`, HTML tags (<br>, <kbd>, <span …>), {v} and symbols (⇧ ⚠︎ ⬆︎ ☕ →) unchanged.
+When done, open a pull request with this file. The maintainer will move the texts into the app and the site.
+
+## App menu (Mac and Windows)
+
+```
+name = Eesti
+enabled = Sees
+auto = Automaatne parandus
+sound = Heli
+access = ⚠︎ Andke juurdepääs: Juurdepääsetavus
+app = Rakendus:
+exclude = Selles rakenduses mitte töötada
+game = Mäng — AURA peatatud
+appLang = Selle rakenduse keel
+noBinding = Seostamata
+exclusions = Erandid
+recent = Mitte töötada (hiljutised rakendused)
+bindings = Keeleseosed
+empty = Tühi
+login = Käivita sisselogimisel
+words = Minu sõnad…
+wordsTitle = AURA Switcher — minu sõnad
+wordsInfo = AURA Switcher peab neid sõnu õigeks: ei muuda neid kunagi ja parandab nendeks, kui need on sisestatud vales paigutuses. Eralda komadega.
+save = Salvesta
+cancel = Tühista
+uiLang = Menüü keel
+allLangs = Kõik keeled
+regEurope = Euroopa
+regCaucasus = Kaukaasia ja Kesk-Aasia
+regMiddleEast = Lähis-Ida
+regAsia = Aasia
+system = Süsteemne
+hint = Topelt ⇧ — teisenda sõna/valik
+report = Teata probleemist…
+reportBody = Mis juhtus ja millises rakenduses:
+update = Otsi uuendusi…
+updateDue = ⬆︎ Uuendus võib olla saadaval — kontrolli
+donate = Toeta AURA Switcherit ☕
+quit = Välju
+updNew = AURA Switcher {v} on väljas
+updLatest = Sul on uusim versioon
+updNotes = Mis on uut
+updNow = Uuenda
+updLater = Hiljem
+updFail = Automaatne uuendamine ebaõnnestus. Avada veebileht allalaadimiseks?
+```
+
+## Website
+
+```
+name = Eesti
+title = AURA Switcher — klaviatuuripaigutus parandab end ise
+badge = Beeta 0.9.9 · tasuta · ilma registreerimiseta
+h1 = Kirjuta lihtsalt.<br>Paigutuse parandab <span class="hl">AURA</span>
+lead = Tippisid «ghbdsn» asemel «привіт»? AURA märkab seda ja parandab kohe pärast tühikut. macOS-ile ja Windowsile.
+dlMac = Laadi alla Macile
+dlWin = Windowsile
+demoWrong = Vale paigutus…
+demoFixed = Parandatud pärast tühikut
+fTitle = Kõik, mida vaja. Midagi üleliigset pole
+f1h = Automaatne parandus
+f1p = Vales paigutuses sisestatud sõna muutub pärast tühikut õigeks ja paigutus vahetub.
+f2h = Topelt-Shift
+f2p = Vajuta <kbd>Shift</kbd> kaks korda — viimane sõna või valitud tekst teisendatakse teise paigutusse.
+f3h = Keel rakenduse kaupa
+f3p = Terminal — alati EN, Telegram — УК. Erandrakendustes AURA vaikib.
+f4h = Privaatne
+f4p = Ei saada internetti midagi. Kõik töötab sinu seadmes.
+f5h = 21 keelt
+f5p = Kõik sinu süsteemi paigutused.
+f6h = Kerge
+f6p = Alla 1 MB, ei aeglusta tippimist ega jäta süsteemi hanguma.
+pTitle = Mac ja Windows — samad harjumused
+pMac = <li>Apple Silicon ja Intel</li><li>Keelekood menüüribal: EN, УК, ET…</li><li>macOS 13 ja uuem</li>
+pWin = <li>x64 ja ARM64, ilma paigaldajata</li><li>Keelekood teavitusalal</li><li>Samad klahvid mis Macis</li>
+iTitle = Valmis minutiga
+s1h = Laadi alla
+s1p = Paki arhiiv lahti. Macis lohista AURA kausta „Applications“, Windowsis käivita AURA.exe.
+s2h = Luba
+s2p = Macis: Süsteemiseaded → Privaatsus ja turvalisus → Juurdepääsetavus → AURA.
+s3h = Kirjuta
+s3p = Keelekood ilmub menüüribale (Mac) või teavitusalale (Windows). Ülejäänu teeb AURA.
+ctaH = Proovi AURA-t täna
+ctaP = Tasuta beeta macOS-ile ja Windowsile.
+made = Tehtud Ukrainas
+foot = AURA — mõtle tekstile, mitte klaviatuuripaigutusele.
+donate = Toeta
+supportP = Meeldib AURA Switcher? Toeta arendust tassi kohviga.
+contact = Kirjuta meile
+phoneNote = AURA on arvutirakendus (Mac ja Windows). Saada link endale ja ava see arvutis.
+phoneBtn = Saada link endale
+phoneCopied = Link kopeeritud
+safeH = Kas see on turvaline?
+safe1h = Avatud lähtekood
+safe1p = Kogu kood on <a href="https://github.com/klbk/aura-switcher-app" target="_blank" rel="noopener">GitHub</a>-is: igaüks saab kontrollida, mida programm teeb.
+safe2h = Miks on vaja juurdepääsu klaviatuurile
+safe2p = Et näha sisestatud sõna ja seda parandada. Teksti ei salvestata ega saadeta kuhugi, programm ei vaja internetti.
+safe3h = Hoiatus esimesel käivitamisel on normaalne
+safe3p = Beetal pole veel Apple’i ega Microsofti tasulist allkirja. Mac: „Done“ → Süsteemiseaded → Privaatsus ja turvalisus → „Ava ikkagi“. Windows: „Rohkem teavet“ → „Käivita ikkagi“.
+menabled = Sees
+mauto = Automaatne parandus
+msound = Heli
+mapp = Rakendus: 
+mexclude = Selles rakenduses mitte töötada
+mappLang = Selle rakenduse keel
+mexclusions = Erandid
+mbindings = Keeleseosed
+```
+
+## Update page
+
+```
+update1 = Sul on uusim versioon
+update2 = AURA Switcher {v} on väljas
+update3 = Sul on {v}
+update4 = Mis on uut
+update5 = Kuidas uuendada
+update6 = Sulge AURA: klõpsa menüüribal keelekoodil → «Välju».
+update7 = Ava allalaaditud arhiiv ja lohista AURA Switcher kausta Applications, asendades vana.
+update8 = Ava AURA. Kui keelekoodi asemel on ⚠︎, lülita AURA siin välja ja uuesti sisse:
+update9 = Sulge AURA: klõpsa teavitusalal selle ikoonil → «Välju».
+update10 = Paki arhiiv lahti ja pane uus «AURA Switcher.exe» vana asemele.
+update11 = Käivita AURA Switcher.exe — sinu seaded säilivad.
+update12 = AURA Switcheri veebisait
+```

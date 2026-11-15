@@ -1,0 +1,129 @@
+# AURA Switcher — Lithuanian (lt) translation
+
+Lithuanian is already in the app and on the site (https://klbk.github.io/aura-switcher/lt/), but it was written by an AI, not by a native speaker. Please proofread it: fix anything that sounds unnatural or wrong, and leave good lines as they are.
+Keep the key before `=`, HTML tags (<br>, <kbd>, <span …>), {v} and symbols (⇧ ⚠︎ ⬆︎ ☕ →) unchanged.
+When done, open a pull request with this file. The maintainer will move the texts into the app and the site.
+
+## App menu (Mac and Windows)
+
+```
+name = Lietuvių
+enabled = Įjungta
+auto = Automatinis taisymas
+sound = Garsas
+access = ⚠︎ Suteikite prieigą: Pritaikymas neįgaliesiems
+app = Programa:
+exclude = Šioje programoje nedirbti
+game = Žaidimas — AURA pristabdyta
+appLang = Kalba šiai programai
+noBinding = Be priskyrimo
+exclusions = Išimtys
+recent = Nedirbti (naujausios programos)
+bindings = Kalbų priskyrimai
+empty = Tuščia
+login = Paleisti prisijungiant
+words = Mano žodžiai…
+wordsTitle = AURA Switcher — mano žodžiai
+wordsInfo = AURA Switcher laiko šiuos žodžius teisingais: niekada jų nekeičia, o surinktus netinkamu išdėstymu — pataiso į juos. Atskirkite kableliais.
+save = Išsaugoti
+cancel = Atšaukti
+uiLang = Meniu kalba
+allLangs = Visos kalbos
+regEurope = Europa
+regCaucasus = Kaukazas ir Vidurio Azija
+regMiddleEast = Artimieji Rytai
+regAsia = Azija
+system = Sistemos
+hint = Dvigubas ⇧ — konvertuoti žodį/pažymėtą tekstą
+report = Pranešti apie problemą…
+reportBody = Kas nutiko ir kurioje programoje:
+update = Tikrinti naujinimus…
+updateDue = ⬆︎ Galbūt išleistas naujinimas — patikrinkite
+donate = Paremti AURA Switcher ☕
+quit = Išeiti
+updNew = Išleistas AURA Switcher {v}
+updLatest = Turite naujausią versiją
+updNotes = Kas naujo
+updNow = Atnaujinti
+updLater = Vėliau
+updFail = Nepavyko atnaujinti automatiškai. Atidaryti svetainę atsisiuntimui?
+```
+
+## Website
+
+```
+name = Lietuvių
+title = AURA Switcher — klaviatūros išdėstymas pataisomas pats
+badge = Beta 0.9.9 · nemokama · be registracijos
+h1 = Tiesiog rašykite.<br>Išdėstymą pataiso <span class="hl">AURA</span>
+lead = Surinkote «ghbdsn» vietoj «привіт»? AURA tai pastebi ir pataiso iškart po tarpo. Skirta macOS ir Windows.
+dlMac = Atsisiųsti „Mac“
+dlWin = Skirta „Windows“
+demoWrong = Netinkamas išdėstymas…
+demoFixed = Pataisyta po tarpo
+fTitle = Viskas, ko reikia. Nieko nereikalingo
+f1h = Automatinis taisymas
+f1p = Netinkamu išdėstymu surinktas žodis po tarpo pataisomas, o išdėstymas persijungia.
+f2h = Dvigubas Shift
+f2p = Du kartus paspauskite <kbd>Shift</kbd> — paskutinis žodis ar pažymėtas tekstas paverčiamas kitu išdėstymu.
+f3h = Kalba pagal programą
+f3p = Terminal — visada EN, Telegram — УК. Išimčių programose AURA tyli.
+f4h = Privatu
+f4p = Nieko nesiunčia į internetą. Viskas veikia jūsų įrenginyje.
+f5h = Kalbos: 21
+f5p = Visi jūsų sistemos išdėstymai.
+f6h = Lengva
+f6p = Mažiau nei 1 MB, nelėtina rašymo ir nestabdo sistemos.
+pTitle = „Mac“ ir „Windows“ — tie patys įpročiai
+pMac = <li>Apple Silicon ir Intel</li><li>Kalbos kodas meniu juostoje: EN, УК, LT…</li><li>macOS 13 ir naujesnė</li>
+pWin = <li>x64 ir ARM64, be diegimo</li><li>Kalbos kodas pranešimų srityje</li><li>Tie patys klavišai kaip „Mac“</li>
+iTitle = Paruošta per minutę
+s1h = Atsisiųskite
+s1p = Išpakuokite archyvą. „Mac“ nuvilkite AURA į „Applications“, „Windows“ tiesiog paleiskite AURA.exe.
+s2h = Leiskite
+s2p = „Mac“: Sistemos nustatymai → Privatumas ir sauga → Pritaikymas neįgaliesiems → AURA.
+s3h = Rašykite
+s3p = Kalbos kodas rodomas meniu juostoje („Mac“) arba pranešimų srityje („Windows“). Likusį darbą atlieka AURA.
+ctaH = Išbandykite AURA šiandien
+ctaP = Nemokama beta, skirta macOS ir Windows.
+made = Sukurta Ukrainoje
+foot = AURA — galvokite apie tekstą, o ne apie klaviatūros išdėstymą.
+donate = Paremti
+supportP = Patinka AURA Switcher? Paremkite kūrimą puodeliu kavos.
+contact = Parašykite mums
+phoneNote = AURA yra kompiuterio programa („Mac“ ir „Windows“). Nusiųskite nuorodą sau ir atidarykite kompiuteryje.
+phoneBtn = Nusiųsti nuorodą sau
+phoneCopied = Nuoroda nukopijuota
+safeH = Ar tai saugu?
+safe1h = Atvirasis kodas
+safe1p = Visas kodas yra <a href="https://github.com/klbk/aura-switcher-app" target="_blank" rel="noopener">GitHub</a>: kiekvienas gali patikrinti, ką programa daro.
+safe2h = Kodėl reikia prieigos prie klaviatūros
+safe2p = Kad matytų surinktą žodį ir jį pataisytų. Tekstas neišsaugomas ir niekur nesiunčiamas, programai interneto nereikia.
+safe3h = Įspėjimas pirmą kartą paleidus — normalus dalykas
+safe3p = Beta dar neturi mokamo „Apple“ ir „Microsoft“ parašo. Mac: „Done“ → Sistemos nustatymai → Privatumas ir sauga → „Vis tiek atidaryti“. Windows: „Daugiau informacijos“ → „Vis tiek vykdyti“.
+menabled = Įjungta
+mauto = Automatinis taisymas
+msound = Garsas
+mapp = Programa: 
+mexclude = Šioje programoje nedirbti
+mappLang = Kalba šiai programai
+mexclusions = Išimtys
+mbindings = Kalbų priskyrimai
+```
+
+## Update page
+
+```
+update1 = Turite naujausią versiją
+update2 = Išleistas AURA Switcher {v}
+update3 = Turite {v}
+update4 = Kas naujo
+update5 = Kaip atnaujinti
+update6 = Uždarykite AURA: spustelėkite kalbos kodą meniu juostoje → «Išeiti».
+update7 = Atidarykite atsisiųstą archyvą ir nuvilkite AURA Switcher į Programas, pakeisdami senąją.
+update8 = Atidarykite AURA. Jei vietoje kalbos kodo rodoma ⚠︎, čia išjunkite AURA ir vėl įjunkite:
+update9 = Uždarykite AURA: spustelėkite jos piktogramą pranešimų srityje → «Išeiti».
+update10 = Išpakuokite archyvą ir naują «AURA Switcher.exe» padėkite senojo vietoje.
+update11 = Paleiskite AURA Switcher.exe — nustatymai išliks.
+update12 = AURA Switcher svetainė
+```

@@ -1,0 +1,129 @@
+# AURA Switcher — Vietnamese (vi) translation
+
+Vietnamese is already in the app and on the site (https://klbk.github.io/aura-switcher/vi/), but it was written by an AI, not by a native speaker. Please proofread it: fix anything that sounds unnatural or wrong, and leave good lines as they are.
+Keep the key before `=`, HTML tags (<br>, <kbd>, <span …>), {v} and symbols (⇧ ⚠︎ ⬆︎ ☕ →) unchanged.
+When done, open a pull request with this file. The maintainer will move the texts into the app and the site.
+
+## App menu (Mac and Windows)
+
+```
+name = Tiếng Việt
+enabled = Bật
+auto = Tự động sửa
+sound = Âm thanh
+access = ⚠︎ Cấp quyền: Trợ năng
+app = Ứng dụng:
+exclude = Không hoạt động trong ứng dụng này
+game = Trò chơi — AURA tạm dừng
+appLang = Ngôn ngữ cho ứng dụng này
+noBinding = Chưa gán
+exclusions = Ngoại lệ
+recent = Không hoạt động trong (ứng dụng gần đây)
+bindings = Gán ngôn ngữ
+empty = Trống
+login = Chạy khi đăng nhập
+words = Từ của tôi…
+wordsTitle = AURA Switcher — từ của tôi
+wordsInfo = AURA Switcher coi những từ này là đúng: không bao giờ đổi chúng và sửa thành chúng khi gõ sai bố cục bàn phím. Cách nhau bằng dấu phẩy.
+save = Lưu
+cancel = Hủy
+uiLang = Ngôn ngữ menu
+allLangs = Tất cả ngôn ngữ
+regEurope = Châu Âu
+regCaucasus = Kavkaz và Trung Á
+regMiddleEast = Trung Đông
+regAsia = Châu Á
+system = Hệ thống
+hint = Nhấn đôi ⇧ — chuyển đổi từ/vùng chọn
+report = Báo cáo sự cố…
+reportBody = Chuyện gì đã xảy ra và trong ứng dụng nào:
+update = Kiểm tra cập nhật…
+updateDue = ⬆︎ Có thể có bản cập nhật — kiểm tra
+donate = Ủng hộ AURA Switcher ☕
+quit = Thoát
+updNew = AURA Switcher {v} đã ra mắt
+updLatest = Bạn đang dùng phiên bản mới nhất
+updNotes = Có gì mới
+updNow = Cập nhật
+updLater = Để sau
+updFail = Không thể tự động cập nhật. Mở trang web để tải về?
+```
+
+## Website
+
+```
+name = Tiếng Việt
+title = AURA Switcher — bố cục bàn phím tự sửa
+badge = Beta 0.9.9 · miễn phí · không cần đăng ký
+h1 = Cứ gõ đi.<br><span class="hl">AURA</span> sửa bố cục
+lead = Gõ «ghbdsn» thay vì «привіт»? AURA nhận ra và sửa ngay sau khi bạn nhấn phím cách. Cho macOS và Windows.
+dlMac = Tải cho Mac
+dlWin = Cho Windows
+demoWrong = Sai bố cục…
+demoFixed = Đã sửa sau phím cách
+fTitle = Mọi thứ bạn cần. Không thừa thứ gì
+f1h = Tự động sửa
+f1p = Từ gõ sai bố cục sẽ đúng sau phím cách, và bố cục tự chuyển.
+f2h = Shift kép
+f2p = Nhấn <kbd>Shift</kbd> hai lần — từ cuối hoặc văn bản đã chọn được chuyển sang bố cục khác.
+f3h = Ngôn ngữ cho từng ứng dụng
+f3p = Terminal — luôn EN, Telegram — УК. Trong các ứng dụng ngoại lệ, AURA im lặng.
+f4h = Riêng tư
+f4p = Không gửi gì lên Internet. Mọi thứ chạy trên thiết bị của bạn.
+f5h = 21 ngôn ngữ
+f5p = Mọi bố cục trên hệ thống của bạn.
+f6h = Nhẹ
+f6p = Dưới 1 MB, không làm chậm khi gõ và không làm treo hệ thống.
+pTitle = Mac và Windows — cùng thói quen
+pMac = <li>Apple Silicon và Intel</li><li>Mã ngôn ngữ trên thanh menu: EN, УК, VI…</li><li>macOS 13 trở lên</li>
+pWin = <li>x64 và ARM64, không cần cài đặt</li><li>Mã ngôn ngữ trong khay hệ thống</li><li>Cùng phím như trên Mac</li>
+iTitle = Sẵn sàng sau một phút
+s1h = Tải về
+s1p = Giải nén tệp. Trên Mac, kéo AURA vào Ứng dụng; trên Windows, chỉ cần chạy AURA.exe.
+s2h = Cho phép
+s2p = Trên Mac: Cài đặt Hệ thống → Quyền riêng tư & Bảo mật → Trợ năng → AURA.
+s3h = Gõ
+s3p = Mã ngôn ngữ hiện trên thanh menu (Mac) hoặc khay hệ thống (Windows). AURA lo phần còn lại.
+ctaH = Dùng thử AURA ngay hôm nay
+ctaP = Bản beta miễn phí cho macOS và Windows.
+made = Sản xuất tại Ukraina
+foot = AURA — hãy nghĩ về nội dung, đừng bận tâm bố cục bàn phím.
+donate = Ủng hộ
+supportP = Bạn thích AURA Switcher? Hãy ủng hộ dự án bằng một tách cà phê.
+contact = Viết cho chúng tôi
+phoneNote = AURA là chương trình cho máy tính (Mac và Windows). Hãy gửi liên kết cho chính bạn và mở trên máy tính.
+phoneBtn = Gửi liên kết cho tôi
+phoneCopied = Đã sao chép liên kết
+safeH = Có an toàn không?
+safe1h = Mã nguồn mở
+safe1p = Toàn bộ mã nằm trên <a href="https://github.com/klbk/aura-switcher-app" target="_blank" rel="noopener">GitHub</a>: ai cũng có thể kiểm tra chương trình làm gì.
+safe2h = Vì sao cần quyền truy cập bàn phím
+safe2p = Để thấy từ bạn đang gõ và sửa nó. Văn bản không được lưu hay gửi đi đâu, và chương trình không cần Internet.
+safe3h = Cảnh báo khi chạy lần đầu là bình thường
+safe3p = Bản beta chưa có chữ ký đắt tiền của Apple hay Microsoft. Mac: «Xong» → Cài đặt Hệ thống → Quyền riêng tư & Bảo mật → «Vẫn mở». Windows: «Thông tin thêm» → «Vẫn chạy».
+menabled = Bật
+mauto = Tự động sửa
+msound = Âm thanh
+mapp = Ứng dụng: 
+mexclude = Không hoạt động trong ứng dụng này
+mappLang = Ngôn ngữ cho ứng dụng này
+mexclusions = Ngoại lệ
+mbindings = Gán ngôn ngữ
+```
+
+## Update page
+
+```
+update1 = Bạn đang dùng phiên bản mới nhất
+update2 = AURA Switcher {v} đã ra mắt
+update3 = Bạn đang dùng {v}
+update4 = Có gì mới
+update5 = Cách cập nhật
+update6 = Thoát AURA: nhấp mã ngôn ngữ trên thanh menu → «Thoát».
+update7 = Mở tệp đã tải và kéo AURA Switcher vào Ứng dụng, thay thế bản cũ.
+update8 = Mở AURA. Nếu hiện ⚠︎ thay cho mã ngôn ngữ, hãy tắt rồi bật lại AURA tại đây:
+update9 = Thoát AURA: nhấp biểu tượng trong khay hệ thống → «Thoát».
+update10 = Giải nén tệp và đặt «AURA Switcher.exe» mới vào chỗ bản cũ.
+update11 = Chạy AURA Switcher.exe — cài đặt của bạn vẫn được giữ.
+update12 = Trang web AURA Switcher
+```

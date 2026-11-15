@@ -1,0 +1,129 @@
+# AURA Switcher — Welsh (cy) translation
+
+Welsh is already in the app and on the site (https://klbk.github.io/aura-switcher/cy/), but it was written by an AI, not by a native speaker. Please proofread it: fix anything that sounds unnatural or wrong, and leave good lines as they are.
+Keep the key before `=`, HTML tags (<br>, <kbd>, <span …>), {v} and symbols (⇧ ⚠︎ ⬆︎ ☕ →) unchanged.
+When done, open a pull request with this file. The maintainer will move the texts into the app and the site.
+
+## App menu (Mac and Windows)
+
+```
+name = Cymraeg
+enabled = Wedi’i alluogi
+auto = Cywiro awtomatig
+sound = Sain
+access = ⚠︎ Rhowch fynediad: Hygyrchedd
+app = Ap:
+exclude = Peidio â gweithio yn yr ap hwn
+game = Gêm — AURA wedi’i oedi
+appLang = Iaith ar gyfer yr ap hwn
+noBinding = Dim cysylltiad
+exclusions = Eithriadau
+recent = Peidio â gweithio yn (apiau diweddar)
+bindings = Cysylltiadau iaith
+empty = Gwag
+login = Cychwyn wrth fewngofnodi
+words = Fy ngeiriau…
+wordsTitle = AURA Switcher — fy ngeiriau
+wordsInfo = Mae AURA Switcher yn ystyried bod y geiriau hyn yn gywir: nid yw byth yn eu newid, ac mae’n cywiro iddyn nhw pan fyddan nhw wedi’u teipio gyda’r cynllun bysellfwrdd anghywir. Gwahanwch â choma.
+save = Cadw
+cancel = Diddymu
+uiLang = Iaith y ddewislen
+allLangs = Pob iaith
+regEurope = Ewrop
+regCaucasus = Y Cawcasws a Chanolbarth Asia
+regMiddleEast = Y Dwyrain Canol
+regAsia = Asia
+system = System
+hint = ⇧ dwbl — trosi gair/dewisiad
+report = Adrodd am broblem…
+reportBody = Beth ddigwyddodd ac ym mha ap:
+update = Gwirio am ddiweddariadau…
+updateDue = ⬆︎ Efallai bod diweddariad ar gael — gwiriwch
+donate = Cefnogi AURA Switcher ☕
+quit = Gadael
+updNew = Mae AURA Switcher {v} allan
+updLatest = Mae gennych y fersiwn ddiweddaraf
+updNotes = Beth sy’n newydd
+updNow = Diweddaru
+updLater = Yn nes ymlaen
+updFail = Methu diweddaru’n awtomatig. Agor y wefan i’w lawrlwytho?
+```
+
+## Website
+
+```
+name = Cymraeg
+title = AURA Switcher — mae cynllun y bysellfwrdd yn cywiro ei hun
+badge = Beta 0.9.9 · am ddim · dim cofrestru
+h1 = Teipiwch yn unig.<br>Mae <span class="hl">AURA</span> yn trwsio’r cynllun
+lead = Teipio «ghbdsn» yn lle «привіт»? Mae AURA yn sylwi ac yn ei gywiro’n syth ar ôl y bylchwr. Ar gyfer macOS a Windows.
+dlMac = Lawrlwytho ar gyfer Mac
+dlWin = Ar gyfer Windows
+demoWrong = Cynllun anghywir…
+demoFixed = Wedi’i gywiro ar ôl y bylchwr
+fTitle = Popeth sydd ei angen arnoch. Dim byd diangen
+f1h = Cywiro awtomatig
+f1p = Mae gair a deipiwyd gyda’r cynllun anghywir yn dod yn gywir ar ôl y bylchwr, ac mae’r cynllun yn newid.
+f2h = Shift dwbl
+f2p = Pwyswch <kbd>Shift</kbd> ddwywaith — mae’r gair olaf neu’r testun dethol yn cael ei drosi i gynllun arall.
+f3h = Iaith ar gyfer pob ap
+f3p = Terminal — EN bob amser, Telegram — УК. Mewn apiau a eithriwyd, mae AURA yn tawelu.
+f4h = Preifat
+f4p = Yn anfon dim ar-lein. Mae popeth yn rhedeg ar eich dyfais.
+f5h = 21 iaith
+f5p = Pob cynllun ar eich system.
+f6h = Ysgafn
+f6p = Llai nag 1 MB, nid yw’n arafu eich teipio nac yn rhewi’r system.
+pTitle = Mac a Windows — yr un arferion
+pMac = <li>Apple Silicon ac Intel</li><li>Cod iaith yn y bar dewislen: EN, УК, CY…</li><li>macOS 13 ac yn ddiweddarach</li>
+pWin = <li>x64 ac ARM64, dim gosodwr</li><li>Cod iaith yn yr hambwrdd</li><li>Yr un bysellau ag ar Mac</li>
+iTitle = Yn barod mewn munud
+s1h = Lawrlwytho
+s1p = Dadsipiwch yr archif. Ar Mac, llusgwch AURA i Applications; ar Windows, rhedwch AURA.exe.
+s2h = Caniatáu
+s2p = Ar Mac: Gosodiadau System → Preifatrwydd a Diogelwch → Hygyrchedd → AURA.
+s3h = Teipio
+s3p = Mae’r cod iaith yn ymddangos yn y bar dewislen (Mac) neu’r hambwrdd (Windows). Mae AURA yn gwneud y gweddill.
+ctaH = Rhowch gynnig ar AURA heddiw
+ctaP = Beta am ddim ar gyfer macOS a Windows.
+made = Wedi’i wneud yn Wcráin
+foot = AURA — meddyliwch am eich testun, nid cynllun eich bysellfwrdd.
+donate = Cefnogi
+supportP = Hoffi AURA Switcher? Cefnogwch y datblygu gyda phaned o goffi.
+contact = Ysgrifennwch atom
+phoneNote = Rhaglen ar gyfer y cyfrifiadur yw AURA (Mac a Windows). Anfonwch y ddolen atoch eich hun a’i hagor ar y cyfrifiadur.
+phoneBtn = Anfon y ddolen ataf
+phoneCopied = Copïwyd y ddolen
+safeH = A yw’n ddiogel?
+safe1h = Cod agored
+safe1p = Mae’r holl god ar <a href="https://github.com/klbk/aura-switcher-app" target="_blank" rel="noopener">GitHub</a>: gall unrhyw un weld beth mae’r rhaglen yn ei wneud.
+safe2h = Pam mae angen mynediad i’r bysellfwrdd
+safe2p = I weld y gair rydych chi’n ei deipio a’i gywiro. Nid yw’r testun yn cael ei gadw nac yn cael ei anfon i unman, ac nid oes angen y rhyngrwyd ar y rhaglen.
+safe3h = Mae rhybudd wrth y lansiad cyntaf yn normal
+safe3p = Nid oes gan y beta lofnod drud Apple na Microsoft eto. Mac: «Done» → Gosodiadau System → Preifatrwydd a Diogelwch → «Open Anyway». Windows: «More info» → «Run anyway».
+menabled = Wedi’i alluogi
+mauto = Cywiro awtomatig
+msound = Sain
+mapp = Ap: 
+mexclude = Peidio â gweithio yn yr ap hwn
+mappLang = Iaith ar gyfer yr ap hwn
+mexclusions = Eithriadau
+mbindings = Cysylltiadau iaith
+```
+
+## Update page
+
+```
+update1 = Mae gennych y fersiwn ddiweddaraf
+update2 = Mae AURA Switcher {v} allan
+update3 = Mae gennych {v}
+update4 = Beth sy’n newydd
+update5 = Sut i ddiweddaru
+update6 = Gadewch AURA: cliciwch ar y cod iaith yn y bar dewislen → «Gadael».
+update7 = Agorwch yr archif a lawrlwythwyd a llusgwch AURA Switcher i Applications, gan ddisodli’r hen un.
+update8 = Agorwch AURA. Os yw ⚠︎ yn ymddangos yn lle’r cod iaith, diffoddwch AURA a’i droi ymlaen eto yma:
+update9 = Gadewch AURA: cliciwch ar ei eicon yn yr hambwrdd → «Gadael».
+update10 = Dadsipiwch yr archif a rhowch yr «AURA Switcher.exe» newydd yn lle’r hen un.
+update11 = Rhedwch AURA Switcher.exe — mae eich gosodiadau’n aros fel yr oeddent.
+update12 = Gwefan AURA Switcher
+```

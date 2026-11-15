@@ -1,0 +1,129 @@
+# AURA Switcher — Belarusian (be) translation
+
+Belarusian is already in the app and on the site (https://klbk.github.io/aura-switcher/be/), but it was written by an AI, not by a native speaker. Please proofread it: fix anything that sounds unnatural or wrong, and leave good lines as they are.
+Keep the key before `=`, HTML tags (<br>, <kbd>, <span …>), {v} and symbols (⇧ ⚠︎ ⬆︎ ☕ →) unchanged.
+When done, open a pull request with this file. The maintainer will move the texts into the app and the site.
+
+## App menu (Mac and Windows)
+
+```
+name = Беларуская
+enabled = Уключана
+auto = Аўтавыпраўленне
+sound = Гук
+access = ⚠︎ Дайце доступ: Спецыяльныя магчымасці
+app = Праграма:
+exclude = Не працаваць у гэтай праграме
+game = Гульня — AURA на паўзе
+appLang = Мова для гэтай праграмы
+noBinding = Без прывязкі
+exclusions = Выключэнні
+recent = Не працаваць у (нядаўнія праграмы)
+bindings = Прывязкі моў
+empty = Пуста
+login = Запускаць пры ўваходзе
+words = Мае словы…
+wordsTitle = AURA Switcher — мае словы
+wordsInfo = AURA Switcher лічыць гэтыя словы правільнымі: не мяняе іх, а набраныя ў няправільнай раскладцы — выпраўляе на іх. Праз коску.
+save = Захаваць
+cancel = Скасаваць
+uiLang = Мова меню
+allLangs = Усе мовы
+regEurope = Еўропа
+regCaucasus = Каўказ і Цэнтральная Азія
+regMiddleEast = Блізкі Усход
+regAsia = Азія
+system = Сістэмная
+hint = Падвойны ⇧ — змяніць мову слова/вылучэння
+report = Паведаміць пра праблему…
+reportBody = Што здарылася і ў якой праграме:
+update = Праверыць абнаўленні…
+updateDue = ⬆︎ Магчыма, выйшла абнаўленне — праверыць
+donate = Падтрымаць AURA Switcher ☕
+quit = Выхад
+updNew = Выйшла AURA Switcher {v}
+updLatest = У вас апошняя версія
+updNotes = Што новага
+updNow = Абнавіць
+updLater = Пазней
+updFail = Не ўдалося абнавіць аўтаматычна. Адкрыць сайт, каб спампаваць?
+```
+
+## Website
+
+```
+name = Беларуская
+title = AURA Switcher — раскладка клавіятуры выпраўляецца сама
+badge = Бэта 0.9.9 · бясплатна · без рэгістрацыі
+h1 = Проста друкуйце.<br><span class="hl">AURA</span> выпраўляе раскладку
+lead = Набралі «ghbdsn» замест «привіт»? AURA заўважыць і выправіць адразу пасля прабела. Для macOS і Windows.
+dlMac = Спампаваць для Mac
+dlWin = Для Windows
+demoWrong = Не тая раскладка…
+demoFixed = Выпраўлена пасля прабела
+fTitle = Усё патрэбнае. Нічога лішняга
+f1h = Аўтавыпраўленне
+f1p = Слова, набранае ў не той раскладцы, пасля прабела становіцца правільным, а раскладка пераключаецца.
+f2h = Падвойны Shift
+f2p = Націсніце <kbd>Shift</kbd> двойчы — апошняе слова або вылучаны тэкст пераўтворыцца ў іншую раскладку.
+f3h = Мова для праграмы
+f3p = Terminal — заўсёды EN, Telegram — БЕ. У праграмах-выключэннях AURA проста маўчыць.
+f4h = Прыватная
+f4p = Нічога не адпраўляе ў інтэрнэт. Усё працуе на вашай прыладзе.
+f5h = Мовы: 21
+f5p = Усе раскладкі вашай сістэмы.
+f6h = Лёгкая
+f6p = Менш за 1 МБ, не марудзіць набор і не завісае сістэму.
+pTitle = Mac і Windows — тыя самыя звычкі
+pMac = <li>Apple Silicon і Intel</li><li>Код мовы ў радку меню: EN, БЕ, DE…</li><li>macOS 13 і навейшая</li>
+pWin = <li>x64 і ARM64, без усталявання</li><li>Код мовы ў вобласці апавяшчэнняў</li><li>Тыя ж клавішы, што на Mac</li>
+iTitle = Гатова за хвіліну
+s1h = Спампуйце
+s1p = Распакуйце архіў. На Mac перацягніце AURA ў «Праграмы», на Windows проста запусціце AURA.exe.
+s2h = Дазвольце
+s2p = На Mac: Сістэмныя налады → Прыватнасць і бяспека → Спецыяльныя магчымасці → AURA.
+s3h = Друкуйце
+s3p = Код мовы з’явіцца ў радку меню (Mac) або ў вобласці апавяшчэнняў (Windows). Астатняе зробіць AURA.
+ctaH = Паспрабуйце AURA сёння
+ctaP = Бясплатная бэта для macOS і Windows.
+made = Зроблена ва Украіне
+foot = AURA — думайце пра тэкст, а не пра раскладку.
+donate = Падтрымаць
+supportP = Падабаецца AURA Switcher? Падтрымайце распрацоўку кубачкам кавы.
+contact = Напісаць нам
+phoneNote = AURA — праграма для кампутара (Mac і Windows). Адпраўце спасылку сабе і адкрыйце яе на кампутары.
+phoneBtn = Адправіць спасылку сабе
+phoneCopied = Спасылка скапіявана
+safeH = Гэта бяспечна?
+safe1h = Адкрыты код
+safe1p = Увесь код ляжыць на <a href="https://github.com/klbk/aura-switcher-app" target="_blank" rel="noopener">GitHub</a>: кожны можа праверыць, што робіць праграма.
+safe2h = Навошта доступ да клавіятуры
+safe2p = Каб бачыць набранае слова і выправіць яго. Тэкст не захоўваецца і нікуды не адпраўляецца, інтэрнэт праграме не патрэбны.
+safe3h = Папярэджанне пры першым запуску — гэта нармальна
+safe3p = Бэта пакуль без платнага подпісу Apple і Microsoft. Mac: «Гатова» → Сістэмныя налады → Прыватнасць і бяспека → «Усё роўна адкрыць». Windows: «Падрабязней» → «Усё роўна выканаць».
+menabled = Уключана
+mauto = Аўтавыпраўленне
+msound = Гук
+mapp = Праграма: 
+mexclude = Не працаваць у гэтай праграме
+mappLang = Мова для гэтай праграмы
+mexclusions = Выключэнні
+mbindings = Прывязкі моў
+```
+
+## Update page
+
+```
+update1 = У вас апошняя версія
+update2 = Выйшла AURA Switcher {v}
+update3 = У вас {v}
+update4 = Што новага
+update5 = Як абнавіць
+update6 = Закрыйце AURA: клік па коду мовы ўверсе → «Выхад».
+update7 = Адкрыйце спампаваны архіў і перацягніце AURA Switcher у Праграмы, замяніўшы стары.
+update8 = Адкрыйце AURA. Калі замест кода мовы бачны ⚠︎, выключыце AURA і ўключыце зноў тут:
+update9 = Закрыйце AURA: клік па яе значку ў вобласці апавяшчэнняў → «Выхад».
+update10 = Распакуйце архіў і пакладзіце новы «AURA Switcher.exe» на месца старога.
+update11 = Запусціце AURA Switcher.exe — вашы налады застануцца.
+update12 = Сайт AURA Switcher
+```

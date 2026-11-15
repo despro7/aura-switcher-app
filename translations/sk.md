@@ -1,0 +1,129 @@
+# AURA Switcher — Slovak (sk) translation
+
+Slovak is already in the app and on the site (https://klbk.github.io/aura-switcher/sk/), but it was written by an AI, not by a native speaker. Please proofread it: fix anything that sounds unnatural or wrong, and leave good lines as they are.
+Keep the key before `=`, HTML tags (<br>, <kbd>, <span …>), {v} and symbols (⇧ ⚠︎ ⬆︎ ☕ →) unchanged.
+When done, open a pull request with this file. The maintainer will move the texts into the app and the site.
+
+## App menu (Mac and Windows)
+
+```
+name = Slovenčina
+enabled = Zapnuté
+auto = Automatické opravy
+sound = Zvuk
+access = ⚠︎ Povoľte prístup: Zjednodušenie ovládania
+app = Aplikácia:
+exclude = V tejto aplikácii nepracovať
+game = Hra — AURA pozastavená
+appLang = Jazyk pre túto aplikáciu
+noBinding = Bez priradenia
+exclusions = Výnimky
+recent = Nepracovať v (nedávne aplikácie)
+bindings = Priradenia jazykov
+empty = Prázdne
+login = Spúšťať po prihlásení
+words = Moje slová…
+wordsTitle = AURA Switcher — moje slová
+wordsInfo = AURA Switcher považuje tieto slová za správne: nikdy ich nemení a opravuje ich, keď sú napísané v nesprávnom rozložení. Oddeľte ich čiarkami.
+save = Uložiť
+cancel = Zrušiť
+uiLang = Jazyk ponuky
+allLangs = Všetky jazyky
+regEurope = Európa
+regCaucasus = Kaukaz a Stredná Ázia
+regMiddleEast = Blízky východ
+regAsia = Ázia
+system = Systémový
+hint = Dvojitý ⇧ — previesť slovo/výber
+report = Nahlásiť problém…
+reportBody = Čo sa stalo a v ktorej aplikácii:
+update = Skontrolovať aktualizácie…
+updateDue = ⬆︎ Možno vyšla aktualizácia — skontrolovať
+donate = Podporiť AURA Switcher ☕
+quit = Ukončiť
+updNew = Vyšiel AURA Switcher {v}
+updLatest = Máte najnovšiu verziu
+updNotes = Čo je nové
+updNow = Aktualizovať
+updLater = Neskôr
+updFail = Automatická aktualizácia sa nepodarila. Otvoriť web na stiahnutie?
+```
+
+## Website
+
+```
+name = Slovenčina
+title = AURA Switcher — rozloženie klávesnice sa opraví samo
+badge = Beta 0.9.9 · zadarmo · bez registrácie
+h1 = Len píšte.<br>Rozloženie opraví <span class="hl">AURA</span>
+lead = Napísali ste «ghbdsn» namiesto «привіт»? AURA si to všimne a opraví to hneď po medzerníku. Pre macOS a Windows.
+dlMac = Stiahnuť pre Mac
+dlWin = Pre Windows
+demoWrong = Nesprávne rozloženie…
+demoFixed = Opravené po medzerníku
+fTitle = Všetko, čo potrebujete. Nič navyše
+f1h = Automatické opravy
+f1p = Slovo napísané v nesprávnom rozložení sa po medzerníku opraví a rozloženie sa prepne.
+f2h = Dvojitý Shift
+f2p = Dvakrát stlačte <kbd>Shift</kbd> — posledné slovo alebo označený text sa prevedie do iného rozloženia.
+f3h = Jazyk podľa aplikácie
+f3p = Terminal — vždy EN, Telegram — УК. Vo vylúčených aplikáciách AURA mlčí.
+f4h = Súkromná
+f4p = Nič neodosiela na internet. Všetko beží na vašom zariadení.
+f5h = 21 jazykov
+f5p = Každé rozloženie vo vašom systéme.
+f6h = Ľahká
+f6p = Menej ako 1 MB, nespomaľuje písanie ani nezamŕza systém.
+pTitle = Mac a Windows — rovnaké zvyky
+pMac = <li>Apple Silicon a Intel</li><li>Kód jazyka v paneli ponuky: EN, УК, SK…</li><li>macOS 13 a novší</li>
+pWin = <li>x64 a ARM64, bez inštalácie</li><li>Kód jazyka v oblasti oznámení</li><li>Rovnaké klávesy ako na Macu</li>
+iTitle = Pripravené za minútu
+s1h = Stiahnite
+s1p = Rozbaľte archív. Na Macu presuňte AURA do Aplikácií, vo Windowse spustite AURA.exe.
+s2h = Povoľte
+s2p = Na Macu: Nastavenia systému → Súkromie a zabezpečenie → Zjednodušenie ovládania → AURA.
+s3h = Píšte
+s3p = Kód jazyka sa zobrazí v paneli ponuky (Mac) alebo v oblasti oznámení (Windows). Zvyšok urobí AURA.
+ctaH = Vyskúšajte AURA ešte dnes
+ctaP = Bezplatná beta pre macOS a Windows.
+made = Vyrobené na Ukrajine
+foot = AURA — myslite na text, nie na rozloženie klávesnice.
+donate = Podporiť
+supportP = Páči sa vám AURA Switcher? Podporte vývoj šálkou kávy.
+contact = Napíšte nám
+phoneNote = AURA je počítačová aplikácia (Mac a Windows). Pošlite si odkaz a otvorte ho v počítači.
+phoneBtn = Poslať si odkaz
+phoneCopied = Odkaz skopírovaný
+safeH = Je to bezpečné?
+safe1h = Otvorený kód
+safe1p = Celý kód je na <a href="https://github.com/klbk/aura-switcher-app" target="_blank" rel="noopener">GitHub</a> — ktokoľvek si môže overiť, čo program robí.
+safe2h = Prečo potrebuje prístup ku klávesnici
+safe2p = Aby videl napísané slovo a opravil ho. Text sa neukladá ani nikam neodosiela, program nepotrebuje internet.
+safe3h = Upozornenie pri prvom spustení je normálne
+safe3p = Beta zatiaľ nemá platený podpis Apple a Microsoft. Mac: „Hotovo“ → Nastavenia systému → Súkromie a zabezpečenie → „Predsa otvoriť“. Windows: „Ďalšie informácie“ → „Predsa spustiť“.
+menabled = Zapnuté
+mauto = Automatické opravy
+msound = Zvuk
+mapp = Aplikácia: 
+mexclude = V tejto aplikácii nepracovať
+mappLang = Jazyk pre túto aplikáciu
+mexclusions = Výnimky
+mbindings = Priradenia jazykov
+```
+
+## Update page
+
+```
+update1 = Máte najnovšiu verziu
+update2 = Vyšiel AURA Switcher {v}
+update3 = Máte {v}
+update4 = Čo je nové
+update5 = Ako aktualizovať
+update6 = Ukončite AURA: kliknite na kód jazyka v paneli ponuky → «Ukončiť».
+update7 = Otvorte stiahnutý archív a presuňte AURA Switcher do Aplikácií, čím nahradíte starú verziu.
+update8 = Otvorte AURA. Ak sa namiesto kódu jazyka zobrazí ⚠︎, vypnite AURA a znova ju zapnite tu:
+update9 = Ukončite AURA: kliknite na jej ikonu v oblasti oznámení → «Ukončiť».
+update10 = Rozbaľte archív a nový «AURA Switcher.exe» dajte na miesto starého.
+update11 = Spustite AURA Switcher.exe — vaše nastavenia zostanú zachované.
+update12 = Web AURA Switcher
+```

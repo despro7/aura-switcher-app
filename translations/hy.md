@@ -1,0 +1,129 @@
+# AURA Switcher — Armenian (hy) translation
+
+Armenian is already in the app and on the site (https://klbk.github.io/aura-switcher/hy/), but it was written by an AI, not by a native speaker. Please proofread it: fix anything that sounds unnatural or wrong, and leave good lines as they are.
+Keep the key before `=`, HTML tags (<br>, <kbd>, <span …>), {v} and symbols (⇧ ⚠︎ ⬆︎ ☕ →) unchanged.
+When done, open a pull request with this file. The maintainer will move the texts into the app and the site.
+
+## App menu (Mac and Windows)
+
+```
+name = Հայերեն
+enabled = Միացված է
+auto = Ինքնաուղղում
+sound = Ձայն
+access = ⚠︎ Տվեք թույլտվություն՝ Հասանելիություն
+app = Հավելված՝
+exclude = Չաշխատել այս հավելվածում
+game = Խաղ — AURA-ն դադարի վրա է
+appLang = Այս հավելվածի լեզուն
+noBinding = Առանց կապակցման
+exclusions = Բացառություններ
+recent = Չաշխատել (վերջին հավելվածներ)
+bindings = Լեզուների կապակցումներ
+empty = Դատարկ է
+login = Գործարկել մուտքի ժամանակ
+words = Իմ բառերը…
+wordsTitle = AURA Switcher — իմ բառերը
+wordsInfo = AURA Switcher-ն այս բառերը ճիշտ է համարում՝ չի փոխում դրանք, իսկ սխալ դասավորությամբ տպվածները ուղղում է հենց այսպես։ Բաժանեք ստորակետերով։
+save = Պահպանել
+cancel = Չեղարկել
+uiLang = Ցանկի լեզուն
+allLangs = Բոլոր լեզուները
+regEurope = Եվրոպա
+regCaucasus = Կովկաս և Կենտրոնական Ասիա
+regMiddleEast = Մերձավոր Արևելք
+regAsia = Ասիա
+system = Համակարգային
+hint = Կրկնակի ⇧ — փոխարկել բառը/նշվածը
+report = Հաղորդել խնդրի մասին…
+reportBody = Ինչ է պատահել և որ հավելվածում՝
+update = Ստուգել թարմացումները…
+updateDue = ⬆︎ Հնարավոր է՝ թարմացում է թողարկվել — ստուգել
+donate = Աջակցել AURA Switcher-ին ☕
+quit = Ելք
+updNew = Թողարկվել է AURA Switcher {v}
+updLatest = Դուք ունեք վերջին տարբերակը
+updNotes = Ինչ նոր է
+updNow = Թարմացնել
+updLater = Հետո
+updFail = Չհաջողվեց թարմացնել ավտոմատ կերպով։ Բացե՞լ կայքը՝ ներբեռնելու համար։
+```
+
+## Website
+
+```
+name = Հայերեն
+title = AURA Switcher — ստեղնաշարի դասավորությունն ինքն է ուղղվում
+badge = Բետա 0.9.9 · անվճար · առանց գրանցման
+h1 = Պարզապես տպեք։<br>Դասավորությունը կուղղի <span class="hl">AURA</span>-ն
+lead = «привіт»-ի փոխարեն «ghbdsn» եք տպել։ AURA-ն կնկատի և բացատից անմիջապես հետո կուղղի։ macOS-ի և Windows-ի համար։
+dlMac = Ներբեռնել Mac-ի համար
+dlWin = Windows-ի համար
+demoWrong = Սխալ դասավորություն…
+demoFixed = Ուղղվեց բացատից հետո
+fTitle = Ամեն անհրաժեշտը։ Ոչ մի ավելորդ բան
+f1h = Ինքնաուղղում
+f1p = Սխալ դասավորությամբ տպված բառը բացատից հետո ուղղվում է, և դասավորությունը փոխվում է։
+f2h = Կրկնակի Shift
+f2p = Սեղմեք <kbd>Shift</kbd>-ը երկու անգամ. վերջին բառը կամ նշված տեքստը կփոխարկվի մեկ այլ դասավորության։
+f3h = Լեզու ըստ հավելվածի
+f3p = Terminal — միշտ EN, Telegram — ՀՅ։ Բացառված հավելվածներում AURA-ն լռում է։
+f4h = Գաղտնի
+f4p = Ոչինչ չի ուղարկում համացանց։ Ամեն ինչ աշխատում է ձեր սարքում։
+f5h = 21 լեզու
+f5p = Ձեր համակարգի բոլոր դասավորությունները։
+f6h = Թեթև
+f6p = 1 ՄԲ-ից պակաս, չի դանդաղեցնում տպելը և չի սառեցնում համակարգը։
+pTitle = Mac և Windows — նույն սովորույթները
+pMac = <li>Apple Silicon և Intel</li><li>Լեզվի կոդը մենյուի գոտում՝ EN, ՀՅ, DE…</li><li>macOS 13 և ավելի նոր</li>
+pWin = <li>x64 և ARM64, առանց տեղադրման</li><li>Լեզվի կոդը ծանուցումների հատվածում</li><li>Նույն ստեղները, ինչ Mac-ում</li>
+iTitle = Պատրաստ է մեկ րոպեում
+s1h = Ներբեռնեք
+s1p = Բացեք արխիվը։ Mac-ում AURA-ն քաշեք «Applications», Windows-ում պարզապես գործարկեք AURA.exe։
+s2h = Թույլ տվեք
+s2p = Mac-ում՝ Համակարգի կարգավորումներ → Գաղտնիություն և անվտանգություն → Հասանելիություն → AURA։
+s3h = Տպեք
+s3p = Լեզվի կոդը երևում է մենյուի գոտում (Mac) կամ ծանուցումների հատվածում (Windows)։ Մնացածը կանի AURA-ն։
+ctaH = Փորձեք AURA-ն այսօր
+ctaP = Անվճար բետա macOS-ի և Windows-ի համար։
+made = Ստեղծված է Ուկրաինայում
+foot = AURA — մտածեք տեքստի մասին, ոչ թե ստեղնաշարի դասավորության։
+donate = Աջակցել
+supportP = Հավանո՞ւմ եք AURA Switcher-ը։ Աջակցեք մշակմանը մեկ գավաթ սուրճով։
+contact = Գրել մեզ
+phoneNote = AURA-ն համակարգչի հավելված է (Mac և Windows)։ Ուղարկեք հղումն ինքներդ ձեզ և բացեք համակարգչով։
+phoneBtn = Ուղարկել հղումն ինձ
+phoneCopied = Հղումը պատճենվեց
+safeH = Անվտա՞նգ է
+safe1h = Բաց կոդ
+safe1p = Ամբողջ կոդը <a href="https://github.com/klbk/aura-switcher-app" target="_blank" rel="noopener">GitHub</a>-ում է. ցանկացած մարդ կարող է ստուգել, թե ինչ է անում ծրագիրը։
+safe2h = Ինչու է պետք մուտք ստեղնաշարին
+safe2p = Տպված բառը տեսնելու և ուղղելու համար։ Տեքստը չի պահվում և ոչ մի տեղ չի ուղարկվում, ծրագրին համացանց պետք չէ։
+safe3h = Առաջին գործարկման ժամանակ նախազգուշացումը նորմալ է
+safe3p = Բետան դեռ չունի Apple-ի և Microsoft-ի վճարովի ստորագրություն։ Mac՝ «Done» → Համակարգի կարգավորումներ → Գաղտնիություն և անվտանգություն → «Open Anyway»։ Windows՝ «More info» → «Run anyway»։
+menabled = Միացված է
+mauto = Ինքնաուղղում
+msound = Ձայն
+mapp = Հավելված՝ 
+mexclude = Չաշխատել այս հավելվածում
+mappLang = Այս հավելվածի լեզուն
+mexclusions = Բացառություններ
+mbindings = Լեզուների կապակցումներ
+```
+
+## Update page
+
+```
+update1 = Դուք ունեք վերջին տարբերակը
+update2 = Թողարկվել է AURA Switcher {v}
+update3 = Դուք ունեք {v}
+update4 = Ինչ նոր է
+update5 = Ինչպես թարմացնել
+update6 = Փակեք AURA-ն․ սեղմեք լեզվի կոդին մենյուի տողում → «Ելք»։
+update7 = Բացեք ներբեռնված արխիվը և քաշեք AURA Switcher-ը Applications թղթապանակ՝ հները փոխարինելով։
+update8 = Բացեք AURA-ն։ Եթե լեզվի կոդի փոխարեն ⚠︎ է երևում, անջատեք AURA-ն և նորից միացրեք այստեղ․
+update9 = Փակեք AURA-ն․ սեղմեք նրա պատկերակին ծանուցումների գոտում → «Ելք»։
+update10 = Բացեք արխիվը և նոր «AURA Switcher.exe»-ն դրեք հինի փոխարեն։
+update11 = Գործարկեք AURA Switcher.exe-ն — ձեր կարգավորումները կպահպանվեն։
+update12 = AURA Switcher-ի կայքը
+```

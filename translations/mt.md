@@ -1,0 +1,129 @@
+# AURA Switcher — Maltese (mt) translation
+
+Maltese is already in the app and on the site (https://klbk.github.io/aura-switcher/mt/), but it was written by an AI, not by a native speaker. Please proofread it: fix anything that sounds unnatural or wrong, and leave good lines as they are.
+Keep the key before `=`, HTML tags (<br>, <kbd>, <span …>), {v} and symbols (⇧ ⚠︎ ⬆︎ ☕ →) unchanged.
+When done, open a pull request with this file. The maintainer will move the texts into the app and the site.
+
+## App menu (Mac and Windows)
+
+```
+name = Malti
+enabled = Attivat
+auto = Korrezzjoni awtomatika
+sound = Ħoss
+access = ⚠︎ Agħti aċċess: Aċċessibbiltà
+app = Applikazzjoni:
+exclude = Taħdimx f’din l-applikazzjoni
+game = Logħba — AURA fil-pawża
+appLang = Lingwa għal din l-applikazzjoni
+noBinding = L-ebda rabta
+exclusions = Eċċezzjonijiet
+recent = Taħdimx fi (applikazzjonijiet reċenti)
+bindings = Rabtiet tal-lingwi
+empty = Vojt
+login = Ibda mad-dħul
+words = Kliemi…
+wordsTitle = AURA Switcher — kliemi
+wordsInfo = AURA Switcher iqis dan il-kliem bħala korrett: ma jbiddlu qatt, u jikkoreġi għalih meta jinkiteb bi tqassim żbaljat tat-tastiera. Aqsamhom b’virgola.
+save = Salva
+cancel = Ikkanċella
+uiLang = Lingwa tal-menu
+allLangs = Il-lingwi kollha
+regEurope = Ewropa
+regCaucasus = Il-Kawkasu u l-Asja Ċentrali
+regMiddleEast = Il-Lvant Nofsani
+regAsia = L-Asja
+system = Sistema
+hint = ⇧ doppju — ikkonverti kelma/għażla
+report = Irrapporta problema…
+reportBody = X’ġara u f’liema applikazzjoni:
+update = Iċċekkja għal aġġornamenti…
+updateDue = ⬆︎ Jista’ jkun hemm aġġornament — iċċekkja
+donate = Appoġġa lil AURA Switcher ☕
+quit = Ieqaf
+updNew = AURA Switcher {v} ħareġ
+updLatest = Għandek l-aħħar verżjoni
+updNotes = X’hemm ġdid
+updNow = Aġġorna
+updLater = Aktar tard
+updFail = Ma setax jiġi aġġornat awtomatikament. Niftaħ is-sit biex tniżżlu?
+```
+
+## Website
+
+```
+name = Malti
+title = AURA Switcher — it-tqassim tat-tastiera jikkoreġi ruħu
+badge = Beta 0.9.9 · b’xejn · mingħajr reġistrazzjoni
+h1 = Ikteb biss.<br><span class="hl">AURA</span> tikkoreġi t-tqassim
+lead = Ktibt «ghbdsn» minflok «привіт»? AURA tinduna u tikkoreġih eżatt wara l-ispazju. Għal macOS u Windows.
+dlMac = Niżżel għal Mac
+dlWin = Għal Windows
+demoWrong = Tqassim ħażin…
+demoFixed = Ikkoreġut wara l-ispazju
+fTitle = Dak kollu li għandek bżonn. Xejn żejjed
+f1h = Korrezzjoni awtomatika
+f1p = Kelma miktuba bi tqassim ħażin issir tajba wara l-ispazju, u t-tqassim jinbidel.
+f2h = Shift doppju
+f2p = Agħfas <kbd>Shift</kbd> darbtejn — l-aħħar kelma jew it-test magħżul jinbidel għal tqassim ieħor.
+f3h = Lingwa għal kull applikazzjoni
+f3p = Terminal — dejjem EN, Telegram — УК. Fl-applikazzjonijiet esklużi AURA tibqa’ siekta.
+f4h = Privat
+f4p = Ma jibgħat xejn fuq l-internet. Kollox jaħdem fuq l-apparat tiegħek.
+f5h = 21 lingwa
+f5p = It-tqassim kollu tas-sistema tiegħek.
+f6h = Ħafif
+f6p = Inqas minn 1 MB, ma jonqosx il-veloċità tal-kitba u ma jgħaqqadx is-sistema.
+pTitle = Mac u Windows — l-istess drawwiet
+pMac = <li>Apple Silicon u Intel</li><li>Kodiċi tal-lingwa fil-bar tal-menu: EN, УК, MT…</li><li>macOS 13 jew aktar ġdid</li>
+pWin = <li>x64 u ARM64, mingħajr installatur</li><li>Kodiċi tal-lingwa fit-tray</li><li>L-istess tasti bħal fuq Mac</li>
+iTitle = Lest f’minuta
+s1h = Niżżel
+s1p = Iftaħ l-arkivju. Fuq Mac iġbed AURA fl-Applications, fuq Windows ħaddem AURA.exe.
+s2h = Ippermetti
+s2p = Fuq Mac: Settings tas-Sistema → Privatezza u Sigurtà → Aċċessibbiltà → AURA.
+s3h = Ikteb
+s3p = Il-kodiċi tal-lingwa jidher fil-bar tal-menu (Mac) jew fit-tray (Windows). Il-bqija tagħmlu AURA.
+ctaH = Ipprova AURA llum
+ctaP = Beta b’xejn għal macOS u Windows.
+made = Magħmul fl-Ukrajna
+foot = AURA — aħseb fit-test, mhux fit-tqassim tat-tastiera.
+donate = Appoġġa
+supportP = Togħġbok AURA Switcher? Appoġġa l-iżvilupp b’kikkra kafè.
+contact = Ikteb lilna
+phoneNote = AURA hija programm għall-kompjuter (Mac u Windows). Ibgħat il-link lilek innifsek u fthu fuq il-kompjuter.
+phoneBtn = Ibgħat il-link lili nnifsi
+phoneCopied = Il-link ġie kkupjat
+safeH = Huwa sigur?
+safe1h = Kodiċi miftuħ
+safe1p = Il-kodiċi kollu jinsab fuq <a href="https://github.com/klbk/aura-switcher-app" target="_blank" rel="noopener">GitHub</a>: kulħadd jista’ jara x’jagħmel il-programm.
+safe2h = Għaliex jinħtieġ aċċess għat-tastiera
+safe2p = Biex jarah il-kelma li tikteb u jikkoreġiha. It-test ma jinħażen u ma jintbagħat imkien, u l-programm ma jeħtieġx l-internet.
+safe3h = Twissija fl-ewwel tnedija hija normali
+safe3p = Il-beta għad m’għandhiex il-firma għalja ta’ Apple jew Microsoft. Mac: «Done» → Settings tas-Sistema → Privatezza u Sigurtà → «Iftaħ xorta waħda». Windows: «Aktar informazzjoni» → «Mexxi xorta waħda».
+menabled = Attivat
+mauto = Korrezzjoni awtomatika
+msound = Ħoss
+mapp = Applikazzjoni: 
+mexclude = Taħdimx f’din l-applikazzjoni
+mappLang = Lingwa għal din l-applikazzjoni
+mexclusions = Eċċezzjonijiet
+mbindings = Rabtiet tal-lingwi
+```
+
+## Update page
+
+```
+update1 = Għandek l-aħħar verżjoni
+update2 = AURA Switcher {v} ħareġ
+update3 = Għandek {v}
+update4 = X’hemm ġdid
+update5 = Kif taġġorna
+update6 = Ieqaf minn AURA: ikklikkja fuq il-kodiċi tal-lingwa fil-bar tal-menu → «Ieqaf».
+update7 = Iftaħ l-arkivju niżżel u iġbed AURA Switcher fl-Applications, biex tieħu post il-qadima.
+update8 = Iftaħ AURA. Jekk jidher ⚠︎ minflok il-kodiċi tal-lingwa, itfi AURA u terġa’ tixgħelha hawnhekk:
+update9 = Ieqaf minn AURA: ikklikkja fuq l-ikona tagħha fit-tray → «Ieqaf».
+update10 = Iftaħ l-arkivju u poġġi «AURA Switcher.exe» il-ġdid minflok il-qadim.
+update11 = Ħaddem AURA Switcher.exe — is-settings tiegħek jibqgħu kif kienu.
+update12 = Is-sit ta’ AURA Switcher
+```

@@ -1,0 +1,129 @@
+# AURA Switcher — Tatar (tt) translation
+
+Tatar is already in the app and on the site (https://klbk.github.io/aura-switcher/tt/), but it was written by an AI, not by a native speaker. Please proofread it: fix anything that sounds unnatural or wrong, and leave good lines as they are.
+Keep the key before `=`, HTML tags (<br>, <kbd>, <span …>), {v} and symbols (⇧ ⚠︎ ⬆︎ ☕ →) unchanged.
+When done, open a pull request with this file. The maintainer will move the texts into the app and the site.
+
+## App menu (Mac and Windows)
+
+```
+name = Татарча
+enabled = Кабызылган
+auto = Автоматик төзәтү
+sound = Тавыш
+access = ⚠︎ Кереп җитү рөхсәт итегез: Махсус мөмкинлекләр
+app = Кушымта:
+exclude = Бу кушымтада эшләмәскә
+game = Уен — AURA туктатылган
+appLang = Бу кушымта өчен тел
+noBinding = Бәйләнешсез
+exclusions = Аерымлыклар
+recent = Эшләмәскә (соңгы кушымталар)
+bindings = Телләр бәйләнеше
+empty = Буш
+login = Керүдә эшләтеп җибәрергә
+words = Минем сүзләр…
+wordsTitle = AURA Switcher — минем сүзләр
+wordsInfo = AURA Switcher бу сүзләрне дөрес дип саный: аларны беркайчан да үзгәртми, ә дөрес булмаган клавиатура рәвешендә язылса, алар итеп төзәтә. Өтер белән аерыгыз.
+save = Саклау
+cancel = Баш тарту
+uiLang = Меню теле
+allLangs = Барлык телләр
+regEurope = Европа
+regCaucasus = Кавказ һәм Үзәк Азия
+regMiddleEast = Якын Көнчыгыш
+regAsia = Азия
+system = Система
+hint = Икеләтә ⇧ — сүзне/сайланганны әйләндерү
+report = Проблема турында хәбәр итү…
+reportBody = Нәрсә булды һәм кайсы кушымтада:
+update = Яңартуларны тикшерү…
+updateDue = ⬆︎ Яңарту булырга мөмкин — тикшерегез
+donate = AURA Switcher'ны хупларга ☕
+quit = Чыгу
+updNew = AURA Switcher {v} чыкты
+updLatest = Сездә иң соңгы версия
+updNotes = Нәрсә яңа
+updNow = Яңарту
+updLater = Соңрак
+updFail = Автоматик рәвештә яңартып булмады. Йөкләү өчен сайтны ачарга?
+```
+
+## Website
+
+```
+name = Татарча
+title = AURA Switcher — клавиатура рәвеше үзе төзәлә
+badge = Бета 0.9.9 · бушлай · теркәлүсез
+h1 = Гади генә языгыз.<br><span class="hl">AURA</span> рәвешне төзәтә
+lead = «привіт» урынына «ghbdsn» яздыгызмы? AURA моны абайлый һәм бушлыктан соң ук төзәтә. macOS һәм Windows өчен.
+dlMac = Mac өчен йөкләү
+dlWin = Windows өчен
+demoWrong = Дөрес булмаган рәвеш…
+demoFixed = Бушлыктан соң төзәтелде
+fTitle = Кирәкле барысы да. Артык берни дә юк
+f1h = Автоматик төзәтү
+f1p = Дөрес булмаган рәвештә язылган сүз бушлыктан соң дөрес була, ә рәвеш алмашына.
+f2h = Икеләтә Shift
+f2p = <kbd>Shift</kbd>'ны ике тапкыр басыгыз — соңгы сүз яки сайланган текст башка рәвешкә әйләнә.
+f3h = Һәр кушымта өчен тел
+f3p = Terminal — һәрвакыт EN, Telegram — УК. Аерым кушымталарда AURA тавышсыз кала.
+f4h = Шәхси
+f4p = Интернетка берни дә җибәрми. Барысы да сезнең җайланмада эшли.
+f5h = 21 тел
+f5p = Системагыздагы барлык рәвешләр.
+f6h = Җиңел
+f6p = 1 МБ-тан да кечерәк, язуны акрынайтмый һәм системаны катырмый.
+pTitle = Mac һәм Windows — бертөрле гадәтләр
+pMac = <li>Apple Silicon һәм Intel</li><li>Меню юлында тел коды: EN, УК, ТТ…</li><li>macOS 13 һәм яңарак</li>
+pWin = <li>x64 һәм ARM64, урнаштыруны таләп итми</li><li>Белдерү өлкәсендә тел коды</li><li>Mac'тагы кебек үк төймәләр</li>
+iTitle = Бер минутта әзер
+s1h = Йөкләгез
+s1p = Архивны ачыгыз. Mac'та AURA'ны Applications папкасына күчерегез, Windows'та AURA.exe'ны эшләтегез.
+s2h = Рөхсәт итегез
+s2p = Mac'та: Система көйләүләре → Хосусыйлык һәм куркынычсызлык → Махсус мөмкинлекләр → AURA.
+s3h = Языгыз
+s3p = Тел коды меню юлында (Mac) яки белдерү өлкәсендә (Windows) күренә. Калганын AURA эшли.
+ctaH = AURA'ны бүген сынап карагыз
+ctaP = macOS һәм Windows өчен бушлай бета.
+made = Украинада эшләнгән
+foot = AURA — клавиатура рәвеше турында түгел, текст турында уйлагыз.
+donate = Хуплау
+supportP = AURA Switcher ошадымы? Эшләнмәне бер чынаяк кофе белән хуплагыз.
+contact = Безгә языгыз
+phoneNote = AURA — компьютер өчен программа (Mac һәм Windows). Сылтамаларны үзегезгә җибәреп, компьютерда ачыгыз.
+phoneBtn = Сылтаманы үземә җибәрергә
+phoneCopied = Сылтама күчереп алынды
+safeH = Ул куркынычсызмы?
+safe1h = Ачык чыганак коды
+safe1p = Бөтен код <a href="https://github.com/klbk/aura-switcher-app" target="_blank" rel="noopener">GitHub</a> сайтында: программаның нәрсә эшләгәнен һәркем карый ала.
+safe2h = Нигә клавиатурага керү кирәк
+safe2p = Сез язган сүзне күрү һәм аны төзәтү өчен. Текст беркайда да сакланмый һәм җибәрелми, программага интернет кирәкми.
+safe3h = Беренче кабызганда кисәтү булу — гадәти хәл
+safe3p = Бетада әлегә Apple яки Microsoft'ның кыйммәтле имзасы юк. Mac: «Әзер» → Система көйләүләре → Хосусыйлык һәм куркынычсызлык → «Барыбер ачарга». Windows: «Тулырак мәгълүмат» → «Барыбер эшләтергә».
+menabled = Кабызылган
+mauto = Автоматик төзәтү
+msound = Тавыш
+mapp = Кушымта: 
+mexclude = Бу кушымтада эшләмәскә
+mappLang = Бу кушымта өчен тел
+mexclusions = Аерымлыклар
+mbindings = Телләр бәйләнеше
+```
+
+## Update page
+
+```
+update1 = Сездә иң соңгы версия
+update2 = AURA Switcher {v} чыкты
+update3 = Сездә {v}
+update4 = Нәрсә яңа
+update5 = Ничек яңартырга
+update6 = AURA'ны ябыгыз: меню юлындагы тел кодына басыгыз → «Чыгу».
+update7 = Йөкләнгән архивны ачыгыз һәм AURA Switcher'ны иске урынына Applications папкасына күчерегез.
+update8 = AURA'ны ачыгыз. Тел коды урынына ⚠︎ күренсә, AURA'ны монда сүндереп, кабат кабызыгыз:
+update9 = AURA'ны ябыгыз: белдерү өлкәсендәге билгесенә басыгыз → «Чыгу».
+update10 = Архивны ачыгыз һәм яңа «AURA Switcher.exe»'ны иске урынына куегыз.
+update11 = AURA Switcher.exe'ны эшләтегез — көйләүләрегез саклана.
+update12 = AURA Switcher сайты
+```

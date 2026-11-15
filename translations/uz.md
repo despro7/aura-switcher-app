@@ -1,0 +1,129 @@
+# AURA Switcher — Uzbek (uz) translation
+
+Uzbek is already in the app and on the site (https://klbk.github.io/aura-switcher/uz/), but it was written by an AI, not by a native speaker. Please proofread it: fix anything that sounds unnatural or wrong, and leave good lines as they are.
+Keep the key before `=`, HTML tags (<br>, <kbd>, <span …>), {v} and symbols (⇧ ⚠︎ ⬆︎ ☕ →) unchanged.
+When done, open a pull request with this file. The maintainer will move the texts into the app and the site.
+
+## App menu (Mac and Windows)
+
+```
+name = Oʻzbek
+enabled = Yoqilgan
+auto = Avtomatik tuzatish
+sound = Tovush
+access = ⚠︎ Ruxsat bering: Maxsus imkoniyatlar
+app = Ilova:
+exclude = Bu ilovada ishlamasin
+game = Oʻyin — AURA pauzada
+appLang = Bu ilova uchun til
+noBinding = Bogʻlanmagan
+exclusions = Istisnolar
+recent = Ishlamasin (soʻnggi ilovalar)
+bindings = Til bogʻlanishlari
+empty = Boʻsh
+login = Kirishda ishga tushirish
+words = Mening soʻzlarim…
+wordsTitle = AURA Switcher — mening soʻzlarim
+wordsInfo = AURA Switcher bu soʻzlarni toʻgʻri deb hisoblaydi: ularni hech qachon oʻzgartirmaydi, notoʻgʻri klaviatura terilishida yozilsa, ularga tuzatadi. Vergul bilan ajrating.
+save = Saqlash
+cancel = Bekor qilish
+uiLang = Menyu tili
+allLangs = Barcha tillar
+regEurope = Yevropa
+regCaucasus = Kavkaz va Markaziy Osiyo
+regMiddleEast = Yaqin Sharq
+regAsia = Osiyo
+system = Tizim
+hint = Ikki marta ⇧ — soʻz/belgilashni aylantirish
+report = Muammo haqida xabar berish…
+reportBody = Nima boʻldi va qaysi ilovada:
+update = Yangilanishlarni tekshirish…
+updateDue = ⬆︎ Yangilanish boʻlishi mumkin — tekshiring
+donate = AURA Switcher’ni qoʻllab-quvvatlash ☕
+quit = Chiqish
+updNew = AURA Switcher {v} chiqdi
+updLatest = Sizda eng soʻnggi versiya bor
+updNotes = Yangiliklar
+updNow = Yangilash
+updLater = Keyinroq
+updFail = Avtomatik yangilab boʻlmadi. Yuklab olish uchun saytni ochaymi?
+```
+
+## Website
+
+```
+name = Oʻzbek
+title = AURA Switcher — klaviatura terilishi oʻzi tuzaladi
+badge = Beta 0.9.9 · bepul · roʻyxatdan oʻtmasdan
+h1 = Shunchaki yozing.<br><span class="hl">AURA</span> terilishni tuzatadi
+lead = «привіт» oʻrniga «ghbdsn» yozdingizmi? AURA buni payqaydi va probeldan keyin darrov tuzatadi. macOS va Windows uchun.
+dlMac = Mac uchun yuklab olish
+dlWin = Windows uchun
+demoWrong = Notoʻgʻri terilish…
+demoFixed = Probeldan keyin tuzatildi
+fTitle = Kerakli hamma narsa. Ortiqchasi yoʻq
+f1h = Avtomatik tuzatish
+f1p = Notoʻgʻri terilishda yozilgan soʻz probeldan keyin toʻgʻri boʻladi va terilish almashadi.
+f2h = Ikkilangan Shift
+f2p = <kbd>Shift</kbd> tugmasini ikki marta bosing — oxirgi soʻz yoki belgilangan matn boshqa terilishga aylantiriladi.
+f3h = Har bir ilova uchun til
+f3p = Terminal — doim EN, Telegram — УК. Istisno ilovalarda AURA jim turadi.
+f4h = Maxfiy
+f4p = Internetga hech narsa yubormaydi. Hammasi qurilmangizda ishlaydi.
+f5h = 21 til
+f5p = Tizimingizdagi barcha terilishlar.
+f6h = Yengil
+f6p = 1 MB dan kam, yozishni sekinlashtirmaydi va tizimni qotirmaydi.
+pTitle = Mac va Windows — bir xil odatlar
+pMac = <li>Apple Silicon va Intel</li><li>Menyu qatorida til kodi: EN, УК, UZ…</li><li>macOS 13 va undan yangi</li>
+pWin = <li>x64 va ARM64, oʻrnatishsiz</li><li>Bildirishnomalar sohasida til kodi</li><li>Mac’dagi bilan bir xil tugmalar</li>
+iTitle = Bir daqiqada tayyor
+s1h = Yuklab oling
+s1p = Arxivni oching. Mac’da AURA’ni Applications’ga torting, Windows’da AURA.exe’ni ishga tushiring.
+s2h = Ruxsat bering
+s2p = Mac’da: Tizim sozlamalari → Maxfiylik va xavfsizlik → Maxsus imkoniyatlar → AURA.
+s3h = Yozing
+s3p = Til kodi menyu qatorida (Mac) yoki bildirishnomalar sohasida (Windows) paydo boʻladi. Qolganini AURA qiladi.
+ctaH = AURA’ni bugun sinab koʻring
+ctaP = macOS va Windows uchun bepul beta.
+made = Ukrainada yaratilgan
+foot = AURA — klaviatura terilishini emas, matnni oʻylang.
+donate = Qoʻllab-quvvatlash
+supportP = AURA Switcher yoqdimi? Ishlanmani bir piyola qahva bilan qoʻllab-quvvatlang.
+contact = Bizga yozing
+phoneNote = AURA — kompyuter uchun dastur (Mac va Windows). Havolani oʻzingizga yuboring va kompyuterda oching.
+phoneBtn = Havolani oʻzimga yuborish
+phoneCopied = Havola nusxalandi
+safeH = Bu xavfsizmi?
+safe1h = Ochiq manba kodi
+safe1p = Barcha kod <a href="https://github.com/klbk/aura-switcher-app" target="_blank" rel="noopener">GitHub</a>’da: dastur nima qilishini har kim koʻrishi mumkin.
+safe2h = Nega klaviaturaga kirish kerak
+safe2p = Yozayotgan soʻzingizni koʻrish va tuzatish uchun. Matn hech qayerda saqlanmaydi va yuborilmaydi, dasturga internet kerak emas.
+safe3h = Birinchi ishga tushirishda ogohlantirish chiqishi odatiy hol
+safe3p = Betada hali Apple yoki Microsoft’ning qimmat imzosi yoʻq. Mac: «Tayyor» → Tizim sozlamalari → Maxfiylik va xavfsizlik → «Baribir ochish». Windows: «Batafsil» → «Baribir ishga tushirish».
+menabled = Yoqilgan
+mauto = Avtomatik tuzatish
+msound = Tovush
+mapp = Ilova: 
+mexclude = Bu ilovada ishlamasin
+mappLang = Bu ilova uchun til
+mexclusions = Istisnolar
+mbindings = Til bogʻlanishlari
+```
+
+## Update page
+
+```
+update1 = Sizda eng soʻnggi versiya bor
+update2 = AURA Switcher {v} chiqdi
+update3 = Sizda {v}
+update4 = Yangiliklar
+update5 = Qanday yangilash kerak
+update6 = AURA’dan chiqing: menyu qatoridagi til kodini bosing → «Chiqish».
+update7 = Yuklab olingan arxivni oching va AURA Switcher’ni eskisining oʻrniga Applications’ga torting.
+update8 = AURA’ni oching. Til kodi oʻrnida ⚠︎ koʻrinsa, AURA’ni shu yerda oʻchirib, qayta yoqing:
+update9 = AURA’dan chiqing: bildirishnomalar sohasidagi belgisini bosing → «Chiqish».
+update10 = Arxivni oching va yangi «AURA Switcher.exe»’ni eskisining oʻrniga qoʻying.
+update11 = AURA Switcher.exe’ni ishga tushiring — sozlamalaringiz saqlanadi.
+update12 = AURA Switcher sayti
+```

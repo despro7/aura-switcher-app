@@ -1,0 +1,129 @@
+# AURA Switcher — Serbian (sr) translation
+
+Serbian is already in the app and on the site (https://klbk.github.io/aura-switcher/sr/), but it was written by an AI, not by a native speaker. Please proofread it: fix anything that sounds unnatural or wrong, and leave good lines as they are.
+Keep the key before `=`, HTML tags (<br>, <kbd>, <span …>), {v} and symbols (⇧ ⚠︎ ⬆︎ ☕ →) unchanged.
+When done, open a pull request with this file. The maintainer will move the texts into the app and the site.
+
+## App menu (Mac and Windows)
+
+```
+name = Српски
+enabled = Укључено
+auto = Аутокорекција
+sound = Звук
+access = ⚠︎ Дозволите приступ: Приступачност
+app = Апликација:
+exclude = Не радити у овој апликацији
+game = Игра — AURA паузирана
+appLang = Језик за ову апликацију
+noBinding = Без повезивања
+exclusions = Изузеци
+recent = Не радити у (недавне апликације)
+bindings = Повезивање језика
+empty = Празно
+login = Покрени при пријави
+words = Моје речи…
+wordsTitle = AURA Switcher — моје речи
+wordsInfo = AURA Switcher сматра ове речи исправним: не мења их, а када су откуцане у погрешном распореду — исправља их на ове. Одвојите зарезима.
+save = Сачувај
+cancel = Откажи
+uiLang = Језик менија
+allLangs = Сви језици
+regEurope = Европа
+regCaucasus = Кавказ и Централна Азија
+regMiddleEast = Блиски исток
+regAsia = Азија
+system = Системски
+hint = Двоструки ⇧ — претвори реч/избор
+report = Пријави проблем…
+reportBody = Шта се догодило и у којој апликацији:
+update = Провери ажурирања…
+updateDue = ⬆︎ Можда је изашло ажурирање — провери
+donate = Подржи AURA Switcher ☕
+quit = Изађи
+updNew = Изашао је AURA Switcher {v}
+updLatest = Имате најновију верзију
+updNotes = Шта је ново
+updNow = Ажурирај
+updLater = Касније
+updFail = Аутоматско ажурирање није успело. Отворити сајт за преузимање?
+```
+
+## Website
+
+```
+name = Српски
+title = AURA Switcher — распоред тастатуре се исправља сам
+badge = Бета 0.9.9 · бесплатно · без регистрације
+h1 = Само куцајте.<br><span class="hl">AURA</span> исправља распоред
+lead = Откуцали сте «ghbdsn» уместо «привіт»? AURA то примети и исправи одмах после размака. За macOS и Windows.
+dlMac = Преузми за Mac
+dlWin = За Windows
+demoWrong = Погрешан распоред…
+demoFixed = Исправљено после размака
+fTitle = Све што вам треба. Ништа сувишно
+f1h = Аутокорекција
+f1p = Реч откуцана у погрешном распореду после размака постаје исправна, а распоред се мења.
+f2h = Двоструки Shift
+f2p = Притисните <kbd>Shift</kbd> два пута — последња реч или означени текст претвара се у други распоред.
+f3h = Језик по апликацији
+f3p = Terminal — увек EN, Telegram — УК. У изузетим апликацијама AURA ћути.
+f4h = Приватно
+f4p = Ништа не шаље на интернет. Све ради на вашем уређају.
+f5h = Језици: 21
+f5p = Сви распореди вашег система.
+f6h = Лагано
+f6p = Мање од 1 MB, не успорава куцање и не замрзава систем.
+pTitle = Mac и Windows — исте навике
+pMac = <li>Apple Silicon и Intel</li><li>Код језика у траци менија: EN, СР, DE…</li><li>macOS 13 и новији</li>
+pWin = <li>x64 и ARM64, без инсталације</li><li>Код језика у области обавештења</li><li>Исти тастери као на Mac-у</li>
+iTitle = Спремно за минут
+s1h = Преузмите
+s1p = Распакујте архиву. На Mac-у превуците AURA у „Applications“, на Windows-у само покрените AURA.exe.
+s2h = Дозволите
+s2p = На Mac-у: Системска подешавања → Приватност и безбедност → Приступачност → AURA.
+s3h = Куцајте
+s3p = Код језика се појављује у траци менија (Mac) или у области обавештења (Windows). Остало ради AURA.
+ctaH = Пробајте AURA данас
+ctaP = Бесплатна бета за macOS и Windows.
+made = Направљено у Украјини
+foot = AURA — мислите о тексту, а не о распореду тастатуре.
+donate = Подржите
+supportP = Свиђа вам се AURA Switcher? Подржите развој шољицом кафе.
+contact = Пишите нам
+phoneNote = AURA је апликација за рачунар (Mac и Windows). Пошаљите линк себи и отворите га на рачунару.
+phoneBtn = Пошаљи линк себи
+phoneCopied = Линк је копиран
+safeH = Да ли је безбедно?
+safe1h = Отворен код
+safe1p = Сав код је на <a href="https://github.com/klbk/aura-switcher-app" target="_blank" rel="noopener">GitHub</a>: свако може да провери шта програм ради.
+safe2h = Зашто је потребан приступ тастатури
+safe2p = Да види откуцану реч и исправи је. Текст се не чува и не шаље нигде, програму није потребан интернет.
+safe3h = Упозорење при првом покретању је нормално
+safe3p = Бета још нема плаћени потпис компанија Apple и Microsoft. Mac: „Done“ → Системска подешавања → Приватност и безбедност → „Open Anyway“. Windows: „More info“ → „Run anyway“.
+menabled = Укључено
+mauto = Аутокорекција
+msound = Звук
+mapp = Апликација: 
+mexclude = Не радити у овој апликацији
+mappLang = Језик за ову апликацију
+mexclusions = Изузеци
+mbindings = Повезивање језика
+```
+
+## Update page
+
+```
+update1 = Имате најновију верзију
+update2 = Изашао је AURA Switcher {v}
+update3 = Имате {v}
+update4 = Шта је ново
+update5 = Како ажурирати
+update6 = Затворите AURA: кликните на код језика у траци менија → «Изађи».
+update7 = Отворите преузету архиву и превуците AURA Switcher у Applications, уместо старе верзије.
+update8 = Отворите AURA. Ако се уместо кода језика види ⚠︎, искључите AURA и поново је укључите овде:
+update9 = Затворите AURA: кликните на њену икону у пољу за обавештења → «Изађи».
+update10 = Распакујте архиву и ставите нови «AURA Switcher.exe» на место старог.
+update11 = Покрените AURA Switcher.exe — подешавања остају као што су била.
+update12 = Веб-сајт AURA Switcher
+```
