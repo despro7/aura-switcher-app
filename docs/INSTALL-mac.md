@@ -8,7 +8,8 @@ Requires macOS 13 or later (Apple Silicon or Intel).
 2. **Drag AURA** into Applications.
 3. **Open AURA.** If macOS says the developer can't be verified, click "Done", then open System Settings → Privacy & Security → "Open Anyway" at the bottom.
    If macOS says the app is "damaged", run in Terminal: `xattr -cr "/Applications/AURA Switcher.app"` and open it again.
-4. **Grant access:** System Settings → Privacy & Security → **Accessibility** → enable AURA.
+4. **Grant access** (two permissions): System Settings → Privacy & Security → **Accessibility** → enable AURA; then **Input Monitoring** → enable AURA. After the second, macOS offers to restart AURA — click "Restart" (or quit AURA and open it again).
+   Updating from an older version: Accessibility is already granted, only Input Monitoring is new (once).
 5. **Done.** The language code (EN, УК, РУ…) appears in the menu bar. While it shows `⚠︎`, access isn't granted yet (step 4).
 
 **Check:** in the English layout type `ghbdsn` and Space — it becomes "привіт". Select a word and press ⇧ twice — it's converted to another layout.

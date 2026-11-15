@@ -20,7 +20,7 @@ const T = {
     pWin: "<li>x64 і ARM64, без встановлення</li><li>Код мови в треї</li><li>Ті самі клавіші, що й на Mac</li>",
     iTitle: "Запуск за хвилину",
     s1h: "Завантажте", s1p: "Розпакуйте архів. На Mac перетягніть AURA у «Програми», на Windows просто запустіть AURA.exe.",
-    s2h: "Дозвольте", s2p: "На Mac: Системні параметри → Конфіденційність і безпека → Універсальний доступ → AURA.",
+    s2h: "Дозвольте", s2p: "На Mac: Системні параметри → Конфіденційність і безпека → Універсальний доступ, Моніторинг введення → AURA.",
     s3h: "Пишіть", s3p: "Код мови з'явиться вгорі (Mac) або в треї (Windows). Далі AURA працює сама.",
     ctaH: "Спробуйте AURA сьогодні", ctaP: "Безкоштовна бета для macOS і Windows.",
     made: "Зроблено в Україні", foot: "AURA — щоб думати про текст, а не про розкладку."
@@ -44,7 +44,7 @@ const T = {
     pWin: "<li>x64 and ARM64, no installer</li><li>Language code in the tray</li><li>Same keys as on Mac</li>",
     iTitle: "Up and running in a minute",
     s1h: "Download", s1p: "Unzip the archive. On Mac drag AURA into Applications, on Windows just run AURA.exe.",
-    s2h: "Allow", s2p: "On Mac: System Settings → Privacy & Security → Accessibility → AURA.",
+    s2h: "Allow", s2p: "On Mac: System Settings → Privacy & Security → Accessibility, Input Monitoring → AURA.",
     s3h: "Type", s3p: "The language code appears in the menu bar (Mac) or the tray (Windows). AURA does the rest.",
     ctaH: "Try AURA today", ctaP: "Free beta for macOS and Windows.",
     made: "Made in Ukraine", foot: "AURA — think about your text, not your keyboard layout."
@@ -68,7 +68,7 @@ const T = {
     pWin: "<li>x64 i ARM64, bez instalacji</li><li>Kod języka w zasobniku</li><li>Te same klawisze co na Macu</li>",
     iTitle: "Gotowe w minutę",
     s1h: "Pobierz", s1p: "Rozpakuj archiwum. Na Macu przeciągnij AURA do Aplikacji, na Windows po prostu uruchom AURA.exe.",
-    s2h: "Zezwól", s2p: "Na Macu: Ustawienia systemowe → Prywatność i ochrona → Dostępność → AURA.",
+    s2h: "Zezwól", s2p: "Na Macu: Ustawienia systemowe → Prywatność i ochrona → Dostępność, Monitorowanie wejścia → AURA.",
     s3h: "Pisz", s3p: "Kod języka pojawi się na pasku menu (Mac) lub w zasobniku (Windows). Resztą zajmie się AURA.",
     ctaH: "Wypróbuj AURA już dziś", ctaP: "Darmowa beta dla macOS i Windows.",
     made: "Stworzono w Ukrainie", foot: "AURA — myśl o tekście, nie o układzie klawiatury."
@@ -92,7 +92,7 @@ const T = {
     pWin: "<li>x64 und ARM64, ohne Installation</li><li>Sprachcode im Infobereich</li><li>Dieselben Tasten wie auf dem Mac</li>",
     iTitle: "In einer Minute startklar",
     s1h: "Laden", s1p: "Archiv entpacken. Auf dem Mac AURA in „Programme“ ziehen, unter Windows einfach AURA.exe starten.",
-    s2h: "Erlauben", s2p: "Auf dem Mac: Systemeinstellungen → Datenschutz & Sicherheit → Bedienungshilfen → AURA.",
+    s2h: "Erlauben", s2p: "Auf dem Mac: Systemeinstellungen → Datenschutz & Sicherheit → Bedienungshilfen, Eingabeüberwachung → AURA.",
     s3h: "Tippen", s3p: "Der Sprachcode erscheint in der Menüleiste (Mac) oder im Infobereich (Windows). Den Rest macht AURA.",
     ctaH: "Probiere AURA noch heute", ctaP: "Kostenlose Beta für macOS und Windows.",
     made: "Hergestellt in der Ukraine", foot: "AURA — denk an deinen Text, nicht an dein Tastaturlayout."
@@ -116,7 +116,7 @@ const T = {
     pWin: "<li>x64 y ARM64, sin instalación</li><li>Código de idioma en la bandeja</li><li>Las mismas teclas que en Mac</li>",
     iTitle: "Listo en un minuto",
     s1h: "Descarga", s1p: "Descomprime el archivo. En Mac arrastra AURA a Aplicaciones; en Windows ejecuta AURA.exe.",
-    s2h: "Permite", s2p: "En Mac: Ajustes del Sistema → Privacidad y seguridad → Accesibilidad → AURA.",
+    s2h: "Permite", s2p: "En Mac: Ajustes del Sistema → Privacidad y seguridad → Accesibilidad, Monitorización de entrada → AURA.",
     s3h: "Escribe", s3p: "El código de idioma aparece en la barra de menús (Mac) o en la bandeja (Windows). AURA hace el resto.",
     ctaH: "Prueba AURA hoy", ctaP: "Beta gratuita para macOS y Windows.",
     made: "Hecho en Ucrania", foot: "AURA — piensa en tu texto, no en la distribución del teclado."
@@ -140,7 +140,7 @@ const T = {
     pWin: "<li>x64 et ARM64, sans installation</li><li>Code de langue dans la zone de notification</li><li>Les mêmes touches que sur Mac</li>",
     iTitle: "Prêt en une minute",
     s1h: "Téléchargez", s1p: "Décompressez l’archive. Sur Mac, glissez AURA dans Applications ; sur Windows, lancez AURA.exe.",
-    s2h: "Autorisez", s2p: "Sur Mac : Réglages Système → Confidentialité et sécurité → Accessibilité → AURA.",
+    s2h: "Autorisez", s2p: "Sur Mac : Réglages Système → Confidentialité et sécurité → Accessibilité, Surveillance de l’entrée → AURA.",
     s3h: "Tapez", s3p: "Le code de langue apparaît dans la barre des menus (Mac) ou la zone de notification (Windows). AURA s’occupe du reste.",
     ctaH: "Essayez AURA dès aujourd’hui", ctaP: "Bêta gratuite pour macOS et Windows.",
     made: "Fabriqué en Ukraine", foot: "AURA — pensez à votre texte, pas à la disposition du clavier."

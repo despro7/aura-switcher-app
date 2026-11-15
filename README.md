@@ -65,14 +65,14 @@ The icon shows the current language: `EN`, `УК`, `РУ`… — each language i
    ./build.sh
    ```
    Requires Xcode or Command Line Tools (`swiftc`). Installs to `/Applications/AURA Switcher.app`.
-2. Grant access: System Settings → Privacy & Security → **Accessibility** → enable AURA. Until then the menu shows `⚠︎`; once enabled, AURA starts working by itself, no restart needed.
+2. Grant access (two permissions): System Settings → Privacy & Security → **Accessibility** → enable AURA, then **Input Monitoring** → enable AURA. Until then the menu shows `⚠︎`. After Input Monitoring macOS offers to restart AURA — agree (or quit and open it again). Updating from an older version: only Input Monitoring is new, once.
 3. After that it starts at login. Manually — Spotlight (⌘Space) → "AURA".
 
 Archive for other Macs: `./build.sh --release` → `dist/AURA-Switcher-<version>.zip`.
 
 ## Troubleshooting
 
-- **Doesn't correct, icon shows `⚠︎`** — no access, see step 2. If access is on but nothing works: toggle AURA off and on in the Accessibility list.
+- **Doesn't correct, icon shows `⚠︎`** — no access, see step 2 (both permissions). If access is on but nothing works: toggle AURA off and on in the Accessibility and Input Monitoring lists.
 - **Wrong correction** — add the app to exclusions or turn auto-correction off; double ⇧ brings the word back.
 - **Something hangs** — icon → "Quit", or `pkill "AURA Switcher"` in Terminal.
 - **Uninstall** — "Quit", uncheck "Launch at login", delete `/Applications/AURA Switcher.app`.

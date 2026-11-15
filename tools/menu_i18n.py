@@ -15,7 +15,7 @@ en English
 Enabled
 Auto-correction
 Sound
-⚠︎ Grant access: Accessibility
+⚠︎ Grant access: Accessibility, Input Monitoring
 App:
 Don't work in this app
 Game — AURA paused
@@ -56,7 +56,7 @@ uk Українська
 Увімкнено
 Автовиправлення
 Звук
-⚠︎ Надайте доступ: Універсальний доступ
+⚠︎ Надайте доступ: Універсальний доступ, Моніторинг введення
 Програма:
 Не працювати в цій програмі
 Гра — AURA на паузі
@@ -97,7 +97,7 @@ pl Polski
 Włączone
 Autokorekta
 Dźwięk
-⚠︎ Nadaj dostęp: Dostępność
+⚠︎ Nadaj dostęp: Dostępność, Monitorowanie wejścia
 Aplikacja:
 Nie działaj w tej aplikacji
 Gra — AURA wstrzymana
@@ -138,7 +138,7 @@ de Deutsch
 Aktiviert
 Autokorrektur
 Ton
-⚠︎ Zugriff erlauben: Bedienungshilfen
+⚠︎ Zugriff erlauben: Bedienungshilfen, Eingabeüberwachung
 App:
 In dieser App nicht aktiv
 Spiel — AURA pausiert
@@ -179,7 +179,7 @@ es Español
 Activado
 Autocorrección
 Sonido
-⚠︎ Conceder acceso: Accesibilidad
+⚠︎ Conceder acceso: Accesibilidad, Monitorización de entrada
 App:
 No funcionar en esta app
 Juego — AURA en pausa
@@ -220,7 +220,7 @@ fr Français
 Activé
 Correction automatique
 Son
-⚠︎ Autoriser l'accès : Accessibilité
+⚠︎ Autoriser l'accès : Accessibilité, Surveillance de l’entrée
 App :
 Ne pas fonctionner dans cette app
 Jeu — AURA en pause
@@ -261,7 +261,7 @@ it Italiano
 Attivo
 Correzione automatica
 Suono
-⚠︎ Concedi l’accesso: Accessibilità
+⚠︎ Concedi l’accesso: Accessibilità, Monitoraggio input
 App:
 Disattiva in questa app
 Gioco — AURA in pausa
@@ -302,7 +302,7 @@ pt Português
 Ativado
 Correção automática
 Som
-⚠︎ Conceder acesso: Acessibilidade
+⚠︎ Conceder acesso: Acessibilidade, Monitoramento de entrada
 App:
 Não funcionar nesta app
 Jogo — AURA em pausa
@@ -343,7 +343,7 @@ tr Türkçe
 Etkin
 Otomatik düzeltme
 Ses
-⚠︎ Erişim izni verin: Erişilebilirlik
+⚠︎ Erişim izni verin: Erişilebilirlik, Girdi İzleme
 Uygulama:
 Bu uygulamada çalışma
 Oyun — AURA duraklatıldı
@@ -384,7 +384,7 @@ nl Nederlands
 Ingeschakeld
 Autocorrectie
 Geluid
-⚠︎ Geef toegang: Toegankelijkheid
+⚠︎ Geef toegang: Toegankelijkheid, Invoercontrole (Input Monitoring)
 App:
 Niet werken in deze app
 Game — AURA gepauzeerd
@@ -425,7 +425,7 @@ cs Čeština
 Zapnuto
 Automatické opravy
 Zvuk
-⚠︎ Udělte přístup: Zpřístupnění
+⚠︎ Udělte přístup: Zpřístupnění, Sledování vstupu
 Aplikace:
 Nefungovat v této aplikaci
 Hra — AURA pozastavena
@@ -466,7 +466,7 @@ sv Svenska
 Aktiverad
 Autokorrigering
 Ljud
-⚠︎ Ge åtkomst: Hjälpmedel
+⚠︎ Ge åtkomst: Hjälpmedel, Indataövervakning (Input Monitoring)
 App:
 Arbeta inte i den här appen
 Spel — AURA pausad
@@ -507,7 +507,7 @@ fi Suomi
 Käytössä
 Automaattinen korjaus
 Ääni
-⚠︎ Anna käyttöoikeus: Käyttöapu
+⚠︎ Anna käyttöoikeus: Käyttöapu, Syötteen valvonta (Input Monitoring)
 Ohjelma:
 Älä toimi tässä ohjelmassa
 Peli — AURA tauolla
@@ -548,7 +548,7 @@ ro Română
 Activat
 Corectare automată
 Sunet
-⚠︎ Acordați acces: Accesibilitate
+⚠︎ Acordați acces: Accesibilitate, Monitorizare intrare (Input Monitoring)
 Aplicație:
 Nu funcționa în această aplicație
 Joc — AURA în pauză
@@ -589,7 +589,7 @@ hu Magyar
 Bekapcsolva
 Automatikus javítás
 Hang
-⚠︎ Hozzáférés megadása: Kisegítő lehetőségek
+⚠︎ Hozzáférés megadása: Kisegítő lehetőségek, Bevitelfigyelés (Input Monitoring)
 Alkalmazás:
 Ne működjön ebben az alkalmazásban
 Játék — AURA szüneteltetve
@@ -630,7 +630,7 @@ el Ελληνικά
 Ενεργό
 Αυτόματη διόρθωση
 Ήχος
-⚠︎ Δώστε πρόσβαση: Προσβασιμότητα
+⚠︎ Δώστε πρόσβαση: Προσβασιμότητα, Παρακολούθηση εισόδου (Input Monitoring)
 Εφαρμογή:
 Να μη λειτουργεί σε αυτή την εφαρμογή
 Παιχνίδι — AURA σε παύση
@@ -671,7 +671,7 @@ bg Български
 Включено
 Автокорекция
 Звук
-⚠︎ Дайте достъп: Достъпност
+⚠︎ Дайте достъп: Достъпност, Input Monitoring
 Програма:
 Да не работи в тази програма
 Игра — AURA е на пауза
@@ -712,7 +712,7 @@ he עברית
 מופעל
 תיקון אוטומטי
 צליל
-⚠︎ תנו גישה: נגישות
+⚠︎ תנו גישה: נגישות, ניטור קלט (Input Monitoring)
 יישום:
 לא לפעול ביישום זה
 משחק — AURA מושהית
@@ -753,7 +753,7 @@ ar العربية
 مفعّل
 التصحيح التلقائي
 الصوت
-⚠︎ امنح الوصول: تسهيلات الاستخدام
+⚠︎ امنح الوصول: تسهيلات الاستخدام، مراقبة الإدخال (Input Monitoring)
 التطبيق:
 لا تعمل في هذا التطبيق
 لعبة — AURA متوقف مؤقتًا
@@ -794,7 +794,7 @@ hi हिन्दी
 चालू
 स्वतः सुधार
 ध्वनि
-⚠︎ अनुमति दें: सुलभता
+⚠︎ अनुमति दें: सुलभता, इनपुट मॉनिटरिंग (Input Monitoring)
 ऐप:
 इस ऐप में काम न करें
 गेम — AURA रुका हुआ
@@ -835,7 +835,7 @@ ko 한국어
 켜기
 자동 수정
 소리
-⚠︎ 접근 권한 허용: 손쉬운 사용
+⚠︎ 접근 권한 허용: 손쉬운 사용, 입력 모니터링
 앱:
 이 앱에서 작동 안 함
 게임 — AURA 일시 중지됨
@@ -876,7 +876,7 @@ be Беларуская
 Уключана
 Аўтавыпраўленне
 Гук
-⚠︎ Дайце доступ: Спецыяльныя магчымасці
+⚠︎ Дайце доступ: Спецыяльныя магчымасці, Input Monitoring
 Праграма:
 Не працаваць у гэтай праграме
 Гульня — AURA на паўзе
@@ -917,7 +917,7 @@ kk Қазақша
 Қосулы
 Автотүзету
 Дыбыс
-⚠︎ Рұқсат беріңіз: Арнайы мүмкіндіктер
+⚠︎ Рұқсат беріңіз: Арнайы мүмкіндіктер, Input Monitoring
 Қолданба:
 Бұл қолданбада жұмыс істемеу
 Ойын — AURA кідіртілді
@@ -958,7 +958,7 @@ ky Кыргызча
 Күйгүзүлгөн
 Авто оңдоо
 Үн
-⚠︎ Мүмкүнчүлүк бериңиз: Атайын мүмкүнчүлүктөр
+⚠︎ Мүмкүнчүлүк бериңиз: Атайын мүмкүнчүлүктөр, Input Monitoring
 Колдонмо:
 Бул колдонмодо иштебөө
 Оюн — AURA тыныгууда
@@ -999,7 +999,7 @@ ka ქართული
 ჩართულია
 ავტოშესწორება
 ხმა
-⚠︎ მიეცით წვდომა: მისაწვდომობა
+⚠︎ მიეცით წვდომა: მისაწვდომობა, Input Monitoring
 აპლიკაცია:
 ამ აპლიკაციაში არ იმუშაოს
 თამაში — AURA დაპაუზებულია
@@ -1040,7 +1040,7 @@ hy Հայերեն
 Միացված է
 Ինքնաուղղում
 Ձայն
-⚠︎ Տվեք թույլտվություն՝ Հասանելիություն
+⚠︎ Տվեք թույլտվություն՝ Հասանելիություն, Input Monitoring
 Հավելված՝
 Չաշխատել այս հավելվածում
 Խաղ — AURA-ն դադարի վրա է
@@ -1081,7 +1081,7 @@ az Azərbaycan
 Aktivdir
 Avtomatik düzəliş
 Səs
-⚠︎ İcazə verin: Əlçatımlılıq
+⚠︎ İcazə verin: Əlçatımlılıq, Input Monitoring
 Tətbiq:
 Bu tətbiqdə işləmə
 Oyun — AURA fasilədədir
@@ -1122,7 +1122,7 @@ sr Српски
 Укључено
 Аутокорекција
 Звук
-⚠︎ Дозволите приступ: Приступачност
+⚠︎ Дозволите приступ: Приступачност, Input Monitoring
 Апликација:
 Не радити у овој апликацији
 Игра — AURA паузирана
@@ -1163,7 +1163,7 @@ mk Македонски
 Вклучено
 Автокорекција
 Звук
-⚠︎ Дозволете пристап: Пристапност
+⚠︎ Дозволете пристап: Пристапност, Input Monitoring
 Апликација:
 Не работи во оваа апликација
 Игра — AURA паузирана
@@ -1204,7 +1204,7 @@ sk Slovenčina
 Zapnuté
 Automatické opravy
 Zvuk
-⚠︎ Povoľte prístup: Zjednodušenie ovládania
+⚠︎ Povoľte prístup: Zjednodušenie ovládania, Monitorovanie vstupu (Input Monitoring)
 Aplikácia:
 V tejto aplikácii nepracovať
 Hra — AURA pozastavená
@@ -1245,7 +1245,7 @@ hr Hrvatski
 Uključeno
 Automatski ispravak
 Zvuk
-⚠︎ Dopustite pristup: Pristupačnost
+⚠︎ Dopustite pristup: Pristupačnost, Praćenje unosa (Input Monitoring)
 Aplikacija:
 Ne radi u ovoj aplikaciji
 Igra — AURA pauzirana
@@ -1286,7 +1286,7 @@ sl Slovenščina
 Vklopljeno
 Samodejni popravki
 Zvok
-⚠︎ Dovolite dostop: Dostopnost
+⚠︎ Dovolite dostop: Dostopnost, Input Monitoring
 Aplikacija:
 V tej aplikaciji ne delaj
 Igra — AURA zaustavljena
@@ -1327,7 +1327,7 @@ lt Lietuvių
 Įjungta
 Automatinis taisymas
 Garsas
-⚠︎ Suteikite prieigą: Pritaikymas neįgaliesiems
+⚠︎ Suteikite prieigą: Pritaikymas neįgaliesiems, Input Monitoring
 Programa:
 Šioje programoje nedirbti
 Žaidimas — AURA pristabdyta
@@ -1368,7 +1368,7 @@ lv Latviešu
 Ieslēgts
 Automātiskā labošana
 Skaņa
-⚠︎ Atļaujiet piekļuvi: Pieejamība
+⚠︎ Atļaujiet piekļuvi: Pieejamība, Input Monitoring
 Lietotne:
 Šajā lietotnē nedarboties
 Spēle — AURA apturēta
@@ -1409,7 +1409,7 @@ et Eesti
 Sees
 Automaatne parandus
 Heli
-⚠︎ Andke juurdepääs: Juurdepääsetavus
+⚠︎ Andke juurdepääs: Juurdepääsetavus, Input Monitoring
 Rakendus:
 Selles rakenduses mitte töötada
 Mäng — AURA peatatud
@@ -1450,7 +1450,7 @@ da Dansk
 Aktiveret
 Automatisk rettelse
 Lyd
-⚠︎ Giv adgang: Tilgængelighed
+⚠︎ Giv adgang: Tilgængelighed, Inputovervågning (Input Monitoring)
 App:
 Virk ikke i denne app
 Spil — AURA på pause
@@ -1491,7 +1491,7 @@ nb Norsk bokmål
 På
 Autokorrigering
 Lyd
-⚠︎ Gi tilgang: Tilgjengelighet
+⚠︎ Gi tilgang: Tilgjengelighet, Inndataovervåking (Input Monitoring)
 App:
 Ikke aktiv i denne appen
 Spill — AURA er satt på pause
@@ -1532,7 +1532,7 @@ is Íslenska
 Kveikt
 Sjálfvirk leiðrétting
 Hljóð
-⚠︎ Veittu aðgang: Algildur aðgangur
+⚠︎ Veittu aðgang: Algildur aðgangur, Input Monitoring
 Forrit:
 Ekki virkt í þessu forriti
 Leikur — AURA í bið
@@ -1573,7 +1573,7 @@ sq Shqip
 Aktivizuar
 Korrigjim automatik
 Zëri
-⚠︎ Jepni qasje: Përdorimi i lehtë
+⚠︎ Jepni qasje: Përdorimi i lehtë, Input Monitoring
 Aplikacioni:
 Mos vepro në këtë aplikacion
 Lojë — AURA në pauzë
@@ -1614,7 +1614,7 @@ fa فارسی
 روشن
 تصحیح خودکار
 صدا
-⚠︎ دسترسی بدهید: دسترسی‌پذیری
+⚠︎ دسترسی بدهید: دسترسی‌پذیری، Input Monitoring
 برنامه:
 در این برنامه کار نکن
 بازی — AURA متوقف است
@@ -1655,7 +1655,7 @@ vi Tiếng Việt
 Bật
 Tự động sửa
 Âm thanh
-⚠︎ Cấp quyền: Trợ năng
+⚠︎ Cấp quyền: Trợ năng, Giám sát đầu vào (Input Monitoring)
 Ứng dụng:
 Không hoạt động trong ứng dụng này
 Trò chơi — AURA tạm dừng
@@ -1696,7 +1696,7 @@ tg Тоҷикӣ
 Фаъол
 Ислоҳи худкор
 Овоз
-⚠︎ Дастрасӣ диҳед: Дастрасии универсалӣ
+⚠︎ Дастрасӣ диҳед: Дастрасии универсалӣ, Input Monitoring
 Барнома:
 Дар ин барнома кор накун
 Бозӣ — AURA таваққуф шудааст
@@ -1737,7 +1737,7 @@ mn Монгол
 Идэвхтэй
 Автомат засвар
 Дуу
-⚠︎ Хандалт өгнө үү: Хүртээмж
+⚠︎ Хандалт өгнө үү: Хүртээмж, Input Monitoring
 Апп:
 Энэ аппад ажиллахгүй
 Тоглоом — AURA түр зогссон
@@ -1778,7 +1778,7 @@ tt Татарча
 Кабызылган
 Автоматик төзәтү
 Тавыш
-⚠︎ Кереп җитү рөхсәт итегез: Махсус мөмкинлекләр
+⚠︎ Кереп җитү рөхсәт итегез: Махсус мөмкинлекләр, Input Monitoring
 Кушымта:
 Бу кушымтада эшләмәскә
 Уен — AURA туктатылган
@@ -1819,7 +1819,7 @@ uz Oʻzbek
 Yoqilgan
 Avtomatik tuzatish
 Tovush
-⚠︎ Ruxsat bering: Maxsus imkoniyatlar
+⚠︎ Ruxsat bering: Maxsus imkoniyatlar, Input Monitoring
 Ilova:
 Bu ilovada ishlamasin
 Oʻyin — AURA pauzada
@@ -1860,7 +1860,7 @@ ga Gaeilge
 Cumasaithe
 Ceartú uathoibríoch
 Fuaim
-⚠︎ Tabhair rochtain: Inrochtaineacht
+⚠︎ Tabhair rochtain: Inrochtaineacht, Input Monitoring
 Aip:
 Ná oibrigh san aip seo
 Cluiche — AURA ar sos
@@ -1901,7 +1901,7 @@ mt Malti
 Attivat
 Korrezzjoni awtomatika
 Ħoss
-⚠︎ Agħti aċċess: Aċċessibbiltà
+⚠︎ Agħti aċċess: Aċċessibbiltà, Input Monitoring
 Applikazzjoni:
 Taħdimx f’din l-applikazzjoni
 Logħba — AURA fil-pawża
@@ -1942,7 +1942,7 @@ cy Cymraeg
 Wedi’i alluogi
 Cywiro awtomatig
 Sain
-⚠︎ Rhowch fynediad: Hygyrchedd
+⚠︎ Rhowch fynediad: Hygyrchedd, Input Monitoring
 Ap:
 Peidio â gweithio yn yr ap hwn
 Gêm — AURA wedi’i oedi
