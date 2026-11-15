@@ -656,8 +656,19 @@ static const LangModel* model(const wstring& locale) {
 // how much more typical `t` is of its language than `typed` of its own; -1e9 without both models
 static double margin(const wstring& typed, const wstring& cur, const wstring& t, const wstring& lang) {
     const LangModel* a = model(cur); const LangModel* b = model(lang);
-    return a && b ? a->cost(typed) - b->cost(t) : -1e9;
+    if (!a || !b) return -1e9;
+    // a comma or «?» stuck to the word («шейдерам,») is an unknown trigram on one side only: judge the letters
+    auto trim = [](const wstring& w) {
+        size_t x = w.find_first_not_of(L",.;:!?"), y = w.find_last_not_of(L",.;:!?");
+        return x == wstring::npos ? wstring() : w.substr(x, y - x + 1);
+    };
+    wstring x = trim(typed), y = trim(t);
+    return a->cost(x.size() >= 2 ? x : typed) - b->cost(y.size() >= 2 ? y : t);
 }
+// language of the last non-Latin word that was fixed or typed right: with equal evidence it wins
+// («ns» is both «ты» (ru) and «ті» (uk)); remembered for 10 minutes. Not set by the tests, which call autoFixTarget alone
+static wstring recentLang; static ULONGLONG recentAt = 0;
+static bool lastWasWord = false;  // autoFixTarget found nothing because the word is right where it was typed
 // tuned on ~2000 words per language (tools/langmodel.py): a word with no dictionary must look clearly
 // more typical than what was typed; a real dictionary word only somewhat more
 static const double kMarginNeeded = 20, kMarginForDictWord = 5, kMarginCyrillic = 11;  // Belarusian ↔ Russian: «длінный» 13, true «сіла» 4
@@ -682,6 +693,7 @@ static bool isCode(const wstring& t, const wstring& locale) {
 static void warmUpDictionaries() { reliable.clear(); for (auto& l : layouts) isWord(L"aura", l.locale); }
 
 static int autoFixTarget(const vector<Key>& keys) {
+    lastWasWord = false;
     if (keys.size() < 2 || layouts.empty()) return -1;
     int cur = layoutIndex(fgLayout());
     const wstring& curLoc = layouts[cur].locale;
@@ -695,14 +707,16 @@ static int autoFixTarget(const vector<Key>& keys) {
     bool weak = false;
     if (curDict ? isWord(typed, curLoc) : curLm->has(typed)) {
         weak = curDict && typed.size() <= 4 && curLm && !curLm->has(typed);
-        if (!weak) return -1;
+        if (!weak) { lastWasWord = true; return -1; }
     }
     // every other layout is a candidate; take the strongest kind of evidence, not the first layout in the
     // list: with RU, UK, EN in that order «ghbdsn» must become the Ukrainian word «привіт», not the
     // Russian look-alike «привыт» that only passes on letter statistics
     // equal evidence (both are dictionary words: «было» / «біло» from the same keys) — a frequent word of its
     // language wins over a rare one, then the letter statistics decide
-    int best = -1, bestTier = 0, bestFreq = 0; double bestM = 0;
+    // «ns» is both «ты» (ru) and «ті» (uk): with equal evidence the language of the last non-Latin word wins
+    wstring recent = GetTickCount64() - recentAt < 600000 ? recentLang : wstring();
+    int best = -1, bestTier = 0, bestFreq = 0, bestRec = 0; double bestM = 0;
     for (size_t i = 1; i < layouts.size(); i++) {
         int j = int((cur + i) % layouts.size());
         wstring t = layouts[j].text(keys);
@@ -735,8 +749,9 @@ static int autoFixTarget(const vector<Key>& keys) {
         }
         if (weak) { const LangModel* lm = model(layouts[j].locale); if (!lm || !lm->has(t)) tier = 0; }
         const LangModel* fm = model(layouts[j].locale); int freq = fm && fm->has(t) ? 1 : 0;
-        if (tier > bestTier || (tier && tier == bestTier && (freq > bestFreq || (freq == bestFreq && m > bestM)))) {
-            best = j; bestTier = tier; bestFreq = freq; bestM = m;
+        int rec = !recent.empty() && layouts[j].locale == recent ? 1 : 0;
+        if (tier > bestTier || (tier && tier == bestTier && (freq > bestFreq || (freq == bestFreq && (rec > bestRec || (rec == bestRec && m > bestM)))))) {
+            best = j; bestTier = tier; bestFreq = freq; bestRec = rec; bestM = m;
         }
     }
     return best;
@@ -952,11 +967,20 @@ static void applyFix(int j, Snapshot* s, int trailing) {
     playSound(sndAuto);
 }
 
+// autoFixTarget + remembering the language of the last non-Latin word (fixed, or typed right)
+static int autoFixRemember(const vector<Key>& keys, int pair) {
+    int j = pair >= 0 ? pair : autoFixTarget(keys);
+    if (j < 0 && lastWasWord && keys.size() >= 3) {
+        const Layout& c = layouts[layoutIndex(fgLayout())];
+        if (!isLatin(c.text(keys))) { recentLang = c.locale; recentAt = GetTickCount64(); }
+    } else if (j >= 0 && !isLatin(layouts[j].text(keys))) { recentLang = layouts[j].locale; recentAt = GetTickCount64(); }
+    return j;
+}
+
 static void onAuto(Snapshot* s) {
     if (!S.autoFix || S.bindings.count(fgExe())) return;
     // «b yt»: both «и не» (ru) and «не» alone (uk) fit; the pair that makes both words a language wins
-    int j = pairFixTarget(s->keys, s->before);
-    if (j < 0) j = autoFixTarget(s->keys);
+    int j = autoFixRemember(s->keys, pairFixTarget(s->keys, s->before));
     if (j < 0 || seq.load() != s->seq) return;  // user kept typing meanwhile — skip
     applyFix(j, s, 1);
 }
@@ -964,8 +988,7 @@ static void onAuto(Snapshot* s) {
 // Return held by the hook after a word: fix the word if it needs it, then send Return on
 static void onEnter(Snapshot* s) {
     if (active && S.autoFix && !S.bindings.count(fgExe())) {
-        int j = pairFixTarget(s->keys, s->before);
-        if (j < 0) j = autoFixTarget(s->keys);
+        int j = autoFixRemember(s->keys, pairFixTarget(s->keys, s->before));
         if (j >= 0) applyFix(j, s, 0);
     }
     // Return goes on as the user pressed it: same scan code, numpad Enter stays numpad Enter

@@ -171,6 +171,19 @@ int wmain(int argc, wchar_t** argv) {
         if (got != wstring(w) + L"\x01") { mustFail++; printf("MUST FAIL (RU,UK,EN): %s typed in EN -> %s\n", utf8(w).c_str(), got.empty() ? "unchanged" : utf8(got).c_str()); }
     }
 
+    // a comma stuck to the word doesn't break the layout check: «itqlthfv?» is «шейдерам,» (Russian layout, typed in EN)
+    {
+        wstring got = run(L"шейдерам,", layouts[0], layouts[2]);
+        if (got != L"шейдерам,\x01") { mustFail++; printf("MUST FAIL (RU,UK,EN): шейдерам, typed in EN -> %s\n", got.empty() ? "unchanged" : utf8(got).c_str()); }
+    }
+    // «ns» is «ты» (ru) and «ті» (uk): with equal evidence the language of the last non-Latin word wins
+    for (int want : {0, 1}) {
+        recentLang = layouts[want].locale; recentAt = GetTickCount64();
+        wstring got = run(want == 0 ? L"ты" : L"ті", layouts[want], layouts[2]);
+        if (got != (want == 0 ? L"ты\x01" : L"ті\x01")) { mustFail++; printf("MUST FAIL (RU,UK,EN): ns after %s word -> %s\n", want ? "uk" : "ru", got.empty() ? "unchanged" : utf8(got).c_str()); }
+    }
+    recentLang.clear(); recentAt = 0;
+
     std::string out;
     for (auto& r : results) {
         char line[256]; snprintf(line, sizeof line, "%s\t%.1f%%\t%d/%d\n", r.name.c_str(), 100.0 * r.ok / (r.total ? r.total : 1), r.ok, r.total);
