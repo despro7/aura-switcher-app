@@ -1445,6 +1445,539 @@ Mis on uut
 Uuenda
 Hiljem
 Automaatne uuendamine ebaõnnestus. Avada veebileht allalaadimiseks?
+
+da Dansk
+Aktiveret
+Automatisk rettelse
+Lyd
+⚠︎ Giv adgang: Tilgængelighed
+App:
+Virk ikke i denne app
+Spil — AURA på pause
+Sprog for denne app
+Ingen tilknytning
+Undtagelser
+Virk ikke i (seneste apps)
+Sprogtilknytninger
+Tom
+Start ved login
+Mine ord…
+AURA Switcher — mine ord
+AURA Switcher regner disse ord for korrekte: ændrer dem aldrig og retter til dem, når de er skrevet i forkert tastaturlayout. Adskil med komma.
+Gem
+Annuller
+Menusprog
+Alle sprog
+Europa
+Kaukasus og Centralasien
+Mellemøsten
+Asien
+System
+Dobbelt ⇧ — konvertér ord/markering
+Rapportér et problem…
+Hvad skete der, og i hvilken app:
+Søg efter opdateringer…
+⬆︎ Der kan være en opdatering — tjek
+Støt AURA Switcher ☕
+Afslut
+AURA Switcher {v} er udkommet
+Du har den nyeste version
+Nyheder
+Opdater
+Senere
+Kunne ikke opdatere automatisk. Åbn hjemmesiden for at hente den?
+
+nb Norsk bokmål
+På
+Autokorrigering
+Lyd
+⚠︎ Gi tilgang: Tilgjengelighet
+App:
+Ikke aktiv i denne appen
+Spill — AURA er satt på pause
+Språk for denne appen
+Ingen kobling
+Unntak
+Ikke aktiv i (nylige apper)
+Språkkoblinger
+Tom
+Start ved innlogging
+Mine ord…
+AURA Switcher — mine ord
+AURA Switcher regner disse ordene som riktige: endrer dem aldri og retter til dem når de er skrevet med feil tastaturoppsett. Skill med komma.
+Lagre
+Avbryt
+Menyspråk
+Alle språk
+Europa
+Kaukasus og Sentral-Asia
+Midtøsten
+Asia
+System
+Dobbel ⇧ — konverter ord/markering
+Rapporter et problem…
+Hva skjedde, og i hvilken app:
+Se etter oppdateringer…
+⬆︎ En oppdatering kan være tilgjengelig — sjekk
+Støtt AURA Switcher ☕
+Avslutt
+AURA Switcher {v} er ute
+Du har den nyeste versjonen
+Nytt
+Oppdater
+Senere
+Kunne ikke oppdatere automatisk. Åpne nettstedet for å laste den ned?
+
+is Íslenska
+Kveikt
+Sjálfvirk leiðrétting
+Hljóð
+⚠︎ Veittu aðgang: Algildur aðgangur
+Forrit:
+Ekki virkt í þessu forriti
+Leikur — AURA í bið
+Tungumál fyrir þetta forrit
+Engin tenging
+Undantekningar
+Ekki virkt í (nýleg forrit)
+Tungumálatengingar
+Tómt
+Ræsa við innskráningu
+Mín orð…
+AURA Switcher — mín orð
+AURA Switcher telur þessi orð rétt: breytir þeim aldrei og lagfærir í þau þegar þau eru rituð með röngu lyklaborðsskipulagi. Aðskildu með kommum.
+Vista
+Hætta við
+Tungumál valmyndar
+Öll tungumál
+Evrópa
+Kákasus og Mið-Asía
+Mið-Austurlönd
+Asía
+Kerfið
+Tvöfalt ⇧ — umbreyta orði/vali
+Tilkynna vandamál…
+Hvað gerðist og í hvaða forriti:
+Athuga með uppfærslur…
+⬆︎ Uppfærsla gæti verið tiltæk — athuga
+Styðja AURA Switcher ☕
+Hætta
+AURA Switcher {v} er komið út
+Þú ert með nýjustu útgáfuna
+Hvað er nýtt
+Uppfæra
+Síðar
+Ekki tókst að uppfæra sjálfkrafa. Opna vefsíðuna til að sækja hana?
+
+sq Shqip
+Aktivizuar
+Korrigjim automatik
+Zëri
+⚠︎ Jepni qasje: Përdorimi i lehtë
+Aplikacioni:
+Mos vepro në këtë aplikacion
+Lojë — AURA në pauzë
+Gjuha për këtë aplikacion
+Pa lidhje
+Përjashtime
+Mos vepro në (aplikacionet e fundit)
+Lidhjet e gjuhëve
+Bosh
+Hap në hyrje
+Fjalët e mia…
+AURA Switcher — fjalët e mia
+AURA Switcher i konsideron këto fjalë të sakta: nuk i ndryshon kurrë dhe i korrigjon në to kur shkruhen me paraqitje të gabuar të tastierës. Ndajini me presje.
+Ruaj
+Anulo
+Gjuha e menysë
+Të gjitha gjuhët
+Evropa
+Kaukazi dhe Azia Qendrore
+Lindja e Mesme
+Azia
+Sistemi
+Dyfishi ⇧ — konverto fjalën/përzgjedhjen
+Raporto një problem…
+Çfarë ndodhi dhe në cilin aplikacion:
+Kontrollo për përditësime…
+⬆︎ Mund të ketë një përditësim — kontrollo
+Mbështet AURA Switcher ☕
+Mbyll
+AURA Switcher {v} doli
+Keni versionin më të ri
+Çfarë ka të re
+Përditëso
+Më vonë
+Nuk u përditësua automatikisht. Të hapet faqja e internetit për ta shkarkuar?
+
+fa فارسی
+روشن
+تصحیح خودکار
+صدا
+⚠︎ دسترسی بدهید: دسترسی‌پذیری
+برنامه:
+در این برنامه کار نکن
+بازی — AURA متوقف است
+زبان این برنامه
+بدون اتصال
+استثناها
+در این‌ها کار نکن (برنامه‌های اخیر)
+اتصال زبان‌ها
+خالی
+اجرا هنگام ورود
+واژه‌های من…
+AURA Switcher — واژه‌های من
+AURA Switcher این واژه‌ها را درست می‌داند: هرگز تغییرشان نمی‌دهد و اگر با چیدمان اشتباه تایپ شوند، به آن‌ها اصلاحشان می‌کند. با ویرگول جدا کنید.
+ذخیره
+لغو
+زبان منو
+همه زبان‌ها
+اروپا
+قفقاز و آسیای مرکزی
+خاورمیانه
+آسیا
+سیستم
+دوبار ⇧ — تبدیل واژه/انتخاب
+گزارش مشکل…
+چه اتفاقی افتاد و در کدام برنامه:
+بررسی به‌روزرسانی…
+⬆︎ ممکن است به‌روزرسانی موجود باشد — بررسی کنید
+حمایت از AURA Switcher ☕
+خروج
+AURA Switcher {v} منتشر شد
+جدیدترین نسخه را دارید
+چه چیز تازه است
+به‌روزرسانی
+بعداً
+به‌روزرسانی خودکار انجام نشد. وب‌سایت برای دانلود باز شود؟
+
+vi Tiếng Việt
+Bật
+Tự động sửa
+Âm thanh
+⚠︎ Cấp quyền: Trợ năng
+Ứng dụng:
+Không hoạt động trong ứng dụng này
+Trò chơi — AURA tạm dừng
+Ngôn ngữ cho ứng dụng này
+Chưa gán
+Ngoại lệ
+Không hoạt động trong (ứng dụng gần đây)
+Gán ngôn ngữ
+Trống
+Chạy khi đăng nhập
+Từ của tôi…
+AURA Switcher — từ của tôi
+AURA Switcher coi những từ này là đúng: không bao giờ đổi chúng và sửa thành chúng khi gõ sai bố cục bàn phím. Cách nhau bằng dấu phẩy.
+Lưu
+Hủy
+Ngôn ngữ menu
+Tất cả ngôn ngữ
+Châu Âu
+Kavkaz và Trung Á
+Trung Đông
+Châu Á
+Hệ thống
+Nhấn đôi ⇧ — chuyển đổi từ/vùng chọn
+Báo cáo sự cố…
+Chuyện gì đã xảy ra và trong ứng dụng nào:
+Kiểm tra cập nhật…
+⬆︎ Có thể có bản cập nhật — kiểm tra
+Ủng hộ AURA Switcher ☕
+Thoát
+AURA Switcher {v} đã ra mắt
+Bạn đang dùng phiên bản mới nhất
+Có gì mới
+Cập nhật
+Để sau
+Không thể tự động cập nhật. Mở trang web để tải về?
+
+tg Тоҷикӣ
+Фаъол
+Ислоҳи худкор
+Овоз
+⚠︎ Дастрасӣ диҳед: Дастрасии универсалӣ
+Барнома:
+Дар ин барнома кор накун
+Бозӣ — AURA таваққуф шудааст
+Забон барои ин барнома
+Бе пайвастшавӣ
+Истисноҳо
+Кор накун дар (барномаҳои охирин)
+Пайвасткунии забонҳо
+Холӣ
+Оғоз ҳангоми воридшавӣ
+Калимаҳои ман…
+AURA Switcher — калимаҳои ман
+AURA Switcher ин калимаҳоро дуруст мешуморад: онҳоро ҳаргиз тағйир намедиҳад ва агар бо тарҳбандии нодурусти клавиатура навишта шаванд, ба онҳо ислоҳ мекунад. Бо вергул ҷудо кунед.
+Захира кардан
+Бекор кардан
+Забони меню
+Ҳамаи забонҳо
+Аврупо
+Қафқоз ва Осиёи Марказӣ
+Шарқи Наздик
+Осиё
+Система
+Дукарата ⇧ — табдили калима/интихоб
+Хабар додан дар бораи мушкилот…
+Чӣ шуд ва дар кадом барнома:
+Санҷиши навсозиҳо…
+⬆︎ Шояд навсозӣ мавҷуд бошад — санҷед
+Дастгирии AURA Switcher ☕
+Баромадан
+AURA Switcher {v} баромад
+Шумо навтарин версияро доред
+Чӣ нав аст
+Навсозӣ
+Баъдтар
+Навсозии худкор муяссар нашуд. Сайтро барои боргирӣ кушоед?
+
+mn Монгол
+Идэвхтэй
+Автомат засвар
+Дуу
+⚠︎ Хандалт өгнө үү: Хүртээмж
+Апп:
+Энэ аппад ажиллахгүй
+Тоглоом — AURA түр зогссон
+Энэ аппын хэл
+Холбоогүй
+Үл хамаарах зүйлс
+Ажиллахгүй (сүүлийн аппууд)
+Хэлний холболтууд
+Хоосон
+Нэвтрэхэд эхлүүлэх
+Миний үгс…
+AURA Switcher — миний үгс
+AURA Switcher эдгээр үгсийг зөв гэж үздэг: хэзээ ч өөрчлөхгүй, буруу гарын байрлалаар бичигдсэн бол тэдгээр рүү засна. Таслалаар тусгаарлана уу.
+Хадгалах
+Цуцлах
+Цэсний хэл
+Бүх хэл
+Европ
+Кавказ ба Төв Ази
+Ойрхи Дорнод
+Ази
+Систем
+Давхар ⇧ — үг/сонголтыг хөрвүүлэх
+Асуудлын талаар мэдээлэх…
+Юу болсон, ямар аппад:
+Шинэчлэлт шалгах…
+⬆︎ Шинэчлэлт байж магадгүй — шалгах
+AURA Switcher-ийг дэмжих ☕
+Гарах
+AURA Switcher {v} гарлаа
+Танд хамгийн сүүлийн хувилбар байна
+Шинэ зүйл
+Шинэчлэх
+Дараа
+Автоматаар шинэчилж чадсангүй. Татаж авахын тулд вэбсайтыг нээх үү?
+
+tt Татарча
+Кабызылган
+Автоматик төзәтү
+Тавыш
+⚠︎ Кереп җитү рөхсәт итегез: Махсус мөмкинлекләр
+Кушымта:
+Бу кушымтада эшләмәскә
+Уен — AURA туктатылган
+Бу кушымта өчен тел
+Бәйләнешсез
+Аерымлыклар
+Эшләмәскә (соңгы кушымталар)
+Телләр бәйләнеше
+Буш
+Керүдә эшләтеп җибәрергә
+Минем сүзләр…
+AURA Switcher — минем сүзләр
+AURA Switcher бу сүзләрне дөрес дип саный: аларны беркайчан да үзгәртми, ә дөрес булмаган клавиатура рәвешендә язылса, алар итеп төзәтә. Өтер белән аерыгыз.
+Саклау
+Баш тарту
+Меню теле
+Барлык телләр
+Европа
+Кавказ һәм Үзәк Азия
+Якын Көнчыгыш
+Азия
+Система
+Икеләтә ⇧ — сүзне/сайланганны әйләндерү
+Проблема турында хәбәр итү…
+Нәрсә булды һәм кайсы кушымтада:
+Яңартуларны тикшерү…
+⬆︎ Яңарту булырга мөмкин — тикшерегез
+AURA Switcher'ны хупларга ☕
+Чыгу
+AURA Switcher {v} чыкты
+Сездә иң соңгы версия
+Нәрсә яңа
+Яңарту
+Соңрак
+Автоматик рәвештә яңартып булмады. Йөкләү өчен сайтны ачарга?
+
+uz Oʻzbek
+Yoqilgan
+Avtomatik tuzatish
+Tovush
+⚠︎ Ruxsat bering: Maxsus imkoniyatlar
+Ilova:
+Bu ilovada ishlamasin
+Oʻyin — AURA pauzada
+Bu ilova uchun til
+Bogʻlanmagan
+Istisnolar
+Ishlamasin (soʻnggi ilovalar)
+Til bogʻlanishlari
+Boʻsh
+Kirishda ishga tushirish
+Mening soʻzlarim…
+AURA Switcher — mening soʻzlarim
+AURA Switcher bu soʻzlarni toʻgʻri deb hisoblaydi: ularni hech qachon oʻzgartirmaydi, notoʻgʻri klaviatura terilishida yozilsa, ularga tuzatadi. Vergul bilan ajrating.
+Saqlash
+Bekor qilish
+Menyu tili
+Barcha tillar
+Yevropa
+Kavkaz va Markaziy Osiyo
+Yaqin Sharq
+Osiyo
+Tizim
+Ikki marta ⇧ — soʻz/belgilashni aylantirish
+Muammo haqida xabar berish…
+Nima boʻldi va qaysi ilovada:
+Yangilanishlarni tekshirish…
+⬆︎ Yangilanish boʻlishi mumkin — tekshiring
+AURA Switcher’ni qoʻllab-quvvatlash ☕
+Chiqish
+AURA Switcher {v} chiqdi
+Sizda eng soʻnggi versiya bor
+Yangiliklar
+Yangilash
+Keyinroq
+Avtomatik yangilab boʻlmadi. Yuklab olish uchun saytni ochaymi?
+
+ga Gaeilge
+Cumasaithe
+Ceartú uathoibríoch
+Fuaim
+⚠︎ Tabhair rochtain: Inrochtaineacht
+Aip:
+Ná oibrigh san aip seo
+Cluiche — AURA ar sos
+Teanga don aip seo
+Gan nasc
+Eisceachtaí
+Ná oibrigh i (aipeanna le déanaí)
+Naisc teanga
+Folamh
+Seol ag logáil isteach
+Mo chuid focal…
+AURA Switcher — mo chuid focal
+Measann AURA Switcher go bhfuil na focail seo ceart: ní athraíonn sé iad choíche, agus ceartaíonn sé chucu iad nuair a chlóscríobhtar le cásáil mhícheart iad. Deighil le camóga.
+Sábháil
+Cealaigh
+Teanga an roghchláir
+Gach teanga
+An Eoraip
+An Chugais agus an Áise Láir
+An Mheánoirthear
+An Áise
+Córas
+⇧ faoi dhó — tiontaigh focal/roghnúchán
+Tuairiscigh fadhb…
+Cad a tharla agus in cén aip:
+Seiceáil le haghaidh nuashonruithe…
+⬆︎ B’fhéidir go bhfuil nuashonrú ar fáil — seiceáil
+Tacaigh le AURA Switcher ☕
+Scoir
+Tá AURA Switcher {v} amuigh
+Tá an leagan is déanaí agat
+Cad atá nua
+Nuashonraigh
+Níos déanaí
+Níorbh fhéidir nuashonrú go huathoibríoch. An bhfuil fonn ort an suíomh gréasáin a oscailt chun é a íoslódáil?
+
+mt Malti
+Attivat
+Korrezzjoni awtomatika
+Ħoss
+⚠︎ Agħti aċċess: Aċċessibbiltà
+Applikazzjoni:
+Taħdimx f’din l-applikazzjoni
+Logħba — AURA fil-pawża
+Lingwa għal din l-applikazzjoni
+L-ebda rabta
+Eċċezzjonijiet
+Taħdimx fi (applikazzjonijiet reċenti)
+Rabtiet tal-lingwi
+Vojt
+Ibda mad-dħul
+Kliemi…
+AURA Switcher — kliemi
+AURA Switcher iqis dan il-kliem bħala korrett: ma jbiddlu qatt, u jikkoreġi għalih meta jinkiteb bi tqassim żbaljat tat-tastiera. Aqsamhom b’virgola.
+Salva
+Ikkanċella
+Lingwa tal-menu
+Il-lingwi kollha
+Ewropa
+Il-Kawkasu u l-Asja Ċentrali
+Il-Lvant Nofsani
+L-Asja
+Sistema
+⇧ doppju — ikkonverti kelma/għażla
+Irrapporta problema…
+X’ġara u f’liema applikazzjoni:
+Iċċekkja għal aġġornamenti…
+⬆︎ Jista’ jkun hemm aġġornament — iċċekkja
+Appoġġa lil AURA Switcher ☕
+Ieqaf
+AURA Switcher {v} ħareġ
+Għandek l-aħħar verżjoni
+X’hemm ġdid
+Aġġorna
+Aktar tard
+Ma setax jiġi aġġornat awtomatikament. Niftaħ is-sit biex tniżżlu?
+
+cy Cymraeg
+Wedi’i alluogi
+Cywiro awtomatig
+Sain
+⚠︎ Rhowch fynediad: Hygyrchedd
+Ap:
+Peidio â gweithio yn yr ap hwn
+Gêm — AURA wedi’i oedi
+Iaith ar gyfer yr ap hwn
+Dim cysylltiad
+Eithriadau
+Peidio â gweithio yn (apiau diweddar)
+Cysylltiadau iaith
+Gwag
+Cychwyn wrth fewngofnodi
+Fy ngeiriau…
+AURA Switcher — fy ngeiriau
+Mae AURA Switcher yn ystyried bod y geiriau hyn yn gywir: nid yw byth yn eu newid, ac mae’n cywiro iddyn nhw pan fyddan nhw wedi’u teipio gyda’r cynllun bysellfwrdd anghywir. Gwahanwch â choma.
+Cadw
+Diddymu
+Iaith y ddewislen
+Pob iaith
+Ewrop
+Y Cawcasws a Chanolbarth Asia
+Y Dwyrain Canol
+Asia
+System
+⇧ dwbl — trosi gair/dewisiad
+Adrodd am broblem…
+Beth ddigwyddodd ac ym mha ap:
+Gwirio am ddiweddariadau…
+⬆︎ Efallai bod diweddariad ar gael — gwiriwch
+Cefnogi AURA Switcher ☕
+Gadael
+Mae AURA Switcher {v} allan
+Mae gennych y fersiwn ddiweddaraf
+Beth sy’n newydd
+Diweddaru
+Yn nes ymlaen
+Methu diweddaru’n awtomatig. Agor y wefan i’w lawrlwytho?
 """
 
 langs = []  # (code, name, [strings])
@@ -1457,7 +1990,7 @@ for block in LANGS.strip().split("\n\n"):
 
 SWIFT_REGIONS = """/// Menu-language picker: a few likely languages on top, the rest under "All languages" by region.
 /// Regions in menu order (title key → codes); a language not listed here goes to the first region.
-let uiRegions: [(String, [String])] = [("regEurope", []), ("regCaucasus", ["kk", "ky", "ka", "hy", "az"]), ("regMiddleEast", ["he", "ar", "fa", "ku"]), ("regAsia", ["hi", "ko", "zh", "ja"])]
+let uiRegions: [(String, [String])] = [("regEurope", []), ("regCaucasus", ["kk", "ky", "ka", "hy", "az", "tg", "mn", "uz"]), ("regMiddleEast", ["he", "ar", "fa", "ku"]), ("regAsia", ["hi", "ko", "zh", "ja", "vi"])]
 func uiRegionIndex(_ code: String) -> Int { uiRegions.firstIndex { $0.1.contains(code) } ?? 0 }
 /// the languages shown on top of the picker: the current one, English, then the languages of the user's keyboard layouts
 func uiTopLangs(current: String, layoutLangs: [String]) -> [String] {
