@@ -351,8 +351,28 @@ function setLang(l) {
 const picker = document.getElementById("langSel");
 if (picker) {
   const list = picker.querySelector(".langlist");
-  list.innerHTML = Object.keys(T).map(k => `<button data-l="${k}" role="option">${T[k].name}</button>`).join("");
-  picker.querySelector(".langbtn").onclick = e => { e.stopPropagation(); picker.classList.toggle("open"); };
+  // search by the language's own name or its English name / code (shown when the list is long)
+  const en = typeof Intl !== "undefined" && Intl.DisplayNames ? new Intl.DisplayNames(["en"], { type: "language" }) : null;
+  const loc = typeof Intl !== "undefined" && Intl.DisplayNames ? new Intl.DisplayNames([lang, "en"], { type: "language" }) : null;  // names in the page's language too
+  const nm = (d, k) => { try { return d ? d.of(k) : ""; } catch { return ""; } };
+  const key = k => [T[k].name, k, nm(en, k), nm(loc, k)].join(" ").toLowerCase();
+  const many = Object.keys(T).length > 12;
+  list.innerHTML = (many ? '<input class="langq" type="search" placeholder="🔍" aria-label="Search language" autocomplete="off">' : "")
+    + Object.keys(T).map(k => `<button data-l="${k}" role="option" data-q="${key(k)}">${T[k].name}</button>`).join("") + '<div class="none" hidden>—</div>';
+  const q = list.querySelector(".langq");
+  if (q) {
+    q.onclick = e => e.stopPropagation();
+    q.oninput = () => {
+      const v = q.value.trim().toLowerCase(); let n = 0;
+      list.querySelectorAll("button").forEach(b => { const hit = !v || b.dataset.q.includes(v); b.hidden = !hit; if (hit) n++; });
+      list.querySelector(".none").hidden = n > 0;
+    };
+    q.onkeydown = e => { if (e.key === "Enter") { const b = list.querySelector("button:not([hidden])"); if (b) b.click(); } };
+  }
+  picker.querySelector(".langbtn").onclick = e => {
+    e.stopPropagation(); picker.classList.toggle("open");
+    if (q && picker.classList.contains("open") && matchMedia("(hover:hover)").matches) q.focus();
+  };
   list.onclick = e => { const b = e.target.closest("button"); if (b) { localStorage.setItem("lang", b.dataset.l); location.href = (document.documentElement.dataset.page ? "../" : "") + b.dataset.l + "/"; } };
   document.addEventListener("click", () => picker.classList.remove("open"));
   document.addEventListener("keydown", e => { if (e.key === "Escape") picker.classList.remove("open"); });
@@ -376,6 +396,15 @@ if (/Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent) || (navigator.p
     try { await navigator.clipboard.writeText(url); b.textContent = T[lang].phoneCopied; } catch {}
   });
 }
+// the "N languages" card: show the first 12 as chips, the rest behind "+N"
+(function () {
+  const chips = [...document.querySelectorAll(".langs span")];
+  if (chips.length <= 14) return;
+  const rest = chips.slice(12); rest.forEach(c => c.hidden = true);
+  const more = document.createElement("span"); more.className = "more"; more.textContent = "+" + rest.length;
+  more.onclick = () => { rest.forEach(c => c.hidden = false); more.remove(); };
+  chips[11].after(more);
+})();
 setLang(lang);
 
 // demo: a word typed in the wrong layout, fixed after Space — examples match the visitor's language

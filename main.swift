@@ -184,7 +184,19 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
         add(m, L("words")) { self.editWords() }
         let uiMenu = NSMenu()
         add(uiMenu, L("system"), s.uiLang == nil) { self.s.uiLang = nil }
-        for (c, name) in zip(uiLangs, uiLangNames) { add(uiMenu, name, s.uiLang == c) { self.s.uiLang = c } }
+        let nameOf = Dictionary(uniqueKeysWithValues: zip(uiLangs, uiLangNames))
+        func addUI(_ menu: NSMenu, _ c: String) { add(menu, nameOf[c] ?? c, s.uiLang == c) { self.s.uiLang = c } }
+        uiMenu.addItem(.separator())
+        for c in uiTopLangs(current: uiCode(), layoutLangs: engine.layouts.map(\.lang)) { addUI(uiMenu, c) }
+        uiMenu.addItem(.separator())
+        let allMenu = NSMenu()   // every language, by region, so the list stays short when there are many
+        for (i, (key, _)) in uiRegions.enumerated() {
+            let codes = uiLangs.filter { uiRegionIndex($0) == i }
+            if codes.isEmpty { continue }
+            let rm = NSMenu(); for c in codes { addUI(rm, c) }
+            let ri = NSMenuItem(title: L(key), action: nil, keyEquivalent: ""); ri.submenu = rm; allMenu.addItem(ri)
+        }
+        let ai = NSMenuItem(title: L("allLangs"), action: nil, keyEquivalent: ""); ai.submenu = allMenu; uiMenu.addItem(ai)
         let ui = NSMenuItem(title: L("uiLang"), action: nil, keyEquivalent: ""); ui.submenu = uiMenu; m.addItem(ui)
         add(m, L("hint"))
         add(m, updateDue() ? L("updateDue") : L("update")) {

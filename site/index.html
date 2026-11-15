@@ -34,6 +34,10 @@ nav .wrap { display:flex; align-items:center; justify-content:space-between; hei
             background:rgba(16,18,30,.97); backdrop-filter:blur(20px); box-shadow:0 20px 60px rgba(0,0,0,.6); z-index:20; }
 .langsel.open .langlist { display:grid; }
 .langlist button { text-align:start; background:none; border:0; color:var(--muted); font:inherit; font-size:14px; padding:7px 10px; border-radius:10px; cursor:pointer; }
+.langq { grid-column:1/-1; position:sticky; top:-8px; margin:-8px -8px 4px; padding:12px 14px; border:0; border-bottom:1px solid var(--line); border-radius:16px 16px 0 0;
+         background:rgba(16,18,30,.99); color:var(--text); font:inherit; font-size:14px; outline:0; }
+.langlist .none { grid-column:1/-1; padding:10px; color:var(--muted); font-size:14px; }
+.langlist button[hidden] { display:none; }
 .langlist button:hover { background:var(--card); color:var(--text); }
 .langlist button.on { color:var(--text); background:rgba(59,140,255,.18); font-weight:600; }
 .support { margin-top:18px; font-size:15px; color:var(--muted); }
@@ -90,6 +94,7 @@ kbd { font:inherit; font-size:13px; padding:1px 7px; border-radius:6px; border:1
 
 .langs { display:flex; flex-wrap:wrap; gap:8px; margin-top:18px; }
 .langs span { font-size:14px; font-weight:600; padding:6px 12px; border-radius:9px; background:linear-gradient(180deg,#2b2f44,#1b1e2d); border:1px solid rgba(255,255,255,.12); }
+.langs .more { cursor:pointer; color:var(--muted); } .langs .more:hover { color:var(--text); } .langs span[hidden] { display:none; }
 .langs .y { color:var(--yellow); } .langs .b { color:var(--blue); }
 /* the app's menu, drawn in the page language */
 .menu { flex:none; width:300px; padding:5px; border-radius:11px; font-size:13.5px; line-height:1; background:rgba(38,40,54,.92); border:1px solid rgba(255,255,255,.12);

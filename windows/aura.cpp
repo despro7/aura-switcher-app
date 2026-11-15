@@ -178,6 +178,12 @@ static int uiIndex() {
     for (int i = 0; i < UI_N; i++) if (code == UI_LANGS[i]) return i;
     return 0;
 }
+// menu-language regions (same as uiRegions in engine.swift): 0 Europe, 1 Middle East, 2 Asia
+static int uiRegion(const wchar_t* c) {
+    for (const wchar_t* r : {L"he", L"ar", L"fa", L"ku"}) if (!wcscmp(c, r)) return 1;
+    for (const wchar_t* r : {L"hi", L"ko", L"zh", L"ja"}) if (!wcscmp(c, r)) return 2;
+    return 0;
+}
 // call sites keep English + Ukrainian inline for readability; the English text is the lookup key
 static const wchar_t* L_(const wchar_t* en, const wchar_t* uk) {
     int i = uiIndex();
@@ -1372,7 +1378,23 @@ static void showMenu() {
     item(m, ID_WORDS, L_(L"My words…", L"Мої слова…"));
     HMENU um = CreatePopupMenu();
     item(um, ID_UI_SYS, L_(L"System", L"Системна"), S.uiLang.empty());
-    for (int i = 0; i < UI_N; i++) item(um, UINT(ID_UI0 + i), UI_NAMES[i], S.uiLang == UI_LANGS[i]);
+    // a few likely languages on top (current, English, the languages of the user's layouts), the rest by region
+    AppendMenuW(um, MF_SEPARATOR, 0, nullptr);
+    vector<int> top;
+    auto addTop = [&](int i) { if (top.size() < 6 && std::find(top.begin(), top.end(), i) == top.end()) top.push_back(i); };
+    addTop(uiIndex()); addTop(0);
+    for (auto& l : layouts) for (int i = 0; i < UI_N; i++) if (l.locale.compare(0, 2, UI_LANGS[i]) == 0) addTop(i);
+    for (int i : top) item(um, UINT(ID_UI0 + i), UI_NAMES[i], S.uiLang == UI_LANGS[i]);
+    AppendMenuW(um, MF_SEPARATOR, 0, nullptr);
+    HMENU allm = CreatePopupMenu();
+    static const wchar_t* const regEn[] = {L"Europe", L"Middle East", L"Asia"};
+    static const wchar_t* const regUk[] = {L"Європа", L"Близький Схід", L"Азія"};
+    for (int r = 0; r < 3; r++) {
+        HMENU rm = CreatePopupMenu(); int n = 0;
+        for (int i = 0; i < UI_N; i++) if (uiRegion(UI_LANGS[i]) == r) { item(rm, UINT(ID_UI0 + i), UI_NAMES[i], S.uiLang == UI_LANGS[i]); n++; }
+        if (n) AppendMenuW(allm, MF_POPUP, (UINT_PTR)rm, L_(regEn[r], regUk[r])); else DestroyMenu(rm);
+    }
+    AppendMenuW(um, MF_POPUP, (UINT_PTR)allm, L_(L"All languages", L"Усі мови"));
     AppendMenuW(m, MF_POPUP, (UINT_PTR)um, L_(L"Menu language", L"Мова меню"));
     item(m, 0, L_(L"Double ⇧ — convert word/selection", L"Подвійний ⇧ — змінити мову слова/виділення"), false, false);
     if (packaged()) {}
