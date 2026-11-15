@@ -108,6 +108,10 @@ Archive for other Macs: `./build.sh --release` → `dist/AURA-Switcher-<version>
 - Auto-correction only sees continuous typing: a mouse click, arrow keys or ⌘/⌥/⌃ shortcuts reset the current word.
 - Password fields and some apps (terminals, games) may behave differently — add them to exclusions.
 
+## Help with translations
+
+The menu and the website are available in 48 languages. Most were translated by an AI and have not been proofread by native speakers — if you speak one of them, please help: see [issue #6](https://github.com/klbk/aura-switcher-app/issues/6) and the [`translations/`](translations/) folder (one file per language, a pull request or a comment is enough).
+
 ## Thanks
 
 - **Andrew Vrublevskyi** ([@andreyrubleff](https://github.com/andreyrubleff)) — beta testing and the code review of 0.9.2 that made the one-click update safer (0.9.3).
