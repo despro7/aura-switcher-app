@@ -8,7 +8,10 @@ Sources (CC BY-SA 4.0, compatible with AURA's GPL-3.0):
   FrequencyWords by Hermit Dave — https://github.com/hermitdave/FrequencyWords (content/2018/<code>/<code>_50k.txt)
   Belarusian: word counts from be.wikipedia.org articles (one "word count" pair per line, same format)
 
-Languages built: en uk ru be el he ar cs fi ro hu de es fr it pt tr sv bg pl sr mk sk hr sl lt lv et.
+Wikipedia lists (tools/wikiwords.py, the first 12 MB of each dump): kk ky tg mn tt hy hi az uz ga mt cy.
+
+Languages built: en uk ru be el he ar cs fi ro hu de es fr it pt tr sv bg pl sr mk sk hr sl lt lv et nl da nb is sq ka fa vi ko kk ky tg mn tt hy hi az uz ga mt cy.
+  Norwegian is nb: that is the code macOS and Windows report for the Norwegian layouts.
   Serbian (sr): the Latin FrequencyWords list transliterated to Cyrillic (that is the layout where a wrong-layout fix matters).
 Usage: python3 tools/langmodel.py <dir with <code>.txt word lists> <out dir> <code>...
 """
