@@ -5,7 +5,7 @@ Menu-bar app for macOS + Windows: fixes text typed in the wrong keyboard layout.
 ## Layout
 - `engine.swift` — layout-detection logic (shared by app and tests); `main.swift` — mac app/UI; `updater.swift` — update check.
 - `windows/` — Win32 C++ version (`aura.cpp`), cross-built on Mac with Zig; `windows/store` — Microsoft Store.
-- `lang/` — language models (built by `tools/langmodel.py`); `translations/`, `tools/menu_i18n.py` — menu strings.
+- `lang/` — language models, 49 languages (built by `tools/langmodel.py`; word lists from FrequencyWords, or Wikipedia via `tools/wikiwords.py`; the file name is the code the OS reports for the layout, e.g. `nb`). `tools/menu_i18n.py` generates the menu strings (48 languages) in `engine.swift` and `windows/aura.cpp` — edit it, don't edit the generated blocks. `translations/<code>.md` — proofreading templates for AI-written translations.
 - `site/` — klbk.github.io/aura-switcher; `docs/` — install/usage texts (uk + en); `promo/` — promo assets.
 
 ## Commands
@@ -16,4 +16,7 @@ Menu-bar app for macOS + Windows: fixes text typed in the wrong keyboard layout.
 ## Rules
 - Version is set in `build.sh` and `windows/build.sh` — bump both together.
 - After changing `engine.swift` run `tests/run.sh`; don't accept a new baseline without showing what changed.
+- Mac event tap is **listen-only** on purpose: with an active tap, removing AURA from Accessibility makes macOS hold the keyboard and clicks for a minute or more, and the app cannot detect it (`AXIsProcessTrusted()` keeps answering yes from a cache). Don't go back to an active tap. Two permissions: Accessibility (editing text) and Input Monitoring (listening).
+- Mac builds are signed with the stable self-signed identity "AURA Switcher" (`build.sh`), so macOS keeps the permissions across updates; a new certificate would reset them for every user.
+- When testing anything that revokes permissions, run a background failsafe (`sleep N; pkill -9 -x "AURA Switcher"`). In zsh call `/usr/bin/log`, not `log`.
 - Stats, site publishing, Store — skill `aura-ops`; release — `mac-app-release`, `windows-from-mac`; testing — `keyboard-app-testing`.
