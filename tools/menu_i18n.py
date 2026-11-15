@@ -7,7 +7,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 KEYS = ["enabled", "auto", "sound", "access", "app", "exclude", "game", "appLang", "noBinding", "exclusions", "recent",
-        "bindings", "empty", "login", "words", "wordsTitle", "wordsInfo", "save", "cancel", "uiLang", "system", "hint",
+        "bindings", "empty", "login", "words", "wordsTitle", "wordsInfo", "save", "cancel", "uiLang", "allLangs", "regEurope", "regCaucasus", "regMiddleEast", "regAsia", "system", "hint",
         "report", "reportBody", "update", "updateDue", "donate", "quit", "updNew", "updLatest", "updNotes", "updNow", "updLater", "updFail"]
 # code, native name, then one line per key (in KEYS order)
 LANGS = """
@@ -32,6 +32,11 @@ AURA Switcher treats these words as correct: it never changes them, and fixes th
 Save
 Cancel
 Menu language
+All languages
+Europe
+Caucasus & Central Asia
+Middle East
+Asia
 System
 Double ⇧ — convert word/selection
 Report a problem…
@@ -68,6 +73,11 @@ AURA Switcher — мої слова
 Зберегти
 Скасувати
 Мова меню
+Усі мови
+Європа
+Кавказ і Центральна Азія
+Близький Схід
+Азія
 Системна
 Подвійний ⇧ — змінити мову слова/виділення
 Повідомити про проблему…
@@ -104,6 +114,11 @@ AURA Switcher uznaje te słowa za poprawne: nigdy ich nie zmienia, a wpisane w z
 Zapisz
 Anuluj
 Język menu
+Wszystkie języki
+Europa
+Kaukaz i Azja Środkowa
+Bliski Wschód
+Azja
 Systemowy
 Podwójny ⇧ — zmień układ słowa/zaznaczenia
 Zgłoś problem…
@@ -140,6 +155,11 @@ AURA Switcher hält diese Wörter für richtig: ändert sie nie und korrigiert s
 Sichern
 Abbrechen
 Menüsprache
+Alle Sprachen
+Europa
+Kaukasus und Zentralasien
+Naher Osten
+Asien
 System
 Doppel-⇧ — Wort/Auswahl umwandeln
 Problem melden…
@@ -176,6 +196,11 @@ AURA Switcher considera correctas estas palabras: nunca las cambia y las corrige
 Guardar
 Cancelar
 Idioma del menú
+Todos los idiomas
+Europa
+Cáucaso y Asia Central
+Oriente Medio
+Asia
 Sistema
 Doble ⇧ — convertir palabra/selección
 Informar de un problema…
@@ -212,6 +237,11 @@ AURA Switcher considère ces mots comme corrects : il ne les modifie jamais et l
 Enregistrer
 Annuler
 Langue du menu
+Toutes les langues
+Europe
+Caucase et Asie centrale
+Moyen-Orient
+Asie
 Système
 Double ⇧ — convertir le mot/la sélection
 Signaler un problème…
@@ -248,6 +278,11 @@ AURA Switcher considera corrette queste parole: non le modifica mai e le corregg
 Salva
 Annulla
 Lingua del menu
+Tutte le lingue
+Europa
+Caucaso e Asia centrale
+Medio Oriente
+Asia
 Sistema
 Doppio ⇧ — converti parola o selezione
 Segnala un problema…
@@ -284,6 +319,11 @@ O AURA Switcher considera estas palavras corretas: nunca as altera e corrige-as 
 Guardar
 Cancelar
 Idioma do menu
+Todos os idiomas
+Europa
+Cáucaso e Ásia Central
+Médio Oriente
+Ásia
 Sistema
 Duplo ⇧ — converter palavra/seleção
 Comunicar um problema…
@@ -320,6 +360,11 @@ AURA Switcher bu kelimeleri doğru kabul eder: asla değiştirmez, yanlış düz
 Kaydet
 İptal
 Menü dili
+Tüm diller
+Avrupa
+Kafkasya ve Orta Asya
+Orta Doğu
+Asya
 Sistem
 Çift ⇧ — kelimeyi/seçimi dönüştür
 Sorun bildir…
@@ -356,6 +401,11 @@ AURA Switcher beschouwt deze woorden als juist: verandert ze nooit en verbetert 
 Bewaar
 Annuleer
 Menutaal
+Alle talen
+Europa
+Kaukasus en Centraal-Azië
+Midden-Oosten
+Azië
 Systeem
 Dubbel ⇧ — woord/selectie omzetten
 Probleem melden…
@@ -392,6 +442,11 @@ AURA Switcher považuje tato slova za správná: nikdy je nemění a opraví je,
 Uložit
 Zrušit
 Jazyk nabídky
+Všechny jazyky
+Evropa
+Kavkaz a Střední Asie
+Blízký východ
+Asie
 Systémový
 Dvojitý ⇧ — převést slovo/výběr
 Nahlásit problém…
@@ -428,6 +483,11 @@ AURA Switcher ser dessa ord som rätt: ändrar dem aldrig och rättar dem om de 
 Spara
 Avbryt
 Menyspråk
+Alla språk
+Europa
+Kaukasus och Centralasien
+Mellanöstern
+Asien
 System
 Dubbel-⇧ — konvertera ord/markering
 Rapportera ett problem…
@@ -464,6 +524,11 @@ AURA Switcher pitää näitä sanoja oikeina: ei koskaan muuta niitä ja korjaa 
 Tallenna
 Kumoa
 Valikon kieli
+Kaikki kielet
+Eurooppa
+Kaukasia ja Keski-Aasia
+Lähi-itä
+Aasia
 Järjestelmä
 Kaksois-⇧ — muunna sana/valinta
 Ilmoita ongelmasta…
@@ -500,6 +565,11 @@ AURA Switcher consideră aceste cuvinte corecte: nu le schimbă niciodată și l
 Salvează
 Anulează
 Limba meniului
+Toate limbile
+Europa
+Caucaz și Asia Centrală
+Orientul Mijlociu
+Asia
 Sistem
 Dublu ⇧ — convertește cuvântul/selecția
 Raportează o problemă…
@@ -536,6 +606,11 @@ Az AURA Switcher ezeket a szavakat helyesnek tekinti: soha nem módosítja őket
 Mentés
 Mégse
 Menü nyelve
+Minden nyelv
+Európa
+Kaukázus és Közép-Ázsia
+Közel-Kelet
+Ázsia
 Rendszer
 Dupla ⇧ — szó/kijelölés átalakítása
 Probléma bejelentése…
@@ -572,6 +647,11 @@ AURA Switcher — οι λέξεις μου
 Αποθήκευση
 Ακύρωση
 Γλώσσα μενού
+Όλες οι γλώσσες
+Ευρώπη
+Καύκασος και Κεντρική Ασία
+Μέση Ανατολή
+Ασία
 Συστήματος
 Διπλό ⇧ — μετατροπή λέξης/επιλογής
 Αναφορά προβλήματος…
@@ -608,6 +688,11 @@ AURA Switcher смята тези думи за правилни: никога �
 Запази
 Отказ
 Език на менюто
+Всички езици
+Европа
+Кавказ и Централна Азия
+Близкия изток
+Азия
 Системен
 Двоен ⇧ — смяна на езика на дума/селекция
 Съобщете за проблем…
@@ -644,6 +729,11 @@ AURA Switcher מתייחס למילים אלה כנכונות: לעולם לא �
 שמירה
 ביטול
 שפת התפריט
+כל השפות
+אירופה
+הקווקז ומרכז אסיה
+המזרח התיכון
+אסיה
 מערכת
 ⇧ כפול — המרת מילה/בחירה
 דיווח על בעיה…
@@ -680,6 +770,11 @@ AURA Switcher — كلماتي
 حفظ
 إلغاء
 لغة القائمة
+كل اللغات
+أوروبا
+القوقاز وآسيا الوسطى
+الشرق الأوسط
+آسيا
 النظام
 ⇧ مزدوج — تحويل الكلمة/التحديد
 الإبلاغ عن مشكلة…
@@ -716,6 +811,11 @@ AURA Switcher इन शब्दों को सही मानता है:
 सहेजें
 रद्द करें
 मेनू की भाषा
+सभी भाषाएँ
+यूरोप
+काकेशस और मध्य एशिया
+मध्य पूर्व
+एशिया
 सिस्टम
 दो बार ⇧ — शब्द/चयन बदलें
 समस्या बताएँ…
@@ -752,6 +852,11 @@ AURA Switcher는 이 단어들을 올바른 단어로 봅니다. 절대 바꾸�
 저장
 취소
 메뉴 언어
+모든 언어
+유럽
+캅카스·중앙아시아
+중동
+아시아
 시스템
 ⇧ 두 번 — 단어/선택 영역 변환
 문제 신고…
@@ -766,6 +871,580 @@ AURA Switcher {v} 출시
 업데이트
 나중에
 자동으로 업데이트하지 못했습니다. 다운로드하려면 웹사이트를 열까요?
+
+be Беларуская
+Уключана
+Аўтавыпраўленне
+Гук
+⚠︎ Дайце доступ: Спецыяльныя магчымасці
+Праграма:
+Не працаваць у гэтай праграме
+Гульня — AURA на паўзе
+Мова для гэтай праграмы
+Без прывязкі
+Выключэнні
+Не працаваць у (нядаўнія праграмы)
+Прывязкі моў
+Пуста
+Запускаць пры ўваходзе
+Мае словы…
+AURA Switcher — мае словы
+AURA Switcher лічыць гэтыя словы правільнымі: не мяняе іх, а набраныя ў няправільнай раскладцы — выпраўляе на іх. Праз коску.
+Захаваць
+Скасаваць
+Мова меню
+Усе мовы
+Еўропа
+Каўказ і Цэнтральная Азія
+Блізкі Усход
+Азія
+Сістэмная
+Падвойны ⇧ — змяніць мову слова/вылучэння
+Паведаміць пра праблему…
+Што здарылася і ў якой праграме:
+Праверыць абнаўленні…
+⬆︎ Магчыма, выйшла абнаўленне — праверыць
+Падтрымаць AURA Switcher ☕
+Выхад
+Выйшла AURA Switcher {v}
+У вас апошняя версія
+Што новага
+Абнавіць
+Пазней
+Не ўдалося абнавіць аўтаматычна. Адкрыць сайт, каб спампаваць?
+
+kk Қазақша
+Қосулы
+Автотүзету
+Дыбыс
+⚠︎ Рұқсат беріңіз: Арнайы мүмкіндіктер
+Қолданба:
+Бұл қолданбада жұмыс істемеу
+Ойын — AURA кідіртілді
+Осы қолданбаның тілі
+Байланыссыз
+Ерекшеліктер
+Мында жұмыс істемеу (соңғы қолданбалар)
+Тіл байланыстары
+Бос
+Кіргенде іске қосу
+Менің сөздерім…
+AURA Switcher — менің сөздерім
+AURA Switcher бұл сөздерді дұрыс деп санайды: оларды өзгертпейді, ал қате пернетақта орналасуымен терілсе, осыларға түзетеді. Үтірмен бөліңіз.
+Сақтау
+Бас тарту
+Мәзір тілі
+Барлық тілдер
+Еуропа
+Кавказ және Орталық Азия
+Таяу Шығыс
+Азия
+Жүйелік
+Қос ⇧ — сөзді/таңдалғанды түрлендіру
+Мәселе туралы хабарлау…
+Не болды және қай қолданбада:
+Жаңартуларды тексеру…
+⬆︎ Жаңарту шыққан болуы мүмкін — тексеру
+AURA Switcher жобасын қолдау ☕
+Шығу
+AURA Switcher {v} шықты
+Сізде соңғы нұсқа бар
+Не жаңалық
+Жаңарту
+Кейінірек
+Автоматты түрде жаңарту мүмкін болмады. Жүктеп алу үшін сайтты ашу керек пе?
+
+ky Кыргызча
+Күйгүзүлгөн
+Авто оңдоо
+Үн
+⚠︎ Мүмкүнчүлүк бериңиз: Атайын мүмкүнчүлүктөр
+Колдонмо:
+Бул колдонмодо иштебөө
+Оюн — AURA тыныгууда
+Бул колдонмонун тили
+Байланышсыз
+Өзгөчөлүктөр
+Төмөндө иштебөө (акыркы колдонмолор)
+Тил байланыштары
+Бош
+Кирүүдө иштетүү
+Менин сөздөрүм…
+AURA Switcher — менин сөздөрүм
+AURA Switcher бул сөздөрдү туура деп эсептейт: аларды өзгөртпөйт, ал эми клавиатуранын туура эмес жайгашуусунда терилсе, ушуларга оңдойт. Үтүр менен бөлүңүз.
+Сактоо
+Жокко чыгаруу
+Меню тили
+Бардык тилдер
+Европа
+Кавказ жана Борбордук Азия
+Жакынкы Чыгыш
+Азия
+Системалык
+Кош ⇧ — сөздү/тандалганды өзгөртүү
+Көйгөй тууралуу кабарлоо…
+Эмне болду жана кайсы колдонмодо:
+Жаңыртууларды текшерүү…
+⬆︎ Жаңыртуу чыгып калышы мүмкүн — текшерүү
+AURA Switcher долбоорун колдоо ☕
+Чыгуу
+AURA Switcher {v} чыкты
+Сизде акыркы версия бар
+Эмне жаңы
+Жаңыртуу
+Кийинчерээк
+Автоматтык түрдө жаңыртуу мүмкүн болгон жок. Жүктөп алуу үчүн сайтты ачайынбы?
+
+ka ქართული
+ჩართულია
+ავტოშესწორება
+ხმა
+⚠︎ მიეცით წვდომა: მისაწვდომობა
+აპლიკაცია:
+ამ აპლიკაციაში არ იმუშაოს
+თამაში — AURA დაპაუზებულია
+ამ აპლიკაციის ენა
+მიბმის გარეშე
+გამონაკლისები
+არ იმუშაოს (ბოლო აპლიკაციები)
+ენების მიბმა
+ცარიელია
+გაშვება შესვლისას
+ჩემი სიტყვები…
+AURA Switcher — ჩემი სიტყვები
+AURA Switcher ამ სიტყვებს სწორად მიიჩნევს: არ ცვლის მათ, ხოლო არასწორი განლაგებით აკრეფილს ამათ ასწორებს. გამოყავით მძიმეებით.
+შენახვა
+გაუქმება
+მენიუს ენა
+ყველა ენა
+ევროპა
+კავკასია და ცენტრალური აზია
+ახლო აღმოსავლეთი
+აზია
+სისტემური
+ორმაგი ⇧ — სიტყვის/მონიშნულის გადაყვანა
+პრობლემის შეტყობინება…
+რა მოხდა და რომელ აპლიკაციაში:
+განახლებების შემოწმება…
+⬆︎ შესაძლოა განახლება გამოვიდა — შეამოწმეთ
+AURA Switcher-ის მხარდაჭერა ☕
+გასვლა
+გამოვიდა AURA Switcher {v}
+გაქვთ უახლესი ვერსია
+რა არის ახალი
+განახლება
+მოგვიანებით
+ავტომატურად განახლება ვერ მოხერხდა. გავხსნა საიტი ჩამოსატვირთად?
+
+hy Հայերեն
+Միացված է
+Ինքնաուղղում
+Ձայն
+⚠︎ Տվեք թույլտվություն՝ Հասանելիություն
+Հավելված՝
+Չաշխատել այս հավելվածում
+Խաղ — AURA-ն դադարի վրա է
+Այս հավելվածի լեզուն
+Առանց կապակցման
+Բացառություններ
+Չաշխատել (վերջին հավելվածներ)
+Լեզուների կապակցումներ
+Դատարկ է
+Գործարկել մուտքի ժամանակ
+Իմ բառերը…
+AURA Switcher — իմ բառերը
+AURA Switcher-ն այս բառերը ճիշտ է համարում՝ չի փոխում դրանք, իսկ սխալ դասավորությամբ տպվածները ուղղում է հենց այսպես։ Բաժանեք ստորակետերով։
+Պահպանել
+Չեղարկել
+Ցանկի լեզուն
+Բոլոր լեզուները
+Եվրոպա
+Կովկաս և Կենտրոնական Ասիա
+Մերձավոր Արևելք
+Ասիա
+Համակարգային
+Կրկնակի ⇧ — փոխարկել բառը/նշվածը
+Հաղորդել խնդրի մասին…
+Ինչ է պատահել և որ հավելվածում՝
+Ստուգել թարմացումները…
+⬆︎ Հնարավոր է՝ թարմացում է թողարկվել — ստուգել
+Աջակցել AURA Switcher-ին ☕
+Ելք
+Թողարկվել է AURA Switcher {v}
+Դուք ունեք վերջին տարբերակը
+Ինչ նոր է
+Թարմացնել
+Հետո
+Չհաջողվեց թարմացնել ավտոմատ կերպով։ Բացե՞լ կայքը՝ ներբեռնելու համար։
+
+az Azərbaycan
+Aktivdir
+Avtomatik düzəliş
+Səs
+⚠︎ İcazə verin: Əlçatımlılıq
+Tətbiq:
+Bu tətbiqdə işləmə
+Oyun — AURA fasilədədir
+Bu tətbiq üçün dil
+Bağlama yoxdur
+İstisnalar
+Burada işləmə (son tətbiqlər)
+Dil bağlamaları
+Boşdur
+Girişdə başlat
+Mənim sözlərim…
+AURA Switcher — mənim sözlərim
+AURA Switcher bu sözləri düzgün sayır: onları dəyişmir, səhv düzülüşdə yığılanda isə bunlara düzəldir. Vergüllə ayırın.
+Saxla
+Ləğv et
+Menyu dili
+Bütün dillər
+Avropa
+Qafqaz və Mərkəzi Asiya
+Yaxın Şərq
+Asiya
+Sistem
+Qoşa ⇧ — sözü/seçilmişi çevir
+Problem barədə bildir…
+Nə baş verdi və hansı tətbiqdə:
+Yeniləmələri yoxla…
+⬆︎ Yeniləmə çıxmış ola bilər — yoxlayın
+AURA Switcher-i dəstəkləyin ☕
+Çıxış
+AURA Switcher {v} çıxdı
+Ən son versiya sizdədir
+Nə yenidir
+Yenilə
+Sonra
+Avtomatik yeniləmək alınmadı. Yükləmək üçün sayt açılsın?
+
+sr Српски
+Укључено
+Аутокорекција
+Звук
+⚠︎ Дозволите приступ: Приступачност
+Апликација:
+Не радити у овој апликацији
+Игра — AURA паузирана
+Језик за ову апликацију
+Без повезивања
+Изузеци
+Не радити у (недавне апликације)
+Повезивање језика
+Празно
+Покрени при пријави
+Моје речи…
+AURA Switcher — моје речи
+AURA Switcher сматра ове речи исправним: не мења их, а када су откуцане у погрешном распореду — исправља их на ове. Одвојите зарезима.
+Сачувај
+Откажи
+Језик менија
+Сви језици
+Европа
+Кавказ и Централна Азија
+Блиски исток
+Азија
+Системски
+Двоструки ⇧ — претвори реч/избор
+Пријави проблем…
+Шта се догодило и у којој апликацији:
+Провери ажурирања…
+⬆︎ Можда је изашло ажурирање — провери
+Подржи AURA Switcher ☕
+Изађи
+Изашао је AURA Switcher {v}
+Имате најновију верзију
+Шта је ново
+Ажурирај
+Касније
+Аутоматско ажурирање није успело. Отворити сајт за преузимање?
+
+mk Македонски
+Вклучено
+Автокорекција
+Звук
+⚠︎ Дозволете пристап: Пристапност
+Апликација:
+Не работи во оваа апликација
+Игра — AURA паузирана
+Јазик за оваа апликација
+Без врзување
+Исклучоци
+Не работи во (неодамнешни апликации)
+Врзувања на јазици
+Празно
+Стартувај при најава
+Моите зборови…
+AURA Switcher — моите зборови
+AURA Switcher ги смета овие зборови за точни: не ги менува, а кога се напишани во погрешен распоред — ги исправа на нив. Одвојте ги со запирки.
+Зачувај
+Откажи
+Јазик на менито
+Сите јазици
+Европа
+Кавказ и Централна Азија
+Блиски Исток
+Азија
+Системски
+Двоен ⇧ — претвори збор/избор
+Пријави проблем…
+Што се случи и во која апликација:
+Провери за ажурирања…
+⬆︎ Можеби има ново ажурирање — провери
+Поддржи го AURA Switcher ☕
+Излези
+Излезе AURA Switcher {v}
+Ја имате најновата верзија
+Што е ново
+Ажурирај
+Подоцна
+Автоматското ажурирање не успеа. Да го отворам сајтот за преземање?
+
+sk Slovenčina
+Zapnuté
+Automatické opravy
+Zvuk
+⚠︎ Povoľte prístup: Zjednodušenie ovládania
+Aplikácia:
+V tejto aplikácii nepracovať
+Hra — AURA pozastavená
+Jazyk pre túto aplikáciu
+Bez priradenia
+Výnimky
+Nepracovať v (nedávne aplikácie)
+Priradenia jazykov
+Prázdne
+Spúšťať po prihlásení
+Moje slová…
+AURA Switcher — moje slová
+AURA Switcher považuje tieto slová za správne: nikdy ich nemení a opravuje ich, keď sú napísané v nesprávnom rozložení. Oddeľte ich čiarkami.
+Uložiť
+Zrušiť
+Jazyk ponuky
+Všetky jazyky
+Európa
+Kaukaz a Stredná Ázia
+Blízky východ
+Ázia
+Systémový
+Dvojitý ⇧ — previesť slovo/výber
+Nahlásiť problém…
+Čo sa stalo a v ktorej aplikácii:
+Skontrolovať aktualizácie…
+⬆︎ Možno vyšla aktualizácia — skontrolovať
+Podporiť AURA Switcher ☕
+Ukončiť
+Vyšiel AURA Switcher {v}
+Máte najnovšiu verziu
+Čo je nové
+Aktualizovať
+Neskôr
+Automatická aktualizácia sa nepodarila. Otvoriť web na stiahnutie?
+
+hr Hrvatski
+Uključeno
+Automatski ispravak
+Zvuk
+⚠︎ Dopustite pristup: Pristupačnost
+Aplikacija:
+Ne radi u ovoj aplikaciji
+Igra — AURA pauzirana
+Jezik za ovu aplikaciju
+Bez povezivanja
+Iznimke
+Ne radi u (nedavne aplikacije)
+Povezivanja jezika
+Prazno
+Pokreni pri prijavi
+Moje riječi…
+AURA Switcher — moje riječi
+AURA Switcher ove riječi smatra ispravnima: nikad ih ne mijenja, a ispravlja ih kad su utipkane u pogrešnom rasporedu. Odvojite ih zarezima.
+Spremi
+Odustani
+Jezik izbornika
+Svi jezici
+Europa
+Kavkaz i Srednja Azija
+Bliski istok
+Azija
+Sustavski
+Dvostruki ⇧ — pretvori riječ/odabir
+Prijavi problem…
+Što se dogodilo i u kojoj aplikaciji:
+Provjeri ažuriranja…
+⬆︎ Možda je izašlo ažuriranje — provjeri
+Podrži AURA Switcher ☕
+Izađi
+Izašao je AURA Switcher {v}
+Imate najnoviju verziju
+Što je novo
+Ažuriraj
+Kasnije
+Automatsko ažuriranje nije uspjelo. Otvoriti web-stranicu za preuzimanje?
+
+sl Slovenščina
+Vklopljeno
+Samodejni popravki
+Zvok
+⚠︎ Dovolite dostop: Dostopnost
+Aplikacija:
+V tej aplikaciji ne delaj
+Igra — AURA zaustavljena
+Jezik za to aplikacijo
+Brez povezave
+Izjeme
+Ne delaj v (nedavne aplikacije)
+Povezave jezikov
+Prazno
+Zaženi ob prijavi
+Moje besede…
+AURA Switcher — moje besede
+AURA Switcher te besede šteje za pravilne: nikoli jih ne spremeni, popravi pa jih, če so natipkane v napačni razporeditvi. Ločite jih z vejicami.
+Shrani
+Prekliči
+Jezik menija
+Vsi jeziki
+Evropa
+Kavkaz in Srednja Azija
+Bližnji vzhod
+Azija
+Sistemski
+Dvojni ⇧ — pretvori besedo/izbor
+Prijavi težavo…
+Kaj se je zgodilo in v kateri aplikaciji:
+Preveri posodobitve…
+⬆︎ Morda je izšla posodobitev — preveri
+Podpri AURA Switcher ☕
+Končaj
+Izšel je AURA Switcher {v}
+Imate najnovejšo različico
+Kaj je novega
+Posodobi
+Pozneje
+Samodejna posodobitev ni uspela. Odprem spletno mesto za prenos?
+
+lt Lietuvių
+Įjungta
+Automatinis taisymas
+Garsas
+⚠︎ Suteikite prieigą: Pritaikymas neįgaliesiems
+Programa:
+Šioje programoje nedirbti
+Žaidimas — AURA pristabdyta
+Kalba šiai programai
+Be priskyrimo
+Išimtys
+Nedirbti (naujausios programos)
+Kalbų priskyrimai
+Tuščia
+Paleisti prisijungiant
+Mano žodžiai…
+AURA Switcher — mano žodžiai
+AURA Switcher laiko šiuos žodžius teisingais: niekada jų nekeičia, o surinktus netinkamu išdėstymu — pataiso į juos. Atskirkite kableliais.
+Išsaugoti
+Atšaukti
+Meniu kalba
+Visos kalbos
+Europa
+Kaukazas ir Vidurio Azija
+Artimieji Rytai
+Azija
+Sistemos
+Dvigubas ⇧ — konvertuoti žodį/pažymėtą tekstą
+Pranešti apie problemą…
+Kas nutiko ir kurioje programoje:
+Tikrinti naujinimus…
+⬆︎ Galbūt išleistas naujinimas — patikrinkite
+Paremti AURA Switcher ☕
+Išeiti
+Išleistas AURA Switcher {v}
+Turite naujausią versiją
+Kas naujo
+Atnaujinti
+Vėliau
+Nepavyko atnaujinti automatiškai. Atidaryti svetainę atsisiuntimui?
+
+lv Latviešu
+Ieslēgts
+Automātiskā labošana
+Skaņa
+⚠︎ Atļaujiet piekļuvi: Pieejamība
+Lietotne:
+Šajā lietotnē nedarboties
+Spēle — AURA apturēta
+Valoda šai lietotnei
+Bez piesaistes
+Izņēmumi
+Nedarboties (nesenās lietotnes)
+Valodu piesaistes
+Tukšs
+Palaist pieteikšanās brīdī
+Mani vārdi…
+AURA Switcher — mani vārdi
+AURA Switcher uzskata šos vārdus par pareiziem: nekad tos nemaina un labo uz tiem, ja tie ievadīti nepareizā izkārtojumā. Atdaliet ar komatiem.
+Saglabāt
+Atcelt
+Izvēlnes valoda
+Visas valodas
+Eiropa
+Kaukāzs un Centrālāzija
+Tuvie Austrumi
+Āzija
+Sistēmas
+Dubults ⇧ — pārvērst vārdu/atlasi
+Ziņot par problēmu…
+Kas notika un kurā lietotnē:
+Meklēt atjauninājumus…
+⬆︎ Iespējams, iznācis atjauninājums — pārbaudīt
+Atbalstīt AURA Switcher ☕
+Iziet
+Iznācis AURA Switcher {v}
+Jums ir jaunākā versija
+Kas jauns
+Atjaunināt
+Vēlāk
+Automātiski atjaunināt neizdevās. Atvērt vietni lejupielādei?
+
+et Eesti
+Sees
+Automaatne parandus
+Heli
+⚠︎ Andke juurdepääs: Juurdepääsetavus
+Rakendus:
+Selles rakenduses mitte töötada
+Mäng — AURA peatatud
+Selle rakenduse keel
+Seostamata
+Erandid
+Mitte töötada (hiljutised rakendused)
+Keeleseosed
+Tühi
+Käivita sisselogimisel
+Minu sõnad…
+AURA Switcher — minu sõnad
+AURA Switcher peab neid sõnu õigeks: ei muuda neid kunagi ja parandab nendeks, kui need on sisestatud vales paigutuses. Eralda komadega.
+Salvesta
+Tühista
+Menüü keel
+Kõik keeled
+Euroopa
+Kaukaasia ja Kesk-Aasia
+Lähis-Ida
+Aasia
+Süsteemne
+Topelt ⇧ — teisenda sõna/valik
+Teata probleemist…
+Mis juhtus ja millises rakenduses:
+Otsi uuendusi…
+⬆︎ Uuendus võib olla saadaval — kontrolli
+Toeta AURA Switcherit ☕
+Välju
+AURA Switcher {v} on väljas
+Sul on uusim versioon
+Mis on uut
+Uuenda
+Hiljem
+Automaatne uuendamine ebaõnnestus. Avada veebileht allalaadimiseks?
 """
 
 langs = []  # (code, name, [strings])
@@ -775,6 +1454,18 @@ for block in LANGS.strip().split("\n\n"):
     assert len(lines) == len(KEYS), (code, len(lines))
     lines[KEYS.index("app")] += " "  # "App: " + app name
     langs.append((code, name, lines))
+
+SWIFT_REGIONS = """/// Menu-language picker: a few likely languages on top, the rest under "All languages" by region.
+/// Regions in menu order (title key → codes); a language not listed here goes to the first region.
+let uiRegions: [(String, [String])] = [("regEurope", []), ("regCaucasus", ["kk", "ky", "ka", "hy", "az"]), ("regMiddleEast", ["he", "ar", "fa", "ku"]), ("regAsia", ["hi", "ko", "zh", "ja"])]
+func uiRegionIndex(_ code: String) -> Int { uiRegions.firstIndex { $0.1.contains(code) } ?? 0 }
+/// the languages shown on top of the picker: the current one, English, then the languages of the user's keyboard layouts
+func uiTopLangs(current: String, layoutLangs: [String]) -> [String] {
+    var top: [String] = []
+    for c in [current, "en"] + layoutLangs where uiLangs.contains(c) && !top.contains(c) && top.count < 6 { top.append(c) }
+    return top
+}
+"""
 
 def esc(s): return s.replace("\\", "\\\\").replace('"', '\\"')
 
@@ -787,6 +1478,7 @@ def put(path, begin, end, body):
 B, E = "// BEGIN menu strings — generated by tools/menu_i18n.py, edit there", "// END menu strings"
 swift = "let uiLangs = [" + ", ".join(f'"{c}"' for c, _, _ in langs) + "]\n"
 swift += "let uiLangNames = [" + ", ".join(f'"{n}"' for _, n, _ in langs) + "]\n"
+swift += SWIFT_REGIONS
 swift += "let uiStrings: [String: [String]] = [ // key: one string per uiLangs\n"
 for i, k in enumerate(KEYS):
     swift += f'    "{k}": [' + ", ".join(f'"{esc(l[i])}"' for _, _, l in langs) + "],\n"

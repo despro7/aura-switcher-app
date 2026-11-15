@@ -13,7 +13,7 @@ const T = {
     f2h: "Подвійний Shift", f2p: "Двічі натисніть <kbd>Shift</kbd> — останнє слово або виділений текст перекладеться в іншу розкладку.",
     f3h: "Мова для програми", f3p: "Terminal — завжди EN, Telegram — УК. А в програмах-винятках AURA просто мовчить.",
     f4h: "Приватно", f4p: "Нічого не надсилає в інтернет. Усе працює на вашому пристрої.",
-    f5h: "21 мова", f5p: "Усі розкладки вашої системи.",
+    f5h: "Мови: 21", f5p: "Усі розкладки вашої системи.",
     f6h: "Легка", f6p: "Менше 1 МБ, не гальмує набір і не підвішує систему.",
     pTitle: "Mac і Windows — однакові звички",
     pMac: "<li>Apple Silicon і Intel</li><li>Код мови в рядку меню: EN, УК, РУ…</li><li>macOS 13 і новіші</li>",
@@ -295,7 +295,7 @@ const EXTRA = {
   zh: ["把链接发给自己", "链接已复制", "它安全吗？", "安全透明", `所有源代码均托管在 ${GH} 上，任何人都可以审查代码。`, "为什么它需要键盘访问权限", "仅用于识别你输入的文本并进行纠错。软件不会保存或向任何地方发送输入内容，且应用本身无需联网。", "首次启动时提示安全警告是正常现象", "测试版尚未购买昂贵的 Apple 或 Microsoft 开发者签名证书。Mac：点击“好” → 系统设置 → 隐私与安全性 → 点击“仍要打开”。Windows：点击“更多信息” → “仍要运行”。"],
 };
 const EXTRA_KEYS = ["phoneBtn", "phoneCopied", "safeH", "safe1h", "safe1p", "safe2h", "safe2p", "safe3h", "safe3p"];
-for (const k in T) { const e = EXTRA[k] || EXTRA.en; EXTRA_KEYS.forEach((key, i) => T[k][key] = e[i]); }
+for (const k in T) { const e = EXTRA[k] || EXTRA.en; EXTRA_KEYS.forEach((key, i) => { if (T[k][key] === undefined) T[k][key] = e[i]; }); }  // a language may bring its own (i18n-more.js)
 // The app's menu, shown on the page (strings from engine.swift uiStrings)
 const MENU_KEYS = ["menabled", "mauto", "msound", "mapp", "mexclude", "mappLang", "mexclusions", "mbindings"];
 const MENU = {
@@ -322,8 +322,12 @@ const MENU = {
   ko: ["켜기", "자동 수정", "소리", "앱: ", "이 앱에서 작동 안 함", "이 앱의 언어", "예외", "언어 지정"],
   zh: ["已启用", "自动纠错", "音效", "应用： ", "不在该应用中启用", "此应用语言", "不生效应用列表", "语言绑定"],
 };
-for (const k in T) { const e = MENU[k] || MENU.en; MENU_KEYS.forEach((key, i) => T[k][key] = e[i]); }
+for (const k in T) { const e = MENU[k] || MENU.en; MENU_KEYS.forEach((key, i) => { if (T[k][key] === undefined) T[k][key] = e[i]; }); }
 if (typeof SEO !== "undefined") for (const k in SEO) if (T[k]) Object.assign(T[k], SEO[k]);  // seo.js: title, description, "alternative to…"
+// the language count in the texts ("21 languages") is the number of chips in the languages card
+const nLangs = document.querySelectorAll(".langs span").length;
+if (nLangs) for (const k in T) for (const key of ["f5h", "altP"]) if (T[k][key]) T[k][key] = T[k][key].replace(/\b21\b/, nLangs);
+if (nLangs && T.uk.altP) T.uk.altP = T.uk.altP.replace(/ще 19\b/, "ще " + (nLangs - 2));  // "Ukrainian, English and N more"
 
 function detectLang() {
   const page = document.documentElement.dataset.page;  // /<lang>/ pages show their own language
