@@ -201,7 +201,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
         }
         add(m, L("report")) { self.reportProblem() }
         add(m, L("donate")) { NSWorkspace.shared.open(URL(string: "https://donatello.to/aura-switcher")!) }
-        add(m, "AURA Switcher \(Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "") beta · 🇺🇦")
+        add(m, "AURA Switcher \(Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "") alpha · 🇺🇦")
         add(m, L("quit")) { NSApp.terminate(nil) }
     }
 }
