@@ -503,6 +503,10 @@ final class Engine {
         let found = pairFix(keys, before: before) ?? autoFix(keys)
         let ms = Int((ProcessInfo.processInfo.systemUptime - t0) * 1000)
         if ms > 100 { auraLog.notice("slow check: \(ms) ms") }
+        if found == nil, noFix.hasPrefix("already a word"), keys.count >= 3, let l = typedLayout(keys), !isLatin(l.text(keys)) {
+            recentLang = l.lang; recentAt = ProcessInfo.processInfo.systemUptime
+        }
+        if let f = found, !isLatin(f.text(keys)) { recentLang = f.lang; recentAt = ProcessInfo.processInfo.systemUptime }
         guard let fix = found else {
             if !noFix.isEmpty { auraLog.notice("skip: \(self.noFix, privacy: .public) (\(keys.count) letters)") }
             return
@@ -649,6 +653,8 @@ final class Engine {
     static let marginNeeded = 20.0, marginForDictWord = 5.0, marginCyrillic = 11.0  // Belarusian ↔ Russian: «длінный» 13, true «сіла» 4
 
     var noFix = ""  // why autoFix found nothing (for the log)
+    /// language of the last non-Latin word that was fixed or typed right (not set by the tests, which call autoFix alone)
+    var recentLang: String? = nil, recentAt = 0.0
     func autoFix(_ keys: [Key]) -> Layout? {
         guard keys.count >= 2, let cur = typedLayout(keys) else { noFix = keys.count >= 2 ? "layout not recognized" : ""; return nil }
         let typed = cur.text(keys)
@@ -661,7 +667,9 @@ final class Engine {
         // Russian look-alike «привыт» that only passes on letter statistics
         // equal evidence (both are dictionary words: «было» / «біло» from the same keys) — a frequent word of its
         // language wins over a rare one, then the letter statistics decide
-        var best: (tier: Int, freq: Int, m: Double, l: Layout)? = nil
+        // «ns» is both «ты» (ru) and «ті» (uk): with equal evidence the language of the last non-Latin word wins
+        let recent = ProcessInfo.processInfo.systemUptime - recentAt < 600 ? recentLang : nil
+        var best: (tier: Int, freq: Int, rec: Int, m: Double, l: Layout)? = nil
         let start = index(cur.lang)
         for i in 1..<max(layouts.count, 1) {
             let l = layouts[(start + i) % layouts.count]
@@ -686,7 +694,8 @@ final class Engine {
                 if lm.has(t) { tier = 2 } else if m >= Engine.marginNeeded { tier = 1 }
             }
             let freq = model(l.lang)?.has(t) == true ? 1 : 0
-            if tier > 0, best == nil || (tier, freq, m) > (best!.tier, best!.freq, best!.m) { best = (tier, freq, m, l) }
+            let rec = l.lang == recent ? 1 : 0
+            if tier > 0, best == nil || (tier, freq, rec, m) > (best!.tier, best!.freq, best!.rec, best!.m) { best = (tier, freq, rec, m, l) }
         }
         if best == nil { noFix = "not a word in \(cur.lang), nothing better in other layouts" }
         return best?.l
