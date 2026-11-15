@@ -340,14 +340,33 @@ final class Engine {
             engine.handle(type, event)
         }, userInfo: nil)
         guard let tap else { return false }
-        CFRunLoopAddSource(CFRunLoopGetMain(), CFMachPortCreateRunLoopSource(nil, tap, 0), .commonModes)
+        let src = CFMachPortCreateRunLoopSource(nil, tap, 0)
+        tapSource = src
+        CFRunLoopAddSource(CFRunLoopGetMain(), src, .commonModes)
         CGEvent.tapEnable(tap: tap, enable: true)
         return true
     }
 
+    /// removes the tap at once (access lost, or about to be re-created); the app then waits for access again
+    var onTapLost: (() -> Void)?
+    func dropTap() {
+        guard let t = tap else { return }
+        CGEvent.tapEnable(tap: t, enable: false)
+        CFMachPortInvalidate(t)
+        if let src = tapSource { CFRunLoopRemoveSource(CFRunLoopGetMain(), src, .commonModes) }
+        tap = nil; tapSource = nil
+        reset()
+        auraLog.notice("tap removed: no access")
+        onTapLost?()
+    }
+    var tapSource: CFRunLoopSource?
+
     func handle(_ type: CGEventType, _ e: CGEvent) -> Unmanaged<CGEvent>? {
         let pass = Unmanaged.passUnretained(e)
         if type == .tapDisabledByTimeout || type == .tapDisabledByUserInput {
+            // access taken away (the user removed AURA from Accessibility): never re-enable — an active tap
+            // without access can freeze the keyboard and clicks system-wide until the process quits
+            if !AXIsProcessTrusted() { DispatchQueue.main.async { self.dropTap() }; return pass }
             if let tap { CGEvent.tapEnable(tap: tap, enable: true) }
             return pass
         }
