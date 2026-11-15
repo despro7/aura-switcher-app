@@ -359,12 +359,79 @@ final class Engine {
         tapSource = src
         CFRunLoopAddSource(CFRunLoopGetMain(), src, .commonModes)
         CGEvent.tapEnable(tap: tap, enable: true)
+        setGuardTap(tap)
+        startGuard()
         return true
+    }
+
+    // MARK: guard — an active tap that outlives the Accessibility permission can freeze the keyboard and clicks
+    // system-wide. So the permission is watched from threads that never touch the main run loop (which may be busy
+    // or stuck): when it is gone the tap is invalidated at once, and if the watcher itself stops answering the
+    // process exits (the system removes the tap with it).
+    private let guardLock = NSLock()
+    private var guardTap: CFMachPort?
+    private var guardPollAt = ProcessInfo.processInfo.systemUptime
+    private var guardRunning = false
+    private var guardTimers: [DispatchSourceTimer] = []
+    /// Access to the Accessibility API, checked for real. AXIsProcessTrusted() alone answers "yes" from a cache for up to
+    /// about a minute after the user removes the app, while the system already blocks the tap; a real accessibility
+    /// call fails with apiDisabled the moment access is gone.
+    func hasAccess() -> Bool { guard AXIsProcessTrusted() else { return false }; return axProbe() != .apiDisabled }
+    func axProbe() -> AXError {
+        let sys = AXUIElementCreateSystemWide()
+        AXUIElementSetMessagingTimeout(sys, 0.3)
+        var v: CFTypeRef?
+        return AXUIElementCopyAttributeValue(sys, kAXFocusedApplicationAttribute as CFString, &v)
+    }
+    /// The main thread says "alive" (timer + every event). If it stops for a while the guard invalidates the tap
+    /// (a tap whose process does not answer holds input back until the system gives up on it).
+    private var mainBeatAt = ProcessInfo.processInfo.systemUptime
+    func beat() { guardLock.lock(); mainBeatAt = ProcessInfo.processInfo.systemUptime; guardLock.unlock() }
+    /// kills the tap from any thread; the main thread tidies up and creates a new one when access allows
+    func killTap(_ reason: String) {
+        guardLock.lock(); let t = guardTap; guardTap = nil; guardLock.unlock()
+        guard let t else { return }
+        CGEvent.tapEnable(tap: t, enable: false)
+        CFMachPortInvalidate(t)
+        auraLog.notice("guard: tap invalidated — \(reason, privacy: .public)")
+        DispatchQueue.main.async { self.dropTap() }
+    }
+    private func setGuardTap(_ t: CFMachPort?) { guardLock.lock(); guardTap = t; guardPollAt = ProcessInfo.processInfo.systemUptime; guardLock.unlock() }
+    private func startGuard() {
+        guardLock.lock(); defer { guardLock.unlock() }
+        if guardRunning { return }
+        guardRunning = true
+        let poll = DispatchSource.makeTimerSource(queue: DispatchQueue(label: "aura.guard.poll", qos: .userInteractive))
+        poll.schedule(deadline: .now() + 0.1, repeating: 0.1)
+        var lastCode: Int32 = 0
+        poll.setEventHandler { [unowned self] in
+            let now = ProcessInfo.processInfo.systemUptime
+            guardLock.lock(); let t = guardTap; let beatAge = now - mainBeatAt; guardLock.unlock()
+            guard t != nil else { return }
+            let trusted = AXIsProcessTrusted()
+            let code = trusted ? axProbe() : .apiDisabled
+            guardLock.lock(); guardPollAt = ProcessInfo.processInfo.systemUptime; guardLock.unlock()
+            if code.rawValue != lastCode { lastCode = code.rawValue; auraLog.notice("guard: access check \(trusted ? "trusted" : "NOT trusted", privacy: .public), AX \(code.rawValue)") }
+            if code == .apiDisabled { killTap("access lost") }
+            else if beatAge > 1.5 { killTap("main thread not answering for \(Int(beatAge * 1000)) ms") }
+        }
+        let dead = DispatchSource.makeTimerSource(queue: DispatchQueue(label: "aura.guard.dead", qos: .userInteractive))
+        dead.schedule(deadline: .now() + 0.5, repeating: 0.5)
+        dead.setEventHandler { [unowned self] in
+            guardLock.lock(); let t = guardTap, at = guardPollAt; guardLock.unlock()
+            if t != nil, ProcessInfo.processInfo.systemUptime - at > 2 {
+                auraLog.notice("guard: permission check not answering, quitting so the system drops the tap")
+                _exit(1)
+            }
+        }
+        guardTimers = [poll, dead]
+        poll.resume(); dead.resume()
     }
 
     /// removes the tap at once (access lost, or about to be re-created); the app then waits for access again
     var onTapLost: (() -> Void)?
     func dropTap() {
+        setGuardTap(nil)
         guard let t = tap else { return }
         CGEvent.tapEnable(tap: t, enable: false)
         CFMachPortInvalidate(t)
@@ -375,14 +442,29 @@ final class Engine {
         onTapLost?()
     }
     var tapSource: CFRunLoopSource?
+    /// When the system switched our tap off (access removed, or a callback too slow). Re-creating it straight away can
+    /// stall input again while the system still believes access is there, so two such events in a minute pause the tap.
+    private var systemDisables: [TimeInterval] = []
+    func noteSystemDisable() {
+        let n = ProcessInfo.processInfo.systemUptime
+        guardLock.lock(); systemDisables = systemDisables.filter { n - $0 < 60 } + [n]; guardLock.unlock()
+    }
+    var tapPaused: Bool {
+        let n = ProcessInfo.processInfo.systemUptime
+        guardLock.lock(); defer { guardLock.unlock() }
+        return systemDisables.filter { n - $0 < 60 }.count >= 2
+    }
 
     func handle(_ type: CGEventType, _ e: CGEvent) -> Unmanaged<CGEvent>? {
+        beat()
         let pass = Unmanaged.passUnretained(e)
         if type == .tapDisabledByTimeout || type == .tapDisabledByUserInput {
-            // access taken away (the user removed AURA from Accessibility): never re-enable — an active tap
-            // without access can freeze the keyboard and clicks system-wide until the process quits
-            if !AXIsProcessTrusted() { DispatchQueue.main.async { self.dropTap() }; return pass }
-            if let tap { CGEvent.tapEnable(tap: tap, enable: true) }
+            // the system switched the tap off (access taken away, or a callback was too slow): never just
+            // re-enable it — an active tap without access can freeze the keyboard and clicks system-wide.
+            // Drop it; the app creates a fresh one a moment later, if it still has access.
+            noteSystemDisable()
+            auraLog.notice("tap disabled by the system (\(type == .tapDisabledByTimeout ? "timeout" : "user input", privacy: .public)): dropped")
+            DispatchQueue.main.async { self.dropTap() }
             return pass
         }
         if e.getIntegerValueField(.eventSourceUserData) == kMagic { return pass }
