@@ -349,8 +349,14 @@ final class Engine {
     func start() -> Bool {
         let mask: CGEventMask = (1 << CGEventType.keyDown.rawValue) | (1 << CGEventType.keyUp.rawValue) | (1 << CGEventType.flagsChanged.rawValue)
             | (1 << CGEventType.leftMouseDown.rawValue) | (1 << CGEventType.rightMouseDown.rawValue)
-        // an active tap only to hold Return for a moment (see holdReturn); every other event passes untouched
-        tap = CGEvent.tapCreate(tap: .cgSessionEventTap, place: .tailAppendEventTap, options: .defaultTap,
+        // A listen-only tap: it only watches. An active tap that loses its permission (the user removes AURA from
+        // Accessibility while it runs) makes the system hold the keyboard and clicks back for a minute or more;
+        // a listen-only one can never hold anything back.
+        if !CGPreflightListenEventAccess() {
+            if !askedListenAccess { askedListenAccess = true; CGRequestListenEventAccess() }   // the system prompt, once
+            return false
+        }
+        tap = CGEvent.tapCreate(tap: .cgSessionEventTap, place: .tailAppendEventTap, options: .listenOnly,
                                 eventsOfInterest: mask, callback: { _, type, event, _ in
             engine.handle(type, event)
         }, userInfo: nil)
@@ -359,79 +365,12 @@ final class Engine {
         tapSource = src
         CFRunLoopAddSource(CFRunLoopGetMain(), src, .commonModes)
         CGEvent.tapEnable(tap: tap, enable: true)
-        setGuardTap(tap)
-        startGuard()
         return true
-    }
-
-    // MARK: guard — an active tap that outlives the Accessibility permission can freeze the keyboard and clicks
-    // system-wide. So the permission is watched from threads that never touch the main run loop (which may be busy
-    // or stuck): when it is gone the tap is invalidated at once, and if the watcher itself stops answering the
-    // process exits (the system removes the tap with it).
-    private let guardLock = NSLock()
-    private var guardTap: CFMachPort?
-    private var guardPollAt = ProcessInfo.processInfo.systemUptime
-    private var guardRunning = false
-    private var guardTimers: [DispatchSourceTimer] = []
-    /// Access to the Accessibility API, checked for real. AXIsProcessTrusted() alone answers "yes" from a cache for up to
-    /// about a minute after the user removes the app, while the system already blocks the tap; a real accessibility
-    /// call fails with apiDisabled the moment access is gone.
-    func hasAccess() -> Bool { guard AXIsProcessTrusted() else { return false }; return axProbe() != .apiDisabled }
-    func axProbe() -> AXError {
-        let sys = AXUIElementCreateSystemWide()
-        AXUIElementSetMessagingTimeout(sys, 0.3)
-        var v: CFTypeRef?
-        return AXUIElementCopyAttributeValue(sys, kAXFocusedApplicationAttribute as CFString, &v)
-    }
-    /// The main thread says "alive" (timer + every event). If it stops for a while the guard invalidates the tap
-    /// (a tap whose process does not answer holds input back until the system gives up on it).
-    private var mainBeatAt = ProcessInfo.processInfo.systemUptime
-    func beat() { guardLock.lock(); mainBeatAt = ProcessInfo.processInfo.systemUptime; guardLock.unlock() }
-    /// kills the tap from any thread; the main thread tidies up and creates a new one when access allows
-    func killTap(_ reason: String) {
-        guardLock.lock(); let t = guardTap; guardTap = nil; guardLock.unlock()
-        guard let t else { return }
-        CGEvent.tapEnable(tap: t, enable: false)
-        CFMachPortInvalidate(t)
-        auraLog.notice("guard: tap invalidated — \(reason, privacy: .public)")
-        DispatchQueue.main.async { self.dropTap() }
-    }
-    private func setGuardTap(_ t: CFMachPort?) { guardLock.lock(); guardTap = t; guardPollAt = ProcessInfo.processInfo.systemUptime; guardLock.unlock() }
-    private func startGuard() {
-        guardLock.lock(); defer { guardLock.unlock() }
-        if guardRunning { return }
-        guardRunning = true
-        let poll = DispatchSource.makeTimerSource(queue: DispatchQueue(label: "aura.guard.poll", qos: .userInteractive))
-        poll.schedule(deadline: .now() + 0.1, repeating: 0.1)
-        var lastCode: Int32 = 0
-        poll.setEventHandler { [unowned self] in
-            let now = ProcessInfo.processInfo.systemUptime
-            guardLock.lock(); let t = guardTap; let beatAge = now - mainBeatAt; guardLock.unlock()
-            guard t != nil else { return }
-            let trusted = AXIsProcessTrusted()
-            let code = trusted ? axProbe() : .apiDisabled
-            guardLock.lock(); guardPollAt = ProcessInfo.processInfo.systemUptime; guardLock.unlock()
-            if code.rawValue != lastCode { lastCode = code.rawValue; auraLog.notice("guard: access check \(trusted ? "trusted" : "NOT trusted", privacy: .public), AX \(code.rawValue)") }
-            if code == .apiDisabled { killTap("access lost") }
-            else if beatAge > 1.5 { killTap("main thread not answering for \(Int(beatAge * 1000)) ms") }
-        }
-        let dead = DispatchSource.makeTimerSource(queue: DispatchQueue(label: "aura.guard.dead", qos: .userInteractive))
-        dead.schedule(deadline: .now() + 0.5, repeating: 0.5)
-        dead.setEventHandler { [unowned self] in
-            guardLock.lock(); let t = guardTap, at = guardPollAt; guardLock.unlock()
-            if t != nil, ProcessInfo.processInfo.systemUptime - at > 2 {
-                auraLog.notice("guard: permission check not answering, quitting so the system drops the tap")
-                _exit(1)
-            }
-        }
-        guardTimers = [poll, dead]
-        poll.resume(); dead.resume()
     }
 
     /// removes the tap at once (access lost, or about to be re-created); the app then waits for access again
     var onTapLost: (() -> Void)?
     func dropTap() {
-        setGuardTap(nil)
         guard let t = tap else { return }
         CGEvent.tapEnable(tap: t, enable: false)
         CFMachPortInvalidate(t)
@@ -442,27 +381,12 @@ final class Engine {
         onTapLost?()
     }
     var tapSource: CFRunLoopSource?
-    /// When the system switched our tap off (access removed, or a callback too slow). Re-creating it straight away can
-    /// stall input again while the system still believes access is there, so two such events in a minute pause the tap.
-    private var systemDisables: [TimeInterval] = []
-    func noteSystemDisable() {
-        let n = ProcessInfo.processInfo.systemUptime
-        guardLock.lock(); systemDisables = systemDisables.filter { n - $0 < 60 } + [n]; guardLock.unlock()
-    }
-    var tapPaused: Bool {
-        let n = ProcessInfo.processInfo.systemUptime
-        guardLock.lock(); defer { guardLock.unlock() }
-        return systemDisables.filter { n - $0 < 60 }.count >= 2
-    }
-
+    private var askedListenAccess = false
     func handle(_ type: CGEventType, _ e: CGEvent) -> Unmanaged<CGEvent>? {
-        beat()
         let pass = Unmanaged.passUnretained(e)
         if type == .tapDisabledByTimeout || type == .tapDisabledByUserInput {
-            // the system switched the tap off (access taken away, or a callback was too slow): never just
-            // re-enable it — an active tap without access can freeze the keyboard and clicks system-wide.
-            // Drop it; the app creates a fresh one a moment later, if it still has access.
-            noteSystemDisable()
+            // the system switched the tap off (access taken away, or a callback was too slow): drop it; the app
+            // creates a fresh one a moment later if it still has access
             auraLog.notice("tap disabled by the system (\(type == .tapDisabledByTimeout ? "timeout" : "user input", privacy: .public)): dropped")
             DispatchQueue.main.async { self.dropTap() }
             return pass
@@ -482,11 +406,7 @@ final class Engine {
             handleShift(e)
         case .keyDown:
             sawOther = true; lastShiftTap = 0
-            if shouldHoldReturn(e) { holdReturn(e); return nil }
             handleKey(e)
-        case .keyUp:
-            let code = e.getIntegerValueField(.keyboardEventKeycode)
-            if heldReturnUp, code == 36 || code == 76 { heldReturnUp = false; return nil }
         default: break
         }
         return pass
@@ -508,7 +428,7 @@ final class Engine {
         }
     }
 
-    /// never blocks input (only Return, see holdReturn); heavy work runs after the tap returns
+    /// never blocks input; heavy work runs after the tap returns
     func handleKey(_ e: CGEvent) {
         let code = UInt16(e.getIntegerValueField(.keyboardEventKeycode))
         let f = e.flags
@@ -578,33 +498,6 @@ final class Engine {
 
     /// Return right after a word («z elfkbk⏎» in a chat): the word is checked only on a space, so the message went out
     /// unfixed. Return is held, the word fixed (if it needs it), then Return is sent on — a few milliseconds.
-    var heldReturnUp = false
-    func shouldHoldReturn(_ e: CGEvent) -> Bool {
-        let code = e.getIntegerValueField(.keyboardEventKeycode)
-        guard code == 36 || code == 76, e.getIntegerValueField(.keyboardEventAutorepeat) == 0,
-              e.flags.intersection([.maskCommand, .maskControl, .maskAlternate]).isEmpty,
-              !word.isEmpty, !handsOff, word != lastCycled, settings.auto, settings.bindings[frontBundle] == nil else { return false }
-        return true
-    }
-    func holdReturn(_ e: CGEvent) {
-        let keys = word, pre = before, code = CGKeyCode(e.getIntegerValueField(.keyboardEventKeycode)), flags = e.flags
-        heldReturnUp = true
-        DispatchQueue.main.async {
-            if self.word == keys, let fix = self.pairFix(keys, before: pre) ?? self.autoFix(keys) {
-                self.applyFix(fix, keys, before: pre, trailing: 0)
-            }
-            self.reset()
-            for down in [true, false] {  // Return goes on, after the fixed text
-                guard let r = CGEvent(keyboardEventSource: self.src, virtualKey: code, keyDown: down) else { continue }
-                r.flags = flags
-                r.setIntegerValueField(.eventSourceUserData, value: kMagic)
-                r.post(tap: .cghidEventTap)
-            }
-            // the real key-up may already have come and gone: stop waiting for it
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1) { self.heldReturnUp = false }
-        }
-    }
-
     func autoCorrect(_ keys: [Key], before: [Key] = [], spaceAt: Double = 0) {
         let t0 = ProcessInfo.processInfo.systemUptime
         // user kept typing meanwhile — skip

@@ -61,20 +61,12 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
         let opts = [kAXTrustedCheckOptionPrompt.takeUnretainedValue(): true] as CFDictionary
         AXIsProcessTrustedWithOptions(opts)
         engine.onTapLost = { [weak self] in self?.item.button?.title = "⚠︎"; DispatchQueue.main.asyncAfter(deadline: .now() + 1) { self?.startTap() } }
-        // access taken away while running is caught by the guard threads in Engine, not from this thread; the system's
-        // notification is one more trigger and is received on a background queue, so a stuck main thread cannot delay it
-        DistributedNotificationCenter.default().addObserver(forName: NSNotification.Name("com.apple.accessibility.api"),
-                                                            object: nil, queue: OperationQueue()) { _ in
-            auraLog.notice("accessibility settings changed")
-            engine.killTap("accessibility settings changed")
-        }
         startTap()
         // the selection-changed notification is sometimes missed — re-check the indicator twice a second
-        let tick = Timer(timeInterval: 0.25, repeats: true) { _ in
-            engine.beat()
+        Timer.scheduledTimer(withTimeInterval: 0.25, repeats: true) { _ in
+            if engine.tap != nil, !AXIsProcessTrusted() { engine.dropTap(); return }
             self.updateTitle()
         }
-        RunLoop.main.add(tick, forMode: .common)   // also while a menu is open
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) { engine.warmUpDictionaries() }
     }
 
@@ -83,7 +75,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
         guard engine.tap == nil else { return }
         NSLog("AURA trusted=\(AXIsProcessTrusted()) listen=\(CGPreflightListenEventAccess()) layouts=\(engine.layouts.map(\.lang)) spell=\(NSSpellChecker.shared.availableLanguages) cur=\(currentLang() ?? "nil")")
         // listen-only taps are created even without access but then receive nothing
-        if !engine.tapPaused, engine.hasAccess(), engine.start() { retrying = false; NSLog("AURA tap ok"); updateTitle(); return }
+        if AXIsProcessTrusted(), engine.start() { retrying = false; NSLog("AURA tap ok"); updateTitle(); return }
         item.button?.title = "⚠︎"
         if retrying { return }
         retrying = true
