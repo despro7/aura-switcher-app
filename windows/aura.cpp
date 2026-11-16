@@ -1072,7 +1072,7 @@ static void updateTray(bool force = false) {
     shownCode = key;
     HICON old = nid.hIcon;
     nid.hIcon = makeTextIcon(code, active, due);
-    wcscpy_s(nid.szTip, L"AURA Switcher " APP_VERSION L" alpha");
+    wcscpy_s(nid.szTip, L"AURA Switcher " APP_VERSION L" beta");
     Shell_NotifyIconW(NIM_MODIFY, &nid);
     if (old) DestroyIcon(old);
 }
@@ -1432,7 +1432,7 @@ static void showMenu() {
                                         : L_(L"Check for updates…", L"Перевірити оновлення…"));
     item(m, ID_REPORT, L_(L"Report a problem…", L"Повідомити про проблему…"));
     if (!packaged()) item(m, ID_DONATE, L_(L"Support AURA Switcher ☕", L"Підтримати AURA Switcher ☕"));  // Store: no outside payment links
-    item(m, 0, L"AURA Switcher " APP_VERSION L" alpha · 🇺🇦", false, false);
+    item(m, 0, L"AURA Switcher " APP_VERSION L" beta · 🇺🇦", false, false);
     item(m, ID_QUIT, L_(L"Quit", L"Вихід"));
 
     POINT p; GetCursorPos(&p);
