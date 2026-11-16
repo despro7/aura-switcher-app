@@ -41,6 +41,7 @@ def render(html):
                 break
             except subprocess.TimeoutExpired:
                 if attempt == 2: raise
+    dom = re.sub(r'<div class="langmodal".*?<div class="none"[^>]*>—</div></div></div>', "", dom, flags=re.S)  # the language window is built by shared.js
     return "<!doctype html>\n" + dom
 
 def finish(dom, canonical, rel):
@@ -60,6 +61,7 @@ def finish(dom, canonical, rel):
     return dom
 
 for a in ASSETS: shutil.copy(SRC / a, out)
+shutil.copytree(SRC / "flags", out / "flags", dirs_exist_ok=True)  # language flags (Twemoji, CC-BY 4.0)
 for f in ("update.json", "update.sig"):   # «Check for updates» in the apps (tools/update_manifest.py); .sig — its signature
     if (SRC / f).exists(): shutil.copy(SRC / f, out)
 (out / "update").mkdir(exist_ok=True)  # update page (opened from the app's menu): not pre-rendered, not in the sitemap
