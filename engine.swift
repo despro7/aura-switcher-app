@@ -516,6 +516,9 @@ final class Engine {
             recentLang = l.lang; recentAt = ProcessInfo.processInfo.systemUptime
         }
         if let f = found, !isLatin(f.text(keys)) { recentLang = f.lang; recentAt = ProcessInfo.processInfo.systemUptime }
+        // diagnostics: the app may show other letters than the keys say (after our own layout switch the key events
+        // keep the old layout's letters; Chromium apps may type those). Only a log line, no words in it.
+        if found == nil, keys.count >= 3, let l = typedLayout(keys), !isLatin(l.text(keys)) { checkScreen(keys, l) }
         guard let fix = found else {
             if !noFix.isEmpty { auraLog.notice("skip: \(self.noFix, privacy: .public) (\(keys.count) letters)") }
             return
@@ -524,6 +527,17 @@ final class Engine {
             auraLog.notice("skip: kept typing during a \(ms) ms check"); return
         }
         applyFix(fix, keys, before: before, trailing: 1)
+    }
+
+    /// logs when the text before the caret is not what the keys say (and which layout it does match)
+    func checkScreen(_ keys: [Key], _ l: Layout) {
+        let expected = l.text(keys).lowercased(), n = expected.utf16.count
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.08) {
+            guard self.lastWord == keys, self.word.isEmpty, self.trailing == 1,
+                  let seen = self.textBeforeCaret(n + 1 + 8)?.lowercased(), !seen.isEmpty, !seen.contains(expected) else { return }
+            let other = self.layouts.first { seen.contains($0.text(keys).lowercased()) }?.lang
+            auraLog.notice("screen differs from keys: \(keys.count) letters, keys as \(l.lang, privacy: .public), screen matches \(other ?? "none", privacy: .public), own \(self.ownLang ?? "-", privacy: .public) in \(self.frontBundle, privacy: .public)")
+        }
     }
 
     /// puts the fixed word on screen: `trailing` = spaces typed after it (1 after a space, 0 before Return)
