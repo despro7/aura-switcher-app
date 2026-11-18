@@ -103,7 +103,7 @@ safe1p = All koden ligger på <a href="https://github.com/klbk/aura-switcher-app
 safe2h = Hvorfor trengs tilgang til tastaturet
 safe2p = For å se ordet du skriver og rette det. Teksten lagres eller sendes ingen steder, og programmet trenger ikke internett.
 safe3h = En advarsel ved første oppstart er normal
-safe3p = Betaen har ennå ikke den dyre signaturen fra Apple eller Microsoft. Mac: «Ferdig» → Systeminnstillinger → Personvern og sikkerhet → «Åpne likevel». Windows: «Mer informasjon» → «Kjør likevel».
+safe3p = Betaen har ennå ikke den betalte signaturen fra Apple eller Microsoft. Mac: «Ferdig» → Systeminnstillinger → Personvern og sikkerhet → «Åpne likevel». Windows: «Mer informasjon» → «Kjør likevel».
 desc = Automatisk bytte av tastaturoppsett: ord skrevet med feil oppsett rettes etter mellomrom. Gratis åpen kildekode-alternativ til Punto Switcher og Caramba Switcher for macOS og Windows.
 altH = Gratis alternativ til Punto Switcher
 altP = Leter du etter en erstatning for Punto Switcher, Caramba Switcher, Mahou eller LayoutFox? AURA Switcher oppdager selv tekst skrevet med feil tastaturoppsett og retter den — gratis, åpen kildekode, uten reklame, sender ingenting til internett. Fungerer på macOS og Windows med 21 språk.

@@ -82,7 +82,7 @@ pMac = <li>Apple Silicon dhe Intel</li><li>Kodi i gjuhës në shiritin e menysë
 pWin = <li>x64 dhe ARM64, pa instalim</li><li>Kodi i gjuhës në zonën e njoftimeve</li><li>Të njëjtat tasta si në Mac</li>
 iTitle = Gati për një minutë
 s1h = Shkarko
-s1p = Zhbllokoje arkivin. Në Mac tërhiq AURA te Aplikacionet, në Windows thjesht nise AURA.exe.
+s1p = Zhpaketo arkivin. Në Mac tërhiq AURA te Aplikacionet, në Windows thjesht nise AURA.exe.
 s2h = Lejo
 s2p = Në Mac: Cilësimet e sistemit → Privatësia dhe siguria → Përdorimi i lehtë, Input Monitoring → AURA.
 s3h = Shkruaj
@@ -103,7 +103,7 @@ safe1p = I gjithë kodi është në <a href="https://github.com/klbk/aura-switch
 safe2h = Pse nevojitet qasja te tastiera
 safe2p = Për të parë fjalën që shkruan dhe për ta korrigjuar. Teksti nuk ruhet dhe nuk dërgohet askund; programi nuk ka nevojë për internet.
 safe3h = Paralajmërimi në nisjen e parë është normal
-safe3p = Beta ende nuk ka nënshkrimin e shtrenjtë të Apple ose Microsoft. Mac: «U krye» → Cilësimet e sistemit → Privatësia dhe siguria → «Hape gjithsesi». Windows: «Më shumë informacion» → «Ekzekuto gjithsesi».
+safe3p = Beta ende nuk ka nënshkrimin me pagesë të Apple ose Microsoft. Mac: «U krye» → Cilësimet e sistemit → Privatësia dhe siguria → «Hape gjithsesi». Windows: «Më shumë informacion» → «Ekzekuto gjithsesi».
 desc = Ndërrim automatik i paraqitjes së tastierës: fjalët e shkruara me paraqitje të gabuar korrigjohen pas hapësirës. Alternativë falas me kod të hapur e Punto Switcher dhe Caramba Switcher, për macOS dhe Windows.
 altH = Alternativë falas e Punto Switcher
 altP = Po kërkoni zëvendësues për Punto Switcher, Caramba Switcher, Mahou ose LayoutFox? AURA Switcher e dallon vetë tekstin e shkruar me paraqitje të gabuar të tastierës dhe e korrigjon — falas, me kod të hapur, pa reklama, nuk dërgon asgjë në internet. Punon në macOS dhe Windows me 21 gjuhë.
@@ -121,7 +121,7 @@ update6 = Mbyll AURA: kliko kodin e gjuhës në shiritin e menysë → «Mbyll»
 update7 = Hap arkivin e shkarkuar dhe tërhiq AURA Switcher te Aplikacionet, duke zëvendësuar të vjetrin.
 update8 = Hap AURA. macOS do të kërkojë një leje të re, «Input Monitoring» — jepe dhe pranoje rinisjen e AURA. Nëse shfaqet ⚠︎ në vend të kodit të gjuhës, çaktivizo AURA dhe aktivizoje përsëri këtu:
 update9 = Mbyll AURA: kliko ikonën në zonën e njoftimeve → «Mbyll».
-update10 = Zhbllokoje arkivin dhe vendos «AURA Switcher.exe» të ri në vend të të vjetrit.
+update10 = Zhpaketo arkivin dhe vendos «AURA Switcher.exe» të ri në vend të të vjetrit.
 update11 = Nise AURA Switcher.exe — cilësimet e tua mbeten.
 update12 = Faqja e AURA Switcher
 ```

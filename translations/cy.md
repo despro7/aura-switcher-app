@@ -59,7 +59,7 @@ name = Cymraeg
 title = AURA Switcher — dewis arall am ddim yn lle Punto Switcher ar gyfer Mac a Windows
 badge = Beta 0.10.0 · am ddim · dim cofrestru
 h1 = Teipiwch yn unig.<br>Mae <span class="hl">AURA</span> yn trwsio’r cynllun
-lead = Teipio «ghbdsn» yn lle «привіт»? Mae AURA yn sylwi ac yn ei gywiro’n syth ar ôl y bylchwr. Ar gyfer macOS a Windows.
+lead = Wedi teipio «ghbdsn» yn lle «привіт»? Mae AURA yn sylwi ac yn ei gywiro’n syth ar ôl y bylchwr. Ar gyfer macOS a Windows.
 dlMac = Lawrlwytho ar gyfer Mac
 dlWin = Ar gyfer Windows
 demoWrong = Cynllun anghywir…
@@ -70,7 +70,7 @@ f1p = Mae gair a deipiwyd gyda’r cynllun anghywir yn dod yn gywir ar ôl y byl
 f2h = Shift dwbl
 f2p = Pwyswch <kbd>Shift</kbd> ddwywaith — mae’r gair olaf neu’r testun dethol yn cael ei drosi i gynllun arall.
 f3h = Iaith ar gyfer pob ap
-f3p = Terminal — EN bob amser, Telegram — УК. Mewn apiau a eithriwyd, mae AURA yn tawelu.
+f3p = Terminal — EN bob amser, Telegram — УК. Mewn apiau a eithriwyd, mae AURA yn aros yn dawel.
 f4h = Preifat
 f4p = Yn anfon dim ar-lein. Mae popeth yn rhedeg ar eich dyfais.
 f5h = 21 iaith
@@ -103,7 +103,7 @@ safe1p = Mae’r holl god ar <a href="https://github.com/klbk/aura-switcher-app"
 safe2h = Pam mae angen mynediad i’r bysellfwrdd
 safe2p = I weld y gair rydych chi’n ei deipio a’i gywiro. Nid yw’r testun yn cael ei gadw nac yn cael ei anfon i unman, ac nid oes angen y rhyngrwyd ar y rhaglen.
 safe3h = Mae rhybudd wrth y lansiad cyntaf yn normal
-safe3p = Nid oes gan y beta lofnod drud Apple na Microsoft eto. Mac: «Done» → Gosodiadau System → Preifatrwydd a Diogelwch → «Open Anyway». Windows: «More info» → «Run anyway».
+safe3p = Nid oes gan y beta lofnod taledig Apple na Microsoft eto. Mac: «Done» → Gosodiadau System → Preifatrwydd a Diogelwch → «Open Anyway». Windows: «More info» → «Run anyway».
 desc = Newid cynllun y bysellfwrdd yn awtomatig: caiff geiriau a deipiwyd gyda’r cynllun anghywir eu cywiro ar ôl y bylchwr. Dewis arall am ddim a ffynhonnell agored yn lle Punto Switcher a Caramba Switcher, ar gyfer macOS a Windows.
 altH = Dewis arall am ddim yn lle Punto Switcher
 altP = Chwilio am ddewis arall yn lle Punto Switcher, Caramba Switcher, Mahou neu LayoutFox? Mae AURA Switcher yn adnabod testun a deipiwyd gyda’r cynllun bysellfwrdd anghywir ac yn ei gywiro ei hun — am ddim, ffynhonnell agored, dim hysbysebion, yn anfon dim i’r rhyngrwyd. Yn gweithio ar macOS a Windows gyda 21 iaith.

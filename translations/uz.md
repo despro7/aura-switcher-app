@@ -103,7 +103,7 @@ safe1p = Barcha kod <a href="https://github.com/klbk/aura-switcher-app" target="
 safe2h = Nega klaviaturaga kirish kerak
 safe2p = Yozayotgan soʻzingizni koʻrish va tuzatish uchun. Matn hech qayerda saqlanmaydi va yuborilmaydi, dasturga internet kerak emas.
 safe3h = Birinchi ishga tushirishda ogohlantirish chiqishi odatiy hol
-safe3p = Betada hali Apple yoki Microsoft’ning qimmat imzosi yoʻq. Mac: «Tayyor» → Tizim sozlamalari → Maxfiylik va xavfsizlik → «Baribir ochish». Windows: «Batafsil» → «Baribir ishga tushirish».
+safe3p = Betada hali Apple yoki Microsoft’ning pullik imzosi yoʻq. Mac: «Tayyor» → Tizim sozlamalari → Maxfiylik va xavfsizlik → «Baribir ochish». Windows: «Batafsil» → «Baribir ishga tushirish».
 desc = Klaviatura terilishini avtomatik almashtirish: notoʻgʻri terilishda yozilgan soʻzlar probeldan keyin tuzatiladi. Punto Switcher va Caramba Switcher’ning bepul, ochiq manbali muqobili, macOS va Windows uchun.
 altH = Punto Switcher’ning bepul muqobili
 altP = Punto Switcher, Caramba Switcher, Mahou yoki LayoutFox oʻrniga biror narsa qidiryapsizmi? AURA Switcher notoʻgʻri klaviatura terilishida yozilgan matnni oʻzi aniqlab tuzatadi — bepul, ochiq manba, reklamasiz, internetga hech narsa yubormaydi. macOS va Windows’da 21 til bilan ishlaydi.

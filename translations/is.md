@@ -103,7 +103,7 @@ safe1p = Allur kóðinn er á <a href="https://github.com/klbk/aura-switcher-app
 safe2h = Hvers vegna þarf aðgang að lyklaborðinu
 safe2p = Til að sjá orðið sem þú skrifar og leiðrétta það. Textinn er hvorki vistaður né sendur neitt og forritið þarf ekki netið.
 safe3h = Viðvörun við fyrstu ræsingu er eðlileg
-safe3p = Betan er ekki enn með dýra undirskrift frá Apple eða Microsoft. Mac: «Lokið» → Kerfisstillingar → Persónuvernd og öryggi → «Opna samt». Windows: «Frekari upplýsingar» → «Keyra samt».
+safe3p = Betan er ekki enn með greiddu undirskrift frá Apple eða Microsoft. Mac: «Lokið» → Kerfisstillingar → Persónuvernd og öryggi → «Opna samt». Windows: «Frekari upplýsingar» → «Keyra samt».
 desc = Sjálfvirk skipting á lyklaborðsskipulagi: orð sem skrifuð eru með röngu skipulagi eru leiðrétt eftir bil. Ókeypis valkostur með opnum kóða við Punto Switcher og Caramba Switcher fyrir macOS og Windows.
 altH = Ókeypis valkostur við Punto Switcher
 altP = Ertu að leita að staðgengli fyrir Punto Switcher, Caramba Switcher, Mahou eða LayoutFox? AURA Switcher þekkir sjálfur texta sem er skrifaður með röngu lyklaborðsskipulagi og leiðréttir hann — ókeypis, opinn hugbúnaður, engar auglýsingar og sendir ekkert á netið. Virkar á macOS og Windows með 21 tungumáli.

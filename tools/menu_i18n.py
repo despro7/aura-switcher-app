@@ -1053,7 +1053,7 @@ hy Հայերեն
 Գործարկել մուտքի ժամանակ
 Իմ բառերը…
 AURA Switcher — իմ բառերը
-AURA Switcher-ն այս բառերը ճիշտ է համարում՝ չի փոխում դրանք, իսկ սխալ դասավորությամբ տպվածները ուղղում է հենց այսպես։ Բաժանեք ստորակետերով։
+AURA Switcher-ն այս բառերը ճիշտ է համարում՝ չի փոխում դրանք, իսկ սխալ դասավորությամբ տպվածները ուղղում է դրանց։ Բաժանեք ստորակետերով։
 Պահպանել
 Չեղարկել
 Ցանկի լեզուն
@@ -1288,12 +1288,12 @@ Samodejni popravki
 Zvok
 ⚠︎ Dovolite dostop: Dostopnost, Input Monitoring
 Aplikacija:
-V tej aplikaciji ne delaj
+V tej aplikaciji ne delajte
 Igra — AURA zaustavljena
 Jezik za to aplikacijo
 Brez povezave
 Izjeme
-Ne delaj v (nedavne aplikacije)
+Ne delajte v (nedavne aplikacije)
 Povezave jezikov
 Prazno
 Zaženi ob prijavi
@@ -1312,8 +1312,8 @@ Sistemski
 Dvojni ⇧ — pretvori besedo/izbor
 Prijavi težavo…
 Kaj se je zgodilo in v kateri aplikaciji:
-Preveri posodobitve…
-⬆︎ Morda je izšla posodobitev — preveri
+Preverite posodobitve…
+⬆︎ Morda je izšla posodobitev — preverite
 Podpri AURA Switcher ☕
 Končaj
 Izšel je AURA Switcher {v}
@@ -1452,12 +1452,12 @@ Automatisk rettelse
 Lyd
 ⚠︎ Giv adgang: Tilgængelighed, Inputovervågning (Input Monitoring)
 App:
-Virk ikke i denne app
+Deaktiver i denne app
 Spil — AURA på pause
 Sprog for denne app
 Ingen tilknytning
 Undtagelser
-Virk ikke i (seneste apps)
+Deaktiver i (seneste apps)
 Sprogtilknytninger
 Tom
 Start ved login
@@ -1698,12 +1698,12 @@ tg Тоҷикӣ
 Овоз
 ⚠︎ Дастрасӣ диҳед: Дастрасии универсалӣ, Input Monitoring
 Барнома:
-Дар ин барнома кор накун
+Дар ин барнома кор накунед
 Бозӣ — AURA таваққуф шудааст
 Забон барои ин барнома
 Бе пайвастшавӣ
 Истисноҳо
-Кор накун дар (барномаҳои охирин)
+Кор накунед дар (барномаҳои охирин)
 Пайвасткунии забонҳо
 Холӣ
 Оғоз ҳангоми воридшавӣ
@@ -1873,7 +1873,7 @@ Folamh
 Seol ag logáil isteach
 Mo chuid focal…
 AURA Switcher — mo chuid focal
-Measann AURA Switcher go bhfuil na focail seo ceart: ní athraíonn sé iad choíche, agus ceartaíonn sé chucu iad nuair a chlóscríobhtar le cásáil mhícheart iad. Deighil le camóga.
+Measann AURA Switcher go bhfuil na focail seo ceart: ní athraíonn sé iad choíche, agus ceartaíonn sé chucu iad nuair a chlóscríobhtar le leagan amach mícheart iad. Deighil le camóga.
 Sábháil
 Cealaigh
 Teanga an roghchláir

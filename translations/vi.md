@@ -103,7 +103,7 @@ safe1p = Toàn bộ mã nằm trên <a href="https://github.com/klbk/aura-switch
 safe2h = Vì sao cần quyền truy cập bàn phím
 safe2p = Để thấy từ bạn đang gõ và sửa nó. Văn bản không được lưu hay gửi đi đâu, và chương trình không cần Internet.
 safe3h = Cảnh báo khi chạy lần đầu là bình thường
-safe3p = Bản beta chưa có chữ ký đắt tiền của Apple hay Microsoft. Mac: «Xong» → Cài đặt Hệ thống → Quyền riêng tư & Bảo mật → «Vẫn mở». Windows: «Thông tin thêm» → «Vẫn chạy».
+safe3p = Bản beta chưa có chữ ký có phí của Apple hay Microsoft. Mac: «Xong» → Cài đặt Hệ thống → Quyền riêng tư & Bảo mật → «Vẫn mở». Windows: «Thông tin thêm» → «Vẫn chạy».
 desc = Tự động đổi bố cục bàn phím: từ gõ sai bố cục được sửa ngay sau phím cách. Giải pháp thay thế miễn phí, mã nguồn mở cho Punto Switcher và Caramba Switcher, trên macOS và Windows.
 altH = Giải pháp thay thế Punto Switcher miễn phí
 altP = Đang tìm thứ thay cho Punto Switcher, Caramba Switcher, Mahou hay LayoutFox? AURA Switcher tự nhận ra văn bản gõ sai bố cục bàn phím và sửa lại — miễn phí, mã nguồn mở, không quảng cáo, không gửi gì lên Internet. Chạy trên macOS và Windows với 21 ngôn ngữ.
