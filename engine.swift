@@ -332,6 +332,29 @@ final class Engine {
     /// the user went back into the text (Backspace over a space, arrows) or switched the layout in the middle of a
     /// word: until the next space AURA neither checks nor converts what is typed — it's the user's own word
     var handsOff = false
+    /// Backspace/Delete emptied the whole field (Cmd+A, Delete): there is no word to go back into, so the first
+    /// word typed now is checked as usual. The field is read a moment later (the app has to handle the key first);
+    /// if the app doesn't say (nil) or the user already typed on, handsOff stays.
+    var fieldEmpty: () -> Bool? = { Engine.axFieldEmpty() }
+    func releaseIfFieldEmpty() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) { self.releaseIfEmptyNow() }
+    }
+    func releaseIfEmptyNow() {
+        if handsOff, word.isEmpty, lastWord.isEmpty, fieldEmpty() == true { handsOff = false }
+    }
+    static func axFieldEmpty() -> Bool? {
+        var f: CFTypeRef?
+        guard AXUIElementCopyAttributeValue(AXUIElementCreateSystemWide(), kAXFocusedUIElementAttribute as CFString, &f) == .success,
+              let f else { return nil }
+        let el = f as! AXUIElement
+        var sub: CFTypeRef?
+        AXUIElementCopyAttributeValue(el, kAXSubroleAttribute as CFString, &sub)
+        if sub as? String == kAXSecureTextFieldSubrole as String { return nil }
+        var n: CFTypeRef?
+        guard AXUIElementCopyAttributeValue(el, kAXNumberOfCharactersAttribute as CFString, &n) == .success,
+              let c = n as? Int else { return nil }
+        return c == 0
+    }
     var wordStartLang: String?  // the layout the current word was started in
 
     func layout(_ lang: String?) -> Layout? { layouts.first { $0.lang == lang } }
@@ -438,7 +461,7 @@ final class Engine {
             // a typo while the word is being typed: AURA keeps watching it. Back over the space into a finished word
             // (or into older text): the word is the user's now — not checked until the next space (double ⇧ still converts it)
             if !word.isEmpty, trailing == 0 { word.removeLast() }
-            else { reset(); handsOff = true }
+            else { reset(); handsOff = true; releaseIfFieldEmpty() }
         case 49: // space (already delivered to the app)
             if handsOff { reset(); return }  // the end of the user's own word: leave it as it is
             if !word.isEmpty {
@@ -450,6 +473,7 @@ final class Engine {
             } else if !lastWord.isEmpty { trailing += 1 }
         case 123...126, 115, 116, 117, 119, 121: // arrows, Home, Page Up, Forward Delete, End, Page Down: editing the text
             reset(); handsOff = true
+            if code == 117 { releaseIfFieldEmpty() }
         default:
             // the user's own word: not checked, but its keys are kept — double ⇧ is an explicit command and converts it
             if handsOff { if codes.contains(code) { word.append(key(e, code)) } else { reset() }; return }  // Return, Tab…: over

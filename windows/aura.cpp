@@ -45,7 +45,7 @@ using std::wstring;
 using std::vector;
 
 static const ULONG_PTR kMagic = 0x4B535754;  // marks our own synthetic input
-enum { WM_TRAY = WM_APP + 1, WM_AUTO, WM_DSHIFT, WM_UPDATE, WM_UPDATE_READY, WM_ENTER };
+enum { WM_TRAY = WM_APP + 1, WM_AUTO, WM_DSHIFT, WM_UPDATE, WM_UPDATE_READY, WM_ENTER, WM_EMPTYCHK };
 enum { ID_ENABLED = 1, ID_AUTO, ID_SOUND, ID_WORDS, ID_DONATE, ID_REPORT, ID_UPDATE, ID_EXCLUDE, ID_NOBIND, ID_LOGIN, ID_UI_SYS, ID_QUIT,
        ID_BIND0 = 100, ID_EXDEL0 = 200, ID_BDDEL0 = 300, ID_RECENT0 = 400, ID_UI0 = 500 };
 
@@ -415,10 +415,11 @@ static LRESULT CALLBACK kbHook(int code, WPARAM wp, LPARAM lp) {
         // a typo while the word is being typed: AURA keeps watching it. Back over the space into a finished word
         // (or into older text): the word is the user's now
         if (!word.empty() && trailing == 0) word.pop_back();
-        else { resetState(); handsOff = true; }
+        else { resetState(); handsOff = true; PostMessageW(hwndMain, WM_EMPTYCHK, 0, (LPARAM)seq.load()); }
     } else if (vk == VK_LEFT || vk == VK_RIGHT || vk == VK_UP || vk == VK_DOWN || vk == VK_HOME || vk == VK_END
                || vk == VK_PRIOR || vk == VK_NEXT || vk == VK_DELETE) {
         resetState(); handsOff = true;  // editing the text
+        if (vk == VK_DELETE) PostMessageW(hwndMain, WM_EMPTYCHK, 0, (LPARAM)seq.load());
     } else if (handsOff) {
         // the user's own word: not checked, but its keys are kept — double ⇧ is an explicit command and converts it
         if (isLetterVk(vk)) word.push_back(readKey(k));
@@ -949,6 +950,34 @@ static bool focusIsPassword() {
     IUIAutomationElement* el = nullptr; BOOL pw = FALSE;
     if (SUCCEEDED(uia->GetFocusedElement(&el)) && el) { el->get_CurrentIsPassword(&pw); el->Release(); }
     return pw;
+}
+
+// Backspace/Delete emptied the whole field (Ctrl+A, Delete): no word to go back into, so the first word typed now
+// is checked as usual. Asked a moment after the key (the app has to handle it first), only if nothing was typed
+// since; if the field can't tell (no Value/Text pattern), handsOff stays
+static unsigned emptySeq = 0;
+static const UINT_PTR TIMER_EMPTY = 0x7e57;
+static bool focusIsEmpty() {
+    static IUIAutomation* uia = nullptr;
+    static const GUID clsid = {0xff48dba4, 0x60ef, 0x4201, {0xaa, 0x87, 0x54, 0x10, 0x3e, 0xef, 0x59, 0x4e}};
+    static const GUID iid = {0x30cbe57d, 0xd9d0, 0x452a, {0xab, 0x13, 0x7a, 0xc5, 0xac, 0x48, 0x25, 0xee}};
+    if (!uia && FAILED(CoCreateInstance(clsid, nullptr, CLSCTX_INPROC_SERVER, iid, (void**)&uia))) { uia = nullptr; return false; }
+    IUIAutomationElement* el = nullptr; bool empty = false;
+    if (SUCCEEDED(uia->GetFocusedElement(&el)) && el) {
+        BOOL pw = FALSE; el->get_CurrentIsPassword(&pw);
+        IUnknown* p = nullptr;
+        if (!pw && SUCCEEDED(el->GetCurrentPattern(UIA_TextPatternId, &p)) && p) {
+            IUIAutomationTextPattern* tp = nullptr; IUIAutomationTextRange* r = nullptr; BSTR t = nullptr;
+            if (SUCCEEDED(p->QueryInterface(__uuidof(IUIAutomationTextPattern), (void**)&tp)) && tp
+                && SUCCEEDED(tp->get_DocumentRange(&r)) && r && SUCCEEDED(r->GetText(1, &t)) && t) empty = SysStringLen(t) == 0;
+            if (t) SysFreeString(t);
+            if (r) r->Release();
+            if (tp) tp->Release();
+            p->Release();
+        }
+        el->Release();
+    }
+    return empty;
 }
 
 // puts the fixed word on screen: `trailing` = spaces typed after it (1 after a space, 0 before Return)
@@ -1546,6 +1575,7 @@ static LRESULT CALLBACK wndProc(HWND h, UINT msg, WPARAM wp, LPARAM lp) {
         return 0;
     case WM_AUTO: { auto* s = (Snapshot*)lp; if (active) onAuto(s); delete s; return 0; }
     case WM_DSHIFT: { auto* s = (Snapshot*)lp; if (active) onDoubleShift(s); delete s; return 0; }
+    case WM_EMPTYCHK: emptySeq = unsigned(lp); SetTimer(h, TIMER_EMPTY, 60, nullptr); return 0;
     case WM_ENTER: { auto* s = (Snapshot*)lp; onEnter(s); delete s; return 0; }  // always sends Return on
     case WM_UPDATE: onUpdateInfo((UpdateInfo*)lp); return 0;
     case WM_UPDATE_READY: onUpdateReady((UpdateInfo*)lp); return 0;
@@ -1554,6 +1584,11 @@ static LRESULT CALLBACK wndProc(HWND h, UINT msg, WPARAM wp, LPARAM lp) {
             KillTimer(h, TIMER_LATE_CLIP);
             if (GetClipboardSequenceNumber() != lateClipSeq) restoreClipboard(lateClip);
             lateClip.clear(); return 0;
+        }
+        if (wp == TIMER_EMPTY) {
+            KillTimer(h, TIMER_EMPTY);
+            if (seq.load() == emptySeq && focusIsEmpty()) resetReq = true;  // the hook drops handsOff before the next key
+            return 0;
         }
         refreshActive(); updateTray(); return 0;
     case WM_INPUTLANGCHANGE: case WM_SETTINGCHANGE: {  // sent for any system setting: reload only if the list changed

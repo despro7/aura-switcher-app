@@ -11,7 +11,7 @@ rm -rf build && mkdir -p build/x64 build/arm64 ../dist
 for T in x86_64:x64 aarch64:arm64; do
   "$ZIG" c++ -target ${T%%:*}-windows-gnu -O2 -s -std=c++17 -municode -Wl,--subsystem,windows -DBUILD_TIME=$(date +%s) \
     aura.cpp aura.rc -o "build/${T##*:}/$NAME.exe" \
-    -lole32 -lwinmm -luser32 -lshell32 -lgdi32 -ladvapi32 -lwinhttp -lbcrypt -lcomctl32 -static
+    -lole32 -loleaut32 -lwinmm -luser32 -lshell32 -lgdi32 -ladvapi32 -lwinhttp -lbcrypt -lcomctl32 -static
 done
 rm -f build/*/*.pdb(N)
 # one archive per architecture for users: one folder, one exe, install notes

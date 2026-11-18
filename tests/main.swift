@@ -161,6 +161,22 @@ for w in ["было", "была", "были"] {
     if got != w { mustFail += 1; print("MUST FAIL: \(w) (ru typed in en, uk+ru+en) → \(got ?? "unchanged")") }
 }
 
+// handsOff: Backspace/Delete on an emptied field must not leave the next word unchecked (audit P1 №1)
+func press(_ code: CGKeyCode) { engine.handleKey(CGEvent(keyboardEventSource: nil, virtualKey: code, keyDown: true)!) }
+for (name, code, empty, want) in [("backspace, field empty", CGKeyCode(51), Bool?.some(true), false),
+                                  ("forward delete, field empty", 117, true, false),
+                                  ("backspace, text left", 51, false, true),
+                                  ("backspace, app doesn't say", 51, nil, true),
+                                  ("arrow, field empty", 123, true, true)] {
+    engine.reset(); engine.fieldEmpty = { empty }
+    press(code); if code == 51 || code == 117 { engine.releaseIfEmptyNow() }
+    if engine.handsOff != want { mustFail += 1; print("MUST FAIL: handsOff \(name): got \(engine.handsOff), want \(want)") }
+}
+engine.reset(); engine.fieldEmpty = { false }; press(0); press(49); press(51)  // «a⎵⌫»: back over the space — the word is the user's
+engine.releaseIfEmptyNow()
+if !engine.handsOff { mustFail += 1; print("MUST FAIL: handsOff after backspace over a space") }
+engine.reset(); engine.fieldEmpty = { Engine.axFieldEmpty() }
+
 // report and compare with the baseline
 let out = results.map { String(format: "%@\t%.1f%%\t%d/%d", $0.0, 100 * Double($0.1) / Double(max($0.2, 1)), $0.1, $0.2) }
 if CommandLine.arguments.contains("-v") { for l in out { print(l) } }
