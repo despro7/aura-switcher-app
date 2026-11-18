@@ -117,6 +117,7 @@ func check(_ name: String, _ cases: [(String, Layout, Layout, String?)]) {
 }
 
 let N = 300
+func isCyr(_ l: String) -> Bool { ["uk", "ru", "be", "bg", "kk"].contains(l) }
 for (name, ids) in setups {
     let ls = ids.map(layout)
     engine.layouts = ls
@@ -132,6 +133,11 @@ for (name, ids) in setups {
         check("\(name) en typed in \(l.lang): fixed", enWords.map { ($0, en, l, $0) })
     }
     check("\(name) en typed right: kept", enWords.map { ($0, en, en, nil) })
+    // Cyrillic pairs: one language typed in another's layout (only words that look different there)
+    for a in ls.dropFirst() { for b in ls.dropFirst() where a !== b && isCyr(a.lang) && isCyr(b.lang) {
+        let ws = words(a.lang, N).filter { w in keys(w, in: a, typedIn: b).map { b.text($0) != w } ?? false }
+        check("\(name) \(a.lang) typed in \(b.lang): fixed", ws.map { ($0, a, b, $0) })
+    } }
 }
 
 // hand-picked cases that must always work (meant layout, typed layout, word, expected result; "-" = left alone)

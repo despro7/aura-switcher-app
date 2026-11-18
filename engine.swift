@@ -604,6 +604,7 @@ final class Engine {
             }
         }
         reliable[lang] = r
+        auraLog.notice("dictionary \(lang, privacy: .public): \(r ? "on" : "off", privacy: .public)")
         return r
     }
 
