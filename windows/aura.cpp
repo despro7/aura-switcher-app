@@ -101,9 +101,14 @@ static Settings S;
 static const long long kUpdateNudgeDays = 30;
 static long long updateChecked = wcstoll(regGet(L"updateChecked", L"0").c_str(), nullptr, 10);  // last opened the releases page
 // installed from the Microsoft Store (MSIX package): the Store updates it and starts it at login
-static bool packaged() {
+static bool packaged() {   // GetCurrentPackageFullName is looked up at run time: it is absent before Windows 8
     static int r = -1;
-    if (r < 0) { UINT32 n = 0; r = GetCurrentPackageFullName(&n, nullptr) != APPMODEL_ERROR_NO_PACKAGE; }
+    if (r < 0) {
+        typedef LONG (WINAPI *PkgFn)(UINT32*, PWSTR);
+        PkgFn f = (PkgFn)GetProcAddress(GetModuleHandleW(L"kernel32.dll"), "GetCurrentPackageFullName");
+        UINT32 n = 0;
+        r = f && f(&n, nullptr) != 15700 /* APPMODEL_ERROR_NO_PACKAGE */;
+    }
     return r == 1;
 }
 static bool updateDue() {
@@ -1469,9 +1474,8 @@ static void showMenu() {
     AppendMenuW(um, MF_POPUP, (UINT_PTR)allm, L_(L"All languages", L"Усі мови"));
     AppendMenuW(m, MF_POPUP, (UINT_PTR)um, L_(L"Menu language", L"Мова меню"));
     item(m, 0, L_(L"Double ⇧ — convert word/selection", L"Подвійний ⇧ — змінити мову слова/виділення"), false, false);
-    if (packaged()) {}
-    else if (updBusy) item(m, 0, L_(L"Updating…", L"Оновлення…"), false, false);
-    else item(m, ID_UPDATE, updateDue() ? L_(L"⬆︎ An update may be available — check", L"⬆︎ Можливо, вийшло оновлення — перевірити")
+    if (!packaged() && updBusy) item(m, 0, L_(L"Updating…", L"Оновлення…"), false, false);
+    else item(m, ID_UPDATE, !packaged() && updateDue() ? L_(L"⬆︎ An update may be available — check", L"⬆︎ Можливо, вийшло оновлення — перевірити")
                                         : L_(L"Check for updates…", L"Перевірити оновлення…"));
     item(m, ID_REPORT, L_(L"Report a problem…", L"Повідомити про проблему…"));
     if (!packaged()) item(m, ID_DONATE, L_(L"Support AURA Switcher ☕", L"Підтримати AURA Switcher ☕"));  // Store: no outside payment links
@@ -1500,6 +1504,8 @@ static void showMenu() {
     }
     else if (cmd == ID_WORDS) editWords();
     else if (cmd == ID_REPORT) reportProblem();
+    else if (cmd == ID_UPDATE && packaged())   // Store: the Store updates the app; open its page (Update / Open button)
+        ShellExecuteW(nullptr, L"open", L"ms-windows-store://pdp/?productid=9PP3MK8CFCJK", nullptr, nullptr, SW_SHOWNORMAL);
     else if (cmd == ID_UPDATE && !updBusy.exchange(true)) {
         updateChecked = (long long)time(nullptr); regSet(L"updateChecked", std::to_wstring(updateChecked));
         CloseHandle(CreateThread(nullptr, 0, updateCheckThread, nullptr, 0, nullptr));
