@@ -2,7 +2,6 @@
 
 > Українською — [windows.uk.md](windows.uk.md) · ← [README](../README.md)
 
-
 - Windows 10/11, x64 and ARM64 (ARM64 not tested yet). Archives in the release (https://github.com/klbk/aura-switcher/releases/latest): `AURA-Switcher-windows-x64.zip` (regular PCs, ~210 KB) and `AURA-Switcher-windows-arm64.zip` (ARM laptops: Snapdragon, Surface Pro X). No installer — copy `AURA Switcher.exe` anywhere and run it.
 - Build on a Mac: `windows/build.sh` (needs [Zig](https://ziglang.org); path to it — `ZIG=…`, default `~/.local/bin/zig`).
 - Same features and menu as on Mac. The tray icon shows the language code: yellow letters on a rounded blue tile (grey — disabled), drawn at the exact tray size so it stays sharp.

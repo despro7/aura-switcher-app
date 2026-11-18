@@ -6,7 +6,7 @@ Menu-bar app for macOS + Windows: fixes text typed in the wrong keyboard layout.
 - `engine.swift` — layout-detection logic (shared by app and tests); `main.swift` — mac app/UI; `updater.swift` — update check.
 - `windows/` — Win32 C++ version (`aura.cpp`), cross-built on Mac with Zig; `windows/store` — Microsoft Store.
 - `lang/` — language models, 49 languages (built by `tools/langmodel.py`; word lists from FrequencyWords, or Wikipedia via `tools/wikiwords.py`; the file name is the code the OS reports for the layout, e.g. `nb`). `tools/menu_i18n.py` generates the menu strings (48 languages) in `engine.swift` and `windows/aura.cpp` — edit it, don't edit the generated blocks. `translations/<code>.md` — proofreading templates for AI-written translations.
-- `site/` — klbk.github.io/aura-switcher; `docs/` — install/usage texts (uk + en); `promo/` — promo assets.
+- `site/` — klbk.github.io/aura-switcher; `docs/` — topic docs (`how-it-works`, `windows`, `INSTALL-mac`, each uk + en) and the `.txt` texts that go into the zips (`install-*`, `usage`); `promo/` — promo assets.
 
 ## Commands
 - Mac build + install: `./build.sh`; release zip: `./build.sh --release`.
@@ -20,3 +20,9 @@ Menu-bar app for macOS + Windows: fixes text typed in the wrong keyboard layout.
 - Mac builds are signed with the stable self-signed identity "AURA Switcher" (`build.sh`), so macOS keeps the permissions across updates; a new certificate would reset them for every user.
 - When testing anything that revokes permissions, run a background failsafe (`sleep N; pkill -9 -x "AURA Switcher"`). In zsh call `/usr/bin/log`, not `log`.
 - Stats, site publishing, Store — skill `aura-ops`; release — `mac-app-release`, `windows-from-mac`; testing — `keyboard-app-testing`.
+
+## Docs & release order
+- Docs chain: README (uk/en pair) → one topic file in `docs/` (max one level deeper). Keep files short; split rather than grow. Every doc has a uk and an en twin that link to each other.
+- Numbers that go stale — version, language count (49 in `lang/`, 48 menu languages), beta label — live in `build.sh`, `windows/build.sh`, `lang/`; grep `0.10`, `49`, `48`, `alpha` across README, `docs/`, `translations/`, `site/` when bumping.
+- Release order: tests green on the release commit (CI + local + Mac live + Windows live) → both builds → `tools/update_manifest.py <version>` → GitHub release (tag `v<version>-beta`) → site (`site/latest.js`, badges) → Store. Nothing public without the user's yes.
+- Project history and decisions are in the Obsidian vault (`AURA Switcher/`, hub note `AURA Switcher.md`), not in this repo.
