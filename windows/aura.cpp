@@ -966,15 +966,28 @@ static bool focusIsEmpty() {
     IUIAutomationElement* el = nullptr; bool empty = false;
     if (SUCCEEDED(uia->GetFocusedElement(&el)) && el) {
         BOOL pw = FALSE; el->get_CurrentIsPassword(&pw);
-        IUnknown* p = nullptr;
-        if (!pw && SUCCEEDED(el->GetCurrentPattern(UIA_TextPatternId, &p)) && p) {
-            IUIAutomationTextPattern* tp = nullptr; IUIAutomationTextRange* r = nullptr; BSTR t = nullptr;
-            if (SUCCEEDED(p->QueryInterface(__uuidof(IUIAutomationTextPattern), (void**)&tp)) && tp
-                && SUCCEEDED(tp->get_DocumentRange(&r)) && r && SUCCEEDED(r->GetText(1, &t)) && t) empty = SysStringLen(t) == 0;
-            if (t) SysFreeString(t);
-            if (r) r->Release();
-            if (tp) tp->Release();
-            p->Release();
+        if (!pw) {
+            IUnknown* p = nullptr;
+            if (SUCCEEDED(el->GetCurrentPattern(UIA_TextPatternId, &p)) && p) {
+                IUIAutomationTextPattern* tp = nullptr; IUIAutomationTextRange* r = nullptr; BSTR t = nullptr;
+                if (SUCCEEDED(p->QueryInterface(__uuidof(IUIAutomationTextPattern), (void**)&tp)) && tp
+                    && SUCCEEDED(tp->get_DocumentRange(&r)) && r && SUCCEEDED(r->GetText(1, &t)))
+                    empty = SysStringLen(t) == 0 || (SysStringLen(t) == 1 && t[0] == 0xFFFC);  // Chrome: empty field = one U+FFFC
+                if (t) SysFreeString(t);
+                if (r) r->Release();
+                if (tp) tp->Release();
+                p->Release();
+            } else {
+                IUnknown* v = nullptr; BSTR t = nullptr;
+                if (SUCCEEDED(el->GetCurrentPattern(UIA_ValuePatternId, &v)) && v) {
+                    IUIAutomationValuePattern* vp = nullptr;
+                    if (SUCCEEDED(v->QueryInterface(__uuidof(IUIAutomationValuePattern), (void**)&vp)) && vp && SUCCEEDED(vp->get_CurrentValue(&t)))
+                        empty = SysStringLen(t) == 0;
+                    if (t) SysFreeString(t);
+                    if (vp) vp->Release();
+                    v->Release();
+                }
+            }
         }
         el->Release();
     }
