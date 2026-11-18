@@ -50,6 +50,7 @@ updNotes = Cad atá nua
 updNow = Nuashonraigh
 updLater = Níos déanaí
 updFail = Níorbh fhéidir nuashonrú go huathoibríoch. An bhfuil fonn ort an suíomh gréasáin a oscailt chun é a íoslódáil?
+firstRun = Tá AURA Switcher ag rith. Tá an deilbhín sa limistéar fógraí; cliceáil ^ cois an chloig chun an roghchlár a oscailt
 ```
 
 ## Website

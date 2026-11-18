@@ -50,6 +50,7 @@ updNotes = Što je novo
 updNow = Ažuriraj
 updLater = Kasnije
 updFail = Automatsko ažuriranje nije uspjelo. Otvoriti web-stranicu za preuzimanje?
+firstRun = AURA Switcher radi. Ikona je u području obavijesti; kliknite ^ pored sata da otvorite izbornik
 ```
 
 ## Website

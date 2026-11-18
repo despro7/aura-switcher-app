@@ -50,6 +50,7 @@ updNotes = Hvað er nýtt
 updNow = Uppfæra
 updLater = Síðar
 updFail = Ekki tókst að uppfæra sjálfkrafa. Opna vefsíðuna til að sækja hana?
+firstRun = AURA Switcher er í gangi. Táknið er á tilkynningasvæðinu; smelltu á ^ við hliðina á klukkunni til að opna valmyndina
 ```
 
 ## Website

@@ -50,6 +50,7 @@ updNotes = Uutta
 updNow = Päivitä
 updLater = Myöhemmin
 updFail = Automaattinen päivitys epäonnistui. Avataanko sivusto latausta varten?
+firstRun = AURA Switcher on käynnissä. Kuvake on ilmoitusalueella; avaa valikko napsauttamalla kellon vieressä olevaa ^-merkkiä
 ```
 
 ## Website

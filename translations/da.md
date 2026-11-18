@@ -50,6 +50,7 @@ updNotes = Nyheder
 updNow = Opdater
 updLater = Senere
 updFail = Kunne ikke opdatere automatisk. Åbn hjemmesiden for at hente den?
+firstRun = AURA Switcher kører. Ikonet er i meddelelsesområdet; klik på ^ ved siden af uret for at åbne menuen
 ```
 
 ## Website

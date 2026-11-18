@@ -50,6 +50,7 @@ updNotes = X’hemm ġdid
 updNow = Aġġorna
 updLater = Aktar tard
 updFail = Ma setax jiġi aġġornat awtomatikament. Niftaħ is-sit biex tniżżlu?
+firstRun = AURA Switcher qed jaħdem. L-ikona tinsab fiż-żona tan-notifiki; ikklikkja fuq ^ ħdejn l-arloġġ biex tiftaħ il-menu
 ```
 
 ## Website

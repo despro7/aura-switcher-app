@@ -50,6 +50,7 @@ updNotes = Co nowego
 updNow = Aktualizuj
 updLater = Później
 updFail = Nie udało się zaktualizować automatycznie. Otworzyć stronę, aby pobrać?
+firstRun = AURA Switcher działa. Ikona jest w obszarze powiadomień; kliknij ^ obok zegara, aby otworzyć menu
 ```
 
 ## Website

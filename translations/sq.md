@@ -50,6 +50,7 @@ updNotes = Çfarë ka të re
 updNow = Përditëso
 updLater = Më vonë
 updFail = Nuk u përditësua automatikisht. Të hapet faqja e internetit për ta shkarkuar?
+firstRun = AURA Switcher po funksionon. Ikona është në zonën e njoftimeve; kliko ^ pranë orës për të hapur menynë
 ```
 
 ## Website

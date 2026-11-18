@@ -50,6 +50,7 @@ updNotes = Kas jauns
 updNow = Atjaunināt
 updLater = Vēlāk
 updFail = Automātiski atjaunināt neizdevās. Atvērt vietni lejupielādei?
+firstRun = AURA Switcher darbojas. Ikona ir paziņojumu apgabalā; noklikšķiniet uz ^ blakus pulkstenim, lai atvērtu izvēlni
 ```
 
 ## Website

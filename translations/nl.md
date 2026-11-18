@@ -50,6 +50,7 @@ updNotes = Wat is er nieuw
 updNow = Bijwerken
 updLater = Later
 updFail = Automatisch bijwerken is mislukt. De website openen om te downloaden?
+firstRun = AURA Switcher draait. Het pictogram staat in het systeemvak; klik op ^ naast de klok om het menu te openen
 ```
 
 ## Website

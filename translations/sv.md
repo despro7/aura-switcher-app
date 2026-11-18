@@ -50,6 +50,7 @@ updNotes = Nyheter
 updNow = Uppdatera
 updLater = Senare
 updFail = Kunde inte uppdatera automatiskt. Öppna webbplatsen för att ladda ner?
+firstRun = AURA Switcher körs. Ikonen finns i aviseringsfältet; klicka på ^ bredvid klockan för att öppna menyn
 ```
 
 ## Website

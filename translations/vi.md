@@ -50,6 +50,7 @@ updNotes = Có gì mới
 updNow = Cập nhật
 updLater = Để sau
 updFail = Không thể tự động cập nhật. Mở trang web để tải về?
+firstRun = AURA Switcher đang chạy. Biểu tượng nằm ở khu vực thông báo; bấm ^ cạnh đồng hồ để mở menu
 ```
 
 ## Website

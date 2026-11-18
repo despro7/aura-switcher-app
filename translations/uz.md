@@ -50,6 +50,7 @@ updNotes = Yangiliklar
 updNow = Yangilash
 updLater = Keyinroq
 updFail = Avtomatik yangilab boʻlmadi. Yuklab olish uchun saytni ochaymi?
+firstRun = AURA Switcher ishlayapti. Belgisi bildirishnomalar hududida; menyuni ochish uchun soat yonidagi ^ belgisini bosing
 ```
 
 ## Website

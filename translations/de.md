@@ -50,6 +50,7 @@ updNotes = Was ist neu
 updNow = Aktualisieren
 updLater = Später
 updFail = Automatisches Update fehlgeschlagen. Website zum Herunterladen öffnen?
+firstRun = AURA Switcher läuft. Das Symbol ist im Infobereich; klicken Sie neben der Uhr auf ^, um das Menü zu öffnen
 ```
 
 ## Website

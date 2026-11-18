@@ -50,6 +50,7 @@ updNotes = Kaj je novega
 updNow = Posodobi
 updLater = Pozneje
 updFail = Samodejna posodobitev ni uspela. Odprem spletno mesto za prenos?
+firstRun = AURA Switcher deluje. Ikona je v območju za obvestila; kliknite ^ ob uri, da odprete meni
 ```
 
 ## Website

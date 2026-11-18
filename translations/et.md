@@ -50,6 +50,7 @@ updNotes = Mis on uut
 updNow = Uuenda
 updLater = Hiljem
 updFail = Automaatne uuendamine ebaõnnestus. Avada veebileht allalaadimiseks?
+firstRun = AURA Switcher töötab. Ikoon on teavitusalas; menüü avamiseks klõpsake kella kõrval ^
 ```
 
 ## Website

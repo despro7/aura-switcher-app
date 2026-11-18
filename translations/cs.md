@@ -50,6 +50,7 @@ updNotes = Co je nového
 updNow = Aktualizovat
 updLater = Později
 updFail = Automatická aktualizace se nezdařila. Otevřít web a stáhnout?
+firstRun = AURA Switcher běží. Ikona je v oznamovací oblasti; menu otevřete kliknutím na ^ vedle hodin
 ```
 
 ## Website

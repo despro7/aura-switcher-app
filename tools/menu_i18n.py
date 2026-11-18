@@ -8,7 +8,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 KEYS = ["enabled", "auto", "sound", "access", "app", "exclude", "game", "appLang", "noBinding", "exclusions", "recent",
         "bindings", "empty", "login", "words", "wordsTitle", "wordsInfo", "save", "cancel", "uiLang", "allLangs", "regEurope", "regCaucasus", "regMiddleEast", "regAsia", "system", "hint",
-        "report", "reportBody", "update", "updateDue", "donate", "quit", "updNew", "updLatest", "updNotes", "updNow", "updLater", "updFail"]
+        "report", "reportBody", "update", "updateDue", "donate", "quit", "updNew", "updLatest", "updNotes", "updNow", "updLater", "updFail", "firstRun"]
 # code, native name, then one line per key (in KEYS order)
 LANGS = """
 en English
@@ -51,6 +51,7 @@ What's new
 Update
 Later
 Couldn't update automatically. Open the website to download it?
+AURA Switcher is running. Its icon is in the notification area; click ^ next to the clock to open the menu
 
 uk Українська
 Увімкнено
@@ -92,6 +93,7 @@ AURA Switcher — мої слова
 Оновити
 Пізніше
 Не вдалося оновити автоматично. Відкрити сайт, щоб завантажити?
+AURA Switcher працює. Значок — в області сповіщень; натисніть ^ біля годинника, щоб відкрити меню
 
 pl Polski
 Włączone
@@ -133,6 +135,7 @@ Co nowego
 Aktualizuj
 Później
 Nie udało się zaktualizować automatycznie. Otworzyć stronę, aby pobrać?
+AURA Switcher działa. Ikona jest w obszarze powiadomień; kliknij ^ obok zegara, aby otworzyć menu
 
 de Deutsch
 Aktiviert
@@ -174,6 +177,7 @@ Was ist neu
 Aktualisieren
 Später
 Automatisches Update fehlgeschlagen. Website zum Herunterladen öffnen?
+AURA Switcher läuft. Das Symbol ist im Infobereich; klicken Sie neben der Uhr auf ^, um das Menü zu öffnen
 
 es Español
 Activado
@@ -215,6 +219,7 @@ Novedades
 Actualizar
 Más tarde
 No se pudo actualizar automáticamente. ¿Abrir la web para descargarla?
+AURA Switcher está funcionando. Su icono está en el área de notificaciones; haz clic en ^ junto al reloj para abrir el menú
 
 fr Français
 Activé
@@ -256,6 +261,7 @@ Nouveautés
 Mettre à jour
 Plus tard
 Mise à jour automatique impossible. Ouvrir le site pour la télécharger ?
+AURA Switcher fonctionne. Son icône est dans la zone de notification ; cliquez sur ^ près de l’horloge pour ouvrir le menu
 
 it Italiano
 Attivo
@@ -297,6 +303,7 @@ Novità
 Aggiorna
 Più tardi
 Impossibile aggiornare automaticamente. Vuoi aprire il sito per scaricare l’aggiornamento?
+AURA Switcher è in esecuzione. L’icona è nell’area di notifica; fai clic su ^ accanto all’orologio per aprire il menu
 
 pt Português
 Ativado
@@ -338,6 +345,7 @@ Novidades
 Atualizar
 Mais tarde
 Não foi possível atualizar automaticamente. Abrir o site para baixar?
+O AURA Switcher está a funcionar. O ícone está na área de notificação; clique em ^ junto ao relógio para abrir o menu
 
 tr Türkçe
 Etkin
@@ -379,6 +387,7 @@ Yenilikler
 Güncelle
 Daha sonra
 Otomatik güncellenemedi. İndirmek için web sitesi açılsın mı?
+AURA Switcher çalışıyor. Simgesi bildirim alanında; menüyü açmak için saatin yanındaki ^ simgesine tıklayın
 
 nl Nederlands
 Ingeschakeld
@@ -420,6 +429,7 @@ Wat is er nieuw
 Bijwerken
 Later
 Automatisch bijwerken is mislukt. De website openen om te downloaden?
+AURA Switcher draait. Het pictogram staat in het systeemvak; klik op ^ naast de klok om het menu te openen
 
 cs Čeština
 Zapnuto
@@ -461,6 +471,7 @@ Co je nového
 Aktualizovat
 Později
 Automatická aktualizace se nezdařila. Otevřít web a stáhnout?
+AURA Switcher běží. Ikona je v oznamovací oblasti; menu otevřete kliknutím na ^ vedle hodin
 
 sv Svenska
 Aktiverad
@@ -502,6 +513,7 @@ Nyheter
 Uppdatera
 Senare
 Kunde inte uppdatera automatiskt. Öppna webbplatsen för att ladda ner?
+AURA Switcher körs. Ikonen finns i aviseringsfältet; klicka på ^ bredvid klockan för att öppna menyn
 
 fi Suomi
 Käytössä
@@ -543,6 +555,7 @@ Uutta
 Päivitä
 Myöhemmin
 Automaattinen päivitys epäonnistui. Avataanko sivusto latausta varten?
+AURA Switcher on käynnissä. Kuvake on ilmoitusalueella; avaa valikko napsauttamalla kellon vieressä olevaa ^-merkkiä
 
 ro Română
 Activat
@@ -584,6 +597,7 @@ Ce e nou
 Actualizează
 Mai târziu
 Actualizarea automată a eșuat. Deschizi site-ul pentru descărcare?
+AURA Switcher rulează. Pictograma este în zona de notificare; faceți clic pe ^ de lângă ceas pentru a deschide meniul
 
 hu Magyar
 Bekapcsolva
@@ -625,6 +639,7 @@ A legújabb verzió van nálad
 Frissítés
 Később
 Az automatikus frissítés nem sikerült. Megnyitod a weboldalt a letöltéshez?
+Az AURA Switcher fut. Az ikonja az értesítési területen van; a menü megnyitásához kattintson az óra melletti ^ jelre
 
 el Ελληνικά
 Ενεργό
@@ -666,6 +681,7 @@ AURA Switcher — οι λέξεις μου
 Ενημέρωση
 Αργότερα
 Η αυτόματη ενημέρωση απέτυχε. Άνοιγμα του ιστότοπου για λήψη;
+Το AURA Switcher εκτελείται. Το εικονίδιο βρίσκεται στην περιοχή ειδοποιήσεων· κάντε κλικ στο ^ δίπλα στο ρολόι για να ανοίξετε το μενού
 
 bg Български
 Включено
@@ -707,6 +723,7 @@ AURA Switcher смята тези думи за правилни: никога �
 Обнови
 По-късно
 Автоматичното обновяване не успя. Да се отвори ли сайтът за изтегляне?
+AURA Switcher работи. Иконата е в областта за известия; щракнете върху ^ до часовника, за да отворите менюто
 
 he עברית
 מופעל
@@ -748,6 +765,7 @@ AURA Switcher מתייחס למילים אלה כנכונות: לעולם לא �
 עדכן
 מאוחר יותר
 העדכון האוטומטי נכשל. לפתוח את האתר להורדה?
+AURA Switcher פועל. הסמל נמצא באזור ההתראות; לחצו על ^ ליד השעון כדי לפתוח את התפריט
 
 ar العربية
 مفعّل
@@ -789,6 +807,7 @@ AURA Switcher — كلماتي
 تحديث
 لاحقًا
 تعذّر التحديث تلقائيًا. هل تريد فتح الموقع للتنزيل؟
+AURA Switcher يعمل. الأيقونة في منطقة الإشعارات؛ انقر على ^ بجانب الساعة لفتح القائمة
 
 hi हिन्दी
 चालू
@@ -830,6 +849,7 @@ AURA Switcher {v} आ गया है
 अपडेट करें
 बाद में
 अपने-आप अपडेट नहीं हो सका। डाउनलोड के लिए वेबसाइट खोलें?
+AURA Switcher चल रहा है। इसका आइकन नोटिफ़िकेशन एरिया में है; मेनू खोलने के लिए घड़ी के पास ^ पर क्लिक करें
 
 ko 한국어
 켜기
@@ -871,6 +891,7 @@ AURA Switcher {v} 출시
 업데이트
 나중에
 자동으로 업데이트하지 못했습니다. 다운로드하려면 웹사이트를 열까요?
+AURA Switcher가 실행 중입니다. 아이콘은 알림 영역에 있습니다. 시계 옆의 ^를 눌러 메뉴를 여세요
 
 be Беларуская
 Уключана
@@ -912,6 +933,7 @@ AURA Switcher лічыць гэтыя словы правільнымі: не м
 Абнавіць
 Пазней
 Не ўдалося абнавіць аўтаматычна. Адкрыць сайт, каб спампаваць?
+AURA Switcher працуе. Значок — у вобласці апавяшчэнняў; націсніце ^ побач з гадзіннікам, каб адкрыць меню
 
 kk Қазақша
 Қосулы
@@ -953,6 +975,7 @@ AURA Switcher {v} шықты
 Жаңарту
 Кейінірек
 Автоматты түрде жаңарту мүмкін болмады. Жүктеп алу үшін сайтты ашу керек пе?
+AURA Switcher жұмыс істеп тұр. Белгішесі хабарландыру аймағында; мәзірді ашу үшін сағаттың жанындағы ^ түймесін басыңыз
 
 ky Кыргызча
 Күйгүзүлгөн
@@ -994,6 +1017,7 @@ AURA Switcher {v} чыкты
 Жаңыртуу
 Кийинчерээк
 Автоматтык түрдө жаңыртуу мүмкүн болгон жок. Жүктөп алуу үчүн сайтты ачайынбы?
+AURA Switcher иштеп жатат. Сөлөкөтү билдирмелер аймагында; менюну ачуу үчүн сааттын жанындагы ^ баскычын басыңыз
 
 ka ქართული
 ჩართულია
@@ -1035,6 +1059,7 @@ AURA Switcher-ის მხარდაჭერა ☕
 განახლება
 მოგვიანებით
 ავტომატურად განახლება ვერ მოხერხდა. გავხსნა საიტი ჩამოსატვირთად?
+AURA Switcher მუშაობს. ხატულა შეტყობინებების არეშია; მენიუს გასახსნელად დააწკაპუნეთ საათის გვერდით ^-ზე
 
 hy Հայերեն
 Միացված է
@@ -1076,6 +1101,7 @@ AURA Switcher-ն այս բառերը ճիշտ է համարում՝ չի փոխ�
 Թարմացնել
 Հետո
 Չհաջողվեց թարմացնել ավտոմատ կերպով։ Բացե՞լ կայքը՝ ներբեռնելու համար։
+AURA Switcher-ը աշխատում է։ Պատկերակը ծանուցումների տարածքում է․ մենյուն բացելու համար սեղմեք ժամացույցի կողքի ^-ը
 
 az Azərbaycan
 Aktivdir
@@ -1117,6 +1143,7 @@ Nə yenidir
 Yenilə
 Sonra
 Avtomatik yeniləmək alınmadı. Yükləmək üçün sayt açılsın?
+AURA Switcher işləyir. Nişan bildiriş sahəsindədir; menyunu açmaq üçün saatın yanındakı ^ işarəsinə klikləyin
 
 sr Српски
 Укључено
@@ -1158,6 +1185,7 @@ AURA Switcher сматра ове речи исправним: не мења и�
 Ажурирај
 Касније
 Аутоматско ажурирање није успело. Отворити сајт за преузимање?
+AURA Switcher ради. Икона је у пољу за обавештења; кликните на ^ поред сата да бисте отворили мени
 
 mk Македонски
 Вклучено
@@ -1199,6 +1227,7 @@ AURA Switcher ги смета овие зборови за точни: не ги
 Ажурирај
 Подоцна
 Автоматското ажурирање не успеа. Да го отворам сајтот за преземање?
+AURA Switcher работи. Иконата е во областа за известувања; кликнете на ^ покрај часовникот за да го отворите менито
 
 sk Slovenčina
 Zapnuté
@@ -1240,6 +1269,7 @@ Máte najnovšiu verziu
 Aktualizovať
 Neskôr
 Automatická aktualizácia sa nepodarila. Otvoriť web na stiahnutie?
+AURA Switcher beží. Ikona je v oblasti oznámení; ponuku otvoríte kliknutím na ^ vedľa hodín
 
 hr Hrvatski
 Uključeno
@@ -1281,6 +1311,7 @@ Imate najnoviju verziju
 Ažuriraj
 Kasnije
 Automatsko ažuriranje nije uspjelo. Otvoriti web-stranicu za preuzimanje?
+AURA Switcher radi. Ikona je u području obavijesti; kliknite ^ pored sata da otvorite izbornik
 
 sl Slovenščina
 Vklopljeno
@@ -1322,6 +1353,7 @@ Kaj je novega
 Posodobi
 Pozneje
 Samodejna posodobitev ni uspela. Odprem spletno mesto za prenos?
+AURA Switcher deluje. Ikona je v območju za obvestila; kliknite ^ ob uri, da odprete meni
 
 lt Lietuvių
 Įjungta
@@ -1363,6 +1395,7 @@ Kas naujo
 Atnaujinti
 Vėliau
 Nepavyko atnaujinti automatiškai. Atidaryti svetainę atsisiuntimui?
+AURA Switcher veikia. Piktograma yra pranešimų srityje; spustelėkite ^ šalia laikrodžio, kad atidarytumėte meniu
 
 lv Latviešu
 Ieslēgts
@@ -1404,6 +1437,7 @@ Kas jauns
 Atjaunināt
 Vēlāk
 Automātiski atjaunināt neizdevās. Atvērt vietni lejupielādei?
+AURA Switcher darbojas. Ikona ir paziņojumu apgabalā; noklikšķiniet uz ^ blakus pulkstenim, lai atvērtu izvēlni
 
 et Eesti
 Sees
@@ -1445,6 +1479,7 @@ Mis on uut
 Uuenda
 Hiljem
 Automaatne uuendamine ebaõnnestus. Avada veebileht allalaadimiseks?
+AURA Switcher töötab. Ikoon on teavitusalas; menüü avamiseks klõpsake kella kõrval ^
 
 da Dansk
 Aktiveret
@@ -1486,6 +1521,7 @@ Nyheder
 Opdater
 Senere
 Kunne ikke opdatere automatisk. Åbn hjemmesiden for at hente den?
+AURA Switcher kører. Ikonet er i meddelelsesområdet; klik på ^ ved siden af uret for at åbne menuen
 
 nb Norsk bokmål
 På
@@ -1527,6 +1563,7 @@ Nytt
 Oppdater
 Senere
 Kunne ikke oppdatere automatisk. Åpne nettstedet for å laste den ned?
+AURA Switcher kjører. Ikonet er i varslingsfeltet; klikk på ^ ved siden av klokken for å åpne menyen
 
 is Íslenska
 Kveikt
@@ -1568,6 +1605,7 @@ Hvað er nýtt
 Uppfæra
 Síðar
 Ekki tókst að uppfæra sjálfkrafa. Opna vefsíðuna til að sækja hana?
+AURA Switcher er í gangi. Táknið er á tilkynningasvæðinu; smelltu á ^ við hliðina á klukkunni til að opna valmyndina
 
 sq Shqip
 Aktivizuar
@@ -1609,6 +1647,7 @@ Keni versionin më të ri
 Përditëso
 Më vonë
 Nuk u përditësua automatikisht. Të hapet faqja e internetit për ta shkarkuar?
+AURA Switcher po funksionon. Ikona është në zonën e njoftimeve; kliko ^ pranë orës për të hapur menynë
 
 fa فارسی
 روشن
@@ -1650,6 +1689,7 @@ AURA Switcher {v} منتشر شد
 به‌روزرسانی
 بعداً
 به‌روزرسانی خودکار انجام نشد. وب‌سایت برای دانلود باز شود؟
+AURA Switcher در حال اجراست. نماد آن در ناحیه اعلان‌هاست؛ برای باز کردن منو روی ^ کنار ساعت کلیک کنید
 
 vi Tiếng Việt
 Bật
@@ -1691,6 +1731,7 @@ Có gì mới
 Cập nhật
 Để sau
 Không thể tự động cập nhật. Mở trang web để tải về?
+AURA Switcher đang chạy. Biểu tượng nằm ở khu vực thông báo; bấm ^ cạnh đồng hồ để mở menu
 
 tg Тоҷикӣ
 Фаъол
@@ -1732,6 +1773,7 @@ AURA Switcher {v} баромад
 Навсозӣ
 Баъдтар
 Навсозии худкор муяссар нашуд. Сайтро барои боргирӣ кушоед?
+AURA Switcher кор карда истодааст. Нишона дар минтақаи огоҳиҳост; барои кушодани меню ^-ро дар назди соат пахш кунед
 
 mn Монгол
 Идэвхтэй
@@ -1773,6 +1815,7 @@ AURA Switcher {v} гарлаа
 Шинэчлэх
 Дараа
 Автоматаар шинэчилж чадсангүй. Татаж авахын тулд вэбсайтыг нээх үү?
+AURA Switcher ажиллаж байна. Дүрс тэмдэг мэдэгдлийн хэсэгт байна; цэсийг нээхийн тулд цагийн хажууох ^-г дарна уу
 
 tt Татарча
 Кабызылган
@@ -1814,6 +1857,7 @@ AURA Switcher {v} чыкты
 Яңарту
 Соңрак
 Автоматик рәвештә яңартып булмады. Йөкләү өчен сайтны ачарга?
+AURA Switcher эшли. Билгечә белдерүләр өлкәсендә; менюны ачу өчен сәгать янындагы ^ төймәсенә басыгыз
 
 uz Oʻzbek
 Yoqilgan
@@ -1855,6 +1899,7 @@ Yangiliklar
 Yangilash
 Keyinroq
 Avtomatik yangilab boʻlmadi. Yuklab olish uchun saytni ochaymi?
+AURA Switcher ishlayapti. Belgisi bildirishnomalar hududida; menyuni ochish uchun soat yonidagi ^ belgisini bosing
 
 ga Gaeilge
 Cumasaithe
@@ -1896,6 +1941,7 @@ Cad atá nua
 Nuashonraigh
 Níos déanaí
 Níorbh fhéidir nuashonrú go huathoibríoch. An bhfuil fonn ort an suíomh gréasáin a oscailt chun é a íoslódáil?
+Tá AURA Switcher ag rith. Tá an deilbhín sa limistéar fógraí; cliceáil ^ cois an chloig chun an roghchlár a oscailt
 
 mt Malti
 Attivat
@@ -1937,6 +1983,7 @@ X’hemm ġdid
 Aġġorna
 Aktar tard
 Ma setax jiġi aġġornat awtomatikament. Niftaħ is-sit biex tniżżlu?
+AURA Switcher qed jaħdem. L-ikona tinsab fiż-żona tan-notifiki; ikklikkja fuq ^ ħdejn l-arloġġ biex tiftaħ il-menu
 
 cy Cymraeg
 Wedi’i alluogi
@@ -1978,6 +2025,7 @@ Beth sy’n newydd
 Diweddaru
 Yn nes ymlaen
 Methu diweddaru’n awtomatig. Agor y wefan i’w lawrlwytho?
+Mae AURA Switcher yn rhedeg. Mae’r eicon yn yr ardal hysbysu; cliciwch ^ wrth ymyl y cloc i agor y ddewislen
 """
 
 langs = []  # (code, name, [strings])

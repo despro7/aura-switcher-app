@@ -50,6 +50,7 @@ updNotes = Nə yenidir
 updNow = Yenilə
 updLater = Sonra
 updFail = Avtomatik yeniləmək alınmadı. Yükləmək üçün sayt açılsın?
+firstRun = AURA Switcher işləyir. Nişan bildiriş sahəsindədir; menyunu açmaq üçün saatın yanındakı ^ işarəsinə klikləyin
 ```
 
 ## Website

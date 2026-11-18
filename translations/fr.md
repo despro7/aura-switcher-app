@@ -50,6 +50,7 @@ updNotes = Nouveautés
 updNow = Mettre à jour
 updLater = Plus tard
 updFail = Mise à jour automatique impossible. Ouvrir le site pour la télécharger ?
+firstRun = AURA Switcher fonctionne. Son icône est dans la zone de notification ; cliquez sur ^ près de l’horloge pour ouvrir le menu
 ```
 
 ## Website

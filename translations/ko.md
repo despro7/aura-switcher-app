@@ -50,6 +50,7 @@ updNotes = 새로운 기능
 updNow = 업데이트
 updLater = 나중에
 updFail = 자동으로 업데이트하지 못했습니다. 다운로드하려면 웹사이트를 열까요?
+firstRun = AURA Switcher가 실행 중입니다. 아이콘은 알림 영역에 있습니다. 시계 옆의 ^를 눌러 메뉴를 여세요
 ```
 
 ## Website

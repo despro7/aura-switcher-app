@@ -50,6 +50,7 @@ updNotes = Beth sy’n newydd
 updNow = Diweddaru
 updLater = Yn nes ymlaen
 updFail = Methu diweddaru’n awtomatig. Agor y wefan i’w lawrlwytho?
+firstRun = Mae AURA Switcher yn rhedeg. Mae’r eicon yn yr ardal hysbysu; cliciwch ^ wrth ymyl y cloc i agor y ddewislen
 ```
 
 ## Website

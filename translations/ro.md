@@ -50,6 +50,7 @@ updNotes = Ce e nou
 updNow = Actualizează
 updLater = Mai târziu
 updFail = Actualizarea automată a eșuat. Deschizi site-ul pentru descărcare?
+firstRun = AURA Switcher rulează. Pictograma este în zona de notificare; faceți clic pe ^ de lângă ceas pentru a deschide meniul
 ```
 
 ## Website

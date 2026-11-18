@@ -50,6 +50,7 @@ updNotes = Yenilikler
 updNow = Güncelle
 updLater = Daha sonra
 updFail = Otomatik güncellenemedi. İndirmek için web sitesi açılsın mı?
+firstRun = AURA Switcher çalışıyor. Simgesi bildirim alanında; menüyü açmak için saatin yanındaki ^ simgesine tıklayın
 ```
 
 ## Website

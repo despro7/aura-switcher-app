@@ -50,6 +50,7 @@ updNotes = Kas naujo
 updNow = Atnaujinti
 updLater = Vėliau
 updFail = Nepavyko atnaujinti automatiškai. Atidaryti svetainę atsisiuntimui?
+firstRun = AURA Switcher veikia. Piktograma yra pranešimų srityje; spustelėkite ^ šalia laikrodžio, kad atidarytumėte meniu
 ```
 
 ## Website
