@@ -83,7 +83,7 @@ nb+en nb typed in en: fixed	94.6%	35/37
 nb+en nb typed right: kept	100.0%	300/300
 nb+en en typed in nb: fixed	0.0%	0/0
 nb+en en typed right: kept	100.0%	300/300
-is+en is typed in en: fixed	95.6%	65/68
+is+en is typed in en: fixed	70.6%	48/68
 is+en is typed right: kept	100.0%	225/225
 is+en en typed in is: fixed	0.0%	0/0
 is+en en typed right: kept	100.0%	300/300
