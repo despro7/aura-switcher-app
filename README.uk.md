@@ -13,7 +13,7 @@
 
 - **Код відкритий:** https://github.com/klbk/aura-switcher-app (ліцензія GPL-3.0). Програма бачить усе, що ви набираєте, тому кожен може перевірити: вона нічого не зберігає і не передає те, що ви набираєте.
 - **Безкоштовно.** Якщо AURA Switcher вам допомагає — підтримайте розробку: **https://donatello.to/aura-switcher** ☕ (картка будь-якої країни). Посилання також є на сайті та в меню програми («Підтримати AURA Switcher ☕»).
-- **Завантажити:** https://github.com/klbk/aura-switcher/releases/latest
+- **Завантажити:** https://github.com/klbk/aura-switcher/releases/latest · Windows — [Microsoft Store](https://apps.microsoft.com/detail/9PP3MK8CFCJK)
 - **Зв'язок і помилки:** auraswitcher@gmail.com — або в меню програми «Повідомити про проблему…» (лист відкриється з уже вписаними версією, системою й розкладками).
 
 ## Можливості
