@@ -80,6 +80,7 @@ Archive for other Macs: `./build.sh --release` → `dist/AURA-Switcher-<version>
 ## How it works and Windows
 
 - [How it works](docs/how-it-works.md) — keystrokes, dictionaries, language models, files.
+- [What AURA does and doesn't do](docs/what-aura-does.md) — why it is not a keylogger, when it leaves a word alone, Russian.
 - [Windows version](docs/windows.md) — install, differences, limits (beta).
 
 ## Limitations
