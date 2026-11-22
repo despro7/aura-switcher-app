@@ -404,6 +404,10 @@ final class SettingsWindow: NSObject, NSWindowDelegate {
             w.center()
             w.setFrameAutosaveName("AURASettings")
             window = w
+            // SwiftUI re-adds the toggle/separator whenever the detail pane (and its toolbar) changes
+            NotificationCenter.default.addObserver(forName: NSToolbar.willAddItemNotification, object: nil, queue: .main) { [weak self] _ in
+                DispatchQueue.main.async { self?.stripToolbar() }
+            }
         }
         NSApp.setActivationPolicy(.regular)   // Dock icon + ⌘Tab while the window is open
         NSApp.activate(ignoringOtherApps: true)
