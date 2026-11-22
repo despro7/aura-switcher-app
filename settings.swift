@@ -404,10 +404,12 @@ final class SettingsWindow: NSObject, NSWindowDelegate {
             w.center()
             w.setFrameAutosaveName("AURASettings")
             window = w
-            // SwiftUI re-adds the toggle/separator whenever the detail pane (and its toolbar) changes
-            NotificationCenter.default.addObserver(forName: NSToolbar.willAddItemNotification, object: nil, queue: .main) { [weak self] _ in
-                DispatchQueue.main.async { self?.stripToolbar() }
+            // SwiftUI re-adds the toggle/separator whenever the detail pane (and its toolbar) changes. Strip them in the run loop's
+            // «before waiting» step, which runs before Core Animation commits the frame — so they are never drawn.
+            let obs = CFRunLoopObserverCreateWithHandler(nil, CFRunLoopActivity.beforeWaiting.rawValue, true, 0) { [weak self] _, _ in
+                self?.stripToolbar()
             }
+            CFRunLoopAddObserver(CFRunLoopGetMain(), obs, .commonModes)
         }
         NSApp.setActivationPolicy(.regular)   // Dock icon + ⌘Tab while the window is open
         NSApp.activate(ignoringOtherApps: true)
@@ -417,7 +419,8 @@ final class SettingsWindow: NSObject, NSWindowDelegate {
 
     /// NavigationSplitView puts «hide sidebar» and its separator into the toolbar (the sidebar is always shown here): remove them
     private func stripToolbar() {
-        guard let tb = window?.toolbar else { return }
+        guard let w = window, w.isVisible, let tb = w.toolbar else { return }
+        if w.titlebarSeparatorStyle != .none { w.titlebarSeparatorStyle = .none }
         for (i, it) in tb.items.enumerated().reversed() where it.itemIdentifier.rawValue.localizedCaseInsensitiveContains("sidebar")
             || it.itemIdentifier.rawValue.localizedCaseInsensitiveContains("separator") { tb.removeItem(at: i) }
     }
