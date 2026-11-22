@@ -115,7 +115,7 @@ struct SettingsView: View {
     @State private var pane: Pane? = .general
 
     var body: some View {
-        NavigationSplitView {
+        NavigationSplitView(columnVisibility: .constant(.all)) {   // always visible: no collapse
             List(selection: $pane) {
                 ForEach(Array(Pane.sections.enumerated()), id: \.offset) { _, sec in
                     Section(sec.0.map { L($0) } ?? "") {
@@ -123,6 +123,7 @@ struct SettingsView: View {
                     }
                 }
             }
+            .id(m.uiLang ?? "")   // a List keeps its rows: rebuild them when the menu language changes
             .navigationSplitViewColumnWidth(min: 170, ideal: 200, max: 260)
         } detail: {
             detail(pane ?? .general).navigationTitle((pane ?? .general).title)
@@ -260,7 +261,13 @@ struct ListPane<Row: Identifiable & Hashable, Columns: TableColumnContent>: View
         VStack(spacing: 0) {
             Text(info).font(.callout).foregroundStyle(.secondary)
                 .frame(maxWidth: .infinity, alignment: .leading).padding([.horizontal, .top], 16).padding(.bottom, 10)
-            Table(shown, selection: $selection) { columns() }
+            Table(shown, selection: $selection) {
+                columns()
+                TableColumn("") { (r: Row) in
+                    Button { remove([r.id]); selection.remove(r.id) } label: { Image(systemName: "trash") }
+                        .buttonStyle(.borderless).foregroundStyle(.secondary).help(L("remove"))
+                }.width(28)
+            }
                 .overlay { if rows.isEmpty { Text(L("empty")).foregroundStyle(.secondary) } }
             Divider()
             HStack(spacing: 6) {
@@ -392,6 +399,7 @@ final class SettingsWindow: NSObject, NSWindowDelegate {
             w.contentViewController = NSHostingController(rootView: SettingsView().environmentObject(SettingsModel.shared))
             w.contentMinSize = NSSize(width: 760, height: 500)
             w.isReleasedWhenClosed = false
+            w.titlebarSeparatorStyle = .none
             w.delegate = self
             w.center()
             w.setFrameAutosaveName("AURASettings")
@@ -400,8 +408,16 @@ final class SettingsWindow: NSObject, NSWindowDelegate {
         NSApp.setActivationPolicy(.regular)   // Dock icon + ⌘Tab while the window is open
         NSApp.activate(ignoringOtherApps: true)
         window?.makeKeyAndOrderFront(nil)
+        for d in [0.05, 0.3, 1.0] { DispatchQueue.main.asyncAfter(deadline: .now() + d) { self.stripToolbar() } }
+    }
+
+    /// NavigationSplitView puts «hide sidebar» and its separator into the toolbar (the sidebar is always shown here): remove them
+    private func stripToolbar() {
+        guard let tb = window?.toolbar else { return }
+        for (i, it) in tb.items.enumerated().reversed() where it.itemIdentifier.rawValue.localizedCaseInsensitiveContains("sidebar")
+            || it.itemIdentifier.rawValue.localizedCaseInsensitiveContains("separator") { tb.removeItem(at: i) }
     }
 
     func windowWillClose(_ n: Notification) { NSApp.setActivationPolicy(.accessory) }
-    func windowDidBecomeKey(_ n: Notification) { SettingsModel.shared.reload() }
+    func windowDidBecomeKey(_ n: Notification) { SettingsModel.shared.reload(); stripToolbar() }
 }
