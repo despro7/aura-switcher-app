@@ -1,4 +1,5 @@
 import SwiftUI
+import Combine
 import Cocoa
 import ServiceManagement
 import UniformTypeIdentifiers
@@ -108,26 +109,37 @@ enum Pane: Hashable {
     }
 }
 
-// MARK: - Root view
+// MARK: - Root views (sidebar and content are separate hosting controllers in an NSSplitViewController:
+// no SwiftUI toolbar, so nothing is added to or flickers in the title bar when the pane changes)
 
-struct SettingsView: View {
+final class Nav: ObservableObject {
+    static let shared = Nav()
+    @Published var pane: Pane = .general
+}
+
+struct SidebarView: View {
     @EnvironmentObject var m: SettingsModel
-    @State private var pane: Pane? = .general
+    @EnvironmentObject var nav: Nav
 
     var body: some View {
-        NavigationSplitView(columnVisibility: .constant(.all)) {   // always visible: no collapse
-            List(selection: $pane) {
-                ForEach(Array(Pane.sections.enumerated()), id: \.offset) { _, sec in
-                    Section(sec.0.map { L($0) } ?? "") {
-                        ForEach(sec.1, id: \.self) { p in Label(p.title, systemImage: p.icon).tag(p) }
-                    }
+        List(selection: Binding<Pane?>(get: { nav.pane }, set: { if let p = $0 { nav.pane = p } })) {
+            ForEach(Array(Pane.sections.enumerated()), id: \.offset) { _, sec in
+                Section(sec.0.map { L($0) } ?? "") {
+                    ForEach(sec.1, id: \.self) { p in Label(p.title, systemImage: p.icon).tag(p) }
                 }
             }
-            .id(m.uiLang ?? "")   // a List keeps its rows: rebuild them when the menu language changes
-            .navigationSplitViewColumnWidth(min: 170, ideal: 200, max: 260)
-        } detail: {
-            detail(pane ?? .general).navigationTitle((pane ?? .general).title)
         }
+        .listStyle(.sidebar)
+        .id(m.uiLang ?? "")   // a List keeps its rows: rebuild them when the menu language changes
+    }
+}
+
+struct DetailView: View {
+    @EnvironmentObject var m: SettingsModel
+    @EnvironmentObject var nav: Nav
+
+    var body: some View {
+        detail(nav.pane).frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 
     @ViewBuilder func detail(_ p: Pane) -> some View {
@@ -259,8 +271,11 @@ struct ListPane<Row: Identifiable & Hashable, Columns: TableColumnContent>: View
 
     var body: some View {
         VStack(spacing: 0) {
-            Text(info).font(.callout).foregroundStyle(.secondary)
-                .frame(maxWidth: .infinity, alignment: .leading).padding([.horizontal, .top], 16).padding(.bottom, 10)
+            HStack(alignment: .top, spacing: 12) {
+                Text(info).font(.callout).foregroundStyle(.secondary)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                TextField(L("search"), text: $query).textFieldStyle(.roundedBorder).frame(width: 180)
+            }.padding([.horizontal, .top], 16).padding(.bottom, 10)
             Table(shown, selection: $selection) {
                 columns()
                 TableColumn("") { (r: Row) in
@@ -288,7 +303,6 @@ struct ListPane<Row: Identifiable & Hashable, Columns: TableColumnContent>: View
             }
             .buttonStyle(.borderless).padding(8)
         }
-        .searchable(text: $query, prompt: L("search"))
     }
 }
 
@@ -389,42 +403,40 @@ struct BindingsPane: View {
 final class SettingsWindow: NSObject, NSWindowDelegate {
     static let shared = SettingsWindow()
     private var window: NSWindow?
+    private var titleSub: AnyCancellable?
 
     func show() {
         SettingsModel.shared.reload()
         if window == nil {
+            let model = SettingsModel.shared, nav = Nav.shared
+            let side = NSHostingController(rootView: SidebarView().environmentObject(model).environmentObject(nav))
+            let content = NSHostingController(rootView: DetailView().environmentObject(model).environmentObject(nav))
+            side.sizingOptions = []; content.sizingOptions = []
+            let split = NSSplitViewController()
+            let sideItem = NSSplitViewItem(sidebarWithViewController: side)
+            sideItem.canCollapse = false
+            sideItem.minimumThickness = 190; sideItem.maximumThickness = 260
+            split.addSplitViewItem(sideItem)
+            split.addSplitViewItem(NSSplitViewItem(contentListWithViewController: content))
+
             let w = NSWindow(contentRect: NSRect(x: 0, y: 0, width: 820, height: 560),
                              styleMask: [.titled, .closable, .miniaturizable, .resizable], backing: .buffered, defer: false)
-            w.title = "AURA Switcher"
-            w.contentViewController = NSHostingController(rootView: SettingsView().environmentObject(SettingsModel.shared))
+            w.contentViewController = split
             w.contentMinSize = NSSize(width: 760, height: 500)
             w.isReleasedWhenClosed = false
             w.titlebarSeparatorStyle = .none
             w.delegate = self
+            w.setContentSize(NSSize(width: 820, height: 560))
             w.center()
             w.setFrameAutosaveName("AURASettings")
+            titleSub = nav.$pane.combineLatest(model.$uiLang).receive(on: DispatchQueue.main).sink { [weak w] pane, _ in w?.title = pane.title }
             window = w
-            // SwiftUI re-adds the toggle/separator whenever the detail pane (and its toolbar) changes. Strip them in the run loop's
-            // «before waiting» step, which runs before Core Animation commits the frame — so they are never drawn.
-            let obs = CFRunLoopObserverCreateWithHandler(nil, CFRunLoopActivity.beforeWaiting.rawValue, true, 0) { [weak self] _, _ in
-                self?.stripToolbar()
-            }
-            CFRunLoopAddObserver(CFRunLoopGetMain(), obs, .commonModes)
         }
         NSApp.setActivationPolicy(.regular)   // Dock icon + ⌘Tab while the window is open
         NSApp.activate(ignoringOtherApps: true)
         window?.makeKeyAndOrderFront(nil)
-        for d in [0.05, 0.3, 1.0] { DispatchQueue.main.asyncAfter(deadline: .now() + d) { self.stripToolbar() } }
-    }
-
-    /// NavigationSplitView puts «hide sidebar» and its separator into the toolbar (the sidebar is always shown here): remove them
-    private func stripToolbar() {
-        guard let w = window, w.isVisible, let tb = w.toolbar else { return }
-        if w.titlebarSeparatorStyle != .none { w.titlebarSeparatorStyle = .none }
-        for (i, it) in tb.items.enumerated().reversed() where it.itemIdentifier.rawValue.localizedCaseInsensitiveContains("sidebar")
-            || it.itemIdentifier.rawValue.localizedCaseInsensitiveContains("separator") { tb.removeItem(at: i) }
     }
 
     func windowWillClose(_ n: Notification) { NSApp.setActivationPolicy(.accessory) }
-    func windowDidBecomeKey(_ n: Notification) { SettingsModel.shared.reload(); stripToolbar() }
+    func windowDidBecomeKey(_ n: Notification) { SettingsModel.shared.reload() }
 }
