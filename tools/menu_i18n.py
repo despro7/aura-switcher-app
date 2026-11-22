@@ -8,7 +8,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 KEYS = ["enabled", "auto", "sound", "access", "app", "exclude", "game", "appLang", "noBinding", "exclusions", "recent",
         "bindings", "empty", "login", "words", "wordsTitle", "wordsInfo", "save", "cancel", "uiLang", "allLangs", "regEurope", "regCaucasus", "regMiddleEast", "regAsia", "system", "hint",
-        "report", "reportBody", "update", "updateDue", "donate", "quit", "updNew", "updLatest", "updNotes", "updNow", "updLater", "updFail", "firstRun"]
+        "report", "reportBody", "update", "updateDue", "donate", "quit", "updNew", "updLatest", "updNotes", "updNow", "updLater", "updFail", "firstRun",
+        "caseFix", "abbrevs", "abbrevsTitle", "abbrevsInfo", "caseHint"]
 # code, native name, then one line per key (in KEYS order)
 LANGS = """
 en English
@@ -52,6 +53,11 @@ Update
 Later
 Couldn't update automatically. Open the website to download it?
 AURA Switcher is running. Its icon is in the notification area; click ^ next to the clock to open the menu
+Fix letter case
+Abbreviations…
+AURA Switcher — Abbreviations
+AURA Switcher writes these in capitals (TTN), even when typed in the wrong layout. Separate them with commas.
+⌥ + double ⇧ — change case
 
 uk Українська
 Увімкнено
@@ -94,6 +100,11 @@ AURA Switcher — мої слова
 Пізніше
 Не вдалося оновити автоматично. Відкрити сайт, щоб завантажити?
 AURA Switcher працює. Значок — в області сповіщень; натисніть ^ біля годинника, щоб відкрити меню
+Виправляти регістр
+Абревіатури…
+AURA Switcher — Абревіатури
+AURA Switcher пише ці слова великими літерами (ТТН), навіть якщо їх набрано не в тій розкладці. Розділяйте комами.
+⌥ + подвійний ⇧ — змінити регістр
 
 pl Polski
 Włączone
@@ -136,6 +147,11 @@ Aktualizuj
 Później
 Nie udało się zaktualizować automatycznie. Otworzyć stronę, aby pobrać?
 AURA Switcher działa. Ikona jest w obszarze powiadomień; kliknij ^ obok zegara, aby otworzyć menu
+Popraw wielkość liter
+Skróty…
+AURA Switcher — Skróty
+AURA Switcher pisze te słowa wielkimi literami (TTN), także gdy wpisano je w złym układzie. Oddziel je przecinkami.
+⌥ + podwójny ⇧ — zmień wielkość liter
 
 de Deutsch
 Aktiviert
@@ -178,6 +194,11 @@ Aktualisieren
 Später
 Automatisches Update fehlgeschlagen. Website zum Herunterladen öffnen?
 AURA Switcher läuft. Das Symbol ist im Infobereich; klicken Sie neben der Uhr auf ^, um das Menü zu öffnen
+Groß-/Kleinschreibung korrigieren
+Abkürzungen…
+AURA Switcher — Abkürzungen
+AURA Switcher schreibt diese Wörter in Großbuchstaben (TTN), auch wenn sie im falschen Layout getippt wurden. Mit Kommas trennen.
+⌥ + Doppel-⇧ — Groß-/Kleinschreibung ändern
 
 es Español
 Activado
@@ -220,6 +241,11 @@ Actualizar
 Más tarde
 No se pudo actualizar automáticamente. ¿Abrir la web para descargarla?
 AURA Switcher está funcionando. Su icono está en el área de notificaciones; haz clic en ^ junto al reloj para abrir el menú
+Corregir mayúsculas
+Abreviaturas…
+AURA Switcher — Abreviaturas
+AURA Switcher escribe estas palabras en mayúsculas (TTN), incluso si se teclearon en la distribución equivocada. Sepáralas con comas.
+⌥ + doble ⇧ — cambiar mayúsculas
 
 fr Français
 Activé
@@ -262,6 +288,11 @@ Mettre à jour
 Plus tard
 Mise à jour automatique impossible. Ouvrir le site pour la télécharger ?
 AURA Switcher fonctionne. Son icône est dans la zone de notification ; cliquez sur ^ près de l’horloge pour ouvrir le menu
+Corriger la casse
+Abréviations…
+AURA Switcher — Abréviations
+AURA Switcher écrit ces mots en majuscules (TTN), même tapés dans la mauvaise disposition. Séparez-les par des virgules.
+⌥ + double ⇧ — changer la casse
 
 it Italiano
 Attivo
@@ -304,6 +335,11 @@ Aggiorna
 Più tardi
 Impossibile aggiornare automaticamente. Vuoi aprire il sito per scaricare l’aggiornamento?
 AURA Switcher è in esecuzione. L’icona è nell’area di notifica; fai clic su ^ accanto all’orologio per aprire il menu
+Correggi maiuscole
+Abbreviazioni…
+AURA Switcher — Abbreviazioni
+AURA Switcher scrive queste parole in maiuscolo (TTN), anche se digitate nel layout sbagliato. Separale con virgole.
+⌥ + doppio ⇧ — cambia maiuscole
 
 pt Português
 Ativado
@@ -346,6 +382,11 @@ Atualizar
 Mais tarde
 Não foi possível atualizar automaticamente. Abrir o site para baixar?
 O AURA Switcher está a funcionar. O ícone está na área de notificação; clique em ^ junto ao relógio para abrir o menu
+Corrigir maiúsculas
+Abreviaturas…
+AURA Switcher — Abreviaturas
+O AURA Switcher escreve estas palavras em maiúsculas (TTN), mesmo digitadas no layout errado. Separe-as com vírgulas.
+⌥ + duplo ⇧ — alterar maiúsculas
 
 tr Türkçe
 Etkin
@@ -388,6 +429,11 @@ Güncelle
 Daha sonra
 Otomatik güncellenemedi. İndirmek için web sitesi açılsın mı?
 AURA Switcher çalışıyor. Simgesi bildirim alanında; menüyü açmak için saatin yanındaki ^ simgesine tıklayın
+Harf büyüklüğünü düzelt
+Kısaltmalar…
+AURA Switcher — Kısaltmalar
+AURA Switcher bu sözcükleri büyük harfle yazar (TTN), yanlış düzende yazılsalar bile. Virgülle ayırın.
+⌥ + çift ⇧ — harf büyüklüğünü değiştir
 
 nl Nederlands
 Ingeschakeld
@@ -430,6 +476,11 @@ Bijwerken
 Later
 Automatisch bijwerken is mislukt. De website openen om te downloaden?
 AURA Switcher draait. Het pictogram staat in het systeemvak; klik op ^ naast de klok om het menu te openen
+Hoofdletters corrigeren
+Afkortingen…
+AURA Switcher — Afkortingen
+AURA Switcher schrijft deze woorden in hoofdletters (TTN), ook als ze in de verkeerde indeling zijn getypt. Scheid ze met komma's.
+⌥ + dubbel ⇧ — hoofdletters wijzigen
 
 cs Čeština
 Zapnuto
@@ -472,6 +523,11 @@ Aktualizovat
 Později
 Automatická aktualizace se nezdařila. Otevřít web a stáhnout?
 AURA Switcher běží. Ikona je v oznamovací oblasti; menu otevřete kliknutím na ^ vedle hodin
+Opravovat velikost písmen
+Zkratky…
+AURA Switcher — Zkratky
+AURA Switcher píše tato slova velkými písmeny (TTN), i když byla napsána v nesprávném rozložení. Oddělte je čárkami.
+⌥ + dvojitý ⇧ — změnit velikost písmen
 
 sv Svenska
 Aktiverad
@@ -514,6 +570,11 @@ Uppdatera
 Senare
 Kunde inte uppdatera automatiskt. Öppna webbplatsen för att ladda ner?
 AURA Switcher körs. Ikonen finns i aviseringsfältet; klicka på ^ bredvid klockan för att öppna menyn
+Rätta versaler/gemener
+Förkortningar…
+AURA Switcher — Förkortningar
+AURA Switcher skriver dessa ord med versaler (TTN), även om de skrivits i fel layout. Separera med kommatecken.
+⌥ + dubbel-⇧ — ändra versaler/gemener
 
 fi Suomi
 Käytössä
@@ -556,6 +617,11 @@ Päivitä
 Myöhemmin
 Automaattinen päivitys epäonnistui. Avataanko sivusto latausta varten?
 AURA Switcher on käynnissä. Kuvake on ilmoitusalueella; avaa valikko napsauttamalla kellon vieressä olevaa ^-merkkiä
+Korjaa kirjainkoko
+Lyhenteet…
+AURA Switcher — Lyhenteet
+AURA Switcher kirjoittaa nämä sanat isoilla kirjaimilla (TTN), vaikka ne olisi kirjoitettu väärällä asettelulla. Erota pilkuilla.
+⌥ + kaksois-⇧ — vaihda kirjainkoko
 
 ro Română
 Activat
@@ -598,6 +664,11 @@ Actualizează
 Mai târziu
 Actualizarea automată a eșuat. Deschizi site-ul pentru descărcare?
 AURA Switcher rulează. Pictograma este în zona de notificare; faceți clic pe ^ de lângă ceas pentru a deschide meniul
+Corectează majusculele
+Abrevieri…
+AURA Switcher — Abrevieri
+AURA Switcher scrie aceste cuvinte cu majuscule (TTN), chiar dacă au fost tastate în aranjamentul greșit. Separă-le prin virgule.
+⌥ + dublu ⇧ — schimbă majusculele
 
 hu Magyar
 Bekapcsolva
@@ -640,6 +711,11 @@ Frissítés
 Később
 Az automatikus frissítés nem sikerült. Megnyitod a weboldalt a letöltéshez?
 Az AURA Switcher fut. Az ikonja az értesítési területen van; a menü megnyitásához kattintson az óra melletti ^ jelre
+Kis- és nagybetűk javítása
+Rövidítések…
+AURA Switcher — Rövidítések
+Az AURA Switcher nagybetűvel írja ezeket a szavakat (TTN), akkor is, ha rossz kiosztásban gépelték. Vesszővel válaszd el őket.
+⌥ + dupla ⇧ — kis-/nagybetű váltása
 
 el Ελληνικά
 Ενεργό
@@ -682,6 +758,11 @@ AURA Switcher — οι λέξεις μου
 Αργότερα
 Η αυτόματη ενημέρωση απέτυχε. Άνοιγμα του ιστότοπου για λήψη;
 Το AURA Switcher εκτελείται. Το εικονίδιο βρίσκεται στην περιοχή ειδοποιήσεων· κάντε κλικ στο ^ δίπλα στο ρολόι για να ανοίξετε το μενού
+Διόρθωση πεζών/κεφαλαίων
+Συντομογραφίες…
+AURA Switcher — Συντομογραφίες
+Το AURA Switcher γράφει αυτές τις λέξεις με κεφαλαία (TTN), ακόμη και αν πληκτρολογήθηκαν σε λάθος διάταξη. Χωρίστε τις με κόμματα.
+⌥ + διπλό ⇧ — αλλαγή πεζών/κεφαλαίων
 
 bg Български
 Включено
@@ -724,6 +805,11 @@ AURA Switcher смята тези думи за правилни: никога �
 По-късно
 Автоматичното обновяване не успя. Да се отвори ли сайтът за изтегляне?
 AURA Switcher работи. Иконата е в областта за известия; щракнете върху ^ до часовника, за да отворите менюто
+Поправяне на главни/малки букви
+Съкращения…
+AURA Switcher — Съкращения
+AURA Switcher пише тези думи с главни букви (ТТН), дори да са написани в грешна подредба. Разделяйте със запетаи.
+⌥ + двоен ⇧ — смяна на главни/малки букви
 
 he עברית
 מופעל
@@ -766,6 +852,11 @@ AURA Switcher מתייחס למילים אלה כנכונות: לעולם לא �
 מאוחר יותר
 העדכון האוטומטי נכשל. לפתוח את האתר להורדה?
 AURA Switcher פועל. הסמל נמצא באזור ההתראות; לחצו על ^ ליד השעון כדי לפתוח את התפריט
+תיקון אותיות גדולות/קטנות
+ראשי תיבות…
+AURA Switcher — ראשי תיבות
+AURA Switcher כותב מילים אלה באותיות גדולות (TTN), גם אם הוקלדו בפריסה הלא נכונה. הפרידו בפסיקים.
+⌥ + ⇧ כפול — שינוי אותיות גדולות/קטנות
 
 ar العربية
 مفعّل
@@ -808,6 +899,11 @@ AURA Switcher — كلماتي
 لاحقًا
 تعذّر التحديث تلقائيًا. هل تريد فتح الموقع للتنزيل؟
 AURA Switcher يعمل. الأيقونة في منطقة الإشعارات؛ انقر على ^ بجانب الساعة لفتح القائمة
+تصحيح حالة الأحرف
+الاختصارات…
+AURA Switcher — الاختصارات
+يكتب AURA Switcher هذه الكلمات بأحرف كبيرة (TTN)، حتى لو كُتبت بتخطيط خاطئ. افصل بينها بفواصل.
+⌥ + ⇧ مزدوج — تغيير حالة الأحرف
 
 hi हिन्दी
 चालू
@@ -850,6 +946,11 @@ AURA Switcher {v} आ गया है
 बाद में
 अपने-आप अपडेट नहीं हो सका। डाउनलोड के लिए वेबसाइट खोलें?
 AURA Switcher चल रहा है। इसका आइकन नोटिफ़िकेशन एरिया में है; मेनू खोलने के लिए घड़ी के पास ^ पर क्लिक करें
+अक्षरों का केस ठीक करें
+संक्षिप्त रूप…
+AURA Switcher — संक्षिप्त रूप
+AURA Switcher इन शब्दों को बड़े अक्षरों में लिखता है (TTN), भले ही वे गलत लेआउट में टाइप किए गए हों। अल्पविराम से अलग करें।
+⌥ + दो बार ⇧ — केस बदलें
 
 ko 한국어
 켜기
@@ -892,6 +993,11 @@ AURA Switcher {v} 출시
 나중에
 자동으로 업데이트하지 못했습니다. 다운로드하려면 웹사이트를 열까요?
 AURA Switcher가 실행 중입니다. 아이콘은 알림 영역에 있습니다. 시계 옆의 ^를 눌러 메뉴를 여세요
+대소문자 자동 수정
+약어…
+AURA Switcher — 약어
+AURA Switcher는 이 단어들을 대문자로 씁니다(TTN). 잘못된 자판 배열로 입력했어도 마찬가지입니다. 쉼표로 구분하세요.
+⌥ + ⇧ 두 번 — 대소문자 변경
 
 be Беларуская
 Уключана
@@ -934,6 +1040,11 @@ AURA Switcher лічыць гэтыя словы правільнымі: не м
 Пазней
 Не ўдалося абнавіць аўтаматычна. Адкрыць сайт, каб спампаваць?
 AURA Switcher працуе. Значок — у вобласці апавяшчэнняў; націсніце ^ побач з гадзіннікам, каб адкрыць меню
+Выпраўляць рэгістр
+Абрэвіятуры…
+AURA Switcher — Абрэвіятуры
+AURA Switcher піша гэтыя словы вялікімі літарамі (ТТН), нават калі іх набрана не ў той раскладцы. Падзяляйце коскамі.
+⌥ + падвойны ⇧ — змяніць рэгістр
 
 kk Қазақша
 Қосулы
@@ -976,6 +1087,11 @@ AURA Switcher {v} шықты
 Кейінірек
 Автоматты түрде жаңарту мүмкін болмады. Жүктеп алу үшін сайтты ашу керек пе?
 AURA Switcher жұмыс істеп тұр. Белгішесі хабарландыру аймағында; мәзірді ашу үшін сағаттың жанындағы ^ түймесін басыңыз
+Әріп регистрін түзету
+Аббревиатуралар…
+AURA Switcher — Аббревиатуралар
+AURA Switcher бұл сөздерді бас әріптермен жазады (ТТН), олар қате пернетақта қасиетінде терілсе де. Үтірмен бөліңіз.
+⌥ + қос ⇧ — регистрді өзгерту
 
 ky Кыргызча
 Күйгүзүлгөн
@@ -1018,6 +1134,11 @@ AURA Switcher {v} чыкты
 Кийинчерээк
 Автоматтык түрдө жаңыртуу мүмкүн болгон жок. Жүктөп алуу үчүн сайтты ачайынбы?
 AURA Switcher иштеп жатат. Сөлөкөтү билдирмелер аймагында; менюну ачуу үчүн сааттын жанындагы ^ баскычын басыңыз
+Регистрди оңдоо
+Аббревиатуралар…
+AURA Switcher — Аббревиатуралар
+AURA Switcher бул сөздөрдү баш тамгалар менен жазат (ТТН), туура эмес жайгашууда терилсе да. Үтүр менен бөлүңүз.
+⌥ + кош ⇧ — регистрди өзгөртүү
 
 ka ქართული
 ჩართულია
@@ -1060,6 +1181,11 @@ AURA Switcher-ის მხარდაჭერა ☕
 მოგვიანებით
 ავტომატურად განახლება ვერ მოხერხდა. გავხსნა საიტი ჩამოსატვირთად?
 AURA Switcher მუშაობს. ხატულა შეტყობინებების არეშია; მენიუს გასახსნელად დააწკაპუნეთ საათის გვერდით ^-ზე
+რეგისტრის გასწორება
+აბრევიატურები…
+AURA Switcher — აბრევიატურები
+AURA Switcher ამ სიტყვებს დიდი ასოებით წერს (TTN), თუნდაც არასწორ განლაგებაში იყოს აკრეფილი. გამოყავით მძიმეებით.
+⌥ + ორმაგი ⇧ — რეგისტრის შეცვლა
 
 hy Հայերեն
 Միացված է
@@ -1102,6 +1228,11 @@ AURA Switcher-ն այս բառերը ճիշտ է համարում՝ չի փոխ�
 Հետո
 Չհաջողվեց թարմացնել ավտոմատ կերպով։ Բացե՞լ կայքը՝ ներբեռնելու համար։
 AURA Switcher-ը աշխատում է։ Պատկերակը ծանուցումների տարածքում է․ մենյուն բացելու համար սեղմեք ժամացույցի կողքի ^-ը
+Ուղղել մեծատառերը
+Հապավումներ…
+AURA Switcher — Հապավումներ
+AURA Switcher-ը այս բառերը գրում է մեծատառերով (TTN), նույնիսկ եթե դրանք տպվել են սխալ դասավորությամբ։ Բաժանեք ստորակետերով։
+⌥ + կրկնակի ⇧ — փոխել տառերի գրանցումը
 
 az Azərbaycan
 Aktivdir
@@ -1144,6 +1275,11 @@ Yenilə
 Sonra
 Avtomatik yeniləmək alınmadı. Yükləmək üçün sayt açılsın?
 AURA Switcher işləyir. Nişan bildiriş sahəsindədir; menyunu açmaq üçün saatın yanındakı ^ işarəsinə klikləyin
+Hərf registrini düzəlt
+Abreviaturalar…
+AURA Switcher — Abreviaturalar
+AURA Switcher bu sözləri böyük hərflərlə yazır (TTN), səhv düzümdə yığılsa belə. Vergüllə ayırın.
+⌥ + qoşa ⇧ — registri dəyiş
 
 sr Српски
 Укључено
@@ -1186,6 +1322,11 @@ AURA Switcher сматра ове речи исправним: не мења и�
 Касније
 Аутоматско ажурирање није успело. Отворити сајт за преузимање?
 AURA Switcher ради. Икона је у пољу за обавештења; кликните на ^ поред сата да бисте отворили мени
+Исправи величину слова
+Скраћенице…
+AURA Switcher — Скраћенице
+AURA Switcher пише ове речи великим словима (ТТН), чак и ако су откуцане у погрешном распореду. Раздвојите их зарезима.
+⌥ + двоструки ⇧ — промени величину слова
 
 mk Македонски
 Вклучено
@@ -1228,6 +1369,11 @@ AURA Switcher ги смета овие зборови за точни: не ги
 Подоцна
 Автоматското ажурирање не успеа. Да го отворам сајтот за преземање?
 AURA Switcher работи. Иконата е во областа за известувања; кликнете на ^ покрај часовникот за да го отворите менито
+Поправи големи/мали букви
+Кратенки…
+AURA Switcher — Кратенки
+AURA Switcher ги пишува овие зборови со големи букви (ТТН), дури и ако се напишани во погрешен распоред. Одделете ги со запирки.
+⌥ + двоен ⇧ — промени големи/мали букви
 
 sk Slovenčina
 Zapnuté
@@ -1270,6 +1416,11 @@ Aktualizovať
 Neskôr
 Automatická aktualizácia sa nepodarila. Otvoriť web na stiahnutie?
 AURA Switcher beží. Ikona je v oblasti oznámení; ponuku otvoríte kliknutím na ^ vedľa hodín
+Opravovať veľkosť písmen
+Skratky…
+AURA Switcher — Skratky
+AURA Switcher píše tieto slová veľkými písmenami (TTN), aj keď boli napísané v nesprávnom rozložení. Oddeľte ich čiarkami.
+⌥ + dvojitý ⇧ — zmeniť veľkosť písmen
 
 hr Hrvatski
 Uključeno
@@ -1312,6 +1463,11 @@ Ažuriraj
 Kasnije
 Automatsko ažuriranje nije uspjelo. Otvoriti web-stranicu za preuzimanje?
 AURA Switcher radi. Ikona je u području obavijesti; kliknite ^ pored sata da otvorite izbornik
+Ispravi velika/mala slova
+Kratice…
+AURA Switcher — Kratice
+AURA Switcher piše ove riječi velikim slovima (TTN), čak i ako su utipkane u krivom rasporedu. Odvojite ih zarezima.
+⌥ + dvostruki ⇧ — promijeni velika/mala slova
 
 sl Slovenščina
 Vklopljeno
@@ -1354,6 +1510,11 @@ Posodobi
 Pozneje
 Samodejna posodobitev ni uspela. Odprem spletno mesto za prenos?
 AURA Switcher deluje. Ikona je v območju za obvestila; kliknite ^ ob uri, da odprete meni
+Popravi velike/male črke
+Kratice…
+AURA Switcher — Kratice
+AURA Switcher te besede piše z velikimi črkami (TTN), tudi če so natipkane v napačni postavitvi. Ločite jih z vejicami.
+⌥ + dvojni ⇧ — spremeni velike/male črke
 
 lt Lietuvių
 Įjungta
@@ -1396,6 +1557,11 @@ Atnaujinti
 Vėliau
 Nepavyko atnaujinti automatiškai. Atidaryti svetainę atsisiuntimui?
 AURA Switcher veikia. Piktograma yra pranešimų srityje; spustelėkite ^ šalia laikrodžio, kad atidarytumėte meniu
+Taisyti didžiąsias/mažąsias raides
+Santrumpos…
+AURA Switcher — Santrumpos
+AURA Switcher šiuos žodžius rašo didžiosiomis raidėmis (TTN), net jei jie surinkti netinkamu išdėstymu. Atskirkite kableliais.
+⌥ + dvigubas ⇧ — keisti raidžių dydį
 
 lv Latviešu
 Ieslēgts
@@ -1438,6 +1604,11 @@ Atjaunināt
 Vēlāk
 Automātiski atjaunināt neizdevās. Atvērt vietni lejupielādei?
 AURA Switcher darbojas. Ikona ir paziņojumu apgabalā; noklikšķiniet uz ^ blakus pulkstenim, lai atvērtu izvēlni
+Labot lielos/mazos burtus
+Saīsinājumi…
+AURA Switcher — Saīsinājumi
+AURA Switcher šos vārdus raksta ar lielajiem burtiem (TTN), pat ja tie ievadīti nepareizā izkārtojumā. Atdaliet ar komatiem.
+⌥ + dubults ⇧ — mainīt burtu reģistru
 
 et Eesti
 Sees
@@ -1480,6 +1651,11 @@ Uuenda
 Hiljem
 Automaatne uuendamine ebaõnnestus. Avada veebileht allalaadimiseks?
 AURA Switcher töötab. Ikoon on teavitusalas; menüü avamiseks klõpsake kella kõrval ^
+Paranda suur-/väiketähti
+Lühendid…
+AURA Switcher — Lühendid
+AURA Switcher kirjutab need sõnad suurtähtedega (TTN), isegi kui need on trükitud vales paigutuses. Eralda komadega.
+⌥ + topelt ⇧ — muuda tähesuurust
 
 da Dansk
 Aktiveret
@@ -1522,6 +1698,11 @@ Opdater
 Senere
 Kunne ikke opdatere automatisk. Åbn hjemmesiden for at hente den?
 AURA Switcher kører. Ikonet er i meddelelsesområdet; klik på ^ ved siden af uret for at åbne menuen
+Ret store/små bogstaver
+Forkortelser…
+AURA Switcher — Forkortelser
+AURA Switcher skriver disse ord med store bogstaver (TTN), selv hvis de er skrevet i det forkerte layout. Adskil med kommaer.
+⌥ + dobbelt ⇧ — skift store/små bogstaver
 
 nb Norsk bokmål
 På
@@ -1564,6 +1745,11 @@ Oppdater
 Senere
 Kunne ikke oppdatere automatisk. Åpne nettstedet for å laste den ned?
 AURA Switcher kjører. Ikonet er i varslingsfeltet; klikk på ^ ved siden av klokken for å åpne menyen
+Rett store/små bokstaver
+Forkortelser…
+AURA Switcher — Forkortelser
+AURA Switcher skriver disse ordene med store bokstaver (TTN), selv om de er skrevet i feil layout. Skill med komma.
+⌥ + dobbel ⇧ — bytt store/små bokstaver
 
 is Íslenska
 Kveikt
@@ -1606,6 +1792,11 @@ Uppfæra
 Síðar
 Ekki tókst að uppfæra sjálfkrafa. Opna vefsíðuna til að sækja hana?
 AURA Switcher er í gangi. Táknið er á tilkynningasvæðinu; smelltu á ^ við hliðina á klukkunni til að opna valmyndina
+Laga há-/lágstafi
+Skammstafanir…
+AURA Switcher — Skammstafanir
+AURA Switcher skrifar þessi orð með hástöfum (TTN), jafnvel þótt þau séu slegin inn í röngu skipulagi. Aðskildu með kommum.
+⌥ + tvöfalt ⇧ — breyta há-/lágstöfum
 
 sq Shqip
 Aktivizuar
@@ -1648,6 +1839,11 @@ Përditëso
 Më vonë
 Nuk u përditësua automatikisht. Të hapet faqja e internetit për ta shkarkuar?
 AURA Switcher po funksionon. Ikona është në zonën e njoftimeve; kliko ^ pranë orës për të hapur menynë
+Korrigjo shkronjat e mëdha/vogla
+Shkurtesa…
+AURA Switcher — Shkurtesa
+AURA Switcher i shkruan këto fjalë me shkronja të mëdha (TTN), edhe kur janë shkruar në pamje të gabuar. Ndaji me presje.
+⌥ + dyfishi ⇧ — ndrysho shkronjat e mëdha/vogla
 
 fa فارسی
 روشن
@@ -1690,6 +1886,11 @@ AURA Switcher {v} منتشر شد
 بعداً
 به‌روزرسانی خودکار انجام نشد. وب‌سایت برای دانلود باز شود؟
 AURA Switcher در حال اجراست. نماد آن در ناحیه اعلان‌هاست؛ برای باز کردن منو روی ^ کنار ساعت کلیک کنید
+اصلاح حروف بزرگ/کوچک
+اختصارات…
+AURA Switcher — اختصارات
+AURA Switcher این واژه‌ها را با حروف بزرگ می‌نویسد (TTN)، حتی اگر با چیدمان اشتباه تایپ شده باشند. با ویرگول جدا کنید.
+⌥ + ⇧ دوبار — تغییر حروف بزرگ/کوچک
 
 vi Tiếng Việt
 Bật
@@ -1732,6 +1933,11 @@ Cập nhật
 Để sau
 Không thể tự động cập nhật. Mở trang web để tải về?
 AURA Switcher đang chạy. Biểu tượng nằm ở khu vực thông báo; bấm ^ cạnh đồng hồ để mở menu
+Sửa chữ hoa/thường
+Từ viết tắt…
+AURA Switcher — Từ viết tắt
+AURA Switcher viết hoa các từ này (TTN), kể cả khi gõ sai bố cục bàn phím. Phân tách bằng dấu phẩy.
+⌥ + nhấn đôi ⇧ — đổi chữ hoa/thường
 
 tg Тоҷикӣ
 Фаъол
@@ -1774,6 +1980,11 @@ AURA Switcher {v} баромад
 Баъдтар
 Навсозии худкор муяссар нашуд. Сайтро барои боргирӣ кушоед?
 AURA Switcher кор карда истодааст. Нишона дар минтақаи огоҳиҳост; барои кушодани меню ^-ро дар назди соат пахш кунед
+Ислоҳи ҳарфи калон/хурд
+Ихтисораҳо…
+AURA Switcher — Ихтисораҳо
+AURA Switcher ин калимаҳоро бо ҳарфҳои калон менависад (ТТН), ҳатто агар дар тарҳбандии нодуруст навишта шуда бошанд. Бо вергул ҷудо кунед.
+⌥ + дукарата ⇧ — иваз кардани ҳарфҳои калон/хурд
 
 mn Монгол
 Идэвхтэй
@@ -1816,6 +2027,11 @@ AURA Switcher {v} гарлаа
 Дараа
 Автоматаар шинэчилж чадсангүй. Татаж авахын тулд вэбсайтыг нээх үү?
 AURA Switcher ажиллаж байна. Дүрс тэмдэг мэдэгдлийн хэсэгт байна; цэсийг нээхийн тулд цагийн хажууох ^-г дарна уу
+Том/жижиг үсгийг засах
+Товчлолууд…
+AURA Switcher — Товчлолууд
+AURA Switcher эдгээр үгийг том үсгээр бичнэ (ТТН), буруу байрлалд бичсэн ч гэсэн. Таслалаар тусгаарла.
+⌥ + давхар ⇧ — том/жижиг үсэг солих
 
 tt Татарча
 Кабызылган
@@ -1858,6 +2074,11 @@ AURA Switcher {v} чыкты
 Соңрак
 Автоматик рәвештә яңартып булмады. Йөкләү өчен сайтны ачарга?
 AURA Switcher эшли. Билгечә белдерүләр өлкәсендә; менюны ачу өчен сәгать янындагы ^ төймәсенә басыгыз
+Хәреф регистрын төзәтү
+Кыскартмалар…
+AURA Switcher — Кыскартмалар
+AURA Switcher бу сүзләрне зур хәрефләр белән яза (ТТН), хәтта алар ялгыш рәвештә җыелса да. Өтер белән аерыгыз.
+⌥ + икеләтә ⇧ — регистрны үзгәртү
 
 uz Oʻzbek
 Yoqilgan
@@ -1900,6 +2121,11 @@ Yangilash
 Keyinroq
 Avtomatik yangilab boʻlmadi. Yuklab olish uchun saytni ochaymi?
 AURA Switcher ishlayapti. Belgisi bildirishnomalar hududida; menyuni ochish uchun soat yonidagi ^ belgisini bosing
+Harf registrini tuzatish
+Qisqartmalar…
+AURA Switcher — Qisqartmalar
+AURA Switcher bu soʻzlarni bosh harflar bilan yozadi (TTN), notoʻgʻri joylashuvda terilgan boʻlsa ham. Vergul bilan ajrating.
+⌥ + ikki marta ⇧ — registrni oʻzgartirish
 
 ga Gaeilge
 Cumasaithe
@@ -1942,6 +2168,11 @@ Nuashonraigh
 Níos déanaí
 Níorbh fhéidir nuashonrú go huathoibríoch. An bhfuil fonn ort an suíomh gréasáin a oscailt chun é a íoslódáil?
 Tá AURA Switcher ag rith. Tá an deilbhín sa limistéar fógraí; cliceáil ^ cois an chloig chun an roghchlár a oscailt
+Ceartaigh cás na litreacha
+Giorrúcháin…
+AURA Switcher — Giorrúcháin
+Scríobhann AURA Switcher na focail seo i mbarrlitreacha (TTN), fiú má clóscríobhadh iad sa leagan amach mícheart. Scar le camóga iad.
+⌥ + ⇧ faoi dhó — athraigh cás na litreacha
 
 mt Malti
 Attivat
@@ -1984,6 +2215,11 @@ Aġġorna
 Aktar tard
 Ma setax jiġi aġġornat awtomatikament. Niftaħ is-sit biex tniżżlu?
 AURA Switcher qed jaħdem. L-ikona tinsab fiż-żona tan-notifiki; ikklikkja fuq ^ ħdejn l-arloġġ biex tiftaħ il-menu
+Ikkoreġi l-ittri kapitali
+Abbrevjazzjonijiet…
+AURA Switcher — Abbrevjazzjonijiet
+AURA Switcher jikteb dawn il-kliem b'ittri kapitali (TTN), anki jekk inkitbu bit-tqassim żbaljat. Separahom b'virgoli.
+⌥ + ⇧ doppju — biddel il-kobor tal-ittri
 
 cy Cymraeg
 Wedi’i alluogi
@@ -2026,6 +2262,11 @@ Diweddaru
 Yn nes ymlaen
 Methu diweddaru’n awtomatig. Agor y wefan i’w lawrlwytho?
 Mae AURA Switcher yn rhedeg. Mae’r eicon yn yr ardal hysbysu; cliciwch ^ wrth ymyl y cloc i agor y ddewislen
+Cywiro priflythrennau
+Byrfoddau…
+AURA Switcher — Byrfoddau
+Mae AURA Switcher yn ysgrifennu'r geiriau hyn mewn priflythrennau (TTN), hyd yn oed os cawsant eu teipio yn y cynllun anghywir. Gwahanwch â choma.
+⌥ + ⇧ dwbl — newid priflythrennau
 """
 
 langs = []  # (code, name, [strings])

@@ -125,10 +125,25 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
         if a.runModal() == .alertFirstButtonReturn { s.words = parseWords(field.stringValue) }
     }
 
+    func editAbbrevs() {
+        let a = NSAlert()
+        a.messageText = L("abbrevsTitle")
+        a.informativeText = L("abbrevsInfo")
+        let field = NSTextField(frame: NSRect(x: 0, y: 0, width: 320, height: 24))
+        field.stringValue = s.abbrevs.joined(separator: ", ")
+        field.placeholderString = "ттн, pdf, ДСТУ"
+        a.accessoryView = field
+        a.addButton(withTitle: L("save")); a.addButton(withTitle: L("cancel"))
+        a.window.initialFirstResponder = field
+        NSApp.activate(ignoringOtherApps: true)
+        if a.runModal() == .alertFirstButtonReturn { s.abbrevs = parseWords(field.stringValue) }
+    }
+
     func menuNeedsUpdate(_ m: NSMenu) {
         m.removeAllItems()
         add(m, L("enabled"), s.enabled) { self.s.enabled.toggle(); self.updateTitle() }
         add(m, L("auto"), s.auto, enabled: s.enabled) { self.s.auto.toggle() }
+        add(m, L("caseFix"), s.caseFix, enabled: s.enabled && s.auto) { self.s.caseFix.toggle() }
         add(m, L("sound"), s.sound, enabled: s.enabled) { self.s.sound.toggle(); if self.s.sound { Sounds.play(Sounds.auto) } }
         if engine.tap == nil { add(m, L("access"), enabled: true) {
             NSWorkspace.shared.open(URL(string: "x-apple.systempreferences:com.apple.preference.security?Privacy_Accessibility")!) } }
@@ -177,6 +192,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
             if login { try? SMAppService.mainApp.unregister() } else { try? SMAppService.mainApp.register() }
         }
         add(m, L("words")) { self.editWords() }
+        add(m, L("abbrevs")) { self.editAbbrevs() }
         let uiMenu = NSMenu()
         add(uiMenu, L("system"), s.uiLang == nil) { self.s.uiLang = nil }
         let nameOf = Dictionary(uniqueKeysWithValues: zip(uiLangs, uiLangNames))
