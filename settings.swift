@@ -122,7 +122,7 @@ struct SidebarView: View {
     @EnvironmentObject var nav: Nav
 
     var body: some View {
-        List(selection: Binding<Pane?>(get: { nav.pane }, set: { if let p = $0 { nav.pane = p } })) {
+        List(selection: Binding<Pane?>(get: { nav.pane }, set: { p in if let p { DispatchQueue.main.async { nav.pane = p } } })   // not inside the view update) {
             ForEach(Array(Pane.sections.enumerated()), id: \.offset) { _, sec in
                 Section(sec.0.map { L($0) } ?? "") {
                     ForEach(sec.1, id: \.self) { p in Label(p.title, systemImage: p.icon).tag(p) }
