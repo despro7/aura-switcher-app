@@ -331,6 +331,7 @@ final class Engine {
     var before: [Key] = []      // one-letter word right before `word` («z буду»), fixed together with it
 
     var shiftDownAt: TimeInterval = 0, lastShiftTap: TimeInterval = 0, sawOther = false
+    var shiftDownAlt = false, lastTapAlt = false   // ⌥ held with the ⇧ tap: ⌥ + double ⇧ changes the case
     var lastSelOut: String?, lastSelLang = 0
 
     var allCodes: Set<UInt16> { Set(layouts.flatMap { $0.toChar.keys.map(\.code) }) }
@@ -338,7 +339,7 @@ final class Engine {
 
     var active: Bool { settings.enabled && !frontIsGame && !settings.excluded.contains(frontBundle) }
 
-    func reset() { word = []; lastWord = []; trailing = 0; before = []; lastCycled = []; lastCycledLang = nil; handsOff = false }
+    func reset() { word = []; lastWord = []; trailing = 0; before = []; lastCycled = []; lastCycledLang = nil; lastCase = nil; handsOff = false }
     /// the user went back into the text (Backspace over a space, arrows) or switched the layout in the middle of a
     /// word: until the next space AURA neither checks nor converts what is typed — it's the user's own word
     var handsOff = false
@@ -450,14 +451,15 @@ final class Engine {
         let now = ProcessInfo.processInfo.systemUptime
         guard code == 56 || code == 60 else { lastShiftTap = 0; return }
         if e.flags.contains(.maskShift) {
-            if !e.flags.intersection([.maskCommand, .maskControl, .maskAlternate]).isEmpty { lastShiftTap = 0; return }
-            shiftDownAt = now; sawOther = false
+            if !e.flags.intersection([.maskCommand, .maskControl]).isEmpty { lastShiftTap = 0; return }
+            shiftDownAt = now; sawOther = false; shiftDownAlt = e.flags.contains(.maskAlternate)
         } else {
             guard !sawOther, now - shiftDownAt < 0.3 else { lastShiftTap = 0; return }
-            if now - lastShiftTap < 0.45 {
+            if now - lastShiftTap < 0.45, lastTapAlt == shiftDownAlt {
                 lastShiftTap = 0
-                DispatchQueue.main.async { self.doubleShift() }
-            } else { lastShiftTap = now }
+                if shiftDownAlt { DispatchQueue.main.async { self.caseCycle() } }
+                else { DispatchQueue.main.async { self.doubleShift() } }
+            } else { lastShiftTap = now; lastTapAlt = shiftDownAlt }
         }
     }
 
@@ -867,6 +869,49 @@ final class Engine {
         select(dst)
     }
 
+    // MARK: letter case (⌥ + double ⇧)
+
+    /// the word whose case the last ⌥ + double ⇧ changed and what it is now: pressing again keeps cycling
+    var lastCase: (keys: [Key], text: String)? = nil
+
+    func caseCycle() {
+        Sounds.play(Sounds.shift)
+        let sel = axSelectedText()
+        if let sel, !sel.isEmpty { caseSelection(sel); return }
+        let keys = !word.isEmpty ? word : trailing == 1 ? lastWord : []
+        if !keys.isEmpty { caseWord(keys, trailing: word.isEmpty ? trailing : 0); return }
+        if sel != nil, !webEngine(frontBundle) { return }
+        clipboardSelection { sel in
+            if let sel, !sel.isEmpty, !isCopiedLine(sel) { self.caseSelection(sel) }
+        }
+    }
+
+    func caseSelection(_ text: String) {
+        let out = nextCase(text)
+        guard out != text else { return }
+        auraLog.notice("⌥ double ⇧: selection case (\(text.count) characters)")
+        typeText(out)
+        for _ in 0..<out.count { postKey(123, flags: .maskShift) }  // reselect, so the next press goes on
+    }
+
+    func caseWord(_ keys: [Key], trailing: Int) {
+        // the word as it is on screen now (its case may be fixed already): ask the app, else the keys in the current layout
+        let l = layout(ownLang ?? currentLang()) ?? typedLayout(keys)
+        var text = l?.text(keys) ?? ""
+        if let last = lastCase, last.keys == keys { text = last.text }
+        else if text.isEmpty { return }
+        else if let seen = textBeforeCaret(text.utf16.count + trailing), seen.utf16.count == text.utf16.count + trailing,
+                seen.hasSuffix(String(repeating: " ", count: trailing)) {
+            let w = String(seen.dropLast(trailing))
+            if w.lowercased() == text.lowercased() { text = w }
+        }
+        let out = nextCase(text)
+        guard out != text else { return }
+        lastCase = (keys, out)
+        auraLog.notice("⌥ double ⇧: word case (\(keys.count) letters)")
+        replace(count: text.count + trailing, with: out + String(repeating: " ", count: trailing))
+    }
+
     // MARK: selection
 
     /// the last `n` characters before the caret in the focused element, if the app tells (nil = it doesn't);
@@ -974,4 +1019,25 @@ final class Engine {
         for _ in 0..<count { postKey(51) }
         typeText(s)
     }
+}
+
+/// Next letter case of a text: lowercase → Sentence case → UPPERCASE → lowercase; anything mixed → lowercase.
+func nextCase(_ s: String) -> String {
+    func sentence(_ t: String) -> String {
+        var out = "", cap = true, pending = false
+        for c in t.lowercased() {
+            if c.isLetter { out += cap ? c.uppercased() : String(c); cap = false; pending = false; continue }
+            if c.isNewline { cap = true; pending = false }
+            else if ".!?…".contains(c) { pending = true }
+            else if c.isWhitespace { if pending { cap = true; pending = false } }
+            else if c.isNumber { cap = false; pending = false }
+            out.append(c)
+        }
+        return out
+    }
+    let stages = [{ (t: String) in t.lowercased() }, sentence, { (t: String) in t.uppercased() }]
+    let state = s == s.lowercased() ? 0 : s == sentence(s) ? 1 : s == s.uppercased() ? 2 : -1
+    if state < 0 { return s.lowercased() }
+    for i in 1...3 { let c = stages[(state + i) % 3](s); if c != s { return c } }
+    return s
 }

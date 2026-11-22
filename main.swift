@@ -210,6 +210,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
         let ai = NSMenuItem(title: L("allLangs"), action: nil, keyEquivalent: ""); ai.submenu = allMenu; uiMenu.addItem(ai)
         let ui = NSMenuItem(title: L("uiLang"), action: nil, keyEquivalent: ""); ui.submenu = uiMenu; m.addItem(ui)
         add(m, L("hint"))
+        add(m, L("caseHint"))
         add(m, updateDue() ? L("updateDue") : L("update")) {
             self.s.updateCheckedAt = Date().timeIntervalSince1970
             self.updateTitle()

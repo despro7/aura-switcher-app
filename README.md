@@ -24,6 +24,7 @@ Website — https://klbk.github.io/aura-switcher/ · Support ☕ — https://don
   - no selection — converts the last typed word;
   - nothing to convert — just switches the layout.
 - **Letter case (Mac).** On Space AURA also fixes case slips: "ПРивіт" → "Привіт", "THe" → "The", and "пРИВІТ" typed with Caps Lock on → "Привіт" (only when the fixed form is a dictionary word; "MBps", "PDFs", "IDs" are left alone). Words from Menu → "Abbreviations…" are always written in capitals, in any layout: "ттн" or "nny" → "ТТН". Turn it off with Menu → "Fix letter case".
+- **⌥ + double ⇧ (Mac).** Hold ⌥ and tap ⇧ twice — changes the case of the selection or the last word: lowercase → Sentence case → UPPERCASE → lowercase (mixed → lowercase). The layout never changes.
 - **Exclusions.** AURA does nothing in the apps you choose.
 - **Per-app language.** The layout is set automatically when you switch to an app (e.g. Terminal → EN). Auto-correction is off in apps with a bound language.
 - **Single instance.** A second running copy of AURA quits immediately, so text is never corrected twice.

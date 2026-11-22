@@ -209,6 +209,15 @@ do {
     for w in ["MBps", "PDFs", "IPhone", "IDs", "PCs", "OKs", "Hello", "hello", "HELLO", "NASA"] {
         caseCheck("untouched \(w)", final(w, meant: en, typed: en), nil)
     }
+    // ⌥ + double ⇧: lowercase → Sentence case → UPPERCASE → lowercase; mixed → lowercase
+    for (from, to) in [("привіт", "Привіт"), ("Привіт", "ПРИВІТ"), ("ПРИВІТ", "привіт"), ("пРИВіт", "привіт"),
+                       ("hello world. how are you? fine", "Hello world. How are you? Fine"),
+                       ("Hello world. How are you? Fine", "HELLO WORLD. HOW ARE YOU? FINE"),
+                       ("HELLO WORLD. HOW ARE YOU? FINE", "hello world. how are you? fine"),
+                       ("first line\nsecond line", "First line\nSecond line"), ("e.g. this", "E.g. This"),
+                       ("а", "А"), ("А", "а"), ("123", "123"), ("Hello World", "hello world")] {
+        caseCheck("nextCase \(from)", nextCase(from), to)
+    }
     engine.settings.caseFix = false
     caseCheck("caseFix off", final("ПРивіт", meant: uk, typed: uk), nil)
     engine.settings.caseFix = true
