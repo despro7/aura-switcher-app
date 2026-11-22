@@ -619,7 +619,10 @@ final class Engine {
 
     func spell(_ w: String, _ lang: String) -> Bool {
         let checker = NSSpellChecker.shared
-        guard let l = checker.availableLanguages.first(where: { $0.hasPrefix(lang) }) else { return false }
+        // macOS's own dictionary («uk») before a regional one: «uk_UA» may be a Hunspell dictionary the user put in
+        // ~/Library/Spelling, which accepts nonsense — then the whole language was taken for having no dictionary
+        let langs = checker.availableLanguages
+        guard let l = langs.first(where: { $0 == lang }) ?? langs.first(where: { $0.hasPrefix(lang) }) else { return false }
         return checker.checkSpelling(of: w, startingAt: 0, language: l, wrap: false,
                                      inSpellDocumentWithTag: 0, wordCount: nil).location == NSNotFound
     }
