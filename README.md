@@ -23,12 +23,12 @@ Website — https://klbk.github.io/aura-switcher/ · Support ☕ — https://don
   - text selected — converts it to the next layout (press again for the next one, in a cycle);
   - no selection — converts the last typed word;
   - nothing to convert — just switches the layout.
-- **Letter case (Mac).** On Space AURA also fixes case slips: "ПРивіт" → "Привіт", "THe" → "The", and "пРИВІТ" typed with Caps Lock on → "Привіт" (only when the fixed form is a dictionary word; "MBps", "PDFs", "IDs" are left alone). Words from Menu → "Abbreviations…" are always written in capitals, in any layout: "ттн" or "nny" → "ТТН". Turn it off with Menu → "Fix letter case".
+- **Letter case (Mac).** On Space AURA also fixes case slips: "ПРивіт" → "Привіт", "THe" → "The", and "пРИВІТ" typed with Caps Lock on → "Привіт" (only when the fixed form is a dictionary word; "MBps", "PDFs", "IDs" are left alone). Words from Settings → Words → Abbreviations are always written in capitals, in any layout: "ттн" or "nny" → "ТТН". Turn it off with Settings → General → "Fix letter case".
 - **⌥ + double ⇧ (Mac).** Hold ⌥ and tap ⇧ twice — changes the case of the selection or the last word: lowercase → Sentence case → UPPERCASE → lowercase (mixed → lowercase). The layout never changes.
 - **Exclusions.** AURA does nothing in the apps you choose.
 - **Per-app language.** The layout is set automatically when you switch to an app (e.g. Terminal → EN). Auto-correction is off in apps with a bound language.
 - **Single instance.** A second running copy of AURA quits immediately, so text is never corrected twice.
-- **Games.** AURA pauses itself in games (double ⇧ is often sprint there): on Mac — apps in the Games category, on Windows — full-screen games. A game AURA didn't recognise can be excluded after leaving it: menu → "Don't work in (recent apps)". The pause covers the game's chat too: a word typed there in the wrong layout stays as typed.
+- **Games.** AURA pauses itself in games (double ⇧ is often sprint there): on Mac — apps in the Games category, on Windows — full-screen games. A game AURA didn't recognise can be excluded after leaving it: Settings → Apps → Exclusions → + → recent apps (Windows: menu → "Don't work in (recent apps)"). The pause covers the game's chat too: a word typed there in the wrong layout stays as typed.
 - **Update in one click, only when you ask.** AURA goes online only when you click Menu → "Check for updates…": it reads the version file on klbk.github.io and, if you agree, downloads the new version from GitHub Releases, checks it (Mac: AURA's signature and version; Windows: the signed version file and the exe's SHA-256), puts it in place of the old one and restarts. Nothing you typed and no personal data is sent. If anything goes wrong, it offers the site's update page instead (its address holds only the version number and menu language). 30 days after the build (or after the last check) a dot appears next to the language code and the menu says "⬆︎ An update may be available — check".
 
 ## Languages
@@ -49,18 +49,15 @@ Between Latin layouts (EN ↔ DE ↔ FR…) a word is corrected when it is a rea
 
 The icon shows the current language: `EN`, `УК`, `РУ`… — each language in its own script (`ΕΛ` for Greek, `DE` for German). Lowercase (`en`, `ук`) — AURA is off or paused in this app (exclusion, game). `⚠︎` — no access.
 
-- **Enabled** — master switch.
-- **Auto-correction** — on/off (double ⇧ always works).
-- **Fix letter case** — on/off for the case fixes and abbreviations (Mac).
-- **Sound** — a short beep: one tone on auto-correction, two on double ⇧. Same on Mac and Windows.
-- **Don't work in this app** — add the current app to exclusions.
-- **Language for this app** — bind a layout.
-- **Exclusions / Language bindings** — lists; click an item to remove it.
-- **My words…** — words AURA treats as correct (slang like «хз», «ща», «скілі»): it never changes them, and fixes them when typed in the wrong layout (`crsks` → «скілі»). Comma-separated.
-- **Abbreviations…** — words always written in capitals («ттн», «pdf»), even when typed in the wrong layout (Mac). Comma-separated.
-- **Launch at login**.
-- **Menu language** — System or one of 48 languages (same as the site). "System" follows the OS language; Russian → Ukrainian; a language not in the list → English.
-- **Quit**.
+**Mac.** The menu is short: **Enabled**, **Auto-correction**, the current app with **Don't work in this app** and **Language for this app**, **Settings…** (⌘,) and **Quit** (plus a reminder when an update may be out). Everything else is in the **Settings** window (sidebar on the left, like Keychain Access; changes apply at once; the app shows in the Dock and ⌘Tab while the window is open):
+
+- **General** — Enabled, Auto-correction, Fix letter case, Sound (one tone on auto-correction, two on double ⇧), Launch at login, Menu language (System or one of 48 languages; "System" follows the OS language; Russian → Ukrainian; a language not in the list → English).
+- **Shortcuts** — double ⇧ (convert word/selection) and ⌥ + double ⇧ (change case); not configurable yet.
+- **Words** — **My words** (words AURA treats as correct: slang like «хз», «ща», «скілі»; it never changes them, and fixes them when typed in the wrong layout, `crsks` → «скілі») and **Abbreviations** (always written in capitals: «ттн», «pdf»). Each is a searchable list with + and −.
+- **Apps** — **Exclusions** (apps AURA doesn't work in; add by choosing an app or from the recent apps — handy for a full-screen game after leaving it) and **Language bindings** (switch to a chosen layout when an app comes to the front).
+- **About** — version, check for updates, report a problem, support, the original project.
+
+**Windows.** The menu has everything: Enabled, Auto-correction, Sound, Don't work in this app, Language for this app, Exclusions / Language bindings (click an item to remove it), My words… (comma-separated), Launch at login, Menu language, Quit.
 
 ## Install and run
 

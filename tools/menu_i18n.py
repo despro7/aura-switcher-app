@@ -6,10 +6,7 @@ import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-KEYS = ["enabled", "auto", "sound", "access", "app", "exclude", "game", "appLang", "noBinding", "exclusions", "recent",
-        "bindings", "empty", "login", "words", "wordsTitle", "wordsInfo", "save", "cancel", "uiLang", "allLangs", "regEurope", "regCaucasus", "regMiddleEast", "regAsia", "system", "hint",
-        "report", "reportBody", "update", "updateDue", "donate", "quit", "updNew", "updLatest", "updNotes", "updNow", "updLater", "updFail", "firstRun",
-        "caseFix", "abbrevs", "abbrevsTitle", "abbrevsInfo", "caseHint"]
+KEYS = ["enabled", "auto", "sound", "access", "app", "exclude", "game", "appLang", "noBinding", "exclusions", "recent", "bindings", "empty", "login", "words", "save", "cancel", "uiLang", "allLangs", "regEurope", "regCaucasus", "regMiddleEast", "regAsia", "system", "hint", "report", "reportBody", "update", "updateDue", "donate", "quit", "updNew", "updLatest", "updNotes", "updNow", "updLater", "updFail", "firstRun", "caseFix", "abbrevs", "caseHint", "settings", "secGeneral", "secShortcuts", "secWords", "secApps", "secAbout", "colWord", "colApp", "colLang", "search", "add", "remove", "chooseApp", "recentApps", "version", "origRepo", "shNote", "wordsDesc", "abbrevsDesc", "excludeDesc", "bindDesc"]
 # code, native name, then one line per key (in KEYS order)
 LANGS = """
 en English
@@ -28,8 +25,6 @@ Language bindings
 Empty
 Launch at login
 My words…
-AURA Switcher — my words
-AURA Switcher treats these words as correct: it never changes them, and fixes them when typed in the wrong layout. Separate them with commas.
 Save
 Cancel
 Menu language
@@ -55,9 +50,28 @@ Couldn't update automatically. Open the website to download it?
 AURA Switcher is running. Its icon is in the notification area; click ^ next to the clock to open the menu
 Fix letter case
 Abbreviations…
-AURA Switcher — Abbreviations
-AURA Switcher writes these in capitals (TTN), even when typed in the wrong layout. Separate them with commas.
 ⌥ + double ⇧ — change case
+Settings…
+General
+Shortcuts
+Words
+Apps
+About
+Word
+App
+Language
+Search
+Add
+Remove
+Choose app…
+Recent apps
+Version
+Original project on GitHub
+These shortcuts can't be changed yet.
+AURA never changes these words, and fixes them when typed in the wrong layout.
+AURA writes these in capitals (TTN), even when typed in the wrong layout.
+AURA does nothing in these apps. Full-screen games are paused automatically.
+When you switch to one of these apps, AURA changes the layout to the chosen language.
 
 uk Українська
 Увімкнено
@@ -75,8 +89,6 @@ uk Українська
 Порожньо
 Запускати під час входу
 Мої слова…
-AURA Switcher — мої слова
-Ці слова AURA Switcher вважає правильними: не змінює їх, а набрані не в тій розкладці — виправляє на них. Через кому.
 Зберегти
 Скасувати
 Мова меню
@@ -102,9 +114,28 @@ AURA Switcher — мої слова
 AURA Switcher працює. Значок — в області сповіщень; натисніть ^ біля годинника, щоб відкрити меню
 Виправляти регістр
 Абревіатури…
-AURA Switcher — Абревіатури
-AURA Switcher пише ці слова великими літерами (ТТН), навіть якщо їх набрано не в тій розкладці. Розділяйте комами.
 ⌥ + подвійний ⇧ — змінити регістр
+Налаштування…
+Загальні
+Гарячі клавіші
+Слова
+Програми
+Про програму
+Слово
+Програма
+Мова
+Пошук
+Додати
+Видалити
+Обрати програму…
+Останні програми
+Версія
+Оригінальний проєкт на GitHub
+Ці скорочення поки не налаштовуються.
+AURA ніколи не змінює ці слова, а набрані не в тій розкладці — виправляє на них.
+AURA пише їх великими літерами (ТТН), навіть якщо набрано не в тій розкладці.
+У цих програмах AURA нічого не робить. Повноекранні ігри ставляться на паузу автоматично.
+Коли ви перемикаєтесь на одну з цих програм, AURA змінює розкладку на обрану мову.
 
 pl Polski
 Włączone
@@ -122,8 +153,6 @@ Przypisania języków
 Pusto
 Uruchamiaj przy logowaniu
 Moje słowa…
-AURA Switcher — moje słowa
-AURA Switcher uznaje te słowa za poprawne: nigdy ich nie zmienia, a wpisane w złym układzie poprawia na nie. Oddziel je przecinkami.
 Zapisz
 Anuluj
 Język menu
@@ -149,9 +178,28 @@ Nie udało się zaktualizować automatycznie. Otworzyć stronę, aby pobrać?
 AURA Switcher działa. Ikona jest w obszarze powiadomień; kliknij ^ obok zegara, aby otworzyć menu
 Popraw wielkość liter
 Skróty…
-AURA Switcher — Skróty
-AURA Switcher pisze te słowa wielkimi literami (TTN), także gdy wpisano je w złym układzie. Oddziel je przecinkami.
 ⌥ + podwójny ⇧ — zmień wielkość liter
+Ustawienia…
+Ogólne
+Skróty klawiszowe
+Słowa
+Aplikacje
+O programie
+Słowo
+Aplikacja
+Język
+Szukaj
+Dodaj
+Usuń
+Wybierz aplikację…
+Ostatnie aplikacje
+Wersja
+Oryginalny projekt na GitHubie
+Tych skrótów nie można jeszcze zmienić.
+AURA nigdy nie zmienia tych słów, a wpisane w złym układzie poprawia na nie.
+AURA zapisuje je wielkimi literami (TTN), także gdy wpisano je w złym układzie.
+W tych aplikacjach AURA nic nie robi. Gry pełnoekranowe są wstrzymywane automatycznie.
+Po przełączeniu na jedną z tych aplikacji AURA zmienia układ na wybrany język.
 
 de Deutsch
 Aktiviert
@@ -169,8 +217,6 @@ Sprachzuordnungen
 Leer
 Bei Anmeldung starten
 Meine Wörter…
-AURA Switcher — meine Wörter
-AURA Switcher hält diese Wörter für richtig: ändert sie nie und korrigiert sie, wenn sie im falschen Layout getippt wurden. Durch Kommas trennen.
 Sichern
 Abbrechen
 Menüsprache
@@ -196,9 +242,28 @@ Automatisches Update fehlgeschlagen. Website zum Herunterladen öffnen?
 AURA Switcher läuft. Das Symbol ist im Infobereich; klicken Sie neben der Uhr auf ^, um das Menü zu öffnen
 Groß-/Kleinschreibung korrigieren
 Abkürzungen…
-AURA Switcher — Abkürzungen
-AURA Switcher schreibt diese Wörter in Großbuchstaben (TTN), auch wenn sie im falschen Layout getippt wurden. Mit Kommas trennen.
 ⌥ + Doppel-⇧ — Groß-/Kleinschreibung ändern
+Einstellungen…
+Allgemein
+Tastenkürzel
+Wörter
+Apps
+Info
+Wort
+App
+Sprache
+Suchen
+Hinzufügen
+Entfernen
+App auswählen…
+Zuletzt verwendete Apps
+Version
+Originalprojekt auf GitHub
+Diese Tastenkürzel lassen sich noch nicht ändern.
+AURA ändert diese Wörter nie und korrigiert im falschen Layout getippte Wörter auf sie.
+AURA schreibt diese in Großbuchstaben (TTN), auch wenn sie im falschen Layout getippt wurden.
+In diesen Apps tut AURA nichts. Vollbildspiele werden automatisch pausiert.
+Wenn Sie zu einer dieser Apps wechseln, stellt AURA das Layout auf die gewählte Sprache um.
 
 es Español
 Activado
@@ -216,8 +281,6 @@ Idiomas asignados
 Vacío
 Abrir al iniciar sesión
 Mis palabras…
-AURA Switcher — mis palabras
-AURA Switcher considera correctas estas palabras: nunca las cambia y las corrige si se escriben con la distribución equivocada. Sepáralas con comas.
 Guardar
 Cancelar
 Idioma del menú
@@ -243,9 +306,28 @@ No se pudo actualizar automáticamente. ¿Abrir la web para descargarla?
 AURA Switcher está funcionando. Su icono está en el área de notificaciones; haz clic en ^ junto al reloj para abrir el menú
 Corregir mayúsculas
 Abreviaturas…
-AURA Switcher — Abreviaturas
-AURA Switcher escribe estas palabras en mayúsculas (TTN), incluso si se teclearon en la distribución equivocada. Sepáralas con comas.
 ⌥ + doble ⇧ — cambiar mayúsculas
+Ajustes…
+General
+Atajos
+Palabras
+Apps
+Acerca de
+Palabra
+App
+Idioma
+Buscar
+Añadir
+Quitar
+Elegir app…
+Apps recientes
+Versión
+Proyecto original en GitHub
+Estos atajos aún no se pueden cambiar.
+AURA nunca cambia estas palabras y corrige a ellas las tecleadas en la distribución equivocada.
+AURA las escribe en mayúsculas (TTN), incluso si se teclearon en la distribución equivocada.
+AURA no hace nada en estas apps. Los juegos a pantalla completa se pausan automáticamente.
+Al cambiar a una de estas apps, AURA cambia la distribución al idioma elegido.
 
 fr Français
 Activé
@@ -263,8 +345,6 @@ Langues associées
 Vide
 Ouvrir à la connexion
 Mes mots…
-AURA Switcher — mes mots
-AURA Switcher considère ces mots comme corrects : il ne les modifie jamais et les corrige s'ils sont tapés avec la mauvaise disposition. Séparez-les par des virgules.
 Enregistrer
 Annuler
 Langue du menu
@@ -290,9 +370,28 @@ Mise à jour automatique impossible. Ouvrir le site pour la télécharger ?
 AURA Switcher fonctionne. Son icône est dans la zone de notification ; cliquez sur ^ près de l’horloge pour ouvrir le menu
 Corriger la casse
 Abréviations…
-AURA Switcher — Abréviations
-AURA Switcher écrit ces mots en majuscules (TTN), même tapés dans la mauvaise disposition. Séparez-les par des virgules.
 ⌥ + double ⇧ — changer la casse
+Réglages…
+Général
+Raccourcis
+Mots
+Apps
+À propos
+Mot
+App
+Langue
+Rechercher
+Ajouter
+Supprimer
+Choisir une app…
+Apps récentes
+Version
+Projet original sur GitHub
+Ces raccourcis ne sont pas encore modifiables.
+AURA ne modifie jamais ces mots et corrige vers eux ceux tapés dans la mauvaise disposition.
+AURA les écrit en majuscules (TTN), même tapés dans la mauvaise disposition.
+AURA ne fait rien dans ces apps. Les jeux en plein écran sont mis en pause automatiquement.
+Quand vous passez à l'une de ces apps, AURA change la disposition pour la langue choisie.
 
 it Italiano
 Attivo
@@ -310,8 +409,6 @@ Lingue associate
 Vuoto
 Apri al login
 Le mie parole…
-AURA Switcher — le mie parole
-AURA Switcher considera corrette queste parole: non le modifica mai e le corregge se le digiti con il layout sbagliato. Separale con una virgola.
 Salva
 Annulla
 Lingua del menu
@@ -337,9 +434,28 @@ Impossibile aggiornare automaticamente. Vuoi aprire il sito per scaricare l’ag
 AURA Switcher è in esecuzione. L’icona è nell’area di notifica; fai clic su ^ accanto all’orologio per aprire il menu
 Correggi maiuscole
 Abbreviazioni…
-AURA Switcher — Abbreviazioni
-AURA Switcher scrive queste parole in maiuscolo (TTN), anche se digitate nel layout sbagliato. Separale con virgole.
 ⌥ + doppio ⇧ — cambia maiuscole
+Impostazioni…
+Generali
+Scorciatoie
+Parole
+App
+Info
+Parola
+App
+Lingua
+Cerca
+Aggiungi
+Rimuovi
+Scegli app…
+App recenti
+Versione
+Progetto originale su GitHub
+Queste scorciatoie non si possono ancora modificare.
+AURA non modifica mai queste parole e corregge in esse quelle digitate nel layout sbagliato.
+AURA le scrive in maiuscolo (TTN), anche se digitate nel layout sbagliato.
+In queste app AURA non fa nulla. I giochi a schermo intero vengono messi in pausa automaticamente.
+Quando passi a una di queste app, AURA cambia il layout nella lingua scelta.
 
 pt Português
 Ativado
@@ -357,8 +473,6 @@ Idiomas associados
 Vazio
 Abrir ao iniciar sessão
 As minhas palavras…
-AURA Switcher — as minhas palavras
-O AURA Switcher considera estas palavras corretas: nunca as altera e corrige-as se forem digitadas no layout errado. Separe-as com vírgulas.
 Guardar
 Cancelar
 Idioma do menu
@@ -384,9 +498,28 @@ Não foi possível atualizar automaticamente. Abrir o site para baixar?
 O AURA Switcher está a funcionar. O ícone está na área de notificação; clique em ^ junto ao relógio para abrir o menu
 Corrigir maiúsculas
 Abreviaturas…
-AURA Switcher — Abreviaturas
-O AURA Switcher escreve estas palavras em maiúsculas (TTN), mesmo digitadas no layout errado. Separe-as com vírgulas.
 ⌥ + duplo ⇧ — alterar maiúsculas
+Ajustes…
+Geral
+Atalhos
+Palavras
+Apps
+Sobre
+Palavra
+App
+Idioma
+Pesquisar
+Adicionar
+Remover
+Escolher app…
+Apps recentes
+Versão
+Projeto original no GitHub
+Estes atalhos ainda não podem ser alterados.
+O AURA nunca altera estas palavras e corrige para elas as digitadas no layout errado.
+O AURA escreve-as em maiúsculas (TTN), mesmo digitadas no layout errado.
+O AURA não faz nada nestes apps. Jogos em ecrã inteiro são pausados automaticamente.
+Ao mudar para um destes apps, o AURA muda o layout para o idioma escolhido.
 
 tr Türkçe
 Etkin
@@ -404,8 +537,6 @@ Dil atamaları
 Boş
 Oturum açılışında başlat
 Kelimelerim…
-AURA Switcher — kelimelerim
-AURA Switcher bu kelimeleri doğru kabul eder: asla değiştirmez, yanlış düzende yazılırsa onlara düzeltir. Virgülle ayırın.
 Kaydet
 İptal
 Menü dili
@@ -431,9 +562,28 @@ Otomatik güncellenemedi. İndirmek için web sitesi açılsın mı?
 AURA Switcher çalışıyor. Simgesi bildirim alanında; menüyü açmak için saatin yanındaki ^ simgesine tıklayın
 Harf büyüklüğünü düzelt
 Kısaltmalar…
-AURA Switcher — Kısaltmalar
-AURA Switcher bu sözcükleri büyük harfle yazar (TTN), yanlış düzende yazılsalar bile. Virgülle ayırın.
 ⌥ + çift ⇧ — harf büyüklüğünü değiştir
+Ayarlar…
+Genel
+Kısayollar
+Sözcükler
+Uygulamalar
+Hakkında
+Sözcük
+Uygulama
+Dil
+Ara
+Ekle
+Kaldır
+Uygulama seç…
+Son uygulamalar
+Sürüm
+GitHub'daki özgün proje
+Bu kısayollar henüz değiştirilemez.
+AURA bu sözcükleri asla değiştirmez; yanlış düzende yazılanları bunlara düzeltir.
+AURA bunları büyük harfle yazar (TTN), yanlış düzende yazılsalar bile.
+AURA bu uygulamalarda hiçbir şey yapmaz. Tam ekran oyunlar otomatik duraklatılır.
+Bu uygulamalardan birine geçtiğinizde AURA düzeni seçilen dile değiştirir.
 
 nl Nederlands
 Ingeschakeld
@@ -451,8 +601,6 @@ Taalkoppelingen
 Leeg
 Starten bij inloggen
 Mijn woorden…
-AURA Switcher — mijn woorden
-AURA Switcher beschouwt deze woorden als juist: verandert ze nooit en verbetert ze als ze in de verkeerde indeling zijn getypt. Scheid ze met komma's.
 Bewaar
 Annuleer
 Menutaal
@@ -478,9 +626,28 @@ Automatisch bijwerken is mislukt. De website openen om te downloaden?
 AURA Switcher draait. Het pictogram staat in het systeemvak; klik op ^ naast de klok om het menu te openen
 Hoofdletters corrigeren
 Afkortingen…
-AURA Switcher — Afkortingen
-AURA Switcher schrijft deze woorden in hoofdletters (TTN), ook als ze in de verkeerde indeling zijn getypt. Scheid ze met komma's.
 ⌥ + dubbel ⇧ — hoofdletters wijzigen
+Instellingen…
+Algemeen
+Sneltoetsen
+Woorden
+Apps
+Over
+Woord
+App
+Taal
+Zoeken
+Voeg toe
+Verwijder
+Kies app…
+Recente apps
+Versie
+Oorspronkelijk project op GitHub
+Deze sneltoetsen kunnen nog niet worden gewijzigd.
+AURA wijzigt deze woorden nooit en corrigeert in de verkeerde indeling getypte woorden ernaar.
+AURA schrijft deze in hoofdletters (TTN), ook als ze in de verkeerde indeling zijn getypt.
+In deze apps doet AURA niets. Volledig-scherm-games worden automatisch gepauzeerd.
+Als je naar een van deze apps overschakelt, wijzigt AURA de indeling naar de gekozen taal.
 
 cs Čeština
 Zapnuto
@@ -498,8 +665,6 @@ Přiřazení jazyků
 Prázdné
 Spouštět po přihlášení
 Moje slova…
-AURA Switcher — moje slova
-AURA Switcher považuje tato slova za správná: nikdy je nemění a opraví je, když jsou napsána ve špatném rozložení. Oddělte je čárkami.
 Uložit
 Zrušit
 Jazyk nabídky
@@ -525,9 +690,28 @@ Automatická aktualizace se nezdařila. Otevřít web a stáhnout?
 AURA Switcher běží. Ikona je v oznamovací oblasti; menu otevřete kliknutím na ^ vedle hodin
 Opravovat velikost písmen
 Zkratky…
-AURA Switcher — Zkratky
-AURA Switcher píše tato slova velkými písmeny (TTN), i když byla napsána v nesprávném rozložení. Oddělte je čárkami.
 ⌥ + dvojitý ⇧ — změnit velikost písmen
+Nastavení…
+Obecné
+Zkratky
+Slova
+Aplikace
+O aplikaci
+Slovo
+Aplikace
+Jazyk
+Hledat
+Přidat
+Odebrat
+Vybrat aplikaci…
+Poslední aplikace
+Verze
+Původní projekt na GitHubu
+Tyto zkratky zatím nelze změnit.
+AURA tato slova nikdy nemění a slova napsaná v nesprávném rozložení opraví na ně.
+AURA je píše velkými písmeny (TTN), i když byla napsána v nesprávném rozložení.
+V těchto aplikacích AURA nic nedělá. Celoobrazovkové hry se pozastaví automaticky.
+Když přepnete na jednu z těchto aplikací, AURA změní rozložení na vybraný jazyk.
 
 sv Svenska
 Aktiverad
@@ -545,8 +729,6 @@ Språkkopplingar
 Tomt
 Starta vid inloggning
 Mina ord…
-AURA Switcher — mina ord
-AURA Switcher ser dessa ord som rätt: ändrar dem aldrig och rättar dem om de skrivs med fel layout. Separera med kommatecken.
 Spara
 Avbryt
 Menyspråk
@@ -572,9 +754,28 @@ Kunde inte uppdatera automatiskt. Öppna webbplatsen för att ladda ner?
 AURA Switcher körs. Ikonen finns i aviseringsfältet; klicka på ^ bredvid klockan för att öppna menyn
 Rätta versaler/gemener
 Förkortningar…
-AURA Switcher — Förkortningar
-AURA Switcher skriver dessa ord med versaler (TTN), även om de skrivits i fel layout. Separera med kommatecken.
 ⌥ + dubbel-⇧ — ändra versaler/gemener
+Inställningar…
+Allmänt
+Genvägar
+Ord
+Appar
+Om
+Ord
+App
+Språk
+Sök
+Lägg till
+Ta bort
+Välj app…
+Senaste appar
+Version
+Originalprojektet på GitHub
+De här genvägarna kan inte ändras än.
+AURA ändrar aldrig dessa ord och rättar ord skrivna i fel layout till dem.
+AURA skriver dessa med versaler (TTN), även om de skrivits i fel layout.
+AURA gör ingenting i dessa appar. Helskärmsspel pausas automatiskt.
+När du byter till någon av dessa appar byter AURA layout till det valda språket.
 
 fi Suomi
 Käytössä
@@ -592,8 +793,6 @@ Kieliliitokset
 Tyhjä
 Käynnistä kirjautuessa
 Omat sanat…
-AURA Switcher — omat sanat
-AURA Switcher pitää näitä sanoja oikeina: ei koskaan muuta niitä ja korjaa ne, jos ne on kirjoitettu väärällä asettelulla. Erota pilkuilla.
 Tallenna
 Kumoa
 Valikon kieli
@@ -619,9 +818,28 @@ Automaattinen päivitys epäonnistui. Avataanko sivusto latausta varten?
 AURA Switcher on käynnissä. Kuvake on ilmoitusalueella; avaa valikko napsauttamalla kellon vieressä olevaa ^-merkkiä
 Korjaa kirjainkoko
 Lyhenteet…
-AURA Switcher — Lyhenteet
-AURA Switcher kirjoittaa nämä sanat isoilla kirjaimilla (TTN), vaikka ne olisi kirjoitettu väärällä asettelulla. Erota pilkuilla.
 ⌥ + kaksois-⇧ — vaihda kirjainkoko
+Asetukset…
+Yleiset
+Pikanäppäimet
+Sanat
+Apit
+Tietoja
+Sana
+Appi
+Kieli
+Hae
+Lisää
+Poista
+Valitse appi…
+Viimeisimmät apit
+Versio
+Alkuperäinen projekti GitHubissa
+Näitä pikanäppäimiä ei voi vielä muuttaa.
+AURA ei koskaan muuta näitä sanoja ja korjaa väärällä asettelulla kirjoitetut sanat niiksi.
+AURA kirjoittaa nämä isoilla kirjaimilla (TTN), vaikka ne olisi kirjoitettu väärällä asettelulla.
+AURA ei tee mitään näissä apeissa. Koko näytön pelit keskeytetään automaattisesti.
+Kun vaihdat johonkin näistä apeista, AURA vaihtaa asettelun valittuun kieleen.
 
 ro Română
 Activat
@@ -639,8 +857,6 @@ Limbi asociate
 Gol
 Pornește la autentificare
 Cuvintele mele…
-AURA Switcher — cuvintele mele
-AURA Switcher consideră aceste cuvinte corecte: nu le schimbă niciodată și le corectează dacă sunt tastate în aranjamentul greșit. Separați-le prin virgulă.
 Salvează
 Anulează
 Limba meniului
@@ -666,9 +882,28 @@ Actualizarea automată a eșuat. Deschizi site-ul pentru descărcare?
 AURA Switcher rulează. Pictograma este în zona de notificare; faceți clic pe ^ de lângă ceas pentru a deschide meniul
 Corectează majusculele
 Abrevieri…
-AURA Switcher — Abrevieri
-AURA Switcher scrie aceste cuvinte cu majuscule (TTN), chiar dacă au fost tastate în aranjamentul greșit. Separă-le prin virgule.
 ⌥ + dublu ⇧ — schimbă majusculele
+Setări…
+General
+Comenzi rapide
+Cuvinte
+Aplicații
+Despre
+Cuvânt
+Aplicație
+Limbă
+Caută
+Adaugă
+Elimină
+Alege aplicația…
+Aplicații recente
+Versiune
+Proiectul original pe GitHub
+Aceste comenzi rapide nu pot fi încă modificate.
+AURA nu modifică niciodată aceste cuvinte și corectează în ele cuvintele tastate în aranjamentul greșit.
+AURA le scrie cu majuscule (TTN), chiar dacă au fost tastate în aranjamentul greșit.
+AURA nu face nimic în aceste aplicații. Jocurile pe tot ecranul sunt puse automat în pauză.
+Când treci la una dintre aceste aplicații, AURA schimbă aranjamentul în limba aleasă.
 
 hu Magyar
 Bekapcsolva
@@ -686,8 +921,6 @@ Nyelvi hozzárendelések
 Üres
 Indítás bejelentkezéskor
 Saját szavak…
-AURA Switcher — saját szavak
-Az AURA Switcher ezeket a szavakat helyesnek tekinti: soha nem módosítja őket, és kijavítja, ha rossz kiosztással gépelték. Vesszővel válassza el.
 Mentés
 Mégse
 Menü nyelve
@@ -713,9 +946,28 @@ Az automatikus frissítés nem sikerült. Megnyitod a weboldalt a letöltéshez?
 Az AURA Switcher fut. Az ikonja az értesítési területen van; a menü megnyitásához kattintson az óra melletti ^ jelre
 Kis- és nagybetűk javítása
 Rövidítések…
-AURA Switcher — Rövidítések
-Az AURA Switcher nagybetűvel írja ezeket a szavakat (TTN), akkor is, ha rossz kiosztásban gépelték. Vesszővel válaszd el őket.
 ⌥ + dupla ⇧ — kis-/nagybetű váltása
+Beállítások…
+Általános
+Billentyűparancsok
+Szavak
+Alkalmazások
+Névjegy
+Szó
+Alkalmazás
+Nyelv
+Keresés
+Hozzáadás
+Eltávolítás
+Alkalmazás kiválasztása…
+Legutóbbi alkalmazások
+Verzió
+Az eredeti projekt a GitHubon
+Ezek a billentyűparancsok még nem módosíthatók.
+Az AURA soha nem módosítja ezeket a szavakat, a rossz kiosztásban gépelteket pedig ezekre javítja.
+Az AURA nagybetűvel írja őket (TTN), akkor is, ha rossz kiosztásban gépelték.
+Ezekben az alkalmazásokban az AURA nem csinál semmit. A teljes képernyős játékokat automatikusan szünetelteti.
+Ha ezek valamelyikére váltasz, az AURA a kiválasztott nyelvre váltja a kiosztást.
 
 el Ελληνικά
 Ενεργό
@@ -733,8 +985,6 @@ el Ελληνικά
 Κενό
 Εκκίνηση κατά τη σύνδεση
 Οι λέξεις μου…
-AURA Switcher — οι λέξεις μου
-Το AURA Switcher θεωρεί σωστές αυτές τις λέξεις: δεν τις αλλάζει ποτέ και τις διορθώνει όταν πληκτρολογηθούν με λάθος διάταξη. Χωρίστε τις με κόμμα.
 Αποθήκευση
 Ακύρωση
 Γλώσσα μενού
@@ -760,9 +1010,28 @@ AURA Switcher — οι λέξεις μου
 Το AURA Switcher εκτελείται. Το εικονίδιο βρίσκεται στην περιοχή ειδοποιήσεων· κάντε κλικ στο ^ δίπλα στο ρολόι για να ανοίξετε το μενού
 Διόρθωση πεζών/κεφαλαίων
 Συντομογραφίες…
-AURA Switcher — Συντομογραφίες
-Το AURA Switcher γράφει αυτές τις λέξεις με κεφαλαία (TTN), ακόμη και αν πληκτρολογήθηκαν σε λάθος διάταξη. Χωρίστε τις με κόμματα.
 ⌥ + διπλό ⇧ — αλλαγή πεζών/κεφαλαίων
+Ρυθμίσεις…
+Γενικά
+Συντομεύσεις
+Λέξεις
+Εφαρμογές
+Σχετικά
+Λέξη
+Εφαρμογή
+Γλώσσα
+Αναζήτηση
+Προσθήκη
+Αφαίρεση
+Επιλογή εφαρμογής…
+Πρόσφατες εφαρμογές
+Έκδοση
+Αρχικό έργο στο GitHub
+Αυτές οι συντομεύσεις δεν αλλάζουν ακόμη.
+Το AURA δεν αλλάζει ποτέ αυτές τις λέξεις και διορθώνει σε αυτές όσες πληκτρολογήθηκαν σε λάθος διάταξη.
+Το AURA τις γράφει με κεφαλαία (TTN), ακόμη και αν πληκτρολογήθηκαν σε λάθος διάταξη.
+Σε αυτές τις εφαρμογές το AURA δεν κάνει τίποτα. Τα παιχνίδια πλήρους οθόνης σταματούν αυτόματα.
+Όταν μεταβείτε σε μία από αυτές τις εφαρμογές, το AURA αλλάζει τη διάταξη στη γλώσσα που επιλέξατε.
 
 bg Български
 Включено
@@ -780,8 +1049,6 @@ bg Български
 Празно
 Стартиране при вход
 Моите думи…
-AURA Switcher — моите думи
-AURA Switcher смята тези думи за правилни: никога не ги променя и ги поправя, ако са написани с грешната подредба. Разделете ги със запетая.
 Запази
 Отказ
 Език на менюто
@@ -807,9 +1074,28 @@ AURA Switcher смята тези думи за правилни: никога �
 AURA Switcher работи. Иконата е в областта за известия; щракнете върху ^ до часовника, за да отворите менюто
 Поправяне на главни/малки букви
 Съкращения…
-AURA Switcher — Съкращения
-AURA Switcher пише тези думи с главни букви (ТТН), дори да са написани в грешна подредба. Разделяйте със запетаи.
 ⌥ + двоен ⇧ — смяна на главни/малки букви
+Настройки…
+Общи
+Клавишни комбинации
+Думи
+Приложения
+Относно
+Дума
+Приложение
+Език
+Търсене
+Добави
+Премахни
+Избор на приложение…
+Скорошни приложения
+Версия
+Оригиналният проект в GitHub
+Тези комбинации още не могат да се променят.
+AURA никога не променя тези думи, а написаните в грешна подредба поправя на тях.
+AURA ги пише с главни букви (ТТН), дори да са написани в грешна подредба.
+В тези приложения AURA не прави нищо. Игрите на цял екран се паузират автоматично.
+Когато превключите към някое от тези приложения, AURA сменя подредбата на избрания език.
 
 he עברית
 מופעל
@@ -827,8 +1113,6 @@ he עברית
 ריק
 הפעלה בעת התחברות
 המילים שלי…
-AURA Switcher — המילים שלי
-AURA Switcher מתייחס למילים אלה כנכונות: לעולם לא משנה אותן, ומתקן אליהן כשהן מוקלדות בפריסה הלא נכונה. הפרידו בפסיקים.
 שמירה
 ביטול
 שפת התפריט
@@ -854,9 +1138,28 @@ AURA Switcher מתייחס למילים אלה כנכונות: לעולם לא �
 AURA Switcher פועל. הסמל נמצא באזור ההתראות; לחצו על ^ ליד השעון כדי לפתוח את התפריט
 תיקון אותיות גדולות/קטנות
 ראשי תיבות…
-AURA Switcher — ראשי תיבות
-AURA Switcher כותב מילים אלה באותיות גדולות (TTN), גם אם הוקלדו בפריסה הלא נכונה. הפרידו בפסיקים.
 ⌥ + ⇧ כפול — שינוי אותיות גדולות/קטנות
+הגדרות…
+כללי
+קיצורי מקשים
+מילים
+אפליקציות
+אודות
+מילה
+אפליקציה
+שפה
+חיפוש
+הוספה
+הסרה
+בחירת אפליקציה…
+אפליקציות אחרונות
+גרסה
+הפרויקט המקורי ב-GitHub
+עדיין אי אפשר לשנות את הקיצורים האלה.
+AURA לעולם לא משנה מילים אלה, ומתקנת אליהן מילים שהוקלדו בפריסה הלא נכונה.
+AURA כותבת אותן באותיות גדולות (TTN), גם אם הוקלדו בפריסה הלא נכונה.
+באפליקציות אלה AURA לא עושה דבר. משחקי מסך מלא מושהים אוטומטית.
+כשעוברים לאחת האפליקציות האלה, AURA מחליפה את הפריסה לשפה שנבחרה.
 
 ar العربية
 مفعّل
@@ -874,8 +1177,6 @@ ar العربية
 فارغ
 التشغيل عند تسجيل الدخول
 كلماتي…
-AURA Switcher — كلماتي
-يعدّ AURA Switcher هذه الكلمات صحيحة: لا يغيّرها أبدًا، ويصحّحها إليها إذا كُتبت بالتخطيط الخطأ. افصل بينها بفواصل.
 حفظ
 إلغاء
 لغة القائمة
@@ -901,9 +1202,28 @@ AURA Switcher — كلماتي
 AURA Switcher يعمل. الأيقونة في منطقة الإشعارات؛ انقر على ^ بجانب الساعة لفتح القائمة
 تصحيح حالة الأحرف
 الاختصارات…
-AURA Switcher — الاختصارات
-يكتب AURA Switcher هذه الكلمات بأحرف كبيرة (TTN)، حتى لو كُتبت بتخطيط خاطئ. افصل بينها بفواصل.
 ⌥ + ⇧ مزدوج — تغيير حالة الأحرف
+الإعدادات…
+عام
+الاختصارات
+الكلمات
+التطبيقات
+حول
+الكلمة
+التطبيق
+اللغة
+بحث
+إضافة
+إزالة
+اختيار تطبيق…
+التطبيقات الأخيرة
+الإصدار
+المشروع الأصلي على GitHub
+لا يمكن تغيير هذه الاختصارات بعد.
+لا يغيّر AURA هذه الكلمات أبدًا، ويصحّح إليها الكلمات المكتوبة بتخطيط خاطئ.
+يكتبها AURA بأحرف كبيرة (TTN)، حتى لو كُتبت بتخطيط خاطئ.
+لا يفعل AURA شيئًا في هذه التطبيقات. تُوقَف الألعاب بملء الشاشة تلقائيًا.
+عند التبديل إلى أحد هذه التطبيقات، يغيّر AURA التخطيط إلى اللغة المختارة.
 
 hi हिन्दी
 चालू
@@ -921,8 +1241,6 @@ hi हिन्दी
 खाली
 लॉगिन पर शुरू करें
 मेरे शब्द…
-AURA Switcher — मेरे शब्द
-AURA Switcher इन शब्दों को सही मानता है: इन्हें कभी नहीं बदलता, और गलत लेआउट में टाइप होने पर इन्हीं में सुधार देता है। अल्पविराम से अलग करें।
 सहेजें
 रद्द करें
 मेनू की भाषा
@@ -948,9 +1266,28 @@ AURA Switcher {v} आ गया है
 AURA Switcher चल रहा है। इसका आइकन नोटिफ़िकेशन एरिया में है; मेनू खोलने के लिए घड़ी के पास ^ पर क्लिक करें
 अक्षरों का केस ठीक करें
 संक्षिप्त रूप…
-AURA Switcher — संक्षिप्त रूप
-AURA Switcher इन शब्दों को बड़े अक्षरों में लिखता है (TTN), भले ही वे गलत लेआउट में टाइप किए गए हों। अल्पविराम से अलग करें।
 ⌥ + दो बार ⇧ — केस बदलें
+सेटिंग…
+सामान्य
+शॉर्टकट
+शब्द
+ऐप्स
+के बारे में
+शब्द
+ऐप
+भाषा
+खोजें
+जोड़ें
+हटाएँ
+ऐप चुनें…
+हाल के ऐप्स
+संस्करण
+GitHub पर मूल प्रोजेक्ट
+इन शॉर्टकट को अभी बदला नहीं जा सकता।
+AURA इन शब्दों को कभी नहीं बदलता, और गलत लेआउट में टाइप किए शब्दों को इनमें सुधारता है।
+AURA इन्हें बड़े अक्षरों में लिखता है (TTN), भले ही वे गलत लेआउट में टाइप किए गए हों।
+इन ऐप्स में AURA कुछ नहीं करता। फ़ुल-स्क्रीन गेम अपने आप रुक जाते हैं।
+जब आप इनमें से किसी ऐप पर जाते हैं, AURA लेआउट को चुनी हुई भाषा में बदल देता है।
 
 ko 한국어
 켜기
@@ -968,8 +1305,6 @@ ko 한국어
 비어 있음
 로그인 시 실행
 내 단어…
-AURA Switcher — 내 단어
-AURA Switcher는 이 단어들을 올바른 단어로 봅니다. 절대 바꾸지 않고, 잘못된 자판으로 입력되면 이 단어로 고칩니다. 쉼표로 구분하세요.
 저장
 취소
 메뉴 언어
@@ -995,9 +1330,28 @@ AURA Switcher {v} 출시
 AURA Switcher가 실행 중입니다. 아이콘은 알림 영역에 있습니다. 시계 옆의 ^를 눌러 메뉴를 여세요
 대소문자 자동 수정
 약어…
-AURA Switcher — 약어
-AURA Switcher는 이 단어들을 대문자로 씁니다(TTN). 잘못된 자판 배열로 입력했어도 마찬가지입니다. 쉼표로 구분하세요.
 ⌥ + ⇧ 두 번 — 대소문자 변경
+설정…
+일반
+단축키
+단어
+앱
+정보
+단어
+앱
+언어
+검색
+추가
+제거
+앱 선택…
+최근 앱
+버전
+GitHub의 원본 프로젝트
+이 단축키는 아직 변경할 수 없습니다.
+AURA는 이 단어들을 절대 바꾸지 않으며, 잘못된 자판 배열로 입력한 단어는 이 단어로 고칩니다.
+AURA는 이 단어들을 대문자로 씁니다(TTN). 잘못된 자판 배열로 입력해도 마찬가지입니다.
+이 앱들에서는 AURA가 아무것도 하지 않습니다. 전체 화면 게임은 자동으로 일시 중지됩니다.
+이 앱 중 하나로 전환하면 AURA가 자판 배열을 선택한 언어로 바꿉니다.
 
 be Беларуская
 Уключана
@@ -1015,8 +1369,6 @@ be Беларуская
 Пуста
 Запускаць пры ўваходзе
 Мае словы…
-AURA Switcher — мае словы
-AURA Switcher лічыць гэтыя словы правільнымі: не мяняе іх, а набраныя ў няправільнай раскладцы — выпраўляе на іх. Праз коску.
 Захаваць
 Скасаваць
 Мова меню
@@ -1042,9 +1394,28 @@ AURA Switcher лічыць гэтыя словы правільнымі: не м
 AURA Switcher працуе. Значок — у вобласці апавяшчэнняў; націсніце ^ побач з гадзіннікам, каб адкрыць меню
 Выпраўляць рэгістр
 Абрэвіятуры…
-AURA Switcher — Абрэвіятуры
-AURA Switcher піша гэтыя словы вялікімі літарамі (ТТН), нават калі іх набрана не ў той раскладцы. Падзяляйце коскамі.
 ⌥ + падвойны ⇧ — змяніць рэгістр
+Налады…
+Агульныя
+Спалучэнні клавіш
+Словы
+Праграмы
+Пра праграму
+Слова
+Праграма
+Мова
+Пошук
+Дадаць
+Выдаліць
+Выбраць праграму…
+Апошнія праграмы
+Версія
+Арыгінальны праект на GitHub
+Гэтыя спалучэнні пакуль нельга змяніць.
+AURA ніколі не змяняе гэтыя словы, а набраныя не ў той раскладцы — выпраўляе на іх.
+AURA піша іх вялікімі літарамі (ТТН), нават калі набрана не ў той раскладцы.
+У гэтых праграмах AURA нічога не робіць. Поўнаэкранныя гульні спыняюцца аўтаматычна.
+Калі вы пераключаецеся на адну з гэтых праграм, AURA змяняе раскладку на абраную мову.
 
 kk Қазақша
 Қосулы
@@ -1062,8 +1433,6 @@ kk Қазақша
 Бос
 Кіргенде іске қосу
 Менің сөздерім…
-AURA Switcher — менің сөздерім
-AURA Switcher бұл сөздерді дұрыс деп санайды: оларды өзгертпейді, ал қате пернетақта орналасуымен терілсе, осыларға түзетеді. Үтірмен бөліңіз.
 Сақтау
 Бас тарту
 Мәзір тілі
@@ -1089,9 +1458,28 @@ AURA Switcher {v} шықты
 AURA Switcher жұмыс істеп тұр. Белгішесі хабарландыру аймағында; мәзірді ашу үшін сағаттың жанындағы ^ түймесін басыңыз
 Әріп регистрін түзету
 Аббревиатуралар…
-AURA Switcher — Аббревиатуралар
-AURA Switcher бұл сөздерді бас әріптермен жазады (ТТН), олар қате пернетақта қасиетінде терілсе де. Үтірмен бөліңіз.
 ⌥ + қос ⇧ — регистрді өзгерту
+Баптаулар…
+Жалпы
+Пернелер тіркесімдері
+Сөздер
+Қолданбалар
+Туралы
+Сөз
+Қолданба
+Тіл
+Іздеу
+Қосу
+Жою
+Қолданбаны таңдау…
+Соңғы қолданбалар
+Нұсқа
+GitHub-тағы түпнұсқа жоба
+Бұл тіркесімдерді әзірге өзгерту мүмкін емес.
+AURA бұл сөздерді ешқашан өзгертпейді, қате пернетақтада терілгенді осыларға түзетеді.
+AURA оларды бас әріптермен жазады (ТТН), қате пернетақтада терілсе де.
+Бұл қолданбаларда AURA ештеңе істемейді. Толық экранды ойындар автоматты түрде кідіртіледі.
+Осы қолданбалардың біріне ауысқанда, AURA пернетақта орналасуын таңдалған тілге ауыстырады.
 
 ky Кыргызча
 Күйгүзүлгөн
@@ -1109,8 +1497,6 @@ ky Кыргызча
 Бош
 Кирүүдө иштетүү
 Менин сөздөрүм…
-AURA Switcher — менин сөздөрүм
-AURA Switcher бул сөздөрдү туура деп эсептейт: аларды өзгөртпөйт, ал эми клавиатуранын туура эмес жайгашуусунда терилсе, ушуларга оңдойт. Үтүр менен бөлүңүз.
 Сактоо
 Жокко чыгаруу
 Меню тили
@@ -1136,9 +1522,28 @@ AURA Switcher {v} чыкты
 AURA Switcher иштеп жатат. Сөлөкөтү билдирмелер аймагында; менюну ачуу үчүн сааттын жанындагы ^ баскычын басыңыз
 Регистрди оңдоо
 Аббревиатуралар…
-AURA Switcher — Аббревиатуралар
-AURA Switcher бул сөздөрдү баш тамгалар менен жазат (ТТН), туура эмес жайгашууда терилсе да. Үтүр менен бөлүңүз.
 ⌥ + кош ⇧ — регистрди өзгөртүү
+Жөндөөлөр…
+Жалпы
+Ыкчам баскычтар
+Сөздөр
+Колдонмолор
+Жөнүндө
+Сөз
+Колдонмо
+Тил
+Издөө
+Кошуу
+Өчүрүү
+Колдонмону тандоо…
+Акыркы колдонмолор
+Версия
+GitHub'дагы түпнуска долбоор
+Бул ыкчам баскычтарды азырынча өзгөртүүгө болбойт.
+AURA бул сөздөрдү эч качан өзгөртпөйт, туура эмес жайгашууда терилгенди ушуларга оңдойт.
+AURA аларды баш тамгалар менен жазат (ТТН), туура эмес жайгашууда терилсе да.
+Бул колдонмолордо AURA эч нерсе кылбайт. Толук экрандуу оюндар автоматтык түрдө тындырылат.
+Бул колдонмолордун бирине которулганыңызда, AURA жайгашууну тандалган тилге өзгөртөт.
 
 ka ქართული
 ჩართულია
@@ -1156,8 +1561,6 @@ ka ქართული
 ცარიელია
 გაშვება შესვლისას
 ჩემი სიტყვები…
-AURA Switcher — ჩემი სიტყვები
-AURA Switcher ამ სიტყვებს სწორად მიიჩნევს: არ ცვლის მათ, ხოლო არასწორი განლაგებით აკრეფილს ამათ ასწორებს. გამოყავით მძიმეებით.
 შენახვა
 გაუქმება
 მენიუს ენა
@@ -1183,9 +1586,28 @@ AURA Switcher-ის მხარდაჭერა ☕
 AURA Switcher მუშაობს. ხატულა შეტყობინებების არეშია; მენიუს გასახსნელად დააწკაპუნეთ საათის გვერდით ^-ზე
 რეგისტრის გასწორება
 აბრევიატურები…
-AURA Switcher — აბრევიატურები
-AURA Switcher ამ სიტყვებს დიდი ასოებით წერს (TTN), თუნდაც არასწორ განლაგებაში იყოს აკრეფილი. გამოყავით მძიმეებით.
 ⌥ + ორმაგი ⇧ — რეგისტრის შეცვლა
+პარამეტრები…
+ზოგადი
+მალსახმობები
+სიტყვები
+აპები
+შესახებ
+სიტყვა
+აპი
+ენა
+ძიება
+დამატება
+წაშლა
+აპის არჩევა…
+ბოლო აპები
+ვერსია
+ორიგინალური პროექტი GitHub-ზე
+ამ მალსახმობების შეცვლა ჯერ შეუძლებელია.
+AURA ამ სიტყვებს არასოდეს ცვლის, არასწორ განლაგებაში აკრეფილს კი მათზე ასწორებს.
+AURA მათ დიდი ასოებით წერს (TTN), თუნდაც არასწორ განლაგებაში იყოს აკრეფილი.
+ამ აპებში AURA არაფერს აკეთებს. სრულეკრანიანი თამაშები ავტომატურად ჩერდება.
+როცა ამ აპებიდან რომელიმეზე გადახვალთ, AURA განლაგებას არჩეულ ენაზე ცვლის.
 
 hy Հայերեն
 Միացված է
@@ -1203,8 +1625,6 @@ hy Հայերեն
 Դատարկ է
 Գործարկել մուտքի ժամանակ
 Իմ բառերը…
-AURA Switcher — իմ բառերը
-AURA Switcher-ն այս բառերը ճիշտ է համարում՝ չի փոխում դրանք, իսկ սխալ դասավորությամբ տպվածները ուղղում է դրանց։ Բաժանեք ստորակետերով։
 Պահպանել
 Չեղարկել
 Ցանկի լեզուն
@@ -1230,9 +1650,28 @@ AURA Switcher-ն այս բառերը ճիշտ է համարում՝ չի փոխ�
 AURA Switcher-ը աշխատում է։ Պատկերակը ծանուցումների տարածքում է․ մենյուն բացելու համար սեղմեք ժամացույցի կողքի ^-ը
 Ուղղել մեծատառերը
 Հապավումներ…
-AURA Switcher — Հապավումներ
-AURA Switcher-ը այս բառերը գրում է մեծատառերով (TTN), նույնիսկ եթե դրանք տպվել են սխալ դասավորությամբ։ Բաժանեք ստորակետերով։
 ⌥ + կրկնակի ⇧ — փոխել տառերի գրանցումը
+Կարգավորումներ…
+Ընդհանուր
+Դյուրանցումներ
+Բառեր
+Հավելվածներ
+Ծրագրի մասին
+Բառ
+Հավելված
+Լեզու
+Որոնել
+Ավելացնել
+Հեռացնել
+Ընտրել հավելված…
+Վերջին հավելվածներ
+Տարբերակ
+Բնօրինակ նախագիծը GitHub-ում
+Այս դյուրանցումները դեռ հնարավոր չէ փոխել։
+AURA-ն երբեք չի փոխում այս բառերը, իսկ սխալ դասավորությամբ տպվածները ուղղում է դրանց։
+AURA-ն դրանք գրում է մեծատառերով (TTN), նույնիսկ եթե տպվել են սխալ դասավորությամբ։
+Այս հավելվածներում AURA-ն ոչինչ չի անում։ Լիաէկրան խաղերը ավտոմատ դադարեցվում են։
+Երբ անցնում եք այս հավելվածներից մեկին, AURA-ն դասավորությունը փոխում է ընտրված լեզվի։
 
 az Azərbaycan
 Aktivdir
@@ -1250,8 +1689,6 @@ Dil bağlamaları
 Boşdur
 Girişdə başlat
 Mənim sözlərim…
-AURA Switcher — mənim sözlərim
-AURA Switcher bu sözləri düzgün sayır: onları dəyişmir, səhv düzülüşdə yığılanda isə bunlara düzəldir. Vergüllə ayırın.
 Saxla
 Ləğv et
 Menyu dili
@@ -1277,9 +1714,28 @@ Avtomatik yeniləmək alınmadı. Yükləmək üçün sayt açılsın?
 AURA Switcher işləyir. Nişan bildiriş sahəsindədir; menyunu açmaq üçün saatın yanındakı ^ işarəsinə klikləyin
 Hərf registrini düzəlt
 Abreviaturalar…
-AURA Switcher — Abreviaturalar
-AURA Switcher bu sözləri böyük hərflərlə yazır (TTN), səhv düzümdə yığılsa belə. Vergüllə ayırın.
 ⌥ + qoşa ⇧ — registri dəyiş
+Parametrlər…
+Ümumi
+Qısayollar
+Sözlər
+Tətbiqlər
+Haqqında
+Söz
+Tətbiq
+Dil
+Axtar
+Əlavə et
+Sil
+Tətbiq seç…
+Son tətbiqlər
+Versiya
+GitHub-dakı orijinal layihə
+Bu qısayolları hələ dəyişmək olmur.
+AURA bu sözləri heç vaxt dəyişmir, səhv düzümdə yığılanları isə bunlara düzəldir.
+AURA bunları böyük hərflərlə yazır (TTN), səhv düzümdə yığılsa belə.
+Bu tətbiqlərdə AURA heç nə etmir. Tam ekran oyunlar avtomatik dayandırılır.
+Bu tətbiqlərdən birinə keçdikdə AURA düzümü seçilmiş dilə dəyişir.
 
 sr Српски
 Укључено
@@ -1297,8 +1753,6 @@ sr Српски
 Празно
 Покрени при пријави
 Моје речи…
-AURA Switcher — моје речи
-AURA Switcher сматра ове речи исправним: не мења их, а када су откуцане у погрешном распореду — исправља их на ове. Одвојите зарезима.
 Сачувај
 Откажи
 Језик менија
@@ -1324,9 +1778,28 @@ AURA Switcher сматра ове речи исправним: не мења и�
 AURA Switcher ради. Икона је у пољу за обавештења; кликните на ^ поред сата да бисте отворили мени
 Исправи величину слова
 Скраћенице…
-AURA Switcher — Скраћенице
-AURA Switcher пише ове речи великим словима (ТТН), чак и ако су откуцане у погрешном распореду. Раздвојите их зарезима.
 ⌥ + двоструки ⇧ — промени величину слова
+Подешавања…
+Опште
+Пречице
+Речи
+Апликације
+О програму
+Реч
+Апликација
+Језик
+Претрага
+Додај
+Уклони
+Изабери апликацију…
+Недавне апликације
+Верзија
+Оригинални пројекат на GitHub-у
+Ове пречице се још не могу мењати.
+AURA никада не мења ове речи, а откуцане у погрешном распореду исправља на њих.
+AURA их пише великим словима (ТТН), чак и ако су откуцане у погрешном распореду.
+У овим апликацијама AURA не ради ништа. Игре преко целог екрана се аутоматски паузирају.
+Када пређете на једну од ових апликација, AURA мења распоред на изабрани језик.
 
 mk Македонски
 Вклучено
@@ -1344,8 +1817,6 @@ mk Македонски
 Празно
 Стартувај при најава
 Моите зборови…
-AURA Switcher — моите зборови
-AURA Switcher ги смета овие зборови за точни: не ги менува, а кога се напишани во погрешен распоред — ги исправа на нив. Одвојте ги со запирки.
 Зачувај
 Откажи
 Јазик на менито
@@ -1371,9 +1842,28 @@ AURA Switcher ги смета овие зборови за точни: не ги
 AURA Switcher работи. Иконата е во областа за известувања; кликнете на ^ покрај часовникот за да го отворите менито
 Поправи големи/мали букви
 Кратенки…
-AURA Switcher — Кратенки
-AURA Switcher ги пишува овие зборови со големи букви (ТТН), дури и ако се напишани во погрешен распоред. Одделете ги со запирки.
 ⌥ + двоен ⇧ — промени големи/мали букви
+Поставки…
+Општо
+Кратенки на тастатура
+Зборови
+Апликации
+За апликацијата
+Збор
+Апликација
+Јазик
+Пребарај
+Додај
+Отстрани
+Избери апликација…
+Неодамнешни апликации
+Верзија
+Оригиналниот проект на GitHub
+Овие кратенки засега не можат да се менуваат.
+AURA никогаш не ги менува овие зборови, а напишаните во погрешен распоред ги поправа на нив.
+AURA ги пишува со големи букви (ТТН), дури и ако се напишани во погрешен распоред.
+Во овие апликации AURA не прави ништо. Игрите на цел екран автоматски се паузираат.
+Кога ќе преминете на една од овие апликации, AURA го менува распоредот на избраниот јазик.
 
 sk Slovenčina
 Zapnuté
@@ -1391,8 +1881,6 @@ Priradenia jazykov
 Prázdne
 Spúšťať po prihlásení
 Moje slová…
-AURA Switcher — moje slová
-AURA Switcher považuje tieto slová za správne: nikdy ich nemení a opravuje ich, keď sú napísané v nesprávnom rozložení. Oddeľte ich čiarkami.
 Uložiť
 Zrušiť
 Jazyk ponuky
@@ -1418,9 +1906,28 @@ Automatická aktualizácia sa nepodarila. Otvoriť web na stiahnutie?
 AURA Switcher beží. Ikona je v oblasti oznámení; ponuku otvoríte kliknutím na ^ vedľa hodín
 Opravovať veľkosť písmen
 Skratky…
-AURA Switcher — Skratky
-AURA Switcher píše tieto slová veľkými písmenami (TTN), aj keď boli napísané v nesprávnom rozložení. Oddeľte ich čiarkami.
 ⌥ + dvojitý ⇧ — zmeniť veľkosť písmen
+Nastavenia…
+Všeobecné
+Skratky
+Slová
+Aplikácie
+O aplikácii
+Slovo
+Aplikácia
+Jazyk
+Hľadať
+Pridať
+Odstrániť
+Vybrať aplikáciu…
+Posledné aplikácie
+Verzia
+Pôvodný projekt na GitHube
+Tieto skratky zatiaľ nemožno zmeniť.
+AURA tieto slová nikdy nemení a slová napísané v nesprávnom rozložení opraví na ne.
+AURA ich píše veľkými písmenami (TTN), aj keď boli napísané v nesprávnom rozložení.
+V týchto aplikáciách AURA nič nerobí. Celoobrazovkové hry sa pozastavia automaticky.
+Keď prepnete na jednu z týchto aplikácií, AURA zmení rozloženie na vybraný jazyk.
 
 hr Hrvatski
 Uključeno
@@ -1438,8 +1945,6 @@ Povezivanja jezika
 Prazno
 Pokreni pri prijavi
 Moje riječi…
-AURA Switcher — moje riječi
-AURA Switcher ove riječi smatra ispravnima: nikad ih ne mijenja, a ispravlja ih kad su utipkane u pogrešnom rasporedu. Odvojite ih zarezima.
 Spremi
 Odustani
 Jezik izbornika
@@ -1465,9 +1970,28 @@ Automatsko ažuriranje nije uspjelo. Otvoriti web-stranicu za preuzimanje?
 AURA Switcher radi. Ikona je u području obavijesti; kliknite ^ pored sata da otvorite izbornik
 Ispravi velika/mala slova
 Kratice…
-AURA Switcher — Kratice
-AURA Switcher piše ove riječi velikim slovima (TTN), čak i ako su utipkane u krivom rasporedu. Odvojite ih zarezima.
 ⌥ + dvostruki ⇧ — promijeni velika/mala slova
+Postavke…
+Općenito
+Prečaci
+Riječi
+Aplikacije
+O aplikaciji
+Riječ
+Aplikacija
+Jezik
+Traži
+Dodaj
+Ukloni
+Odaberi aplikaciju…
+Nedavne aplikacije
+Verzija
+Izvorni projekt na GitHubu
+Ti se prečaci još ne mogu mijenjati.
+AURA nikada ne mijenja ove riječi, a utipkane u krivom rasporedu ispravlja u njih.
+AURA ih piše velikim slovima (TTN), čak i ako su utipkane u krivom rasporedu.
+U tim aplikacijama AURA ne radi ništa. Igre preko cijelog zaslona automatski se pauziraju.
+Kad prijeđete na jednu od tih aplikacija, AURA mijenja raspored na odabrani jezik.
 
 sl Slovenščina
 Vklopljeno
@@ -1485,8 +2009,6 @@ Povezave jezikov
 Prazno
 Zaženi ob prijavi
 Moje besede…
-AURA Switcher — moje besede
-AURA Switcher te besede šteje za pravilne: nikoli jih ne spremeni, popravi pa jih, če so natipkane v napačni razporeditvi. Ločite jih z vejicami.
 Shrani
 Prekliči
 Jezik menija
@@ -1512,9 +2034,28 @@ Samodejna posodobitev ni uspela. Odprem spletno mesto za prenos?
 AURA Switcher deluje. Ikona je v območju za obvestila; kliknite ^ ob uri, da odprete meni
 Popravi velike/male črke
 Kratice…
-AURA Switcher — Kratice
-AURA Switcher te besede piše z velikimi črkami (TTN), tudi če so natipkane v napačni postavitvi. Ločite jih z vejicami.
 ⌥ + dvojni ⇧ — spremeni velike/male črke
+Nastavitve…
+Splošno
+Bližnjice
+Besede
+Aplikacije
+O programu
+Beseda
+Aplikacija
+Jezik
+Iskanje
+Dodaj
+Odstrani
+Izberi aplikacijo…
+Nedavne aplikacije
+Različica
+Izvirni projekt na GitHubu
+Teh bližnjic še ni mogoče spreminjati.
+AURA teh besed nikoli ne spreminja, natipkane v napačni postavitvi pa popravi vanje.
+AURA jih piše z velikimi črkami (TTN), tudi če so natipkane v napačni postavitvi.
+V teh aplikacijah AURA ne naredi ničesar. Igre čez cel zaslon se samodejno začasno ustavijo.
+Ko preklopite na eno od teh aplikacij, AURA spremeni postavitev na izbrani jezik.
 
 lt Lietuvių
 Įjungta
@@ -1532,8 +2073,6 @@ Kalbų priskyrimai
 Tuščia
 Paleisti prisijungiant
 Mano žodžiai…
-AURA Switcher — mano žodžiai
-AURA Switcher laiko šiuos žodžius teisingais: niekada jų nekeičia, o surinktus netinkamu išdėstymu — pataiso į juos. Atskirkite kableliais.
 Išsaugoti
 Atšaukti
 Meniu kalba
@@ -1559,9 +2098,28 @@ Nepavyko atnaujinti automatiškai. Atidaryti svetainę atsisiuntimui?
 AURA Switcher veikia. Piktograma yra pranešimų srityje; spustelėkite ^ šalia laikrodžio, kad atidarytumėte meniu
 Taisyti didžiąsias/mažąsias raides
 Santrumpos…
-AURA Switcher — Santrumpos
-AURA Switcher šiuos žodžius rašo didžiosiomis raidėmis (TTN), net jei jie surinkti netinkamu išdėstymu. Atskirkite kableliais.
 ⌥ + dvigubas ⇧ — keisti raidžių dydį
+Nustatymai…
+Bendra
+Spartieji klavišai
+Žodžiai
+Programos
+Apie
+Žodis
+Programa
+Kalba
+Ieškoti
+Pridėti
+Pašalinti
+Pasirinkti programą…
+Naujausios programos
+Versija
+Originalus projektas „GitHub“
+Šių spartųjų klavišų kol kas negalima keisti.
+AURA niekada nekeičia šių žodžių, o netinkamu išdėstymu surinktus pataiso į juos.
+AURA juos rašo didžiosiomis raidėmis (TTN), net jei jie surinkti netinkamu išdėstymu.
+Šiose programose AURA nieko nedaro. Viso ekrano žaidimai pristabdomi automatiškai.
+Perjungus į vieną iš šių programų, AURA pakeičia išdėstymą į pasirinktą kalbą.
 
 lv Latviešu
 Ieslēgts
@@ -1579,8 +2137,6 @@ Valodu piesaistes
 Tukšs
 Palaist pieteikšanās brīdī
 Mani vārdi…
-AURA Switcher — mani vārdi
-AURA Switcher uzskata šos vārdus par pareiziem: nekad tos nemaina un labo uz tiem, ja tie ievadīti nepareizā izkārtojumā. Atdaliet ar komatiem.
 Saglabāt
 Atcelt
 Izvēlnes valoda
@@ -1606,9 +2162,28 @@ Automātiski atjaunināt neizdevās. Atvērt vietni lejupielādei?
 AURA Switcher darbojas. Ikona ir paziņojumu apgabalā; noklikšķiniet uz ^ blakus pulkstenim, lai atvērtu izvēlni
 Labot lielos/mazos burtus
 Saīsinājumi…
-AURA Switcher — Saīsinājumi
-AURA Switcher šos vārdus raksta ar lielajiem burtiem (TTN), pat ja tie ievadīti nepareizā izkārtojumā. Atdaliet ar komatiem.
 ⌥ + dubults ⇧ — mainīt burtu reģistru
+Iestatījumi…
+Vispārīgi
+Īsinājumtaustiņi
+Vārdi
+Lietotnes
+Par programmu
+Vārds
+Lietotne
+Valoda
+Meklēt
+Pievienot
+Noņemt
+Izvēlēties lietotni…
+Pēdējās lietotnes
+Versija
+Oriģinālais projekts GitHub
+Šos īsinājumtaustiņus vēl nevar mainīt.
+AURA šos vārdus nekad nemaina, bet nepareizā izkārtojumā ievadītos izlabo uz tiem.
+AURA tos raksta ar lielajiem burtiem (TTN), pat ja tie ievadīti nepareizā izkārtojumā.
+Šajās lietotnēs AURA neko nedara. Pilnekrāna spēles tiek automātiski apturētas.
+Kad pārslēdzaties uz kādu no šīm lietotnēm, AURA nomaina izkārtojumu uz izvēlēto valodu.
 
 et Eesti
 Sees
@@ -1626,8 +2201,6 @@ Keeleseosed
 Tühi
 Käivita sisselogimisel
 Minu sõnad…
-AURA Switcher — minu sõnad
-AURA Switcher peab neid sõnu õigeks: ei muuda neid kunagi ja parandab nendeks, kui need on sisestatud vales paigutuses. Eralda komadega.
 Salvesta
 Tühista
 Menüü keel
@@ -1653,9 +2226,28 @@ Automaatne uuendamine ebaõnnestus. Avada veebileht allalaadimiseks?
 AURA Switcher töötab. Ikoon on teavitusalas; menüü avamiseks klõpsake kella kõrval ^
 Paranda suur-/väiketähti
 Lühendid…
-AURA Switcher — Lühendid
-AURA Switcher kirjutab need sõnad suurtähtedega (TTN), isegi kui need on trükitud vales paigutuses. Eralda komadega.
 ⌥ + topelt ⇧ — muuda tähesuurust
+Seaded…
+Üldine
+Kiirklahvid
+Sõnad
+Rakendused
+Teave
+Sõna
+Rakendus
+Keel
+Otsi
+Lisa
+Eemalda
+Vali rakendus…
+Hiljutised rakendused
+Versioon
+Algne projekt GitHubis
+Neid kiirklahve ei saa veel muuta.
+AURA ei muuda neid sõnu kunagi ja parandab vales paigutuses trükitud sõnad nendeks.
+AURA kirjutab need suurtähtedega (TTN), isegi kui need on trükitud vales paigutuses.
+Nendes rakendustes AURA midagi ei tee. Täisekraanimängud peatatakse automaatselt.
+Kui lülitud ühele neist rakendustest, muudab AURA paigutuse valitud keeleks.
 
 da Dansk
 Aktiveret
@@ -1673,8 +2265,6 @@ Sprogtilknytninger
 Tom
 Start ved login
 Mine ord…
-AURA Switcher — mine ord
-AURA Switcher regner disse ord for korrekte: ændrer dem aldrig og retter til dem, når de er skrevet i forkert tastaturlayout. Adskil med komma.
 Gem
 Annuller
 Menusprog
@@ -1700,9 +2290,28 @@ Kunne ikke opdatere automatisk. Åbn hjemmesiden for at hente den?
 AURA Switcher kører. Ikonet er i meddelelsesområdet; klik på ^ ved siden af uret for at åbne menuen
 Ret store/små bogstaver
 Forkortelser…
-AURA Switcher — Forkortelser
-AURA Switcher skriver disse ord med store bogstaver (TTN), selv hvis de er skrevet i det forkerte layout. Adskil med kommaer.
 ⌥ + dobbelt ⇧ — skift store/små bogstaver
+Indstillinger…
+Generelt
+Genveje
+Ord
+Apps
+Om
+Ord
+App
+Sprog
+Søg
+Tilføj
+Fjern
+Vælg app…
+Seneste apps
+Version
+Det oprindelige projekt på GitHub
+Disse genveje kan endnu ikke ændres.
+AURA ændrer aldrig disse ord og retter ord skrevet i forkert layout til dem.
+AURA skriver dem med store bogstaver (TTN), selv hvis de er skrevet i det forkerte layout.
+AURA gør ingenting i disse apps. Fuldskærmsspil sættes automatisk på pause.
+Når du skifter til en af disse apps, skifter AURA layout til det valgte sprog.
 
 nb Norsk bokmål
 På
@@ -1720,8 +2329,6 @@ Språkkoblinger
 Tom
 Start ved innlogging
 Mine ord…
-AURA Switcher — mine ord
-AURA Switcher regner disse ordene som riktige: endrer dem aldri og retter til dem når de er skrevet med feil tastaturoppsett. Skill med komma.
 Lagre
 Avbryt
 Menyspråk
@@ -1747,9 +2354,28 @@ Kunne ikke oppdatere automatisk. Åpne nettstedet for å laste den ned?
 AURA Switcher kjører. Ikonet er i varslingsfeltet; klikk på ^ ved siden av klokken for å åpne menyen
 Rett store/små bokstaver
 Forkortelser…
-AURA Switcher — Forkortelser
-AURA Switcher skriver disse ordene med store bokstaver (TTN), selv om de er skrevet i feil layout. Skill med komma.
 ⌥ + dobbel ⇧ — bytt store/små bokstaver
+Innstillinger…
+Generelt
+Snarveier
+Ord
+Apper
+Om
+Ord
+App
+Språk
+Søk
+Legg til
+Fjern
+Velg app…
+Nylige apper
+Versjon
+Det opprinnelige prosjektet på GitHub
+Disse snarveiene kan ikke endres ennå.
+AURA endrer aldri disse ordene og retter ord skrevet i feil layout til dem.
+AURA skriver dem med store bokstaver (TTN), selv om de er skrevet i feil layout.
+AURA gjør ingenting i disse appene. Fullskjermspill settes automatisk på pause.
+Når du bytter til en av disse appene, bytter AURA layout til det valgte språket.
 
 is Íslenska
 Kveikt
@@ -1767,8 +2393,6 @@ Tungumálatengingar
 Tómt
 Ræsa við innskráningu
 Mín orð…
-AURA Switcher — mín orð
-AURA Switcher telur þessi orð rétt: breytir þeim aldrei og lagfærir í þau þegar þau eru rituð með röngu lyklaborðsskipulagi. Aðskildu með kommum.
 Vista
 Hætta við
 Tungumál valmyndar
@@ -1794,9 +2418,28 @@ Ekki tókst að uppfæra sjálfkrafa. Opna vefsíðuna til að sækja hana?
 AURA Switcher er í gangi. Táknið er á tilkynningasvæðinu; smelltu á ^ við hliðina á klukkunni til að opna valmyndina
 Laga há-/lágstafi
 Skammstafanir…
-AURA Switcher — Skammstafanir
-AURA Switcher skrifar þessi orð með hástöfum (TTN), jafnvel þótt þau séu slegin inn í röngu skipulagi. Aðskildu með kommum.
 ⌥ + tvöfalt ⇧ — breyta há-/lágstöfum
+Stillingar…
+Almennt
+Flýtilyklar
+Orð
+Forrit
+Um
+Orð
+Forrit
+Tungumál
+Leita
+Bæta við
+Fjarlægja
+Velja forrit…
+Nýleg forrit
+Útgáfa
+Upprunalega verkefnið á GitHub
+Ekki er enn hægt að breyta þessum flýtilyklum.
+AURA breytir þessum orðum aldrei og leiðréttir orð sem slegin eru inn í röngu skipulagi í þau.
+AURA skrifar þau með hástöfum (TTN), jafnvel þótt þau séu slegin inn í röngu skipulagi.
+AURA gerir ekkert í þessum forritum. Leikir í öllum skjánum eru settir sjálfkrafa á bið.
+Þegar þú skiptir yfir í eitt þessara forrita breytir AURA skipulaginu í valið tungumál.
 
 sq Shqip
 Aktivizuar
@@ -1814,8 +2457,6 @@ Lidhjet e gjuhëve
 Bosh
 Hap në hyrje
 Fjalët e mia…
-AURA Switcher — fjalët e mia
-AURA Switcher i konsideron këto fjalë të sakta: nuk i ndryshon kurrë dhe i korrigjon në to kur shkruhen me paraqitje të gabuar të tastierës. Ndajini me presje.
 Ruaj
 Anulo
 Gjuha e menysë
@@ -1841,9 +2482,28 @@ Nuk u përditësua automatikisht. Të hapet faqja e internetit për ta shkarkuar
 AURA Switcher po funksionon. Ikona është në zonën e njoftimeve; kliko ^ pranë orës për të hapur menynë
 Korrigjo shkronjat e mëdha/vogla
 Shkurtesa…
-AURA Switcher — Shkurtesa
-AURA Switcher i shkruan këto fjalë me shkronja të mëdha (TTN), edhe kur janë shkruar në pamje të gabuar. Ndaji me presje.
 ⌥ + dyfishi ⇧ — ndrysho shkronjat e mëdha/vogla
+Cilësimet…
+Të përgjithshme
+Shkurtoret
+Fjalët
+Aplikacionet
+Rreth
+Fjala
+Aplikacioni
+Gjuha
+Kërko
+Shto
+Hiq
+Zgjidh aplikacion…
+Aplikacionet e fundit
+Versioni
+Projekti origjinal në GitHub
+Këto shkurtore nuk mund të ndryshohen ende.
+AURA nuk i ndryshon kurrë këto fjalë dhe i korrigjon në to ato që janë shkruar në pamje të gabuar.
+AURA i shkruan me shkronja të mëdha (TTN), edhe kur janë shkruar në pamje të gabuar.
+Në këto aplikacione AURA nuk bën asgjë. Lojërat me ekran të plotë ndalen automatikisht.
+Kur kalon te një nga këto aplikacione, AURA ndryshon pamjen e tastierës në gjuhën e zgjedhur.
 
 fa فارسی
 روشن
@@ -1861,8 +2521,6 @@ fa فارسی
 خالی
 اجرا هنگام ورود
 واژه‌های من…
-AURA Switcher — واژه‌های من
-AURA Switcher این واژه‌ها را درست می‌داند: هرگز تغییرشان نمی‌دهد و اگر با چیدمان اشتباه تایپ شوند، به آن‌ها اصلاحشان می‌کند. با ویرگول جدا کنید.
 ذخیره
 لغو
 زبان منو
@@ -1888,9 +2546,28 @@ AURA Switcher {v} منتشر شد
 AURA Switcher در حال اجراست. نماد آن در ناحیه اعلان‌هاست؛ برای باز کردن منو روی ^ کنار ساعت کلیک کنید
 اصلاح حروف بزرگ/کوچک
 اختصارات…
-AURA Switcher — اختصارات
-AURA Switcher این واژه‌ها را با حروف بزرگ می‌نویسد (TTN)، حتی اگر با چیدمان اشتباه تایپ شده باشند. با ویرگول جدا کنید.
 ⌥ + ⇧ دوبار — تغییر حروف بزرگ/کوچک
+تنظیمات…
+عمومی
+میانبرها
+واژه‌ها
+برنامه‌ها
+درباره
+واژه
+برنامه
+زبان
+جستجو
+افزودن
+حذف
+انتخاب برنامه…
+برنامه‌های اخیر
+نسخه
+پروژه اصلی در GitHub
+این میانبرها هنوز قابل تغییر نیستند.
+AURA هرگز این واژه‌ها را تغییر نمی‌دهد و واژه‌های تایپ‌شده با چیدمان اشتباه را به آن‌ها اصلاح می‌کند.
+AURA این‌ها را با حروف بزرگ می‌نویسد (TTN)، حتی اگر با چیدمان اشتباه تایپ شده باشند.
+در این برنامه‌ها AURA کاری نمی‌کند. بازی‌های تمام‌صفحه به‌طور خودکار متوقف می‌شوند.
+وقتی به یکی از این برنامه‌ها می‌روید، AURA چیدمان را به زبان انتخابی تغییر می‌دهد.
 
 vi Tiếng Việt
 Bật
@@ -1908,8 +2585,6 @@ Gán ngôn ngữ
 Trống
 Chạy khi đăng nhập
 Từ của tôi…
-AURA Switcher — từ của tôi
-AURA Switcher coi những từ này là đúng: không bao giờ đổi chúng và sửa thành chúng khi gõ sai bố cục bàn phím. Cách nhau bằng dấu phẩy.
 Lưu
 Hủy
 Ngôn ngữ menu
@@ -1935,9 +2610,28 @@ Không thể tự động cập nhật. Mở trang web để tải về?
 AURA Switcher đang chạy. Biểu tượng nằm ở khu vực thông báo; bấm ^ cạnh đồng hồ để mở menu
 Sửa chữ hoa/thường
 Từ viết tắt…
-AURA Switcher — Từ viết tắt
-AURA Switcher viết hoa các từ này (TTN), kể cả khi gõ sai bố cục bàn phím. Phân tách bằng dấu phẩy.
 ⌥ + nhấn đôi ⇧ — đổi chữ hoa/thường
+Cài đặt…
+Chung
+Phím tắt
+Từ
+Ứng dụng
+Giới thiệu
+Từ
+Ứng dụng
+Ngôn ngữ
+Tìm kiếm
+Thêm
+Xóa
+Chọn ứng dụng…
+Ứng dụng gần đây
+Phiên bản
+Dự án gốc trên GitHub
+Chưa thể thay đổi các phím tắt này.
+AURA không bao giờ thay đổi các từ này, và sửa sang chúng những từ gõ sai bố cục.
+AURA viết hoa chúng (TTN), kể cả khi gõ sai bố cục bàn phím.
+AURA không làm gì trong các ứng dụng này. Trò chơi toàn màn hình tự động tạm dừng.
+Khi bạn chuyển sang một trong các ứng dụng này, AURA đổi bố cục sang ngôn ngữ đã chọn.
 
 tg Тоҷикӣ
 Фаъол
@@ -1955,8 +2649,6 @@ tg Тоҷикӣ
 Холӣ
 Оғоз ҳангоми воридшавӣ
 Калимаҳои ман…
-AURA Switcher — калимаҳои ман
-AURA Switcher ин калимаҳоро дуруст мешуморад: онҳоро ҳаргиз тағйир намедиҳад ва агар бо тарҳбандии нодурусти клавиатура навишта шаванд, ба онҳо ислоҳ мекунад. Бо вергул ҷудо кунед.
 Захира кардан
 Бекор кардан
 Забони меню
@@ -1982,9 +2674,28 @@ AURA Switcher {v} баромад
 AURA Switcher кор карда истодааст. Нишона дар минтақаи огоҳиҳост; барои кушодани меню ^-ро дар назди соат пахш кунед
 Ислоҳи ҳарфи калон/хурд
 Ихтисораҳо…
-AURA Switcher — Ихтисораҳо
-AURA Switcher ин калимаҳоро бо ҳарфҳои калон менависад (ТТН), ҳатто агар дар тарҳбандии нодуруст навишта шуда бошанд. Бо вергул ҷудо кунед.
 ⌥ + дукарата ⇧ — иваз кардани ҳарфҳои калон/хурд
+Танзимот…
+Умумӣ
+Тугмаҳои тез
+Калимаҳо
+Барномаҳо
+Дар бораи барнома
+Калима
+Барнома
+Забон
+Ҷустуҷӯ
+Илова кардан
+Тоза кардан
+Интихоби барнома…
+Барномаҳои охирин
+Версия
+Лоиҳаи аслӣ дар GitHub
+Ин тугмаҳои тезро ҳоло иваз кардан мумкин нест.
+AURA ин калимаҳоро ҳаргиз иваз намекунад ва калимаҳои дар тарҳбандии нодуруст навишташударо ба онҳо ислоҳ мекунад.
+AURA онҳоро бо ҳарфҳои калон менависад (ТТН), ҳатто агар дар тарҳбандии нодуруст навишта шуда бошанд.
+Дар ин барномаҳо AURA коре намекунад. Бозиҳои экрани пурра худкор қатъ мешаванд.
+Вақте ба яке аз ин барномаҳо мегузаред, AURA тарҳбандиро ба забони интихобшуда иваз мекунад.
 
 mn Монгол
 Идэвхтэй
@@ -2002,8 +2713,6 @@ mn Монгол
 Хоосон
 Нэвтрэхэд эхлүүлэх
 Миний үгс…
-AURA Switcher — миний үгс
-AURA Switcher эдгээр үгсийг зөв гэж үздэг: хэзээ ч өөрчлөхгүй, буруу гарын байрлалаар бичигдсэн бол тэдгээр рүү засна. Таслалаар тусгаарлана уу.
 Хадгалах
 Цуцлах
 Цэсний хэл
@@ -2029,9 +2738,28 @@ AURA Switcher {v} гарлаа
 AURA Switcher ажиллаж байна. Дүрс тэмдэг мэдэгдлийн хэсэгт байна; цэсийг нээхийн тулд цагийн хажууох ^-г дарна уу
 Том/жижиг үсгийг засах
 Товчлолууд…
-AURA Switcher — Товчлолууд
-AURA Switcher эдгээр үгийг том үсгээр бичнэ (ТТН), буруу байрлалд бичсэн ч гэсэн. Таслалаар тусгаарла.
 ⌥ + давхар ⇧ — том/жижиг үсэг солих
+Тохиргоо…
+Ерөнхий
+Товчлолууд
+Үгс
+Апп-ууд
+Тухай
+Үг
+Апп
+Хэл
+Хайх
+Нэмэх
+Хасах
+Апп сонгох…
+Сүүлийн апп-ууд
+Хувилбар
+GitHub дээрх эх төсөл
+Эдгээр товчлолыг одоогоор өөрчлөх боломжгүй.
+AURA эдгээр үгийг хэзээ ч өөрчилдөггүй, буруу байрлалд бичсэнийг тэдгээр рүү засна.
+AURA тэдгээрийг том үсгээр бичнэ (ТТН), буруу байрлалд бичсэн ч гэсэн.
+Эдгээр апп-д AURA юу ч хийхгүй. Бүтэн дэлгэцийн тоглоомууд автоматаар түр зогсоно.
+Эдгээр апп-ын аль нэг рүү шилжихэд AURA байрлалыг сонгосон хэл рүү солино.
 
 tt Татарча
 Кабызылган
@@ -2049,8 +2777,6 @@ tt Татарча
 Буш
 Керүдә эшләтеп җибәрергә
 Минем сүзләр…
-AURA Switcher — минем сүзләр
-AURA Switcher бу сүзләрне дөрес дип саный: аларны беркайчан да үзгәртми, ә дөрес булмаган клавиатура рәвешендә язылса, алар итеп төзәтә. Өтер белән аерыгыз.
 Саклау
 Баш тарту
 Меню теле
@@ -2076,9 +2802,28 @@ AURA Switcher {v} чыкты
 AURA Switcher эшли. Билгечә белдерүләр өлкәсендә; менюны ачу өчен сәгать янындагы ^ төймәсенә басыгыз
 Хәреф регистрын төзәтү
 Кыскартмалар…
-AURA Switcher — Кыскартмалар
-AURA Switcher бу сүзләрне зур хәрефләр белән яза (ТТН), хәтта алар ялгыш рәвештә җыелса да. Өтер белән аерыгыз.
 ⌥ + икеләтә ⇧ — регистрны үзгәртү
+Көйләүләр…
+Гомуми
+Кыска юллар
+Сүзләр
+Кушымталар
+Программа турында
+Сүз
+Кушымта
+Тел
+Эзләү
+Өстәү
+Бетерү
+Кушымтаны сайлау…
+Соңгы кушымталар
+Версия
+GitHub'тагы төп проект
+Бу кыска юлларны әлегә үзгәртеп булмый.
+AURA бу сүзләрне беркайчан да үзгәртми, ә ялгыш рәвештә җыелганнарны шуларга төзәтә.
+AURA аларны зур хәрефләр белән яза (ТТН), ялгыш рәвештә җыелса да.
+Бу кушымталарда AURA берни эшләми. Тулы экранлы уеннар автоматик туктатыла.
+Бу кушымталарның берсенә күчкәндә, AURA рәвешне сайланган телгә үзгәртә.
 
 uz Oʻzbek
 Yoqilgan
@@ -2096,8 +2841,6 @@ Til bogʻlanishlari
 Boʻsh
 Kirishda ishga tushirish
 Mening soʻzlarim…
-AURA Switcher — mening soʻzlarim
-AURA Switcher bu soʻzlarni toʻgʻri deb hisoblaydi: ularni hech qachon oʻzgartirmaydi, notoʻgʻri klaviatura terilishida yozilsa, ularga tuzatadi. Vergul bilan ajrating.
 Saqlash
 Bekor qilish
 Menyu tili
@@ -2123,9 +2866,28 @@ Avtomatik yangilab boʻlmadi. Yuklab olish uchun saytni ochaymi?
 AURA Switcher ishlayapti. Belgisi bildirishnomalar hududida; menyuni ochish uchun soat yonidagi ^ belgisini bosing
 Harf registrini tuzatish
 Qisqartmalar…
-AURA Switcher — Qisqartmalar
-AURA Switcher bu soʻzlarni bosh harflar bilan yozadi (TTN), notoʻgʻri joylashuvda terilgan boʻlsa ham. Vergul bilan ajrating.
 ⌥ + ikki marta ⇧ — registrni oʻzgartirish
+Sozlamalar…
+Umumiy
+Tezkor tugmalar
+Soʻzlar
+Ilovalar
+Dastur haqida
+Soʻz
+Ilova
+Til
+Qidirish
+Qoʻshish
+Olib tashlash
+Ilovani tanlash…
+Oxirgi ilovalar
+Versiya
+GitHub’dagi asl loyiha
+Bu tezkor tugmalarni hozircha oʻzgartirib boʻlmaydi.
+AURA bu soʻzlarni hech qachon oʻzgartirmaydi, notoʻgʻri joylashuvda terilganlarni esa ularga tuzatadi.
+AURA ularni bosh harflar bilan yozadi (TTN), notoʻgʻri joylashuvda terilgan boʻlsa ham.
+Bu ilovalarda AURA hech narsa qilmaydi. Toʻliq ekranli oʻyinlar avtomatik toʻxtatiladi.
+Shu ilovalardan biriga oʻtganingizda, AURA joylashuvni tanlangan tilga almashtiradi.
 
 ga Gaeilge
 Cumasaithe
@@ -2143,8 +2905,6 @@ Naisc teanga
 Folamh
 Seol ag logáil isteach
 Mo chuid focal…
-AURA Switcher — mo chuid focal
-Measann AURA Switcher go bhfuil na focail seo ceart: ní athraíonn sé iad choíche, agus ceartaíonn sé chucu iad nuair a chlóscríobhtar le leagan amach mícheart iad. Deighil le camóga.
 Sábháil
 Cealaigh
 Teanga an roghchláir
@@ -2170,9 +2930,28 @@ Níorbh fhéidir nuashonrú go huathoibríoch. An bhfuil fonn ort an suíomh gr�
 Tá AURA Switcher ag rith. Tá an deilbhín sa limistéar fógraí; cliceáil ^ cois an chloig chun an roghchlár a oscailt
 Ceartaigh cás na litreacha
 Giorrúcháin…
-AURA Switcher — Giorrúcháin
-Scríobhann AURA Switcher na focail seo i mbarrlitreacha (TTN), fiú má clóscríobhadh iad sa leagan amach mícheart. Scar le camóga iad.
 ⌥ + ⇧ faoi dhó — athraigh cás na litreacha
+Socruithe…
+Ginearálta
+Aicearraí
+Focail
+Aipeanna
+Faoi
+Focal
+Aip
+Teanga
+Cuardaigh
+Cuir leis
+Bain
+Roghnaigh aip…
+Aipeanna le déanaí
+Leagan
+An bunthionscadal ar GitHub
+Ní féidir na aicearraí seo a athrú go fóill.
+Ní athraíonn AURA na focail seo choíche, agus ceartaíonn sé chucu iad siúd a clóscríobhadh sa leagan amach mícheart.
+Scríobhann AURA iad i mbarrlitreacha (TTN), fiú má clóscríobhadh iad sa leagan amach mícheart.
+Ní dhéanann AURA aon rud sna haipeanna seo. Cuirtear cluichí lánscáileáin ar sos go huathoibríoch.
+Nuair a athraíonn tú go ceann de na haipeanna seo, athraíonn AURA an leagan amach go dtí an teanga roghnaithe.
 
 mt Malti
 Attivat
@@ -2190,8 +2969,6 @@ Rabtiet tal-lingwi
 Vojt
 Ibda mad-dħul
 Kliemi…
-AURA Switcher — kliemi
-AURA Switcher iqis dan il-kliem bħala korrett: ma jbiddlu qatt, u jikkoreġi għalih meta jinkiteb bi tqassim żbaljat tat-tastiera. Aqsamhom b’virgola.
 Salva
 Ikkanċella
 Lingwa tal-menu
@@ -2217,9 +2994,28 @@ Ma setax jiġi aġġornat awtomatikament. Niftaħ is-sit biex tniżżlu?
 AURA Switcher qed jaħdem. L-ikona tinsab fiż-żona tan-notifiki; ikklikkja fuq ^ ħdejn l-arloġġ biex tiftaħ il-menu
 Ikkoreġi l-ittri kapitali
 Abbrevjazzjonijiet…
-AURA Switcher — Abbrevjazzjonijiet
-AURA Switcher jikteb dawn il-kliem b'ittri kapitali (TTN), anki jekk inkitbu bit-tqassim żbaljat. Separahom b'virgoli.
 ⌥ + ⇧ doppju — biddel il-kobor tal-ittri
+Issettings…
+Ġenerali
+Shortcuts
+Kliem
+Applikazzjonijiet
+Dwar
+Kelma
+Applikazzjoni
+Lingwa
+Fittex
+Żid
+Neħħi
+Agħżel applikazzjoni…
+Applikazzjonijiet reċenti
+Verżjoni
+Il-proġett oriġinali fuq GitHub
+Dawn ix-shortcuts għadhom ma jistgħux jinbidlu.
+AURA qatt ma tbiddel dan il-kliem, u tirranġa fih dak miktub bit-tqassim żbaljat.
+AURA tikteb dawn b'ittri kapitali (TTN), anki jekk inkitbu bit-tqassim żbaljat.
+F'dawn l-applikazzjonijiet AURA ma tagħmel xejn. Il-logħob bi skrin sħiħ jitwaqqaf awtomatikament.
+Meta taqleb għal waħda minn dawn l-applikazzjonijiet, AURA tbiddel it-tqassim għal-lingwa magħżula.
 
 cy Cymraeg
 Wedi’i alluogi
@@ -2237,8 +3033,6 @@ Cysylltiadau iaith
 Gwag
 Cychwyn wrth fewngofnodi
 Fy ngeiriau…
-AURA Switcher — fy ngeiriau
-Mae AURA Switcher yn ystyried bod y geiriau hyn yn gywir: nid yw byth yn eu newid, ac mae’n cywiro iddyn nhw pan fyddan nhw wedi’u teipio gyda’r cynllun bysellfwrdd anghywir. Gwahanwch â choma.
 Cadw
 Diddymu
 Iaith y ddewislen
@@ -2264,9 +3058,28 @@ Methu diweddaru’n awtomatig. Agor y wefan i’w lawrlwytho?
 Mae AURA Switcher yn rhedeg. Mae’r eicon yn yr ardal hysbysu; cliciwch ^ wrth ymyl y cloc i agor y ddewislen
 Cywiro priflythrennau
 Byrfoddau…
-AURA Switcher — Byrfoddau
-Mae AURA Switcher yn ysgrifennu'r geiriau hyn mewn priflythrennau (TTN), hyd yn oed os cawsant eu teipio yn y cynllun anghywir. Gwahanwch â choma.
 ⌥ + ⇧ dwbl — newid priflythrennau
+Gosodiadau…
+Cyffredinol
+Llwybrau byr
+Geiriau
+Apiau
+Ynghylch
+Gair
+Ap
+Iaith
+Chwilio
+Ychwanegu
+Dileu
+Dewis ap…
+Apiau diweddar
+Fersiwn
+Y prosiect gwreiddiol ar GitHub
+Ni ellir newid y llwybrau byr hyn eto.
+Nid yw AURA byth yn newid y geiriau hyn, ac mae'n cywiro iddynt y rhai a deipiwyd yn y cynllun anghywir.
+Mae AURA yn eu hysgrifennu mewn priflythrennau (TTN), hyd yn oed os cawsant eu teipio yn y cynllun anghywir.
+Nid yw AURA yn gwneud dim yn yr apiau hyn. Caiff gemau sgrin lawn eu seibio'n awtomatig.
+Pan fyddwch yn newid i un o'r apiau hyn, mae AURA yn newid y cynllun i'r iaith a ddewiswyd.
 """
 
 langs = []  # (code, name, [strings])

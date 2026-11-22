@@ -27,6 +27,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
         menu.delegate = self
         item.menu = menu
         updateTitle()
+        installMainMenu()
 
         if UserDefaults.standard.object(forKey: "loginSet") == nil {
             try? SMAppService.mainApp.register()
@@ -68,6 +69,21 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
             self.updateTitle()
         }
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) { engine.warmUpDictionaries() }
+        if CommandLine.arguments.contains("--settings") { SettingsWindow.shared.show() }
+    }
+
+    /// While the Settings window is open the app is a regular one (Dock, ⌘Tab): it needs ⌘, ⌘W ⌘Q
+    func installMainMenu() {
+        let main = NSMenu()
+        let appItem = NSMenuItem(); main.addItem(appItem)
+        let appMenu = NSMenu(); appItem.submenu = appMenu
+        let st = ClosureItem(title: L("settings"), action: { SettingsWindow.shared.show() }, key: ","); appMenu.addItem(st)
+        appMenu.addItem(.separator())
+        appMenu.addItem(ClosureItem(title: L("quit"), action: { NSApp.terminate(nil) }, key: "q"))
+        let winItem = NSMenuItem(); main.addItem(winItem)
+        let winMenu = NSMenu(); winItem.submenu = winMenu
+        winMenu.addItem(withTitle: "Close", action: #selector(NSWindow.performClose(_:)), keyEquivalent: "w")
+        NSApp.mainMenu = main
     }
 
     var retrying = false
@@ -89,16 +105,12 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
         if item.button?.title != title { item.button?.title = title }
     }
 
-    func add(_ m: NSMenu, _ title: String, _ on: Bool? = nil, enabled: Bool = true, _ action: (() -> Void)? = nil) {
-        let i = ClosureItem(title: title, action: action)
+    func add(_ m: NSMenu, _ title: String, _ on: Bool? = nil, enabled: Bool = true, icon: String? = nil, key: String = "", _ action: (() -> Void)? = nil) {
+        let i = ClosureItem(title: title, action: action, key: key)
+        if let icon { i.image = symbol(icon) }
         if let on { i.state = on ? .on : .off }
         i.isEnabled = enabled && action != nil
         m.addItem(i)
-    }
-
-    func appName(_ id: String) -> String {
-        guard let url = NSWorkspace.shared.urlForApplication(withBundleIdentifier: id) else { return id }
-        return FileManager.default.displayName(atPath: url.path).replacingOccurrences(of: ".app", with: "")
     }
 
     /// Opens an email to the developer with version, macOS and layouts already filled in.
@@ -111,123 +123,55 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
         if let url = c.url { NSWorkspace.shared.open(url) }
     }
 
-    func editWords() {
-        let a = NSAlert()
-        a.messageText = L("words").replacingOccurrences(of: "…", with: "")
-        a.informativeText = L("wordsInfo")
-        let field = NSTextField(frame: NSRect(x: 0, y: 0, width: 320, height: 24))
-        field.stringValue = s.words.joined(separator: ", ")
-        field.placeholderString = "хз, ща, яж"
-        a.accessoryView = field
-        a.addButton(withTitle: L("save")); a.addButton(withTitle: L("cancel"))
-        a.window.initialFirstResponder = field
-        NSApp.activate(ignoringOtherApps: true)
-        if a.runModal() == .alertFirstButtonReturn { s.words = parseWords(field.stringValue) }
-    }
-
-    func editAbbrevs() {
-        let a = NSAlert()
-        a.messageText = L("abbrevsTitle")
-        a.informativeText = L("abbrevsInfo")
-        let field = NSTextField(frame: NSRect(x: 0, y: 0, width: 320, height: 24))
-        field.stringValue = s.abbrevs.joined(separator: ", ")
-        field.placeholderString = "ттн, pdf, ДСТУ"
-        a.accessoryView = field
-        a.addButton(withTitle: L("save")); a.addButton(withTitle: L("cancel"))
-        a.window.initialFirstResponder = field
-        NSApp.activate(ignoringOtherApps: true)
-        if a.runModal() == .alertFirstButtonReturn { s.abbrevs = parseWords(field.stringValue) }
-    }
+    /// something changed from the menu: refresh the indicator and the Settings window
+    func changed() { updateTitle(); SettingsModel.shared.reload() }
 
     func menuNeedsUpdate(_ m: NSMenu) {
         m.removeAllItems()
-        add(m, L("enabled"), s.enabled) { self.s.enabled.toggle(); self.updateTitle() }
-        add(m, L("auto"), s.auto, enabled: s.enabled) { self.s.auto.toggle() }
-        add(m, L("caseFix"), s.caseFix, enabled: s.enabled && s.auto) { self.s.caseFix.toggle() }
-        add(m, L("sound"), s.sound, enabled: s.enabled) { self.s.sound.toggle(); if self.s.sound { Sounds.play(Sounds.auto) } }
-        if engine.tap == nil { add(m, L("access"), enabled: true) {
+        add(m, L("enabled"), s.enabled, icon: "power") { self.s.enabled.toggle(); self.changed() }
+        add(m, L("auto"), s.auto, enabled: s.enabled, icon: "wand.and.stars") { self.s.auto.toggle(); self.changed() }
+        if engine.tap == nil { add(m, L("access"), enabled: true, icon: "exclamationmark.triangle") {
             NSWorkspace.shared.open(URL(string: "x-apple.systempreferences:com.apple.preference.security?Privacy_Accessibility")!) } }
         m.addItem(.separator())
 
         let id = engine.frontBundle
-        add(m, L("app") + appName(id))
-        if engine.frontIsGame { add(m, L("game")) }
+        add(m, L("app") + appDisplayName(id), icon: "macwindow")
+        if engine.frontIsGame { add(m, L("game"), icon: "gamecontroller") }
         let ex = s.excluded.contains(id)
-        add(m, L("exclude"), ex) {
+        add(m, L("exclude"), ex, icon: "nosign") {
             self.s.excluded = ex ? self.s.excluded.filter { $0 != id } : self.s.excluded + [id]
+            self.changed()
         }
         let langMenu = NSMenu()
-        add(langMenu, L("noBinding"), s.bindings[id] == nil) { self.s.bindings[id] = nil }
+        add(langMenu, L("noBinding"), s.bindings[id] == nil) { self.s.bindings[id] = nil; self.changed() }
         for l in engine.layouts {
-            add(langMenu, langName(l.lang), s.bindings[id] == l.lang) { self.s.bindings[id] = l.lang; engine.select(l) }
+            add(langMenu, langName(l.lang), s.bindings[id] == l.lang) { self.s.bindings[id] = l.lang; engine.select(l); self.changed() }
         }
         let li = NSMenuItem(title: L("appLang"), action: nil, keyEquivalent: "")
+        li.image = symbol("globe")
         li.submenu = langMenu
         m.addItem(li)
         m.addItem(.separator())
 
-        let exMenu = NSMenu()
-        if s.excluded.isEmpty { add(exMenu, emptyHint("exclude")) }
-        for e in s.excluded { add(exMenu, "✕ \(appName(e))") { self.s.excluded = self.s.excluded.filter { $0 != e } } }
-        let ei = NSMenuItem(title: L("exclusions"), action: nil, keyEquivalent: ""); ei.submenu = exMenu; m.addItem(ei)
-
-        let rMenu = NSMenu()
-        if engine.recent.isEmpty { add(rMenu, L("empty")) }
-        for r in engine.recent {
-            let on = s.excluded.contains(r)
-            add(rMenu, appName(r), on) { self.s.excluded = on ? self.s.excluded.filter { $0 != r } : self.s.excluded + [r] }
+        if updateDue() {
+            add(m, L("updateDue"), icon: "arrow.down.circle") {
+                self.s.updateCheckedAt = Date().timeIntervalSince1970
+                self.changed()
+                Updater.check()
+            }
         }
-        let ri = NSMenuItem(title: L("recent"), action: nil, keyEquivalent: ""); ri.submenu = rMenu; m.addItem(ri)
-
-        let bMenu = NSMenu()
-        if s.bindings.isEmpty { add(bMenu, emptyHint("appLang")) }
-        for (b, l) in s.bindings.sorted(by: { $0.key < $1.key }) {
-            add(bMenu, "✕ \(appName(b)) → \(displayCode(l))") { self.s.bindings[b] = nil }
-        }
-        let bi = NSMenuItem(title: L("bindings"), action: nil, keyEquivalent: ""); bi.submenu = bMenu; m.addItem(bi)
-        m.addItem(.separator())
-
-        let login = SMAppService.mainApp.status == .enabled
-        add(m, L("login"), login) {
-            if login { try? SMAppService.mainApp.unregister() } else { try? SMAppService.mainApp.register() }
-        }
-        add(m, L("words")) { self.editWords() }
-        add(m, L("abbrevs")) { self.editAbbrevs() }
-        let uiMenu = NSMenu()
-        add(uiMenu, L("system"), s.uiLang == nil) { self.s.uiLang = nil }
-        let nameOf = Dictionary(uniqueKeysWithValues: zip(uiLangs, uiLangNames))
-        func addUI(_ menu: NSMenu, _ c: String) { add(menu, nameOf[c] ?? c, s.uiLang == c) { self.s.uiLang = c } }
-        uiMenu.addItem(.separator())
-        for c in uiTopLangs(current: uiCode(), layoutLangs: engine.layouts.map(\.lang)) { addUI(uiMenu, c) }
-        uiMenu.addItem(.separator())
-        let allMenu = NSMenu()   // every language, by region, so the list stays short when there are many
-        for (i, (key, _)) in uiRegions.enumerated() {
-            let codes = uiLangs.filter { uiRegionIndex($0) == i }
-            if codes.isEmpty { continue }
-            let rm = NSMenu(); for c in codes { addUI(rm, c) }
-            let ri = NSMenuItem(title: L(key), action: nil, keyEquivalent: ""); ri.submenu = rm; allMenu.addItem(ri)
-        }
-        let ai = NSMenuItem(title: L("allLangs"), action: nil, keyEquivalent: ""); ai.submenu = allMenu; uiMenu.addItem(ai)
-        let ui = NSMenuItem(title: L("uiLang"), action: nil, keyEquivalent: ""); ui.submenu = uiMenu; m.addItem(ui)
-        add(m, L("hint"))
-        add(m, L("caseHint"))
-        add(m, updateDue() ? L("updateDue") : L("update")) {
-            self.s.updateCheckedAt = Date().timeIntervalSince1970
-            self.updateTitle()
-            Updater.check()
-        }
-        add(m, L("report")) { self.reportProblem() }
-        add(m, L("donate")) { NSWorkspace.shared.open(URL(string: "https://donatello.to/aura-switcher")!) }
-        add(m, "AURA Switcher \(Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "") beta · 🇺🇦")
-        add(m, L("quit")) { NSApp.terminate(nil) }
+        add(m, L("settings"), icon: "gearshape", key: ",") { SettingsWindow.shared.show() }
+        add(m, L("quit"), icon: "xmark.circle", key: "q") { NSApp.terminate(nil) }
     }
 }
 
+func symbol(_ name: String) -> NSImage? { NSImage(systemSymbolName: name, accessibilityDescription: nil) }
+
 final class ClosureItem: NSMenuItem {
     var handler: (() -> Void)?
-    init(title: String, action: (() -> Void)?) {
+    init(title: String, action: (() -> Void)?, key: String = "") {
         handler = action
-        super.init(title: title, action: #selector(run), keyEquivalent: "")
+        super.init(title: title, action: #selector(run), keyEquivalent: key)
         target = self
     }
     required init(coder: NSCoder) { fatalError() }
