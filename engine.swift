@@ -595,7 +595,8 @@ final class Engine {
         if doubleCapital, isLatin(s), lower.hasSuffix("bps") { return nil }
         let fixed = String(core[0]).uppercased() + String(core.dropFirst()).lowercased()
         // (not asking whether the typed form is a word: spell checkers ignore capitals — «ПРивіт» passes)
-        guard isWord(fixed, lang) else { return nil }
+        // no working dictionary (macOS sometimes isn't ready at launch and the check switches it off): the frequency list
+        guard dictionaryWorks(lang) ? isWord(fixed, lang) : model(lang)?.has(fixed) == true else { return nil }
         return result(fixed)
     }
 
