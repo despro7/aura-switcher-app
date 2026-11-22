@@ -177,6 +177,53 @@ engine.releaseIfEmptyNow()
 if !engine.handsOff { mustFail += 1; print("MUST FAIL: handsOff after backspace over a space") }
 engine.reset(); engine.fieldEmpty = { Engine.axFieldEmpty() }
 
+// letter case (fixCase / finalFix / nextCase): fixed and untouched words
+do {
+    let en = layout(US), uk = layout("com.apple.keylayout.Ukrainian-PC")
+    engine.layouts = [en, uk]; engine.reliable = [:]
+    let oldAbbrevs = engine.settings.abbrevs, oldCaseFix = engine.settings.caseFix
+    engine.settings.caseFix = true; engine.settings.abbrevs = ["ттн", "pdf"]
+    defer { engine.settings.abbrevs = oldAbbrevs; engine.settings.caseFix = oldCaseFix }
+    func caseCheck(_ name: String, _ got: String?, _ want: String?) {
+        if got != want { mustFail += 1; print("MUST FAIL: case \(name): got \(got ?? "unchanged"), expected \(want ?? "unchanged")") }
+    }
+    // the final text of a word typed in layout `typed`, meant in `meant` (caps = Caps Lock on for letters after the first)
+    func final(_ word: String, meant: Layout, typed: Layout, caps: Bool = false) -> String? {
+        guard var k = keys(word, in: meant, typedIn: typed) else { return "?" }
+        if caps { for i in k.indices.dropFirst() { k[i].caps = true } }
+        forcedLang = typed.lang
+        let found = engine.autoFix(k)
+        return engine.finalFix(k, found: found).map { $0.1 }
+    }
+    forcedLang = "uk"
+    caseCheck("double capital uk", final("ПРивіт", meant: uk, typed: uk), "Привіт")
+    caseCheck("double capital en", final("THe", meant: en, typed: en), "The")
+    caseCheck("double capital + wrong layout", final("ПРивіт", meant: uk, typed: en), "Привіт")
+    caseCheck("inverted caps lock", final("пРИВІТ", meant: uk, typed: uk, caps: true), "Привіт")
+    caseCheck("inverted without caps lock", final("пРИВІТ", meant: uk, typed: uk), nil)
+    caseCheck("wrong layout", final("Привіт", meant: uk, typed: en), "Привіт")
+    caseCheck("abbreviation", final("ттн", meant: uk, typed: uk), "ТТН")
+    caseCheck("abbreviation from the other layout", final("ттн", meant: uk, typed: en), "ТТН")
+    caseCheck("abbreviation in latin", final("pdf", meant: en, typed: en), "PDF")
+    caseCheck("abbreviation with punctuation", engine.fixCase("ттн,", lang: "uk"), "ТТН,")
+    for w in ["MBps", "PDFs", "IPhone", "IDs", "PCs", "OKs", "Hello", "hello", "HELLO", "NASA"] {
+        caseCheck("untouched \(w)", final(w, meant: en, typed: en), nil)
+    }
+    // ⌥ + double ⇧: lowercase → Sentence case → UPPERCASE → lowercase; mixed → lowercase
+    for (from, to) in [("привіт", "Привіт"), ("Привіт", "ПРИВІТ"), ("ПРИВІТ", "привіт"), ("пРИВіт", "привіт"),
+                       ("hello world. how are you? fine", "Hello world. How are you? Fine"),
+                       ("Hello world. How are you? Fine", "HELLO WORLD. HOW ARE YOU? FINE"),
+                       ("HELLO WORLD. HOW ARE YOU? FINE", "hello world. how are you? fine"),
+                       ("first line\nsecond line", "First line\nSecond line"), ("e.g. this", "E.g. This"),
+                       ("а", "А"), ("А", "а"), ("123", "123"), ("Hello World", "hello world")] {
+        caseCheck("nextCase \(from)", nextCase(from), to)
+    }
+    engine.settings.caseFix = false
+    caseCheck("caseFix off", final("ПРивіт", meant: uk, typed: uk), nil)
+    engine.settings.caseFix = true
+    forcedLang = nil
+}
+
 // report and compare with the baseline
 let out = results.map { String(format: "%@\t%.1f%%\t%d/%d", $0.0, 100 * Double($0.1) / Double(max($0.2, 1)), $0.1, $0.2) }
 if CommandLine.arguments.contains("-v") { for l in out { print(l) } }

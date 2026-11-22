@@ -23,6 +23,8 @@ Website — https://klbk.github.io/aura-switcher/ · Support ☕ — https://don
   - text selected — converts it to the next layout (press again for the next one, in a cycle);
   - no selection — converts the last typed word;
   - nothing to convert — just switches the layout.
+- **Letter case (Mac).** On Space AURA also fixes case slips: "ПРивіт" → "Привіт", "THe" → "The", and "пРИВІТ" typed with Caps Lock on → "Привіт" (only when the fixed form is a dictionary word; "MBps", "PDFs", "IDs" are left alone). Words from Menu → "Abbreviations…" are always written in capitals, in any layout: "ттн" or "nny" → "ТТН". Turn it off with Menu → "Fix letter case".
+- **⌥ + double ⇧ (Mac).** Hold ⌥ and tap ⇧ twice — changes the case of the selection or the last word: lowercase → Sentence case → UPPERCASE → lowercase (mixed → lowercase). The layout never changes.
 - **Exclusions.** AURA does nothing in the apps you choose.
 - **Per-app language.** The layout is set automatically when you switch to an app (e.g. Terminal → EN). Auto-correction is off in apps with a bound language.
 - **Single instance.** A second running copy of AURA quits immediately, so text is never corrected twice.
@@ -49,11 +51,13 @@ The icon shows the current language: `EN`, `УК`, `РУ`… — each language i
 
 - **Enabled** — master switch.
 - **Auto-correction** — on/off (double ⇧ always works).
+- **Fix letter case** — on/off for the case fixes and abbreviations (Mac).
 - **Sound** — a short beep: one tone on auto-correction, two on double ⇧. Same on Mac and Windows.
 - **Don't work in this app** — add the current app to exclusions.
 - **Language for this app** — bind a layout.
 - **Exclusions / Language bindings** — lists; click an item to remove it.
 - **My words…** — words AURA treats as correct (slang like «хз», «ща», «скілі»): it never changes them, and fixes them when typed in the wrong layout (`crsks` → «скілі»). Comma-separated.
+- **Abbreviations…** — words always written in capitals («ттн», «pdf»), even when typed in the wrong layout (Mac). Comma-separated.
 - **Launch at login**.
 - **Menu language** — System or one of 48 languages (same as the site). "System" follows the OS language; Russian → Ukrainian; a language not in the list → English.
 - **Quit**.

@@ -160,6 +160,10 @@ final class Settings {
     var sound: Bool { get { d.object(forKey: "sound") as? Bool ?? true } set { d.set(newValue, forKey: "sound") } }
     /// user's words that are never auto-corrected (slang like «хз», «ща»), stored lowercased
     var words: [String] { get { d.stringArray(forKey: "words") ?? [] } set { d.set(newValue, forKey: "words") } }
+    /// fix letter case on a space: «ПРивіт» → «Привіт», «пРИВІТ» (Caps Lock) → «Привіт», abbreviations in capitals
+    var caseFix: Bool { get { d.object(forKey: "caseFix") as? Bool ?? true } set { d.set(newValue, forKey: "caseFix") } }
+    /// user's abbreviations that are always written in capitals («ттн» → «ТТН»), stored lowercased
+    var abbrevs: [String] { get { d.stringArray(forKey: "abbrevs") ?? [] } set { d.set(newValue, forKey: "abbrevs") } }
     /// when the user last opened the releases page (seconds since 1970), 0 = never
     var updateCheckedAt: Double { get { d.double(forKey: "updateCheckedAt") } set { d.set(newValue, forKey: "updateCheckedAt") } }
 }
@@ -292,6 +296,11 @@ let uiStrings: [String: [String]] = [ // key: one string per uiLangs
     "updLater": ["Later", "Пізніше", "Później", "Später", "Más tarde", "Plus tard", "Più tardi", "Mais tarde", "Daha sonra", "Later", "Později", "Senare", "Myöhemmin", "Mai târziu", "Később", "Αργότερα", "По-късно", "מאוחר יותר", "لاحقًا", "बाद में", "나중에", "Пазней", "Кейінірек", "Кийинчерээк", "მოგვიანებით", "Հետո", "Sonra", "Касније", "Подоцна", "Neskôr", "Kasnije", "Pozneje", "Vėliau", "Vēlāk", "Hiljem", "Senere", "Senere", "Síðar", "Më vonë", "بعداً", "Để sau", "Баъдтар", "Дараа", "Соңрак", "Keyinroq", "Níos déanaí", "Aktar tard", "Yn nes ymlaen"],
     "updFail": ["Couldn't update automatically. Open the website to download it?", "Не вдалося оновити автоматично. Відкрити сайт, щоб завантажити?", "Nie udało się zaktualizować automatycznie. Otworzyć stronę, aby pobrać?", "Automatisches Update fehlgeschlagen. Website zum Herunterladen öffnen?", "No se pudo actualizar automáticamente. ¿Abrir la web para descargarla?", "Mise à jour automatique impossible. Ouvrir le site pour la télécharger ?", "Impossibile aggiornare automaticamente. Vuoi aprire il sito per scaricare l’aggiornamento?", "Não foi possível atualizar automaticamente. Abrir o site para baixar?", "Otomatik güncellenemedi. İndirmek için web sitesi açılsın mı?", "Automatisch bijwerken is mislukt. De website openen om te downloaden?", "Automatická aktualizace se nezdařila. Otevřít web a stáhnout?", "Kunde inte uppdatera automatiskt. Öppna webbplatsen för att ladda ner?", "Automaattinen päivitys epäonnistui. Avataanko sivusto latausta varten?", "Actualizarea automată a eșuat. Deschizi site-ul pentru descărcare?", "Az automatikus frissítés nem sikerült. Megnyitod a weboldalt a letöltéshez?", "Η αυτόματη ενημέρωση απέτυχε. Άνοιγμα του ιστότοπου για λήψη;", "Автоматичното обновяване не успя. Да се отвори ли сайтът за изтегляне?", "העדכון האוטומטי נכשל. לפתוח את האתר להורדה?", "تعذّر التحديث تلقائيًا. هل تريد فتح الموقع للتنزيل؟", "अपने-आप अपडेट नहीं हो सका। डाउनलोड के लिए वेबसाइट खोलें?", "자동으로 업데이트하지 못했습니다. 다운로드하려면 웹사이트를 열까요?", "Не ўдалося абнавіць аўтаматычна. Адкрыць сайт, каб спампаваць?", "Автоматты түрде жаңарту мүмкін болмады. Жүктеп алу үшін сайтты ашу керек пе?", "Автоматтык түрдө жаңыртуу мүмкүн болгон жок. Жүктөп алуу үчүн сайтты ачайынбы?", "ავტომატურად განახლება ვერ მოხერხდა. გავხსნა საიტი ჩამოსატვირთად?", "Չհաջողվեց թարմացնել ավտոմատ կերպով։ Բացե՞լ կայքը՝ ներբեռնելու համար։", "Avtomatik yeniləmək alınmadı. Yükləmək üçün sayt açılsın?", "Аутоматско ажурирање није успело. Отворити сајт за преузимање?", "Автоматското ажурирање не успеа. Да го отворам сајтот за преземање?", "Automatická aktualizácia sa nepodarila. Otvoriť web na stiahnutie?", "Automatsko ažuriranje nije uspjelo. Otvoriti web-stranicu za preuzimanje?", "Samodejna posodobitev ni uspela. Odprem spletno mesto za prenos?", "Nepavyko atnaujinti automatiškai. Atidaryti svetainę atsisiuntimui?", "Automātiski atjaunināt neizdevās. Atvērt vietni lejupielādei?", "Automaatne uuendamine ebaõnnestus. Avada veebileht allalaadimiseks?", "Kunne ikke opdatere automatisk. Åbn hjemmesiden for at hente den?", "Kunne ikke oppdatere automatisk. Åpne nettstedet for å laste den ned?", "Ekki tókst að uppfæra sjálfkrafa. Opna vefsíðuna til að sækja hana?", "Nuk u përditësua automatikisht. Të hapet faqja e internetit për ta shkarkuar?", "به‌روزرسانی خودکار انجام نشد. وب‌سایت برای دانلود باز شود؟", "Không thể tự động cập nhật. Mở trang web để tải về?", "Навсозии худкор муяссар нашуд. Сайтро барои боргирӣ кушоед?", "Автоматаар шинэчилж чадсангүй. Татаж авахын тулд вэбсайтыг нээх үү?", "Автоматик рәвештә яңартып булмады. Йөкләү өчен сайтны ачарга?", "Avtomatik yangilab boʻlmadi. Yuklab olish uchun saytni ochaymi?", "Níorbh fhéidir nuashonrú go huathoibríoch. An bhfuil fonn ort an suíomh gréasáin a oscailt chun é a íoslódáil?", "Ma setax jiġi aġġornat awtomatikament. Niftaħ is-sit biex tniżżlu?", "Methu diweddaru’n awtomatig. Agor y wefan i’w lawrlwytho?"],
     "firstRun": ["AURA Switcher is running. Its icon is in the notification area; click ^ next to the clock to open the menu", "AURA Switcher працює. Значок — в області сповіщень; натисніть ^ біля годинника, щоб відкрити меню", "AURA Switcher działa. Ikona jest w obszarze powiadomień; kliknij ^ obok zegara, aby otworzyć menu", "AURA Switcher läuft. Das Symbol ist im Infobereich; klicken Sie neben der Uhr auf ^, um das Menü zu öffnen", "AURA Switcher está funcionando. Su icono está en el área de notificaciones; haz clic en ^ junto al reloj para abrir el menú", "AURA Switcher fonctionne. Son icône est dans la zone de notification ; cliquez sur ^ près de l’horloge pour ouvrir le menu", "AURA Switcher è in esecuzione. L’icona è nell’area di notifica; fai clic su ^ accanto all’orologio per aprire il menu", "O AURA Switcher está a funcionar. O ícone está na área de notificação; clique em ^ junto ao relógio para abrir o menu", "AURA Switcher çalışıyor. Simgesi bildirim alanında; menüyü açmak için saatin yanındaki ^ simgesine tıklayın", "AURA Switcher draait. Het pictogram staat in het systeemvak; klik op ^ naast de klok om het menu te openen", "AURA Switcher běží. Ikona je v oznamovací oblasti; menu otevřete kliknutím na ^ vedle hodin", "AURA Switcher körs. Ikonen finns i aviseringsfältet; klicka på ^ bredvid klockan för att öppna menyn", "AURA Switcher on käynnissä. Kuvake on ilmoitusalueella; avaa valikko napsauttamalla kellon vieressä olevaa ^-merkkiä", "AURA Switcher rulează. Pictograma este în zona de notificare; faceți clic pe ^ de lângă ceas pentru a deschide meniul", "Az AURA Switcher fut. Az ikonja az értesítési területen van; a menü megnyitásához kattintson az óra melletti ^ jelre", "Το AURA Switcher εκτελείται. Το εικονίδιο βρίσκεται στην περιοχή ειδοποιήσεων· κάντε κλικ στο ^ δίπλα στο ρολόι για να ανοίξετε το μενού", "AURA Switcher работи. Иконата е в областта за известия; щракнете върху ^ до часовника, за да отворите менюто", "AURA Switcher פועל. הסמל נמצא באזור ההתראות; לחצו על ^ ליד השעון כדי לפתוח את התפריט", "AURA Switcher يعمل. الأيقونة في منطقة الإشعارات؛ انقر على ^ بجانب الساعة لفتح القائمة", "AURA Switcher चल रहा है। इसका आइकन नोटिफ़िकेशन एरिया में है; मेनू खोलने के लिए घड़ी के पास ^ पर क्लिक करें", "AURA Switcher가 실행 중입니다. 아이콘은 알림 영역에 있습니다. 시계 옆의 ^를 눌러 메뉴를 여세요", "AURA Switcher працуе. Значок — у вобласці апавяшчэнняў; націсніце ^ побач з гадзіннікам, каб адкрыць меню", "AURA Switcher жұмыс істеп тұр. Белгішесі хабарландыру аймағында; мәзірді ашу үшін сағаттың жанындағы ^ түймесін басыңыз", "AURA Switcher иштеп жатат. Сөлөкөтү билдирмелер аймагында; менюну ачуу үчүн сааттын жанындагы ^ баскычын басыңыз", "AURA Switcher მუშაობს. ხატულა შეტყობინებების არეშია; მენიუს გასახსნელად დააწკაპუნეთ საათის გვერდით ^-ზე", "AURA Switcher-ը աշխատում է։ Պատկերակը ծանուցումների տարածքում է․ մենյուն բացելու համար սեղմեք ժամացույցի կողքի ^-ը", "AURA Switcher işləyir. Nişan bildiriş sahəsindədir; menyunu açmaq üçün saatın yanındakı ^ işarəsinə klikləyin", "AURA Switcher ради. Икона је у пољу за обавештења; кликните на ^ поред сата да бисте отворили мени", "AURA Switcher работи. Иконата е во областа за известувања; кликнете на ^ покрај часовникот за да го отворите менито", "AURA Switcher beží. Ikona je v oblasti oznámení; ponuku otvoríte kliknutím na ^ vedľa hodín", "AURA Switcher radi. Ikona je u području obavijesti; kliknite ^ pored sata da otvorite izbornik", "AURA Switcher deluje. Ikona je v območju za obvestila; kliknite ^ ob uri, da odprete meni", "AURA Switcher veikia. Piktograma yra pranešimų srityje; spustelėkite ^ šalia laikrodžio, kad atidarytumėte meniu", "AURA Switcher darbojas. Ikona ir paziņojumu apgabalā; noklikšķiniet uz ^ blakus pulkstenim, lai atvērtu izvēlni", "AURA Switcher töötab. Ikoon on teavitusalas; menüü avamiseks klõpsake kella kõrval ^", "AURA Switcher kører. Ikonet er i meddelelsesområdet; klik på ^ ved siden af uret for at åbne menuen", "AURA Switcher kjører. Ikonet er i varslingsfeltet; klikk på ^ ved siden av klokken for å åpne menyen", "AURA Switcher er í gangi. Táknið er á tilkynningasvæðinu; smelltu á ^ við hliðina á klukkunni til að opna valmyndina", "AURA Switcher po funksionon. Ikona është në zonën e njoftimeve; kliko ^ pranë orës për të hapur menynë", "AURA Switcher در حال اجراست. نماد آن در ناحیه اعلان‌هاست؛ برای باز کردن منو روی ^ کنار ساعت کلیک کنید", "AURA Switcher đang chạy. Biểu tượng nằm ở khu vực thông báo; bấm ^ cạnh đồng hồ để mở menu", "AURA Switcher кор карда истодааст. Нишона дар минтақаи огоҳиҳост; барои кушодани меню ^-ро дар назди соат пахш кунед", "AURA Switcher ажиллаж байна. Дүрс тэмдэг мэдэгдлийн хэсэгт байна; цэсийг нээхийн тулд цагийн хажууох ^-г дарна уу", "AURA Switcher эшли. Билгечә белдерүләр өлкәсендә; менюны ачу өчен сәгать янындагы ^ төймәсенә басыгыз", "AURA Switcher ishlayapti. Belgisi bildirishnomalar hududida; menyuni ochish uchun soat yonidagi ^ belgisini bosing", "Tá AURA Switcher ag rith. Tá an deilbhín sa limistéar fógraí; cliceáil ^ cois an chloig chun an roghchlár a oscailt", "AURA Switcher qed jaħdem. L-ikona tinsab fiż-żona tan-notifiki; ikklikkja fuq ^ ħdejn l-arloġġ biex tiftaħ il-menu", "Mae AURA Switcher yn rhedeg. Mae’r eicon yn yr ardal hysbysu; cliciwch ^ wrth ymyl y cloc i agor y ddewislen"],
+    "caseFix": ["Fix letter case", "Виправляти регістр", "Popraw wielkość liter", "Groß-/Kleinschreibung korrigieren", "Corregir mayúsculas", "Corriger la casse", "Correggi maiuscole", "Corrigir maiúsculas", "Harf büyüklüğünü düzelt", "Hoofdletters corrigeren", "Opravovat velikost písmen", "Rätta versaler/gemener", "Korjaa kirjainkoko", "Corectează majusculele", "Kis- és nagybetűk javítása", "Διόρθωση πεζών/κεφαλαίων", "Поправяне на главни/малки букви", "תיקון אותיות גדולות/קטנות", "تصحيح حالة الأحرف", "अक्षरों का केस ठीक करें", "대소문자 자동 수정", "Выпраўляць рэгістр", "Әріп регистрін түзету", "Регистрди оңдоо", "რეგისტრის გასწორება", "Ուղղել մեծատառերը", "Hərf registrini düzəlt", "Исправи величину слова", "Поправи големи/мали букви", "Opravovať veľkosť písmen", "Ispravi velika/mala slova", "Popravi velike/male črke", "Taisyti didžiąsias/mažąsias raides", "Labot lielos/mazos burtus", "Paranda suur-/väiketähti", "Ret store/små bogstaver", "Rett store/små bokstaver", "Laga há-/lágstafi", "Korrigjo shkronjat e mëdha/vogla", "اصلاح حروف بزرگ/کوچک", "Sửa chữ hoa/thường", "Ислоҳи ҳарфи калон/хурд", "Том/жижиг үсгийг засах", "Хәреф регистрын төзәтү", "Harf registrini tuzatish", "Ceartaigh cás na litreacha", "Ikkoreġi l-ittri kapitali", "Cywiro priflythrennau"],
+    "abbrevs": ["Abbreviations…", "Абревіатури…", "Skróty…", "Abkürzungen…", "Abreviaturas…", "Abréviations…", "Abbreviazioni…", "Abreviaturas…", "Kısaltmalar…", "Afkortingen…", "Zkratky…", "Förkortningar…", "Lyhenteet…", "Abrevieri…", "Rövidítések…", "Συντομογραφίες…", "Съкращения…", "ראשי תיבות…", "الاختصارات…", "संक्षिप्त रूप…", "약어…", "Абрэвіятуры…", "Аббревиатуралар…", "Аббревиатуралар…", "აბრევიატურები…", "Հապավումներ…", "Abreviaturalar…", "Скраћенице…", "Кратенки…", "Skratky…", "Kratice…", "Kratice…", "Santrumpos…", "Saīsinājumi…", "Lühendid…", "Forkortelser…", "Forkortelser…", "Skammstafanir…", "Shkurtesa…", "اختصارات…", "Từ viết tắt…", "Ихтисораҳо…", "Товчлолууд…", "Кыскартмалар…", "Qisqartmalar…", "Giorrúcháin…", "Abbrevjazzjonijiet…", "Byrfoddau…"],
+    "abbrevsTitle": ["AURA Switcher — Abbreviations", "AURA Switcher — Абревіатури", "AURA Switcher — Skróty", "AURA Switcher — Abkürzungen", "AURA Switcher — Abreviaturas", "AURA Switcher — Abréviations", "AURA Switcher — Abbreviazioni", "AURA Switcher — Abreviaturas", "AURA Switcher — Kısaltmalar", "AURA Switcher — Afkortingen", "AURA Switcher — Zkratky", "AURA Switcher — Förkortningar", "AURA Switcher — Lyhenteet", "AURA Switcher — Abrevieri", "AURA Switcher — Rövidítések", "AURA Switcher — Συντομογραφίες", "AURA Switcher — Съкращения", "AURA Switcher — ראשי תיבות", "AURA Switcher — الاختصارات", "AURA Switcher — संक्षिप्त रूप", "AURA Switcher — 약어", "AURA Switcher — Абрэвіятуры", "AURA Switcher — Аббревиатуралар", "AURA Switcher — Аббревиатуралар", "AURA Switcher — აბრევიატურები", "AURA Switcher — Հապավումներ", "AURA Switcher — Abreviaturalar", "AURA Switcher — Скраћенице", "AURA Switcher — Кратенки", "AURA Switcher — Skratky", "AURA Switcher — Kratice", "AURA Switcher — Kratice", "AURA Switcher — Santrumpos", "AURA Switcher — Saīsinājumi", "AURA Switcher — Lühendid", "AURA Switcher — Forkortelser", "AURA Switcher — Forkortelser", "AURA Switcher — Skammstafanir", "AURA Switcher — Shkurtesa", "AURA Switcher — اختصارات", "AURA Switcher — Từ viết tắt", "AURA Switcher — Ихтисораҳо", "AURA Switcher — Товчлолууд", "AURA Switcher — Кыскартмалар", "AURA Switcher — Qisqartmalar", "AURA Switcher — Giorrúcháin", "AURA Switcher — Abbrevjazzjonijiet", "AURA Switcher — Byrfoddau"],
+    "abbrevsInfo": ["AURA Switcher writes these in capitals (TTN), even when typed in the wrong layout. Separate them with commas.", "AURA Switcher пише ці слова великими літерами (ТТН), навіть якщо їх набрано не в тій розкладці. Розділяйте комами.", "AURA Switcher pisze te słowa wielkimi literami (TTN), także gdy wpisano je w złym układzie. Oddziel je przecinkami.", "AURA Switcher schreibt diese Wörter in Großbuchstaben (TTN), auch wenn sie im falschen Layout getippt wurden. Mit Kommas trennen.", "AURA Switcher escribe estas palabras en mayúsculas (TTN), incluso si se teclearon en la distribución equivocada. Sepáralas con comas.", "AURA Switcher écrit ces mots en majuscules (TTN), même tapés dans la mauvaise disposition. Séparez-les par des virgules.", "AURA Switcher scrive queste parole in maiuscolo (TTN), anche se digitate nel layout sbagliato. Separale con virgole.", "O AURA Switcher escreve estas palavras em maiúsculas (TTN), mesmo digitadas no layout errado. Separe-as com vírgulas.", "AURA Switcher bu sözcükleri büyük harfle yazar (TTN), yanlış düzende yazılsalar bile. Virgülle ayırın.", "AURA Switcher schrijft deze woorden in hoofdletters (TTN), ook als ze in de verkeerde indeling zijn getypt. Scheid ze met komma's.", "AURA Switcher píše tato slova velkými písmeny (TTN), i když byla napsána v nesprávném rozložení. Oddělte je čárkami.", "AURA Switcher skriver dessa ord med versaler (TTN), även om de skrivits i fel layout. Separera med kommatecken.", "AURA Switcher kirjoittaa nämä sanat isoilla kirjaimilla (TTN), vaikka ne olisi kirjoitettu väärällä asettelulla. Erota pilkuilla.", "AURA Switcher scrie aceste cuvinte cu majuscule (TTN), chiar dacă au fost tastate în aranjamentul greșit. Separă-le prin virgule.", "Az AURA Switcher nagybetűvel írja ezeket a szavakat (TTN), akkor is, ha rossz kiosztásban gépelték. Vesszővel válaszd el őket.", "Το AURA Switcher γράφει αυτές τις λέξεις με κεφαλαία (TTN), ακόμη και αν πληκτρολογήθηκαν σε λάθος διάταξη. Χωρίστε τις με κόμματα.", "AURA Switcher пише тези думи с главни букви (ТТН), дори да са написани в грешна подредба. Разделяйте със запетаи.", "AURA Switcher כותב מילים אלה באותיות גדולות (TTN), גם אם הוקלדו בפריסה הלא נכונה. הפרידו בפסיקים.", "يكتب AURA Switcher هذه الكلمات بأحرف كبيرة (TTN)، حتى لو كُتبت بتخطيط خاطئ. افصل بينها بفواصل.", "AURA Switcher इन शब्दों को बड़े अक्षरों में लिखता है (TTN), भले ही वे गलत लेआउट में टाइप किए गए हों। अल्पविराम से अलग करें।", "AURA Switcher는 이 단어들을 대문자로 씁니다(TTN). 잘못된 자판 배열로 입력했어도 마찬가지입니다. 쉼표로 구분하세요.", "AURA Switcher піша гэтыя словы вялікімі літарамі (ТТН), нават калі іх набрана не ў той раскладцы. Падзяляйце коскамі.", "AURA Switcher бұл сөздерді бас әріптермен жазады (ТТН), олар қате пернетақта қасиетінде терілсе де. Үтірмен бөліңіз.", "AURA Switcher бул сөздөрдү баш тамгалар менен жазат (ТТН), туура эмес жайгашууда терилсе да. Үтүр менен бөлүңүз.", "AURA Switcher ამ სიტყვებს დიდი ასოებით წერს (TTN), თუნდაც არასწორ განლაგებაში იყოს აკრეფილი. გამოყავით მძიმეებით.", "AURA Switcher-ը այս բառերը գրում է մեծատառերով (TTN), նույնիսկ եթե դրանք տպվել են սխալ դասավորությամբ։ Բաժանեք ստորակետերով։", "AURA Switcher bu sözləri böyük hərflərlə yazır (TTN), səhv düzümdə yığılsa belə. Vergüllə ayırın.", "AURA Switcher пише ове речи великим словима (ТТН), чак и ако су откуцане у погрешном распореду. Раздвојите их зарезима.", "AURA Switcher ги пишува овие зборови со големи букви (ТТН), дури и ако се напишани во погрешен распоред. Одделете ги со запирки.", "AURA Switcher píše tieto slová veľkými písmenami (TTN), aj keď boli napísané v nesprávnom rozložení. Oddeľte ich čiarkami.", "AURA Switcher piše ove riječi velikim slovima (TTN), čak i ako su utipkane u krivom rasporedu. Odvojite ih zarezima.", "AURA Switcher te besede piše z velikimi črkami (TTN), tudi če so natipkane v napačni postavitvi. Ločite jih z vejicami.", "AURA Switcher šiuos žodžius rašo didžiosiomis raidėmis (TTN), net jei jie surinkti netinkamu išdėstymu. Atskirkite kableliais.", "AURA Switcher šos vārdus raksta ar lielajiem burtiem (TTN), pat ja tie ievadīti nepareizā izkārtojumā. Atdaliet ar komatiem.", "AURA Switcher kirjutab need sõnad suurtähtedega (TTN), isegi kui need on trükitud vales paigutuses. Eralda komadega.", "AURA Switcher skriver disse ord med store bogstaver (TTN), selv hvis de er skrevet i det forkerte layout. Adskil med kommaer.", "AURA Switcher skriver disse ordene med store bokstaver (TTN), selv om de er skrevet i feil layout. Skill med komma.", "AURA Switcher skrifar þessi orð með hástöfum (TTN), jafnvel þótt þau séu slegin inn í röngu skipulagi. Aðskildu með kommum.", "AURA Switcher i shkruan këto fjalë me shkronja të mëdha (TTN), edhe kur janë shkruar në pamje të gabuar. Ndaji me presje.", "AURA Switcher این واژه‌ها را با حروف بزرگ می‌نویسد (TTN)، حتی اگر با چیدمان اشتباه تایپ شده باشند. با ویرگول جدا کنید.", "AURA Switcher viết hoa các từ này (TTN), kể cả khi gõ sai bố cục bàn phím. Phân tách bằng dấu phẩy.", "AURA Switcher ин калимаҳоро бо ҳарфҳои калон менависад (ТТН), ҳатто агар дар тарҳбандии нодуруст навишта шуда бошанд. Бо вергул ҷудо кунед.", "AURA Switcher эдгээр үгийг том үсгээр бичнэ (ТТН), буруу байрлалд бичсэн ч гэсэн. Таслалаар тусгаарла.", "AURA Switcher бу сүзләрне зур хәрефләр белән яза (ТТН), хәтта алар ялгыш рәвештә җыелса да. Өтер белән аерыгыз.", "AURA Switcher bu soʻzlarni bosh harflar bilan yozadi (TTN), notoʻgʻri joylashuvda terilgan boʻlsa ham. Vergul bilan ajrating.", "Scríobhann AURA Switcher na focail seo i mbarrlitreacha (TTN), fiú má clóscríobhadh iad sa leagan amach mícheart. Scar le camóga iad.", "AURA Switcher jikteb dawn il-kliem b'ittri kapitali (TTN), anki jekk inkitbu bit-tqassim żbaljat. Separahom b'virgoli.", "Mae AURA Switcher yn ysgrifennu'r geiriau hyn mewn priflythrennau (TTN), hyd yn oed os cawsant eu teipio yn y cynllun anghywir. Gwahanwch â choma."],
+    "caseHint": ["⌥ + double ⇧ — change case", "⌥ + подвійний ⇧ — змінити регістр", "⌥ + podwójny ⇧ — zmień wielkość liter", "⌥ + Doppel-⇧ — Groß-/Kleinschreibung ändern", "⌥ + doble ⇧ — cambiar mayúsculas", "⌥ + double ⇧ — changer la casse", "⌥ + doppio ⇧ — cambia maiuscole", "⌥ + duplo ⇧ — alterar maiúsculas", "⌥ + çift ⇧ — harf büyüklüğünü değiştir", "⌥ + dubbel ⇧ — hoofdletters wijzigen", "⌥ + dvojitý ⇧ — změnit velikost písmen", "⌥ + dubbel-⇧ — ändra versaler/gemener", "⌥ + kaksois-⇧ — vaihda kirjainkoko", "⌥ + dublu ⇧ — schimbă majusculele", "⌥ + dupla ⇧ — kis-/nagybetű váltása", "⌥ + διπλό ⇧ — αλλαγή πεζών/κεφαλαίων", "⌥ + двоен ⇧ — смяна на главни/малки букви", "⌥ + ⇧ כפול — שינוי אותיות גדולות/קטנות", "⌥ + ⇧ مزدوج — تغيير حالة الأحرف", "⌥ + दो बार ⇧ — केस बदलें", "⌥ + ⇧ 두 번 — 대소문자 변경", "⌥ + падвойны ⇧ — змяніць рэгістр", "⌥ + қос ⇧ — регистрді өзгерту", "⌥ + кош ⇧ — регистрди өзгөртүү", "⌥ + ორმაგი ⇧ — რეგისტრის შეცვლა", "⌥ + կրկնակի ⇧ — փոխել տառերի գրանցումը", "⌥ + qoşa ⇧ — registri dəyiş", "⌥ + двоструки ⇧ — промени величину слова", "⌥ + двоен ⇧ — промени големи/мали букви", "⌥ + dvojitý ⇧ — zmeniť veľkosť písmen", "⌥ + dvostruki ⇧ — promijeni velika/mala slova", "⌥ + dvojni ⇧ — spremeni velike/male črke", "⌥ + dvigubas ⇧ — keisti raidžių dydį", "⌥ + dubults ⇧ — mainīt burtu reģistru", "⌥ + topelt ⇧ — muuda tähesuurust", "⌥ + dobbelt ⇧ — skift store/små bogstaver", "⌥ + dobbel ⇧ — bytt store/små bokstaver", "⌥ + tvöfalt ⇧ — breyta há-/lágstöfum", "⌥ + dyfishi ⇧ — ndrysho shkronjat e mëdha/vogla", "⌥ + ⇧ دوبار — تغییر حروف بزرگ/کوچک", "⌥ + nhấn đôi ⇧ — đổi chữ hoa/thường", "⌥ + дукарата ⇧ — иваз кардани ҳарфҳои калон/хурд", "⌥ + давхар ⇧ — том/жижиг үсэг солих", "⌥ + икеләтә ⇧ — регистрны үзгәртү", "⌥ + ikki marta ⇧ — registrni oʻzgartirish", "⌥ + ⇧ faoi dhó — athraigh cás na litreacha", "⌥ + ⇧ doppju — biddel il-kobor tal-ittri", "⌥ + ⇧ dwbl — newid priflythrennau"],
 ]
 // END menu strings
 
@@ -322,6 +331,7 @@ final class Engine {
     var before: [Key] = []      // one-letter word right before `word` («z буду»), fixed together with it
 
     var shiftDownAt: TimeInterval = 0, lastShiftTap: TimeInterval = 0, sawOther = false
+    var shiftDownAlt = false, lastTapAlt = false   // ⌥ held with the ⇧ tap: ⌥ + double ⇧ changes the case
     var lastSelOut: String?, lastSelLang = 0
 
     var allCodes: Set<UInt16> { Set(layouts.flatMap { $0.toChar.keys.map(\.code) }) }
@@ -329,7 +339,7 @@ final class Engine {
 
     var active: Bool { settings.enabled && !frontIsGame && !settings.excluded.contains(frontBundle) }
 
-    func reset() { word = []; lastWord = []; trailing = 0; before = []; lastCycled = []; lastCycledLang = nil; handsOff = false }
+    func reset() { word = []; lastWord = []; trailing = 0; before = []; lastCycled = []; lastCycledLang = nil; lastCase = nil; handsOff = false }
     /// the user went back into the text (Backspace over a space, arrows) or switched the layout in the middle of a
     /// word: until the next space AURA neither checks nor converts what is typed — it's the user's own word
     var handsOff = false
@@ -441,14 +451,15 @@ final class Engine {
         let now = ProcessInfo.processInfo.systemUptime
         guard code == 56 || code == 60 else { lastShiftTap = 0; return }
         if e.flags.contains(.maskShift) {
-            if !e.flags.intersection([.maskCommand, .maskControl, .maskAlternate]).isEmpty { lastShiftTap = 0; return }
-            shiftDownAt = now; sawOther = false
+            if !e.flags.intersection([.maskCommand, .maskControl]).isEmpty { lastShiftTap = 0; return }
+            shiftDownAt = now; sawOther = false; shiftDownAlt = e.flags.contains(.maskAlternate)
         } else {
             guard !sawOther, now - shiftDownAt < 0.3 else { lastShiftTap = 0; return }
-            if now - lastShiftTap < 0.45 {
+            if now - lastShiftTap < 0.45, lastTapAlt == shiftDownAlt {
                 lastShiftTap = 0
-                DispatchQueue.main.async { self.doubleShift() }
-            } else { lastShiftTap = now }
+                if shiftDownAlt { DispatchQueue.main.async { self.caseCycle() } }
+                else { DispatchQueue.main.async { self.doubleShift() } }
+            } else { lastShiftTap = now; lastTapAlt = shiftDownAlt }
         }
     }
 
@@ -544,14 +555,49 @@ final class Engine {
         // diagnostics: the app may show other letters than the keys say (after our own layout switch the key events
         // keep the old layout's letters; Chromium apps may type those). Only a log line, no words in it.
         if found == nil, keys.count >= 3, let l = typedLayout(keys), !isLatin(l.text(keys)) { checkScreen(keys, l) }
-        guard let fix = found else {
+        guard let (layout, out) = finalFix(keys, found: found) else {
             if !noFix.isEmpty { auraLog.notice("skip: \(self.noFix, privacy: .public) (\(keys.count) letters)") }
             return
         }
         if lastWord != keys || !word.isEmpty || trailing != 1 {
             auraLog.notice("skip: kept typing during a \(ms) ms check"); return
         }
-        applyFix(fix, keys, before: before, trailing: 1)
+        applyFix(layout, out, switching: found != nil, keys, before: before, trailing: 1)
+    }
+
+    /// What the word becomes: the layout it ends up in and its final text (after the layout fix, then the case fix).
+    /// nil = nothing to change. `found` is what the layout check chose (nil = the word stays in its layout).
+    func finalFix(_ keys: [Key], found: Layout?) -> (Layout, String)? {
+        guard let l = found ?? typedLayout(keys) else { return nil }
+        let text = l.text(keys)
+        var out = text
+        if settings.caseFix, let c = fixCase(text, lang: l.lang, caps: keys.dropFirst().contains { $0.caps }) { out = c }
+        return found != nil || out != text ? (l, out) : nil
+    }
+
+    /// Letter case of a word: «ПРивіт» → «Привіт», «THe» → «The» (two capitals, only if the capitalized form is a word); «пРИВІТ» → «Привіт» (Caps Lock was on); a user's abbreviation → capitals («ттн» → «ТТН»).
+    /// nil = leave as it is. Punctuation around the word stays. `caps` = Caps Lock was on while typing.
+    func fixCase(_ word: String, lang: String, caps: Bool = false) -> String? {
+        let ch = Array(word)
+        guard let a = ch.firstIndex(where: \.isLetter), let b = ch.lastIndex(where: \.isLetter) else { return nil }
+        let core = Array(ch[a...b])
+        guard core.allSatisfy(\.isLetter) else { return nil }
+        let lead = String(ch[..<a]), tail = String(ch[(b + 1)...]), s = String(core), lower = s.lowercased()
+        func result(_ c: String) -> String? { c == s ? nil : lead + c + tail }
+        if settings.abbrevs.contains(lower) { return result(s.uppercased()) }
+        guard core.count >= 3, !settings.words.contains(lower) else { return nil }
+        let doubleCapital = core[0].isUppercase && core[1].isUppercase && core.dropFirst(2).allSatisfy(\.isLowercase)
+        let inverted = caps && core[0].isLowercase && core.dropFirst().allSatisfy(\.isUppercase)
+        guard doubleCapital || inverted else { return nil }
+        // «IDs», «PCs», «OKs»: plural of an acronym
+        if doubleCapital, core.count == 3, isLatin(s), lower.hasSuffix("s") { return nil }
+        // «MBps», «Gbps»: units
+        if doubleCapital, isLatin(s), lower.hasSuffix("bps") { return nil }
+        let fixed = String(core[0]).uppercased() + String(core.dropFirst()).lowercased()
+        // (not asking whether the typed form is a word: spell checkers ignore capitals — «ПРивіт» passes)
+        // no working dictionary (macOS sometimes isn't ready at launch and the check switches it off): the frequency list
+        guard dictionaryWorks(lang) ? isWord(fixed, lang) : model(lang)?.has(fixed) == true else { return nil }
+        return result(fixed)
     }
 
     /// logs when the text before the caret is not what the keys say (and which layout it does match)
@@ -566,8 +612,8 @@ final class Engine {
     }
 
     /// puts the fixed word on screen: `trailing` = spaces typed after it (1 after a space, 0 before Return)
-    func applyFix(_ fix: Layout, _ keys: [Key], before: [Key], trailing: Int) {
-        let out = fix.text(keys)
+    /// `out` = the final text; `switching` = the layout changes too (otherwise only the letters' case is retyped)
+    func applyFix(_ fix: Layout, _ out: String, switching: Bool, _ keys: [Key], before: [Key], trailing: Int) {
         let src = typedLayout(keys), typed = src?.text(keys)
         let b = fix.text(before), bTyped = src?.text(before) ?? ""
         let fixBefore = before.count == 1 && b.count == 1 && b != bTyped
@@ -587,10 +633,12 @@ final class Engine {
             auraLog.notice("skip: not on screen (password?) (\(keys.count) letters)"); return
         }
         // switch first, then retype: switched after the text, the macOS indicator at the caret showed the old layout
-        select(fix)
+        if switching { select(fix) }
         if fixBefore { replace(count: bTyped.count + shown + 1 + trailing, with: b + " " + out + sp) }
         else if out != typed { replace(count: shown + trailing, with: out + sp) }
-        auraLog.notice("fixed: \(src?.lang ?? "?", privacy: .public) → \(fix.lang, privacy: .public) (\(keys.count) letters\(trailing == 0 ? ", before Return" : "", privacy: .public))")
+        if switching {
+            auraLog.notice("fixed: \(src?.lang ?? "?", privacy: .public) → \(fix.lang, privacy: .public) (\(keys.count) letters\(trailing == 0 ? ", before Return" : "", privacy: .public))")
+        } else { auraLog.notice("case fixed: \(fix.lang, privacy: .public) (\(keys.count) letters)") }
         Sounds.play(Sounds.auto)
     }
 
@@ -710,6 +758,11 @@ final class Engine {
         let curDict = dictionaryWorks(cur.lang)
         // typed in a language we can't check at all: it may well be right — leave it
         guard curDict || model(cur.lang) != nil else { noFix = "no dictionary for \(cur.lang)"; return nil }
+        // an abbreviation typed as it is stays (its letters are made capital by fixCase), it is never layout-switched
+        let abbrevs = settings.caseFix ? settings.abbrevs : []
+        if abbrevs.contains(typed.lowercased()) { noFix = "abbreviation"; return nil }
+        // «THe» is a mistyped «The», not a word of another layout («ЕРу»): the case fix handles it
+        if settings.caseFix, fixCase(typed, lang: cur.lang, caps: keys.dropFirst().contains { $0.caps }) != nil { noFix = "case only"; return nil }
         if settings.words.contains(typed.lowercased()) || (curDict ? isWord(typed, cur.lang) : model(cur.lang)!.has(typed)) { noFix = "already a word in \(cur.lang)"; return nil }
         // every other layout is a candidate; take the strongest kind of evidence, not the first layout in the
         // list: with RU, UK, EN in that order «ghbdsn» must become the Ukrainian word «привіт», not the
@@ -726,10 +779,13 @@ final class Engine {
             // same text in two Latin layouts (an English typo that is a Polish word): nothing to fix.
             // Cyrillic UK/RU words spelled the same still switch the layout — that's what users mix up.
             if t == typed, isLatin(t) { continue }
-            guard l.maps(keys), !consonantRun(t) else { continue }
+            guard l.maps(keys) else { continue }
+            let abbrev = abbrevs.contains(t.lowercased())  // «nny» typed in English = «ттн»: the strongest evidence
+            guard abbrev || !consonantRun(t) else { continue }
             let m = margin(typed, cur.lang, t, l.lang) ?? 0
             var tier = 0
-            if settings.words.contains(t.lowercased()) { tier = 4 }  // the user's own word («скілі»)
+            if abbrev { tier = 5 }
+            else if settings.words.contains(t.lowercased()) { tier = 4 }  // the user's own word («скілі»)
             else if isLatin(t), !isLatin(typed), isCode(t, l.lang) { tier = 3 }
             else if dictionaryWorks(l.lang) {
                 // without the typed language's dictionary, also ask the models which side looks real;
@@ -812,6 +868,49 @@ final class Engine {
         for _ in 0..<out.count { postKey(123, flags: .maskShift) } // reselect (⇧← moves by character)
         lastSelOut = out; lastSelLang = dstIdx
         select(dst)
+    }
+
+    // MARK: letter case (⌥ + double ⇧)
+
+    /// the word whose case the last ⌥ + double ⇧ changed and what it is now: pressing again keeps cycling
+    var lastCase: (keys: [Key], text: String)? = nil
+
+    func caseCycle() {
+        Sounds.play(Sounds.shift)
+        let sel = axSelectedText()
+        if let sel, !sel.isEmpty { caseSelection(sel); return }
+        let keys = !word.isEmpty ? word : trailing == 1 ? lastWord : []
+        if !keys.isEmpty { caseWord(keys, trailing: word.isEmpty ? trailing : 0); return }
+        if sel != nil, !webEngine(frontBundle) { return }
+        clipboardSelection { sel in
+            if let sel, !sel.isEmpty, !isCopiedLine(sel) { self.caseSelection(sel) }
+        }
+    }
+
+    func caseSelection(_ text: String) {
+        let out = nextCase(text)
+        guard out != text else { return }
+        auraLog.notice("⌥ double ⇧: selection case (\(text.count) characters)")
+        typeText(out)
+        for _ in 0..<out.count { postKey(123, flags: .maskShift) }  // reselect, so the next press goes on
+    }
+
+    func caseWord(_ keys: [Key], trailing: Int) {
+        // the word as it is on screen now (its case may be fixed already): ask the app, else the keys in the current layout
+        let l = layout(ownLang ?? currentLang()) ?? typedLayout(keys)
+        var text = l?.text(keys) ?? ""
+        if let last = lastCase, last.keys == keys { text = last.text }
+        else if text.isEmpty { return }
+        else if let seen = textBeforeCaret(text.utf16.count + trailing), seen.utf16.count == text.utf16.count + trailing,
+                seen.hasSuffix(String(repeating: " ", count: trailing)) {
+            let w = String(seen.dropLast(trailing))
+            if w.lowercased() == text.lowercased() { text = w }
+        }
+        let out = nextCase(text)
+        guard out != text else { return }
+        lastCase = (keys, out)
+        auraLog.notice("⌥ double ⇧: word case (\(keys.count) letters)")
+        replace(count: text.count + trailing, with: out + String(repeating: " ", count: trailing))
     }
 
     // MARK: selection
@@ -921,4 +1020,25 @@ final class Engine {
         for _ in 0..<count { postKey(51) }
         typeText(s)
     }
+}
+
+/// Next letter case of a text: lowercase → Sentence case → UPPERCASE → lowercase; anything mixed → lowercase.
+func nextCase(_ s: String) -> String {
+    func sentence(_ t: String) -> String {
+        var out = "", cap = true, pending = false
+        for c in t.lowercased() {
+            if c.isLetter { out += cap ? c.uppercased() : String(c); cap = false; pending = false; continue }
+            if c.isNewline { cap = true; pending = false }
+            else if ".!?…".contains(c) { pending = true }
+            else if c.isWhitespace { if pending { cap = true; pending = false } }
+            else if c.isNumber { cap = false; pending = false }
+            out.append(c)
+        }
+        return out
+    }
+    let stages = [{ (t: String) in t.lowercased() }, sentence, { (t: String) in t.uppercased() }]
+    let state = s == s.lowercased() ? 0 : s == sentence(s) ? 1 : s == s.uppercased() ? 2 : -1
+    if state < 0 { return s.lowercased() }
+    for i in 1...3 { let c = stages[(state + i) % 3](s); if c != s { return c } }
+    return s
 }
